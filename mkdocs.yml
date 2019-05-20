@@ -1,0 +1,16 @@
+site_name: AI & Analytics Reference Architecture
+repo_url: https://github.com/ibm-cloud-architecture/refarch-ai-analytics
+nav:
+  - Welcome: index.md
+  - Runtime Architectures :
+    - Intelligent business application: runtimes/README.md
+    - Real time analytics: runtimes/README.md
+  - Data Topology: topology/README.md
+  - Preparation: preparation/README.md
+  - Deployment: deployment/README.md
+  - Monitoring: monitoring/README.md
+  - Methodology: methodology/README.md
+
+theme: 
+  name: material
+extra_css: ["extra.css"]
