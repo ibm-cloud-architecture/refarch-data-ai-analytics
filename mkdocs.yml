@@ -4,7 +4,7 @@ nav:
   - Welcome: index.md
   - Architectures :
     - Runtime application: runtimes/README.md
-    - ML & DL pipeline: runtimes/README.md
+    - ML & DL pipeline: runtimes/README.md#modeling-architecture
   - Methodology: methodology/README.md
   - Data Topology: 
     - Principles: topology/README.md 
@@ -20,10 +20,10 @@ nav:
     - Feature engineering: preparation/README.md
     - Bias picking right training set: preparation/README.md
     - Model selection: preparation/README.md
-  - Deployment: deployment/README.md
+  - Deployment: 
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
-  - Monitoring: monitoring/README.md
+  - Monitoring: 
     - Feedback analysis:  monitoring/README.md
     - Bias monitoring to ensure equitable:  monitoring/README.md
   
