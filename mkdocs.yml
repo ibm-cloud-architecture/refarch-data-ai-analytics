@@ -2,14 +2,31 @@ site_name: AI & Analytics Reference Architecture
 repo_url: https://github.com/ibm-cloud-architecture/refarch-ai-analytics
 nav:
   - Welcome: index.md
-  - Runtime Architectures :
-    - Intelligent business application: runtimes/README.md
-    - Real time analytics: runtimes/README.md
-  - Data Topology: topology/README.md
-  - Preparation: preparation/README.md
-  - Deployment: deployment/README.md
-  - Monitoring: monitoring/README.md
+  - Architectures :
+    - Runtime application: runtimes/README.md
+    - ML & DL pipeline: runtimes/README.md
   - Methodology: methodology/README.md
+  - Data Topology: 
+    - Principles: topology/README.md 
+    - Role: topology/README.md
+    - Data Structure and scale:  topology/README.md
+    - Storage and location: topology/README.md
+    - Security:  topology/README.md
+    - Temporal life cycle:  topology/README.md
+    - Data provenance:  topology/README.md
+    - Model representation:  topology/README.md
+  - Preparation: 
+    - Feature selection: preparation/README.md
+    - Feature engineering: preparation/README.md
+    - Bias picking right training set: preparation/README.md
+    - Model selection: preparation/README.md
+  - Deployment: deployment/README.md
+    - CI & CD: deployment/README.md
+    - Physical model execution: deployment/README.md
+  - Monitoring: monitoring/README.md
+    - Feedback analysis:  monitoring/README.md
+    - Bias monitoring to ensure equitable:  monitoring/README.md
+  
 
 theme: 
   name: material
