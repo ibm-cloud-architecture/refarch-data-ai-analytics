@@ -1,5 +1,5 @@
-site_name: AI & Analytics Reference Architecture
-repo_url: https://github.com/ibm-cloud-architecture/refarch-ai-analytics
+site_name: Data - AI - Analytics Reference Architecture
+repo_url: https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics
 nav:
   - Welcome: index.md
   - Architectures :
@@ -15,7 +15,7 @@ nav:
     - Temporal life cycle:  topology/README.md
     - Data provenance:  topology/README.md
     - Model representation:  topology/README.md
-  - Preparation: 
+  - Data Preparation: 
     - Feature selection: preparation/README.md
     - Feature engineering: preparation/README.md
     - Bias picking right training set: preparation/README.md
