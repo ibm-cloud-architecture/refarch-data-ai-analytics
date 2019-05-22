@@ -1,15 +1,20 @@
 # Data - AI - Analytics Reference Architecture
 
-In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and hollistic point of view on how to do it.
+In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and holistic point of view on how to do it.
 
 # Principles
 
+1. There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity
+2. Different application patterns apply different data specialisation
+3. As you constrain scalability and network connectivity you also constrain data store, data structure and data access    
+4. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
+
 # Patterns
 
-## Data platform 
+## Data platform
 
 
-## Intellingent application
+## Intelligent application
 
 ## Business intelligence
 
