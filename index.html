@@ -36,7 +36,7 @@
     
     
       
-        <title>AI & Analytics Reference Architecture</title>
+        <title>Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -96,7 +96,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ai-analytics-reference-architecture" tabindex="1" class="md-skip">
+      <a href="#data-ai-analytics-reference-architecture" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="AI & Analytics Reference Architecture" class="md-header-nav__button md-logo">
+        <a href="." title="Data - AI - Analytics Reference Architecture" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -118,7 +118,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              AI & Analytics Reference Architecture
+              Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
               Welcome
@@ -162,7 +162,7 @@
 
   
 
-<a href="https://github.com/ibm-cloud-architecture/refarch-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -195,12 +195,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="." title="AI & Analytics Reference Architecture" class="md-nav__button md-logo">
+    <a href="." title="Data - AI - Analytics Reference Architecture" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    AI & Analytics Reference Architecture
+    Data - AI - Analytics Reference Architecture
   </label>
   
     <div class="md-nav__source">
@@ -209,7 +209,7 @@
 
   
 
-<a href="https://github.com/ibm-cloud-architecture/refarch-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -436,11 +436,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Preparation
+      Data Preparation
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Preparation
+        Data Preparation
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -621,11 +621,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ibm-cloud-architecture/refarch-ai-analytics/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ai-analytics-reference-architecture">AI &amp; Analytics Reference Architecture</h1>
-<p>In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and hollistic point of view on how to do it.</p>
+                <h1 id="data-ai-analytics-reference-architecture">Data - AI - Analytics Reference Architecture</h1>
+<p>In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and holistic point of view on how to do it.</p>
+<h1 id="principles">Principles</h1>
+<ol>
+<li>There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity</li>
+<li>Different application patterns apply different data specialisation.</li>
+<li>There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.
+  <img alt="" src="d1.png" />   </li>
+<li>As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    </li>
+<li>The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.</li>
+</ol>
+<p>The following diagram illustrates the top-level view of a Data centric and AI reference architecture. There is no argument about it, AI without Data will not exist. The architecture illustrates the need for strong data management capabilities inside a 'data platform', on which AI capabilities are plugged in.</p>
+<p><img alt="" src="data-ai-ra.png" /></p>
+<p>The data layer or platform addresses the data collection and transformation to move data to local store. But it is necessary to avoid moving data when there is no need to do tranformations or no impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources. On the AI side, data scientists need to perform data analysis, which includes making sense of the data using data visualization. To build a model they need to define features, and the AI layer supports feature engineering. Then to build the model, the development environment helps to select different algorithm and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to machine learning cluster.</p>
+<p><TBC></p>
+<h1 id="patterns">Patterns</h1>
+<h2 id="data-platform">Data platform</h2>
+<h2 id="intelligent-application">Intelligent application</h2>
+<h2 id="business-intelligence">Business intelligence</h2>
+<h2 id="stream-analytics">Stream analytics</h2>
 <h1 id="data-is-fundamental">Data is fundamental</h1>
 <p>What makes managing data so challenging and complex is that, by itself, data doesn't do anything. Data is inert; it is not self-organizing or even self-understanding. In the DIKW pyramid, data is the base with the least amount of perceived usefulness. Information has higher value than data, knowledge has higher value than information, and wisdom has the highest perceived value of all. Data requires something else—a program, a machine, or even a person—to move up the value chain and become information.</p>
 <p><img alt="" src="data-dikw-ai.png" /></p>
