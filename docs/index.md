@@ -5,7 +5,10 @@ In this reference architecture, we are focusing on defining architecture pattern
 # Principles
 
 1. There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity
-2. Different application patterns apply different data specialisation
+2. Different application patterns apply different data specialisation.
+1. There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.
+  ![](d1.png)
+
 3. As you constrain scalability and network connectivity you also constrain data store, data structure and data access    
 4. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
 
