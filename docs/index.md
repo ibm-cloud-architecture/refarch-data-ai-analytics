@@ -7,10 +7,20 @@ In this reference architecture, we are focusing on defining architecture pattern
 1. There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity
 2. Different application patterns apply different data specialisation.
 1. There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.
-  ![](d1.png)
+  ![](d1.png)   
+1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
+1. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
 
-3. As you constrain scalability and network connectivity you also constrain data store, data structure and data access    
-4. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
+The following diagram illustrates the top-level view of a Data centric and AI reference architecture. There is no argument about it, AI without Data will not exist. The architecture illustrates the need for strong data management capabilities inside a 'data platform', on which AI capabilities are plugged in.
+
+![](data-ai-ra.png)
+
+The data layer or platform addresses the data collection and transformation to move data to local store. But it is necessary to avoid moving data when there is no need to do tranformations or no impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources. On the AI side, data scientists need to perform data analysis, which includes making sense of the data using data visualization. To build a model they need to define features, and the AI layer supports feature engineering. Then to build the model, the development environment helps to select different algorithm and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to machine learning cluster.
+
+ <TBC>
+
+
+
 
 # Patterns
 
