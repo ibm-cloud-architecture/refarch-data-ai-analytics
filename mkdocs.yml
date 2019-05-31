@@ -1,10 +1,10 @@
 site_name: Data - AI - Analytics Reference Architecture
 repo_url: https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics
 nav:
-  - Welcome: index.md
+  - Introduction: index.md
   - Architectures :
     - Runtime application: runtimes/README.md
-    - ML & DL pipeline: runtimes/README.md#modeling-architecture
+    - ML & DL pipeline: runtimes/#modeling-architecture
   - Methodology: methodology/README.md
   - Data Topology: 
     - Principles: topology/README.md 
@@ -26,6 +26,8 @@ nav:
   - Monitoring: 
     - Feedback analysis:  monitoring/README.md
     - Bias monitoring to ensure equitable:  monitoring/README.md
+  - Reference Implementation:
+    - Customer churn solution: https://ibm-cloud-architecture.github.io/refarch-cognitive-analytics/
   
 
 theme: 
