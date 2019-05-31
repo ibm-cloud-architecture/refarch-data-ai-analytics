@@ -231,8 +231,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Welcome" class="md-nav__link">
-      Welcome
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
@@ -274,7 +274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../runtimes/README.md#modeling-architecture" title="ML & DL pipeline" class="md-nav__link">
+    <a href="../runtimes/#modeling-architecture" title="ML & DL pipeline" class="md-nav__link">
       ML & DL pipeline
     </a>
   </li>
@@ -299,9 +299,86 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Methodology
+      </label>
+    
     <a href="./" title="Methodology" class="md-nav__link md-nav__link--active">
       Methodology
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-sciences-introduction" title="Data Sciences Introduction" class="md-nav__link">
+    Data Sciences Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descriptive-analytics" title="Descriptive analytics" class="md-nav__link">
+    Descriptive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-analytics" title="Predictive analytics" class="md-nav__link">
+    Predictive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prescriptive-analytics" title="Prescriptive analytics" class="md-nav__link">
+    Prescriptive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-selection" title="Algorithm selection" class="md-nav__link">
+    Algorithm selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" title="Challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -594,6 +671,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Reference Implementation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Reference Implementation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-cognitive-analytics/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -611,6 +724,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-sciences-introduction" title="Data Sciences Introduction" class="md-nav__link">
+    Data Sciences Introduction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descriptive-analytics" title="Descriptive analytics" class="md-nav__link">
+    Descriptive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predictive-analytics" title="Predictive analytics" class="md-nav__link">
+    Predictive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prescriptive-analytics" title="Prescriptive analytics" class="md-nav__link">
+    Prescriptive analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-selection" title="Algorithm selection" class="md-nav__link">
+    Algorithm selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenges" title="Challenges" class="md-nav__link">
+    Challenges
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -625,6 +802,86 @@
                 
                 
                 <h1 id="methodology">Methodology</h1>
+<h2 id="data-sciences-introduction">Data Sciences Introduction</h2>
+<p>The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper managers, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.</p>
+<p>Data science falls into these three categories:</p>
+<h3 id="descriptive-analytics">Descriptive analytics</h3>
+<p>This is likely the most common type of analytics leveraged to create dashboards and reports. They describe and summarize events that have already occurred. For example, think of a grocery store owner who wants to know how items of each product were sold in all store within a region in the last five years.</p>
+<h3 id="predictive-analytics">Predictive analytics</h3>
+<p>This is all about using mathematical and statistical methods to forecast future outcomes. The grocery store owner wants to understand how many products could potentially be sold in the next couple of months so that he can make a decision on inventory levels.</p>
+<h3 id="prescriptive-analytics">Prescriptive analytics</h3>
+<p>Prescriptive analytics is used to optimize business decisions by simulating scenarios based on a set of constraints. The grocery store owner  wants to creating a staffing schedule for his employees, but to do so he will have to account for factors like availability, vacation time, number of hours of work, potential emergencies and so on (constraints) and create a schedule that works for everyone while ensuring that his business is able to function on a day to day basis.</p>
+<h3 id="concepts">Concepts</h3>
+<ul>
+<li><strong>Supervised learning</strong>: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (y), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.</li>
+<li><strong>Unsupervised learning</strong>: giving a dataset, try to find tendency in the data, by using techniques like clustering.</li>
+<li><strong>Classification</strong> problem is when we are trying to predict one of a small number of discrete-valued outputs</li>
+<li><strong>Regression</strong> classification problem when the goal is to predict continuous value output</li>
+<li><strong>A feature</strong> is an attribute to use for classifying</li>
+</ul>
+<h3 id="algorithm-selection">Algorithm selection</h3>
+<p>The application from <a href="https://samrose3.github.io/algorithm-explorer/">https://samrose3.github.io/algorithm-explorer</a> will guide you on how to select what algorithm may help to address a specific problem.</p>
+<h2 id="challenges">Challenges</h2>
+<p>There are a set of standard challenges while developing an IT solution which integrates results from analytics model. We are listing some that we want to address, document and support as requirements.
+<em> Are we considering a scoring service or a classification one?
+</em> Is it a batch processing to update static records or real time processing on data stream or transactional data
+<em> How to control resource allocation for Machine Learning job.
+</em> How to manage consistency between model and data and code: version management
+<em> How to assess the features needed for the training and test sets.
+</em> How to leverage real time cognitive / deep learning classification inside scoring service</p>
+<h1 id="the-garage-method-for-cloud-with-datafirst">The Garage Method for Cloud with DataFirst</h1>
+<p>Every department within your organization has different needs for data and analytics. How can you start your data-driven journey? The <a href="https://www.ibm.com/analytics/datafirst">Garage Method for Cloud with DataFirst</a>provides strategy and expertise to help you gain the most value from your data. This method starts with your business outcomes that leverage data and analytics, not technology. Defining focus in a collaborative manner is key to deriving early results. Your roadmap and action plan are continuously updated based on lessons learned. This is an iterative and agile approach to help you define, design, and prove a solution for your specific business problem.</p>
+<h2 id="personas">Personas</h2>
+<p>Our architecture and mothodology discussions need to clearly address the major personas touching any elements of the architecture:</p>
+<ul>
+<li>Developer</li>
+<li>Architect</li>
+<li>Business analysts</li>
+<li>Data scientist</li>
+</ul>
+<h3 id="differences-between-analysts-and-data-scientists">Differences between analysts and data scientists</h3>
+<p>The MITSloan did a review of the major differences between data scientists and business analysts by considering a set of common dimensions. The table below presents the results.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Analysts</th>
+<th>Data Scientists</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Types of adta</td>
+<td>Structured mostly numeric data</td>
+<td>All types, including unstructured data</td>
+</tr>
+<tr>
+<td>Preferred tools</td>
+<td>Statistical and modeling tools using data repository</td>
+<td>Programming language with strong statistical library, machine learning, deep learning. Use ML cluster servers</td>
+</tr>
+<tr>
+<td>Nature of work</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Typical educationl background</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mindset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
