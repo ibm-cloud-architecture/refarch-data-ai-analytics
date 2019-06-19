@@ -1,10 +1,13 @@
 # Methodology
 
-! UNDERCONSTRUCTION
+!!! warning
+        UNDER CONSTRUCTION
+
+!!! abstract
+    In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
 
 ## Integrating data - devops and AI analytics methodologies
 
-In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
 Most organizations need to manage software lifecycles. The key tenets listed above imply the need for a separate lifecycle for data, because the outcome or deliverable for any of the key tenets should not be considered static and immutable. Like data, you can think of analytics as having its own lifecycle independent from the software lifecycle and the data lifecycle, although they are all complementary.
 
 To help achieve digital transformation, your organization should integrate three development lifecycles:
@@ -17,14 +20,20 @@ To help achieve digital transformation, your organization should integrate three
 
 Each development lifecycle is representative of an iterative workflow that can be used by agile development teams to craft higher value business outcomes. Lifecycles are often timeboxed iterations and can follow a fail-fast paradigm to realize tangible assets. Speed is important in business; most businesses work to meet new needs quickly. The objective of each lifecycle iteration is to address business speed efficiently and proficiently while maximizing business value. 
 
+### Personas
+
+Before going deeper into the different lifecycles, we need to define the personas involved in those lifecycles. The table below present the icons we are using in subsquent figures, with a short description for the role.
+
+![](personas.png)
+
 ### Devops lifecycle
 
-The software/application development lifecycle (SDLC) is a well-known and supports both traditional and agile development. The SDLC iterates on incorporating business requirements, adopt test driven development, continuous deployment and continuous integration. The diagram below demonstrates the iteration over recurring tasks to build the business intelligent application.  
+The software/application development lifecycle (SDLC) is a well-known and supports both traditional and agile development. The SDLC iterates on incorporating business requirements, adopt test driven development, continuous deployment and continuous integration. The diagram below demonstrates the iteration over recurring developer tasks to build the business intelligent application (internal loop), and the release loop to continuously deliver application features to production (bigger loop).    
 
 ![](dev-ops.png)
 
 !!! notes
-    Before entering the iteration cycles, there are tasks to scope the high level business challenges and opportunities, define the business case for the project, define and build the development and operation strategy, define the target infrastructure, security... The smaller loop represents development iteration, while the outer loop represents software release to production with continous feedback to monitor and assess features acceptance. The tasks list is not exhaustive, but represents a common context for our discussion.
+    Before entering the development iteration cycles, there are tasks to scope the high level business challenges and opportunities, define the business case for the project, define and build the development and operation strategy, define the target infrastructure, security... The smaller loop represents development iteration, while the outer loop represents software release to production with continous feedback to monitor and assess features acceptance. This task list is not exhaustive, but represents a common ground for our discussion.
 
 ### AIOps lifecycle
 

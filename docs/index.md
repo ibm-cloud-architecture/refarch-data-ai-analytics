@@ -11,7 +11,6 @@ When we consider development of  Data and AI intensive applications  or  *intell
 
 provides the right foundation to enable us to develop these *intelligent applications* in a highly agile cloud native way.
 
-
 By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.
 
 The following diagram illustrates the top-level view of a Data centric and AI reference architecture. There is no argument about it, AI without Data will not exist. The architecture illustrates the need for strong data management capabilities inside a 'data platform', on which AI capabilities are plugged in.
@@ -27,24 +26,32 @@ The intelligent application on the right side, can run on cloud, fog, or mist. I
 
 # Data is fundamental
 
- What makes managing data so challenging and complex is that, by itself, data doesn't do anything. Data is inert; it is not self-organizing or even self-understanding. In the DIKW pyramid, data is the base with the least amount of perceived usefulness. Information has higher value than data, knowledge has higher value than information, and wisdom has the highest perceived value of all. Data requires something else—a program, a machine, or even a person—to move up the value chain and become information.
+Managing data within the enterprise has proven to be challenging and complex. By itself data doesn't do anything. To make data useful, something other than the data is required – such as a computer program, a query, or a user (machine or person). Data is inert; it is not self-organizing or even self-understanding. This is what contributes to making data challenging and complex.
+
+In the [DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid), data is the base with the least amount of perceived usefulness. Information has higher value than data, knowledge has higher value than information, and wisdom has the highest perceived value of all. Data requires something else—a program, a machine, or even a person—to move up the value chain and become information. By organizing and classifying information, the value chain can begin and expand from data and information to be regarded as knowledge.
+
+Wisdom, the top of the pyramid, is the pinnacle of the data value chain. Wisdom results in a combination of inert data – a fundamental raw material in the modern digital age – combined with a series of progressive traits such as: perspective, context, understanding, learning, and the ability to reason. Cognitive computing and artificial intelligence now mean that these traits can be attributed to both a person and a machine.
 
  ![](data-dikw-ai.png)
 
- The IBM AI Ladder also begins with data. You get higher business value when you perform business-assisted functions such as analytics, machine learning, or artificial intelligence on top of the data.
+ The IBM AI Ladder loosely parallels the DIKW pyramid in that the AI Ladder represents a progressive movement towards value creation within an enterprise. Increased value can be gained from completing activities at each step of the AI Ladder, with the potential to recognize higher levels of value, the higher the ladder is climbed.
+
+The AI Ladder contains four discrete levels: collect, organize, analyze, and infuse. Arguably, data lies below the first rung, recognizing the inert nature of data. The first rung is collect, a primitive action that serves as the first element towards making data actionable and to help drive automation, insights, optimization, and decision-making. Collect is an ability to attach to a data source – whether transient or persistent, real or virtual, and while being agnostic as to its actual location or its originating (underlying) technology.
+
+The AI Ladder progresses through the rungs to infuse, a state of capability that means an enterprise has taken artificial intelligence beyond a science project. Infusion means that advanced analytical models have been interwoven into the essential fabric of an application or system whereby driving new or improved business capabilities.
+
 
 ## Data as a differentiator
 
-Your data needs to become a corporate asset. Data has the power to transform your organization, add monetary value, and enable your workforce to accomplish extraordinary things. Data-driven cultures can realize higher business returns.
+Data needs to become treated as a corporate asset. Data has the power to transform any organization, add monetary value, and enable the workforce to accomplish extraordinary things. Data-driven cultures can realize higher business returns.
 
-The scale of preserved data across a complex hybrid cloud topology requires discipline, even for an organization that embraces agile and adaptive philosophies.
+While a dog house can be built without much planning, you cannot build a modern skyscraper with the same approach. The scale of preserved data across a complex hybrid cloud or multi-cloud topology requires discipline, even for an organization that embraces agile and adaptive philosophies.
 
-Data can and should be used to drive analytical insights.  But what considerations and planning activities are required to enable the generation of insights, the ability to take action, and the courage to make decisions? Although the planning and implementation activities to maximize the usefulness of your data can require some deep thinking, your organization can become data-centric and data-driven in a short time.
+Data can and should be used to drive analytical insights. But what considerations and planning activities are required to enable the generation of insights, the ability to take action, and the courage to make decisions? Although the planning and implementation activities to maximize the usefulness of your data can require some deep thinking, organizations can become data-centric and data-driven in a short time.
 
-Businesses need to move rapidly. Your organization must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, whether large or small.
+More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, whether large or small.
 
 Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of unauthorized projects.
-
 
 ## Data platform
 
@@ -56,11 +63,55 @@ Data and the related analytics are key to differentiation, but traditional appro
 1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
 1. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
 
-### Collect, organize, and analyze data
+Today, our users may have access to terabytes, petabytes, or even exabytes of data. But if that data is not collected, organized, managed, controlled, enriched, governed, measured, and analyzed, that data is not just useless, it can become a liability.
 
-Today, our users may have access to terabytes, petabytes, or even exabytes of data. But if that data is not collected, organized, managed, controlled, enriched, governed, measured, and analyzed, that data is not just useless—it can become a liability.
+### Collect – Making Data Simple and Accessible
 
-These activities form the focus of data and analytics platforms, as shown in the three pillars of IBM Analytics offerings:
+The first rung of the AI Ladder is collect and is how an enterprise can formally incorporate data into any analytic process. Data can be:
+
+* Structured, semi-structured, unstructured
+* Proprietary or open source
+* In the cloud or on-premise
+* Any of it or all of it
+
+### Organize – Trusted, Governed Analytics
+
+The second rung of the AI Ladder is organize and is how is an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed so that any use can adequately controlled. Ideally, the outcome of organize is a body of data that is appropriately curated and offers the highest value to an enterprise. Organize allows data to be:
+
+* A discoverable asset
+* Cataloged
+* Profiled, categorized, and classified
+* Secured through policy-based enforcement
+* A source of truth and utility
+
+### Analyze – Insights On-Demand
+
+The third rung of the AI Ladder is analyze and is how is an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted to mean Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze allows data to be:
+
+* Determine what has happened
+* Determine what is happening
+* Determine what might happen
+* Compare against expectations
+* Automate and optimize decisions
+
+### Infuse – Operationalize AI with Trust and Transparency
+
+The fourth rung of the AI Ladder is infuse and is how is an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. Infuse allows data to be:
+
+* Used for automation and optimization
+* Part of a causal loop of action and feedback
+* Exercised in a deployed model
+* Used for developing insights and decision-making
+* Beneficial to the data-driven organization
+* Applied by the data-centric enterprise
+
+## Towards Data-Centricity
+
+Drivers for what causes change within a business can be regarded as being stochastic. Whether foreseen or randomly determined, each change is likely to require new data – data that an organization has not previously anticipated. Increased data volumes, increases in the number of data sources, increases to the rates of data ingestion, and increases in the variety of the types of data are nothing more than de facto a prioris. 
+
+While users are likely to have access to terabytes, petabytes, or even exabytes of data from data streams, IOT-sensors, transactional systems, and so on, if the data is not properly incorporated, managed, controlled, enriched, governed, measured, and deployed then the data may not only become useless, the data may become a liability. 
+
+The activities to properly handle data and to pursue the AI Ladder, can be shown in the three solution areas of IBM Data and AI offerings:
 
 * [Hybrid Data Management](https://www.ibm.com/analytics/data-management)
     * Collect all types of data, structured and unstructured
