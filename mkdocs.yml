@@ -16,6 +16,7 @@ nav:
     - Data provenance:  topology/README.md
     - Model representation:  topology/README.md
   - Data Preparation: 
+    - Data replication: preparation/data-replication.md
     - Feature selection: preparation/README.md
     - Feature engineering: preparation/README.md
     - Bias picking right training set: preparation/README.md
