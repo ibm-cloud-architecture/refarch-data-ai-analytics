@@ -1,0 +1,1091 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+    
+    
+      
+        <title>Data replication - Data - AI - Analytics Reference Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#data-replication" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data - AI - Analytics Reference Architecture
+            </span>
+            <span class="md-header-nav__topic">
+              Data replication
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data - AI - Analytics Reference Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Architectures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Architectures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../runtimes/" title="Runtime application" class="md-nav__link">
+      Runtime application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../runtimes/#modeling-architecture" title="ML & DL pipeline" class="md-nav__link">
+      ML & DL pipeline
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../methodology/" title="Methodology" class="md-nav__link">
+      Methodology
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Data Topology
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Data Topology
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Principles" class="md-nav__link">
+      Principles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Role" class="md-nav__link">
+      Role
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Data Structure and scale" class="md-nav__link">
+      Data Structure and scale
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Storage and location" class="md-nav__link">
+      Storage and location
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Security" class="md-nav__link">
+      Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Temporal life cycle" class="md-nav__link">
+      Temporal life cycle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Data provenance" class="md-nav__link">
+      Data provenance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Model representation" class="md-nav__link">
+      Model representation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Data Preparation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Data Preparation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Data replication
+      </label>
+    
+    <a href="./" title="Data replication" class="md-nav__link md-nav__link--active">
+      Data replication
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#considerations" title="Considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
+    Business motivations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classical-data-replication-architecture" title="Classical data replication architecture" class="md-nav__link">
+    Classical data replication architecture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-lake-technologies" title="Data lake technologies" class="md-nav__link">
+    Data lake technologies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-data-capture-cdc" title="Change data capture (CDC)" class="md-nav__link">
+    Change data capture (CDC)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-adopting-kafka-for-data-replication" title="Why adopting kafka for data replication" class="md-nav__link">
+    Why adopting kafka for data replication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka-connect" title="Kafka connect" class="md-nav__link">
+    Kafka connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debezium" title="Debezium" class="md-nav__link">
+    Debezium
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-readings" title="Recommended Readings" class="md-nav__link">
+    Recommended Readings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Feature selection" class="md-nav__link">
+      Feature selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Feature engineering" class="md-nav__link">
+      Feature engineering
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Bias picking right training set" class="md-nav__link">
+      Bias picking right training set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Model selection" class="md-nav__link">
+      Model selection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Deployment
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Deployment
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="Physical model execution" class="md-nav__link">
+      Physical model execution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Monitoring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Monitoring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Feedback analysis" class="md-nav__link">
+      Feedback analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Bias monitoring to ensure equitable" class="md-nav__link">
+      Bias monitoring to ensure equitable
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Reference Implementation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Reference Implementation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-cognitive-analytics/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#considerations" title="Considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
+    Business motivations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classical-data-replication-architecture" title="Classical data replication architecture" class="md-nav__link">
+    Classical data replication architecture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-lake-technologies" title="Data lake technologies" class="md-nav__link">
+    Data lake technologies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-data-capture-cdc" title="Change data capture (CDC)" class="md-nav__link">
+    Change data capture (CDC)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-adopting-kafka-for-data-replication" title="Why adopting kafka for data replication" class="md-nav__link">
+    Why adopting kafka for data replication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka-connect" title="Kafka connect" class="md-nav__link">
+    Kafka connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debezium" title="Debezium" class="md-nav__link">
+    Debezium
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-readings" title="Recommended Readings" class="md-nav__link">
+    Recommended Readings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/preparation/data-replication.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="data-replication">Data replication</h1>
+<p>STILL UNDER CONSTRUCTION</p>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>In this article, we are dealing with database replication from traditional Database, like DB2, to a microservice environment with document oriented or relational data. Database replications can be used to move data between environment or to separate read and write models, which may be a viable solution with microservice, but we need to assess how to support coexistence where older systems run in parallel to microservices and use eventual data consistency pattern. </p>
+</div>
+<h2 id="concepts">Concepts</h2>
+<p>We just to quickly summarize the concepts around data replication. </p>
+<ul>
+<li>Data Replication is the process of storing data in more than one server on same or different data center.</li>
+<li>Data replication encompasses duplication of transactions on an ongoing basis, so that the replicate is in a consistently updated state and synchronized with the source</li>
+<li>Different data replication techniques:<ul>
+<li><strong>Transactional Replication</strong>: addresses full initial copies of the database and then receive updates as data changes in the same order as they occur with the publisher: transactional consistency is guaranteed. </li>
+<li><strong>Snapshot Replication</strong>: distributes data exactly as it appears at a specific moment in time does not monitor for updates to the data. Used when data change less often.</li>
+<li><strong>Merge Replication</strong>: Data from two or more databases is combined into a single database. It allows both publisher and subscriber to independently make changes to the database. </li>
+</ul>
+</li>
+<li>CAP Theorem: Data replication in distributed computing like cloud falls into the problem of the <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> where only two of the Consistency, Availability, or Paritition tolerance can be met simultaneously. In our context Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. </li>
+</ul>
+<h3 id="considerations">Considerations</h3>
+<p>The main advantages for data replication are to provide a consistent copy of data across all the database servers, and increase data availability to different client apps. </p>
+<p>Maintaining Data consistency at all different sites involves complex processes, and increase physical resources.</p>
+<h2 id="business-motivations">Business motivations</h2>
+<p>Among the top three priority of data integration and integriry solution, for 2019, 2020, are (<a href="https://www.idc.com/getdoc.jsp?containerId=IDC_P31631">source IDC</a>):</p>
+<ul>
+<li>Data intelligence (57%)</li>
+<li>Data replication (50%)</li>
+<li>Application data synch (51%)</li>
+</ul>
+<p>Two important use cases:</p>
+<ul>
+<li>Business in Real Time<ul>
+<li>Detect and react to data events as they happen to drive the business, and propagate those changes for others to consume</li>
+<li>Optimize decision making with  up to the second data, i.e. real time analytics  </li>
+</ul>
+</li>
+<li>Always On Information<ul>
+<li>High availability with Active-Standby and Active-Active data deployments</li>
+<li>Data synchronization for zero down time data migrations and upgrades</li>
+</ul>
+</li>
+</ul>
+<h2 id="classical-data-replication-architecture">Classical data replication architecture</h2>
+<p>The DB centric replication mechanism involves different techniques to do data replication between databases of the same product (DB2 to DB2, Postgresqsl to postgresql). The approach is to control availability and consistency. The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
+<p><img alt="" src="../images/CAP_theorem.png" /></p>
+<p>For RDBMS the replication mechanism can use asynchronous, semi-synchronous or synchronous replication. The classical topology is to have a single leader, that replicates the changes to all the followers, this is mostly to avoid concurrent writes between different servers.</p>
+<p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.</p>
+<p>DB replications are covered with RDBMS features and it offers low administration overhead.
+Now the adoption of database replications will be linked to the data movement requirements. </p>
+<p>The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a capture agent to load data and send it over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
+<p><img alt="" src="../images/data-replication-HL.png" /></p>
+<p>The data replication between databases by continuously propagate changes in real time instead of doing it by batch with traditional ETL product, brings data availability and consistency cross systems. It can be used to feed analytics system and data warehouses, for business intelligence activities.</p>
+<h3 id="data-lake-technologies">Data lake technologies</h3>
+<p>There are multiple alternatives to support data lake component. In our study, two different approaches are used: Hadoop, or kafka. </p>
+<ul>
+<li>
+<p>Hadoop is designed to process large relatively static data sets.  It provides a cost effective vehicle for storing massive amounts of data due to its commodity hardware underpinnings that rely on built in fault tolerance based on redundancy. Hadoop is ideal for highly unstructured data and for data that is changing at the file level.  With Hadoop, you don’t change a record in a file.  Rather, you write a new file.  A process reads through the files to discover the data that matters and to filter out unrelated data. It is massively scalable processing. </p>
+</li>
+<li>
+<p>Kafka is designed from the outset to easily cope with constantly changing data and events. It has built in capabilities for data management such as log compaction that enable Kafka to emulate updates and deletes. The data storage may be self described JSON document wrapped in <a href="https://avro.apache.org/docs/current/">Apache Avro</a> binary format. Kafka exploits the scalability and availability of inexpensive commodity hardware.</p>
+</li>
+</ul>
+<p>Kafka provides a means of maintaining one and only one version of a “record” much like in a keyed database. But an adjustable persistence time window lets you control how much data is retained.</p>
+<p>Data Replication solutions provide both bulk and continuous delivery of changing structured operational data to both Hadoop and Kafka.  </p>
+<p>There are more and more organizations choosing to replicate their changing operational data to Kafka rather than directly into Hadoop. Kafka’s ability to self manage its storage, emulate the concept of a keyed record and provide self describing structural metadata combined with the benefits of scalability and open source interfaces makes it an ideal streaming and staging area for enterprise analytics.  </p>
+<p>If needed data can be staged in Kafka for periodic delivery into Hadoop for a more controlled data lake, preventing the lake from becoming a swamp with millions of files.  </p>
+<p>Data stored in Kafka can be consumed by real time microservices and real time analytics engines.</p>
+<p>Kafka can also be used as a modern operational data store. It has the built in advantages of low cost scalability and fault tolerance with the benefits of open interfaces and an ever growing list of data producers (feed data into Kafka) and data consumers (pull data from Kafka), all with self managed storage.</p>
+<p>Other use cases are related to auditing and historical query on what happened on specific records. Using event sourcing, delivered out of the box with kafka, this will be easier to support. It can be used to propagate data changes to remote caches and invalidate them, to projection view in CQRS microservices, populate full text search in Elasticsearch, Apache Solr...</p>
+<h3 id="change-data-capture-cdc">Change data capture (CDC)</h3>
+<p>Another important part of the architecture is the change data capture from the transaction log. </p>
+<p>IBM's <a href="https://www.ibm.com/us-en/marketplace/infosphere-data-replication">InfoSphere Data Replication (IIDR)</a> captures and replicates data in one run or only replicates changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets.</p>
+<p>We can combine Kafka and IIDR to support a flexible pub sub architecture for data replication where databases are replicated but event streams about those data can be processed in real time by any applications and microservices.</p>
+<p>The combined architecture of a deployed solution looks like in the diagram below:</p>
+<p><img alt="" src="../images/iidr-archi.png" /></p>
+<p>With the management console, developer can define data replication project, that can includes one to many subscriptions. Subscription defines the source database and tables and target kafka cluster and topics.  </p>
+<p>The Kafka cluster is running on kubernetes. </p>
+<p>The first time a subscription is running, a "Refresh" is performed: to allow the source and target to be exactly synchronized before the incremental, changes only get replicated down to the target. This means all the records in the source table will be written as Kafka events. </p>
+<p>When running subscription the first time, kafka topics are added: one to hold the records from the source table, and the second to keep track of which records have already been committed to the target. </p>
+<p>For more detail about this solution see <a href="https://www.ibm.com/cloud/garage/dte/producttour/ibm-infosphere-data-replication-product-tour">this product tour</a>.</p>
+<h3 id="why-adopting-kafka-for-data-replication">Why adopting kafka for data replication</h3>
+<p>Using Kafka as a mediation layer brings the following advantages:</p>
+<ul>
+<li>Offload processing</li>
+<li>Data aggregation from multiple sources</li>
+<li>Deliver a common platform for staging to other data consumers</li>
+<li>Provide a storage system for duplicating data</li>
+<li>Buffer unprocessed messages</li>
+<li>Offers throughput and low end-to-end Latency </li>
+<li>Offers real time processing and retrospective analysis</li>
+<li>Can correlate streaming feeds of disparate formats</li>
+<li>Flexibility of input source and output Targets</li>
+<li>Built in stream processing API on real time feeds with kafka streams</li>
+<li>Commit Log</li>
+<li>Fault tolerance, scalability, multi-tenant nature, speed, light-weight, multiple landing-zones.</li>
+</ul>
+<h2 id="kafka-connect">Kafka connect</h2>
+<p><a href="https://kafka.apache.org/documentation/#connect">Kafka connect</a> simplifies the integration between kafka and other systems. It helps to standardize the integration via connectors and configuration files. It is a distributed fault tolerant runtime to be able to easily scale horizontally. The set of connectors help developers to do not reinvent coding consumers and producers.</p>
+<p>To get started read <a href="https://kafka.apache.org/documentation/#connec">this introduction</a> from product documentation. </p>
+<p>The kafka connect workers are stateless and can run easily on kubernetes or as standalone docker process. <code>Kafka Connect Source</code> is to get data to kafka, and <code>Kafka Connect Sink</code> to get data out of kafka.</p>
+<p><img alt="" src="../images/kconnect-arch.png" /></p>
+<p>A worker is a process. A connector is a re-usable piece of java code packaged as jars, and configuration. Both elements are defined a task. A connector can have multiple tasks. </p>
+<p>With distributed deployment the connector cluster supports easy scaling by adding new worker and performs rebalancing of worker tasks in case of worker failure. The configuration can be sent dynamically to the cluster via REST api.</p>
+<h2 id="debezium">Debezium</h2>
+<p><a href="https://debezium.io/">Debezium</a> is an open source distributed platform for change data capture. It retrieves change events from transaction logs from different databases and use kafka as backbone, and kafka connect.
+It uses the approach of one table to one topic. </p>
+<p>It can be used to do data synchronization between microservices using CDC at one service level and propagate changes via kafka. The implementation of the <a href="https://ibm-cloud-architecture.github.io/refarch-eda/evt-microservices/ED-patterns/#command-query-responsibility-segregation-cqrs-pattern">CQRS pattern</a> may be simplified with this capability. </p>
+<p><img alt="zoomify" src="../images/cqrs-cdc.png" /></p>
+<h2 id="requirements">Requirements</h2>
+<p>We want to support the following requirements:</p>
+<ul>
+<li>Keep a RDBMS database like DB2 on the mainframe where transactions are supported</li>
+<li>Add cloud native applications in kubernetes environment, with a need to read data coming from the legacy DB, without impacting the DB server with a lot of new queries</li>
+<li>Address writing model, where cloud native apps have to write back to legacy DB</li>
+<li>Replicate data in real time to data lake or cloud based data store.</li>
+<li>Replicated data is for multiple consumers</li>
+</ul>
+<p>There are a lot of products which are addressing those requirements, but here we address the integration with Kafka for a pub/sub and event store need.</p>
+<p>The following diagram may illustrate what we want to build: </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are providing a special implementation of the container management service using kafka connect. </p>
+</div>
+<h2 id="recommended-readings">Recommended Readings</h2>
+<ul>
+<li><a href="https://www.ibm.com/cloud/garage/dte/producttour/ibm-infosphere-data-replication-product-tour">IBM InfoSphere Data Replication Product Tour</a></li>
+<li><a href="https://learning.oreilly.com/videos/apache-kafka-series">Kafka connect hands-on learning from Stéphane Maarek</a></li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.cdckafka.doc/concepts/before_install.html">Integrating IBM CDC Replication Engine with kafka</a></li>
+<li><a href="https://www.brianstorti.com/replication/">Very good article from Brian Storti on data replication and consistency</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../topology/" title="Model representation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model representation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../" title="Feature selection" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Feature selection
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
