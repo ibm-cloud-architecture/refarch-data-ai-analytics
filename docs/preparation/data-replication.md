@@ -48,12 +48,13 @@ The DB centric replication mechanism involves different techniques to do data re
 
 For RDBMS the replication mechanism can use asynchronous, semi-synchronous or synchronous replication. The classical topology is to have a single leader, that replicates the changes to all the followers, this is mostly to avoid concurrent writes between different servers.
 
-Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.
+Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data in the order in which commits were made on the publisher so that transactional consistency is guaranteed for the publications within any single subscription. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.
 
-DB replications are covered with RDBMS features and it offers low administration overhead.
-Now the adoption of database replications will be linked to the data movement requirements. 
+DB replications are covered with RDBMS features and it offers low administration overhead. It is important to note that source and target data structures have to be the same, and change to the table structure is a challenge but can be addressed.
 
-The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a capture agent to load data and send it over the network to an "Apply / Transform" agent responsible to persist to the target destination. 
+Now the adoption of database replication features is linked to the data movement requirements. It may not be a suitable solution for microservice coexistance as there is a need to do data transformation on the fly. 
+
+The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. 
 
 ![](images/data-replication-HL.png)
 
@@ -84,9 +85,13 @@ Other use cases are related to auditing and historical query on what happened on
 
 ### Change data capture (CDC)
 
-Another important part of the architecture is the change data capture from the transaction log. 
+Another important part of the architecture is the change data capture component. 
 
-IBM's [InfoSphere Data Replication (IIDR)](https://www.ibm.com/us-en/marketplace/infosphere-data-replication) captures and replicates data in one run or only replicates changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets.
+IBM's [InfoSphere Data Replication (IIDR)](https://www.ibm.com/us-en/marketplace/infosphere-data-replication) captures and replicates data in one run or only replicate changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets. The architecture diagram below presents the  components involved in CDC replication:
+
+![](images/CDC_architecture.png)
+ 
+ And you can get product explanations [here.](https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.sysreq.doc/concepts/aboutcdc.html)
 
 We can combine Kafka and IIDR to support a flexible pub sub architecture for data replication where databases are replicated but event streams about those data can be processed in real time by any applications and microservices.
 
@@ -147,7 +152,6 @@ It can be used to do data synchronization between microservices using CDC at one
 ![zoomify](images/cqrs-cdc.png)
 
 
-
 ## Requirements
 
 We want to support the following requirements:
@@ -160,7 +164,7 @@ We want to support the following requirements:
 
 There are a lot of products which are addressing those requirements, but here we address the integration with Kafka for a pub/sub and event store need.
 
-The following diagram may illustrate what we want to build: 
+The previous diagram may illustrate what we want to build.
 
 !!! note  
     We are providing a special implementation of the container management service using kafka connect. 
@@ -174,3 +178,9 @@ The following diagram may illustrate what we want to build:
 * [Kafka connect hands-on learning from Stéphane Maarek](https://learning.oreilly.com/videos/apache-kafka-series)
 * [Integrating IBM CDC Replication Engine with kafka](https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.cdckafka.doc/concepts/before_install.html)
 * [Very good article from Brian Storti on data replication and consistency](https://www.brianstorti.com/replication/)
+* [PostgreSQL warm standby replication mechanism](https://www.postgresql.org/docs/current/warm-standby.html)
+* [Change Data Capture in PostgreSQL](https://medium.com/@ramesh.esl/change-data-capture-cdc-in-postgresql-7dee2d467d1b)
+* [eBook: PostgreSQL Replication - Hans-Jürgen Schönig - Second Edition](https://www.packtpub.com/big-data-and-business-intelligence/postgresql-replication-second-edition)
+* [Weighted quorum mechanism for cluster to select primary node](http://galeracluster.com/library/documentation/weighted-quorum.html)
+* [Using Kafka Connect as a CDC solution](https://www.confluent.io/blog/no-more-silos-how-to-integrate-your-databases-with-apache-kafka-and-cdc)
+* [Debezium tutorial](https://debezium.io/docs/tutorial/)
