@@ -929,10 +929,10 @@
 <p>The DB centric replication mechanism involves different techniques to do data replication between databases of the same product (DB2 to DB2, Postgresqsl to postgresql). The approach is to control availability and consistency. The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
 <p><img alt="" src="../images/CAP_theorem.png" /></p>
 <p>For RDBMS the replication mechanism can use asynchronous, semi-synchronous or synchronous replication. The classical topology is to have a single leader, that replicates the changes to all the followers, this is mostly to avoid concurrent writes between different servers.</p>
-<p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.</p>
-<p>DB replications are covered with RDBMS features and it offers low administration overhead.
-Now the adoption of database replications will be linked to the data movement requirements. </p>
-<p>The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a capture agent to load data and send it over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
+<p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data in the order in which commits were made on the publisher so that transactional consistency is guaranteed for the publications within any single subscription. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.</p>
+<p>DB replications are covered with RDBMS features and it offers low administration overhead. It is important to note that source and target data structures have to be the same, and change to the table structure is a challenge but can be addressed.</p>
+<p>Now the adoption of database replication features is linked to the data movement requirements. It may not be a suitable solution for microservice coexistance as there is a need to do data transformation on the fly. </p>
+<p>The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
 <p><img alt="" src="../images/data-replication-HL.png" /></p>
 <p>The data replication between databases by continuously propagate changes in real time instead of doing it by batch with traditional ETL product, brings data availability and consistency cross systems. It can be used to feed analytics system and data warehouses, for business intelligence activities.</p>
 <h3 id="data-lake-technologies">Data lake technologies</h3>
@@ -953,8 +953,10 @@ Now the adoption of database replications will be linked to the data movement re
 <p>Kafka can also be used as a modern operational data store. It has the built in advantages of low cost scalability and fault tolerance with the benefits of open interfaces and an ever growing list of data producers (feed data into Kafka) and data consumers (pull data from Kafka), all with self managed storage.</p>
 <p>Other use cases are related to auditing and historical query on what happened on specific records. Using event sourcing, delivered out of the box with kafka, this will be easier to support. It can be used to propagate data changes to remote caches and invalidate them, to projection view in CQRS microservices, populate full text search in Elasticsearch, Apache Solr...</p>
 <h3 id="change-data-capture-cdc">Change data capture (CDC)</h3>
-<p>Another important part of the architecture is the change data capture from the transaction log. </p>
-<p>IBM's <a href="https://www.ibm.com/us-en/marketplace/infosphere-data-replication">InfoSphere Data Replication (IIDR)</a> captures and replicates data in one run or only replicates changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets.</p>
+<p>Another important part of the architecture is the change data capture component. </p>
+<p>IBM's <a href="https://www.ibm.com/us-en/marketplace/infosphere-data-replication">InfoSphere Data Replication (IIDR)</a> captures and replicates data in one run or only replicate changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets. The architecture diagram below presents the  components involved in CDC replication:</p>
+<p><img alt="" src="images/CDC_architecture.png" /></p>
+<p>And you can get product explanations <a href="https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.sysreq.doc/concepts/aboutcdc.html">here.</a></p>
 <p>We can combine Kafka and IIDR to support a flexible pub sub architecture for data replication where databases are replicated but event streams about those data can be processed in real time by any applications and microservices.</p>
 <p>The combined architecture of a deployed solution looks like in the diagram below:</p>
 <p><img alt="" src="../images/iidr-archi.png" /></p>
@@ -1001,7 +1003,7 @@ It uses the approach of one table to one topic. </p>
 <li>Replicated data is for multiple consumers</li>
 </ul>
 <p>There are a lot of products which are addressing those requirements, but here we address the integration with Kafka for a pub/sub and event store need.</p>
-<p>The following diagram may illustrate what we want to build: </p>
+<p>The previous diagram may illustrate what we want to build.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We are providing a special implementation of the container management service using kafka connect. </p>
@@ -1012,6 +1014,12 @@ It uses the approach of one table to one topic. </p>
 <li><a href="https://learning.oreilly.com/videos/apache-kafka-series">Kafka connect hands-on learning from Stéphane Maarek</a></li>
 <li><a href="https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.cdckafka.doc/concepts/before_install.html">Integrating IBM CDC Replication Engine with kafka</a></li>
 <li><a href="https://www.brianstorti.com/replication/">Very good article from Brian Storti on data replication and consistency</a></li>
+<li><a href="https://www.postgresql.org/docs/current/warm-standby.html">PostgreSQL warm standby replication mechanism</a></li>
+<li><a href="https://medium.com/@ramesh.esl/change-data-capture-cdc-in-postgresql-7dee2d467d1b">Change Data Capture in PostgreSQL</a></li>
+<li><a href="https://www.packtpub.com/big-data-and-business-intelligence/postgresql-replication-second-edition">eBook: PostgreSQL Replication - Hans-Jürgen Schönig - Second Edition</a></li>
+<li><a href="http://galeracluster.com/library/documentation/weighted-quorum.html">Weighted quorum mechanism for cluster to select primary node</a></li>
+<li><a href="https://www.confluent.io/blog/no-more-silos-how-to-integrate-your-databases-with-apache-kafka-and-cdc">Using Kafka Connect as a CDC solution</a></li>
+<li><a href="https://debezium.io/docs/tutorial/">Debezium tutorial</a></li>
 </ul>
                 
                   
