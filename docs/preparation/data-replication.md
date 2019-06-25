@@ -9,7 +9,7 @@ STILL UNDER CONSTRUCTION
 
 We just to quickly summarize the concepts around data replication. 
 
-* Data Replication is the process of storing data in more than one server on same or different data center.
+* Data Replication is the process of storing data in more than one storae node on same or different data centers.
 * Data replication encompasses duplication of transactions on an ongoing basis, so that the replicate is in a consistently updated state and synchronized with the source
 * Different data replication techniques:
     * **Transactional Replication**: addresses full initial copies of the database and then receive updates as data changes in the same order as they occur with the publisher: transactional consistency is guaranteed. 
