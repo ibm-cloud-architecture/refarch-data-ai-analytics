@@ -262,6 +262,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../preparation/data-prep/" title="Data preparation" class="md-nav__link">
+      Data preparation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model-dev/" title="Building AI model" class="md-nav__link">
+      Building AI model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -291,15 +315,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intelligent-application-and-real-time-analytics" title="Intelligent application and real time analytics" class="md-nav__link">
-    Intelligent application and real time analytics
+  <a href="#intelligent-application-integrating-ml-service-and-bias-monitoring" title="Intelligent application integrating ML service and bias monitoring" class="md-nav__link">
+    Intelligent application integrating ML service and bias monitoring
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#modeling-architecture" title="Modeling architecture" class="md-nav__link">
-    Modeling architecture
+  <a href="#intelligent-application-with-real-time-analytics" title="Intelligent application with real time analytics" class="md-nav__link">
+    Intelligent application with real time analytics
   </a>
   
 </li>
@@ -312,18 +336,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="#modeling-architecture" title="ML & DL pipeline" class="md-nav__link">
-      ML & DL pipeline
-    </a>
   </li>
 
         
@@ -701,15 +713,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intelligent-application-and-real-time-analytics" title="Intelligent application and real time analytics" class="md-nav__link">
-    Intelligent application and real time analytics
+  <a href="#intelligent-application-integrating-ml-service-and-bias-monitoring" title="Intelligent application integrating ML service and bias monitoring" class="md-nav__link">
+    Intelligent application integrating ML service and bias monitoring
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#modeling-architecture" title="Modeling architecture" class="md-nav__link">
-    Modeling architecture
+  <a href="#intelligent-application-with-real-time-analytics" title="Intelligent application with real time analytics" class="md-nav__link">
+    Intelligent application with real time analytics
   </a>
   
 </li>
@@ -734,10 +746,24 @@
                 
                 
                 <h1 id="runtime-architectures">Runtime architectures</h1>
-<h2 id="intelligent-application-and-real-time-analytics">Intelligent application and real time analytics</h2>
-<p>The following diagram illustrates the high-level view of a typical intellingent applicatin involving real time analytics like a predictive scoring service, and event stream analytics.</p>
+<h2 id="intelligent-application-integrating-ml-service-and-bias-monitoring">Intelligent application integrating ML service and bias monitoring</h2>
+<p>From the main reference architecture, the intelligent application is composed of multiple components working together to bring business agility and values:</p>
+<p><img alt="" src="runtime-app.png" /></p>
+<ol>
+<li>The AI model is deployed as a service or as part of a real time analytics processing</li>
+<li>Watson OpenScale is used to monitor runtime performance and fairness over the customer population.</li>
+<li>The predictions are interpreted by an AI Insights Orchestrator deployed on IBM Cloud.</li>
+<li>The orchestrator consults Decision Management or Optimization components for the next best action or offer to be provided to the customer.</li>
+<li>This offer is communicated within the customer’s workflow by infusing it into the active customer care and support interactions, such as a Watson Assistant implementation.</li>
+<li>Over some time period, Watson OpenScale detected the model has skewed against the real world data it’s encountering and needs to be retrained.</li>
+<li>This triggers deeper analysis using Watson Studio of the divergence from the original model and similar steps to the original model design are taken to retrain the model with optimal features and new training data.</li>
+<li>An updated performant model is deployed to Watson Machine Learning, as another turn of the iterative end to end model lifecycle governance.</li>
+<li>Customers react favorably to the offers and the business starts to see the desired outcomes of lower customer churn and higher satisfaction ratings.</li>
+</ol>
+<h2 id="intelligent-application-with-real-time-analytics">Intelligent application with real time analytics</h2>
+<p>The generic reference architecture can be extended with a real time analytics view. The application solution includes components integrated with event streams to do real time analytics like a predictive scoring service, and event stream analytics.</p>
 <p><img alt="" src="rt-ia-ai.png" /></p>
-<p>The components involved in this diagram represents a typical cloud native application using different microservices and scoring function built around a model created by one or more Data Scientist using machine learning techniques. We address how to support the model creation in the next section. The top of a diagram defines the components of an intelligent web application:</p>
+<p>The components involved in this diagram represents a typical cloud native application using different microservices and scoring function built around a model created by one or more Data Scientist using machine learning techniques. We address how to support the model creation in <a href="../model-dev/">this note</a>. The top of a diagram defines the components of an intelligent web application:</p>
 <ul>
 <li>End user is an internal or external business user. It uses a single page application, or mobile application connected to a back-end to front end service.</li>
 <li>The back-end to front end service delivers data model for the user interface and perform service orchestration.</li>
@@ -754,14 +780,6 @@
 <li>One potential consumer of those events could be a streaming analytics apply a machine learning model on the event data. The action part of this streaming analytics component is to publish enriched events. Aggregates, count, any analytics computations can be done in real time. </li>
 <li>The AI Analytics layer needs to include a component to assess the performance of the model, and for example ensure there is not strong devision on the accuracy or responses are not bias. </li>
 <li>Finally, as we address data injection, there are patterns where the data transformation is done post event backbone to persist data in yet another format.</li>
-</ul>
-<h2 id="modeling-architecture">Modeling architecture</h2>
-<p>In the following diagram we are how to gather the data for exposing to the Data Scientist all the needed data from the different data sources: being public data, enterprise - private, or coming from event backbone. </p>
-<p><img alt="" src="model-ia-ai.png" /></p>
-<ul>
-<li>The data transformation can be controled by a workflow engine, using timer to trigger operations during down time. </li>
-<li>The data repositories represent a data lake to be used as source for defining training and test sets for the machine learning.</li>
-<li>The model building integrates with a ML cluster to run the different algorithm for selecting the best model.</li>
 </ul>
                 
                   
@@ -783,7 +801,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../model-dev/" title="Building AI model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -792,7 +810,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Building AI model
               </span>
             </div>
           </a>
