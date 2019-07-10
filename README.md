@@ -12,7 +12,7 @@ The content of this repository is written with markdown files, packaged with [Mk
 1. Install MkDocs locally following the [official documentation instructions](https://www.mkdocs.org/#installation).
 1. Install Material plugin for mkdocs:  `pip install mkdocs-material` 
 2. `git clone https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics.git` _(or your forked repository if you plan to edit)_
-3. `cd refarch-kc-container-ms`
+3. `cd refarch-data-ai-analytics`
 4. `mkdocs serve`
 5. Go to `http://127.0.0.1:8000/` in your browser.
 

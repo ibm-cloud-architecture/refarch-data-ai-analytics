@@ -1,12 +1,29 @@
 # Runtime architectures
 
-## Intelligent application and real time analytics
+## Intelligent application integrating ML service and bias monitoring
 
-The following diagram illustrates the high-level view of a typical intellingent applicatin involving real time analytics like a predictive scoring service, and event stream analytics.
+From the main reference architecture, the intelligent application is composed of multiple components working together to bring business agility and values:
+
+![](runtime-app.png)
+
+1. The AI model is deployed as a service or as part of a real time analytics processing
+1. Watson OpenScale is used to monitor runtime performance and fairness over the customer population.
+1. The predictions are interpreted by an AI Insights Orchestrator deployed on IBM Cloud.
+1. The orchestrator consults Decision Management or Optimization components for the next best action or offer to be provided to the customer.
+1. This offer is communicated within the customer’s workflow by infusing it into the active customer care and support interactions, such as a Watson Assistant implementation.
+1. Over some time period, Watson OpenScale detected the model has skewed against the real world data it’s encountering and needs to be retrained.
+1. This triggers deeper analysis using Watson Studio of the divergence from the original model and similar steps to the original model design are taken to retrain the model with optimal features and new training data.
+1. An updated performant model is deployed to Watson Machine Learning, as another turn of the iterative end to end model lifecycle governance.
+1. Customers react favorably to the offers and the business starts to see the desired outcomes of lower customer churn and higher satisfaction ratings.
+
+
+## Intelligent application with real time analytics
+
+The generic reference architecture can be extended with a real time analytics view. The application solution includes components integrated with event streams to do real time analytics like a predictive scoring service, and event stream analytics.
 
 ![](rt-ia-ai.png)
 
-The components involved in this diagram represents a typical cloud native application using different microservices and scoring function built around a model created by one or more Data Scientist using machine learning techniques. We address how to support the model creation in the next section. The top of a diagram defines the components of an intelligent web application:
+The components involved in this diagram represents a typical cloud native application using different microservices and scoring function built around a model created by one or more Data Scientist using machine learning techniques. We address how to support the model creation in [this note](../model-dev/README.md). The top of a diagram defines the components of an intelligent web application:
 
 * End user is an internal or external business user. It uses a single page application, or mobile application connected to a back-end to front end service.
 * The back-end to front end service delivers data model for the user interface and perform service orchestration.
@@ -24,12 +41,4 @@ The lower part of the diagram illustrates real time analytics on event streams, 
 * The AI Analytics layer needs to include a component to assess the performance of the model, and for example ensure there is not strong devision on the accuracy or responses are not bias. 
 * Finally, as we address data injection, there are patterns where the data transformation is done post event backbone to persist data in yet another format.
 
-## Modeling architecture
 
-In the following diagram we are how to gather the data for exposing to the Data Scientist all the needed data from the different data sources: being public data, enterprise - private, or coming from event backbone. 
-
-![](model-ia-ai.png)
-
-* The data transformation can be controled by a workflow engine, using timer to trigger operations during down time. 
-* The data repositories represent a data lake to be used as source for defining training and test sets for the machine learning.
-* The model building integrates with a ML cluster to run the different algorithm for selecting the best model.

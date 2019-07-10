@@ -15,7 +15,7 @@ We just to quickly summarize the concepts around data replication.
     * **Transactional Replication**: addresses full initial copies of the database and then receive updates as data changes in the same order as they occur with the publisher: transactional consistency is guaranteed. 
     * **Snapshot Replication**: distributes data exactly as it appears at a specific moment in time does not monitor for updates to the data. Used when data change less often.
     * **Merge Replication**: Data from two or more databases is combined into a single database. It allows both publisher and subscriber to independently make changes to the database. 
-* CAP Theorem: Data replication in distributed computing like cloud falls into the problem of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) where only two of the Consistency, Availability, or Paritition tolerance can be met simultaneously. In our context Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. 
+* CAP Theorem: Data replication in distributed computing like cloud falls into the problem of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) where only two of the Consistency, Availability, or Partition tolerance can be met simultaneously. In our context Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. 
 
 ### Considerations
 
@@ -46,7 +46,7 @@ The DB centric replication mechanism involves different techniques to do data re
 
 ![](images/CAP_theorem.png)
 
-For RDBMS the replication mechanism can use asynchronous, semi-synchronous or synchronous replication. The classical topology is to have a single leader, that replicates the changes to all the followers, this is mostly to avoid concurrent writes between different servers.
+For RDBMS, the replication mechanism can use asynchronous, semi-synchronous or synchronous replication. The classical topology is to have a single leader, that replicates the changes to all the followers, this is mostly to avoid concurrent writes between different servers.
 
 Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but read could happen on slaves. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data in the order in which commits were made on the publisher so that transactional consistency is guaranteed for the publications within any single subscription. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost.
 
@@ -75,7 +75,7 @@ Data Replication solutions provide both bulk and continuous delivery of changing
 
 There are more and more organizations choosing to replicate their changing operational data to Kafka rather than directly into Hadoop. Kafka’s ability to self manage its storage, emulate the concept of a keyed record and provide self describing structural metadata combined with the benefits of scalability and open source interfaces makes it an ideal streaming and staging area for enterprise analytics.  
 
-If needed data can be staged in Kafka for periodic delivery into Hadoop for a more controlled data lake, preventing the lake from becoming a swamp with millions of files.  
+If needed, data can be staged in Kafka for periodic delivery into Hadoop for a more controlled data lake, preventing the lake from becoming a swamp with millions of files.  
 
 Data stored in Kafka can be consumed by real time microservices and real time analytics engines.
 
@@ -89,7 +89,7 @@ Another important part of the architecture is the change data capture component.
 
 IBM's [InfoSphere Data Replication (IIDR)](https://www.ibm.com/us-en/marketplace/infosphere-data-replication) captures and replicates data in one run or only replicate changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets. The architecture diagram below presents the  components involved in CDC replication:
 
-![](images/CDC_architecture.png)
+![](images/CDC_architecture.jpg)
  
  And you can get product explanations [here.](https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.sysreq.doc/concepts/aboutcdc.html)
 

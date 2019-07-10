@@ -13,18 +13,46 @@ provides the right foundation to enable us to develop these *intelligent applica
 
 By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.
 
-The following diagram illustrates the top-level view of a Data centric and AI reference architecture. There is no argument about it, AI without Data will not exist. The architecture illustrates the need for strong data management capabilities inside a 'data platform', on which AI capabilities are plugged in.
+From a methodology point of view, a prescriptive approach to help all those project stakeholders to be successful is to adopt a four layers approach based on:
+
+* **[COLLECT](#collect-making-data-simple-and-accessible)** the data to make them easier to consume and accessible
+* **[ORGANIZE](#organize-trusted-governed-analytics)** to create a trusted analytics foundation on data with business meaning
+* **[ANALYZE](#analyze-insights-on-demand)** to scale business insight with AI everywhere, available as services
+* **[INFUSE](#infuse-operationalize-ai-with-trust-and-transparency)** to operationalize AI with trust and transparency
+
+There is no argument about it, AI without Data will not exist.
+
+The figure below represents how those layers are related to each other:
+
+![](ladder-ai.png)
+
+## IBM Data and AI Top Level Conceptual Architecture
+
+Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the  Collect, Analyze, Organize and Infuse activities. 
 
 ![](data-ai-ra.png)
 
-The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or no performance impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources. 
+The architecture illustrates the need for strong data management capabilities inside a 'data platform' (Dark blue area mapped to IBM Cloud Pak for Data), on which AI capabilities are plugged in (Data science workbench and Watson applications and services).
+
+The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
+
 On the AI side, data scientists need to perform data **analysis**, which includes making sense of the data using data **visualization**. To build a model they need to define features, and the AI environment supports **feature engineering**. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to **machine learning cluster**.
 
 Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model. When the model is deployed, **monitoring** capability, ensures the model is still accurate and even not biased. 
 
-The intelligent application on the right side, can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a **speech to text and text to speech** service, an **image recognition**, a **tone analyzer** services, the Natural Language Understanding (**NLU**), and **chatbot**. 
+The intelligent application, represented as a combination of capabilities at the top of the diagram: business process, core application, CRM... can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a **speech to text and text to speech** service, an **image recognition**, a **tone analyzer** services, the Natural Language Understanding (**NLU**), and **chatbot**. 
 
-# Data is fundamental
+## Data and AI reference architecture capabilities
+
+Another way to see this architecture is to zoom one more level to see the expected capabilities:
+
+![](data-ai-ra-3.png)
+
+The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
+
+This diagram is hte foundation for the data AI reference architecture and we describe the [data preparation](preparation/data-prep.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment on a separate notes.
+
+## Data is fundamental
 
 Managing data within the enterprise has proven to be challenging and complex. By itself data doesn't do anything. To make data useful, something other than the data is required – such as a computer program, a query, or a user (machine or person). Data is inert; it is not self-organizing or even self-understanding. This is what contributes to making data challenging and complex.
 
@@ -41,7 +69,7 @@ The AI Ladder contains four discrete levels: collect, organize, analyze, and inf
 The AI Ladder progresses through the rungs to infuse, a state of capability that means an enterprise has taken artificial intelligence beyond a science project. Infusion means that advanced analytical models have been interwoven into the essential fabric of an application or system whereby driving new or improved business capabilities.
 
 
-## Data as a differentiator
+### Data as a differentiator
 
 Data needs to become treated as a corporate asset. Data has the power to transform any organization, add monetary value, and enable the workforce to accomplish extraordinary things. Data-driven cultures can realize higher business returns.
 
@@ -65,7 +93,7 @@ Data and the related analytics are key to differentiation, but traditional appro
 
 Today, our users may have access to terabytes, petabytes, or even exabytes of data. But if that data is not collected, organized, managed, controlled, enriched, governed, measured, and analyzed, that data is not just useless, it can become a liability.
 
-### Collect – Making Data Simple and Accessible
+#### Collect – Making Data Simple and Accessible
 
 The first rung of the AI Ladder is collect and is how an enterprise can formally incorporate data into any analytic process. Data can be:
 
@@ -74,7 +102,7 @@ The first rung of the AI Ladder is collect and is how an enterprise can formally
 * In the cloud or on-premise
 * Any of it or all of it
 
-### Organize – Trusted, Governed Analytics
+#### Organize – Trusted, Governed Analytics
 
 The second rung of the AI Ladder is organize and is how is an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed so that any use can adequately controlled. Ideally, the outcome of organize is a body of data that is appropriately curated and offers the highest value to an enterprise. Organize allows data to be:
 
@@ -84,7 +112,7 @@ The second rung of the AI Ladder is organize and is how is an enterprise can mak
 * Secured through policy-based enforcement
 * A source of truth and utility
 
-### Analyze – Insights On-Demand
+#### Analyze – Insights On-Demand
 
 The third rung of the AI Ladder is analyze and is how is an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted to mean Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze allows data to be:
 
@@ -94,7 +122,7 @@ The third rung of the AI Ladder is analyze and is how is an organization approac
 * Compare against expectations
 * Automate and optimize decisions
 
-### Infuse – Operationalize AI with Trust and Transparency
+#### Infuse – Operationalize AI with Trust and Transparency
 
 The fourth rung of the AI Ladder is infuse and is how is an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. Infuse allows data to be:
 
@@ -141,10 +169,3 @@ If data is an enabler, then analytics can be considered one of the core capabili
 
 Analytics can be a complex and involved discipline that encompasses a broad and diverse set of tools, methods, and techniques. One end of the IBM AI Ladder is enabled through data in a static format such as a pre-built report; the other end is enabled through deep-learning and advanced artificial intelligence. Between these two ends, the enablement methods include diagnostic analytics, machine learning, statistics, qualitative analysis, cognitive analysis, and more. A robot, a software interface, or a human may need to apply multiple techniques within a single task or across the role that they perform in driving insight, taking action, monitoring, and making decisions.
 
-# Patterns
-
-## Intelligent application
-
-## Business intelligence
-
-## Stream analytics

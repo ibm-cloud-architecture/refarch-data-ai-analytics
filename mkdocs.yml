@@ -3,8 +3,9 @@ repo_url: https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics
 nav:
   - Introduction: index.md
   - Architectures :
+    - Data preparation: preparation/data-prep.md
+    - Building AI model: model-dev/README.md
     - Runtime application: runtimes/README.md
-    - ML & DL pipeline: runtimes/#modeling-architecture
   - Methodology: methodology/README.md
   - Data Topology: 
     - Principles: topology/README.md 
