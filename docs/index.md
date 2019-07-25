@@ -28,13 +28,13 @@ The figure below represents how those layers are related to each other:
 
 ## IBM Data and AI Top Level Conceptual Architecture
 
-Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the  Collect, Analyze, Organize and Infuse activities. 
+Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the Collect, Analyze, Organize and Infuse activities. 
 
 ![](data-ai-ra.png)
 
-The architecture illustrates the need for strong data management capabilities inside a 'data platform' (Dark blue area mapped to IBM Cloud Pak for Data), on which AI capabilities are plugged in (Data science workbench and Watson applications and services).
+This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).
 
-The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
+The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
 
 On the AI side, data scientists need to perform data **analysis**, which includes making sense of the data using data **visualization**. To build a model they need to define features, and the AI environment supports **feature engineering**. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to **machine learning cluster**.
 
@@ -50,7 +50,14 @@ Another way to see this architecture is to zoom one more level to see the expect
 
 The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
 
-This diagram is hte foundation for the data AI reference architecture and we describe the [data preparation](preparation/data-prep.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment on a separate notes.
+This diagram is the foundation for the data AI reference architecture and we describe the [data preparation](preparation/data-prep.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment in separate notes.
+
+### Map to products
+
+The following diagrams illustrate the product mapping to capability.
+
+![](data-ai-ra-products.png)
+
 
 ## Data is fundamental
 
