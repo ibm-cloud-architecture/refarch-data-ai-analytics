@@ -269,6 +269,19 @@
     Data and AI reference architecture capabilities
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-to-products" title="Map to products" class="md-nav__link">
+    Map to products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -810,6 +823,19 @@
     Data and AI reference architecture capabilities
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#map-to-products" title="Map to products" class="md-nav__link">
+    Map to products
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -943,10 +969,10 @@
 <p>The figure below represents how those layers are related to each other:</p>
 <p><img alt="" src="ladder-ai.png" /></p>
 <h2 id="ibm-data-and-ai-top-level-conceptual-architecture">IBM Data and AI Top Level Conceptual Architecture</h2>
-<p>Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the  Collect, Analyze, Organize and Infuse activities. </p>
+<p>Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the Collect, Analyze, Organize and Infuse activities. </p>
 <p><img alt="" src="data-ai-ra.png" /></p>
-<p>The architecture illustrates the need for strong data management capabilities inside a 'data platform' (Dark blue area mapped to IBM Cloud Pak for Data), on which AI capabilities are plugged in (Data science workbench and Watson applications and services).</p>
-<p>The data platform addresses the data <strong>collection</strong> and <strong>transformation</strong> to move data to local highly scalable <strong>store</strong>. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.</p>
+<p>This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).</p>
+<p>The data platform addresses the data <strong>collection</strong> and <strong>transformation</strong> to move data to local highly scalable <strong>store</strong>. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.</p>
 <p>On the AI side, data scientists need to perform data <strong>analysis</strong>, which includes making sense of the data using data <strong>visualization</strong>. To build a model they need to define features, and the AI environment supports <strong>feature engineering</strong>. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to <strong>machine learning cluster</strong>.</p>
 <p>Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model. When the model is deployed, <strong>monitoring</strong> capability, ensures the model is still accurate and even not biased. </p>
 <p>The intelligent application, represented as a combination of capabilities at the top of the diagram: business process, core application, CRM... can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a <strong>speech to text and text to speech</strong> service, an <strong>image recognition</strong>, a <strong>tone analyzer</strong> services, the Natural Language Understanding (<strong>NLU</strong>), and <strong>chatbot</strong>. </p>
@@ -954,7 +980,10 @@
 <p>Another way to see this architecture is to zoom one more level to see the expected capabilities:</p>
 <p><img alt="" src="data-ai-ra-3.png" /></p>
 <p>The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.</p>
-<p>This diagram is hte foundation for the data AI reference architecture and we describe the <a href="preparation/data-prep/">data preparation</a>,  the <a href="runtimes/">application runtime</a> and <a href="model-dev/">AI model development</a> environment on a separate notes.</p>
+<p>This diagram is the foundation for the data AI reference architecture and we describe the <a href="preparation/data-prep/">data preparation</a>,  the <a href="runtimes/">application runtime</a> and <a href="model-dev/">AI model development</a> environment in separate notes.</p>
+<h3 id="map-to-products">Map to products</h3>
+<p>The following diagrams illustrate the product mapping to capability.</p>
+<p><img alt="" src="data-ai-ra-products.png" /></p>
 <h2 id="data-is-fundamental">Data is fundamental</h2>
 <p>Managing data within the enterprise has proven to be challenging and complex. By itself data doesn't do anything. To make data useful, something other than the data is required – such as a computer program, a query, or a user (machine or person). Data is inert; it is not self-organizing or even self-understanding. This is what contributes to making data challenging and complex.</p>
 <p>In the <a href="https://en.wikipedia.org/wiki/DIKW_pyramid">DIKW pyramid</a>, data is the base with the least amount of perceived usefulness. Information has higher value than data, knowledge has higher value than information, and wisdom has the highest perceived value of all. Data requires something else—a program, a machine, or even a person—to move up the value chain and become information. By organizing and classifying information, the value chain can begin and expand from data and information to be regarded as knowledge.</p>
