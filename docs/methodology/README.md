@@ -149,4 +149,4 @@ The MITSloan did a review of the major differences between data scientists and b
 | Nature of work | Report, predict, prescribe and optimize| Explore, discover, investigate and visualize | 
 | Typical educationl background | Operations research, statistics, applied mathematics, predictive analytics| Computer science, data science, cognitive science| 
 | Mindset | Entreprenaurial 69%, explore new ideas 58%, gain insights outside of formal projects  54%| Entreprenaurial 96%, explore new ideas 85%, gain insights outside of formal projects  89%| 
-| --- | --- | --- |
+

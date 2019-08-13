@@ -38,6 +38,19 @@ We really value contributions and to maximize the impact of code contributions w
 
 The [contributing guidelines are in this note.](./CONTRIBUTING.md)
 
+### Contributores
+
+* [Neal Fishman](https://www.linkedin.com/in/neal-fishman-/)
+* [Jerome Boyer](https://www.linkedin.com/in/jeromeboyer/)
+* [Andy Gibbs](https://www.linkedin.com/in/andy-g-3b7a06113/)
+* [Tony Efremenko](https://www.linkedin.com/in/tony-efremenko-4359b7/)
+* [Sandra Tucker](https://www.linkedin.com/in/sandraltucker/)
+
 ## Project Status
 
 05/21 Starting
+
+
+
+Please [contact me](mailto:boyerje@us.ibm.com) for any questions.
+
