@@ -45,6 +45,7 @@ The [contributing guidelines are in this note.](./CONTRIBUTING.md)
 * [Andy Gibbs](https://www.linkedin.com/in/andy-g-3b7a06113/)
 * [Tony Efremenko](https://www.linkedin.com/in/tony-efremenko-4359b7/)
 * [Sandra Tucker](https://www.linkedin.com/in/sandraltucker/)
+* [Stacey Ronaghan](https://www.linkedin.com/in/staceyronaghan/)
 
 ## Project Status
 
