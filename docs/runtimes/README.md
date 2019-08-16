@@ -41,4 +41,12 @@ The lower part of the diagram illustrates real time analytics on event streams, 
 * The AI Analytics layer needs to include a component to assess the performance of the model, and for example ensure there is not strong devision on the accuracy or responses are not bias. 
 * Finally, as we address data injection, there are patterns where the data transformation is done post event backbone to persist data in yet another format.
 
+One specific architecture pattern used in the Reefer shipment reference implementation looks like.
 
+![](RT-analytics.png)
+
+The Reefer container,a as IoT device emits container metrics avery minutes via the MQTT protocol. The first component receiving those messages is Apache Nifi to transform the message to a kafka events. Kafka is used as the event backbone and event sourcin so microservices, deployed on openshift, can consume and publish messages. 
+
+For persistence reason, we may leverage big data type of storage like Cassandra to persist the container metrics over a longer time period. This datasource is used for the Data Scientists to do its data preparation and build training and test sets. 
+
+Data scientists can run Jupyter lab on OpenShift and build a model to be deployed as python microservice, consumer of kafka events. The action will be to trigger an email for the Reefer container to be put in maintenance.
