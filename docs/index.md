@@ -24,13 +24,13 @@ There is no argument about it, AI without Data will not exist.
 
 The figure below represents how those layers are related to each other:
 
-![](ladder-ai.png)
+![](images/ladder-ai.png)
 
 ## IBM Data and AI Top Level Conceptual Architecture
 
 Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the Collect, Analyze, Organize and Infuse activities. 
 
-![](data-ai-ra.png)
+![](images/data-ai-ra.png)
 
 This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).
 
@@ -46,7 +46,7 @@ The intelligent application, represented as a combination of capabilities at the
 
 Another way to see this architecture is to zoom one more level to see the expected capabilities:
 
-![](data-ai-ra-3.png)
+![](images/data-ai-ra-3.png)
 
 The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
 
@@ -56,7 +56,7 @@ This diagram is the foundation for the data AI reference architecture and we des
 
 The following diagrams illustrate the product mapping to capability.
 
-![](data-ai-ra-products.png)
+![](images/data-ai-ra-products.png)
 
 
 ## Data is fundamental
@@ -67,7 +67,7 @@ In the [DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid), data is the b
 
 Wisdom, the top of the pyramid, is the pinnacle of the data value chain. Wisdom results in a combination of inert data – a fundamental raw material in the modern digital age – combined with a series of progressive traits such as: perspective, context, understanding, learning, and the ability to reason. Cognitive computing and artificial intelligence now mean that these traits can be attributed to both a person and a machine.
 
- ![](data-dikw-ai.png)
+ ![](images/data-dikw-ai.png)
 
  The IBM AI Ladder loosely parallels the DIKW pyramid in that the AI Ladder represents a progressive movement towards value creation within an enterprise. Increased value can be gained from completing activities at each step of the AI Ladder, with the potential to recognize higher levels of value, the higher the ladder is climbed.
 

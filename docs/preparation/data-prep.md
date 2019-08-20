@@ -2,7 +2,7 @@
 
 As part of the collect and analyze activities, is a focus to govern and manage the data for building the data lake. Using the reference architecture, the following capabilities are used to address this goal:
 
-![](build-lake.png)
+![](images/build-lake.png)
 
 1. Data sources are more than just databases, these include 3rd party and external data.
 1. Connectors provide specialized client code to access the function/data of an asset as well as any metadata it handles. Typically, the metadata identifies the type of asset, how to access it and possibly the schema of the data if the data is structured.
