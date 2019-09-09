@@ -2,7 +2,9 @@
 
 In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and hollistic point of view on how to do it.
 
-We propose you navigate the content using [the book format.](https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics)
+We propose you navigate the content using [the book format](https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics) to have the full explanation of the following reference architecture
+
+![](docs/images/data-ai-ra-3.jpg)
 
 
 ### Building this booklet locally

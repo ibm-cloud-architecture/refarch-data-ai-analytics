@@ -46,7 +46,7 @@ The intelligent application, represented as a combination of capabilities at the
 
 Another way to see this architecture is to zoom one more level to see the expected capabilities:
 
-![](images/data-ai-ra-3.png)
+![](images/data-ai-ra-3.jpg)
 
 The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
 
