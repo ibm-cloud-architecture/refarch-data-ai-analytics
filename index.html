@@ -938,13 +938,13 @@
 <p class="admonition-title">Abstract</p>
 <p>In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present a holistic point of view on how to do it.</p>
 </div>
-<p>When we consider development of  Data and AI intensive applications  or  <em>intelligent Application</em>  it is helpful to think of how the combination of three underlying architecture patterns</p>
+<p>When we consider development of  Data and AI intensive applications  or  <em>Intelligent Applications</em>  it is helpful to think of how the combination of three underlying architecture patterns</p>
 <ul>
 <li>Cloud Native application architecture patterns</li>
 <li>Data architecture patterns</li>
 <li>AI architecture patterns</li>
 </ul>
-<p>provides the right foundation to enable us to develop these <em>intelligent applications</em> in a highly agile cloud native way.</p>
+<p>provides the right foundation to enable us to develop these <em>Intelligent Applications</em> in a highly agile cloud native way.</p>
 <p>By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.</p>
 <p>From a methodology point of view, a prescriptive approach to help all those project stakeholders to be successful is to adopt a four layers approach based on:</p>
 <ul>
@@ -959,10 +959,20 @@
 <h2 id="ibm-data-and-ai-top-level-conceptual-architecture">IBM Data and AI Top Level Conceptual Architecture</h2>
 <p>Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the Collect, Analyze, Organize and Infuse activities. </p>
 <p><img alt="" src="images/data-ai-ra.png" /></p>
-<p>This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).</p>
-<p>The data platform addresses the data <strong>collection</strong> and <strong>transformation</strong> to move data to local highly scalable <strong>store</strong>. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.</p>
+<p>This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).</p>
+<p>The data platform addresses the data <strong>collection</strong> and <strong>transformation</strong> tasks to move data to a (cloud)local highly scalable data <strong>store</strong>. Sometimes, data movement can or must be avoided. Common reasons include:</p>
+<ul>
+<li>no transformations necessary (e.g. accessing an external data mart via SQL or API)</li>
+<li>no performance impact (e.g. materialized SQL views served by a parallel database backend)</li>
+<li>regulatory aspects (each reach access to a data source must be logged to an audit log)</li>
+<li>real-time aspects (data must be processed immediately, latency of storage too high)</li>
+<li>size (data movement too expensive from a network bandwith perspective, <strong>compute</strong> must move toward data source)</li>
+<li>privacy (data can't be copied, only aggregates as a result of <strong>compute</strong> can be moved)</li>
+<li>network partition (data source unreliable e.g. remote IoT Gateway)</li>
+</ul>
+<p>when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.</p>
 <p>On the AI side, data scientists need to perform data <strong>analysis</strong>, which includes making sense of the data using data <strong>visualization</strong>. To build a model they need to define features, and the AI environment supports <strong>feature engineering</strong>. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to <strong>machine learning cluster</strong>.</p>
-<p>Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model. When the model is deployed, <strong>monitoring</strong> capability, ensures the model is still accurate and even not biased. </p>
+<p>Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model (data lineage). When the model is deployed, <strong>monitoring</strong> capability, ensures the model is still accurate and even not biased. </p>
 <p>The intelligent application, represented as a combination of capabilities at the top of the diagram: business process, core application, CRM... can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a <strong>speech to text and text to speech</strong> service, an <strong>image recognition</strong>, a <strong>tone analyzer</strong> services, the Natural Language Understanding (<strong>NLU</strong>), and <strong>chatbot</strong>. </p>
 <h2 id="data-and-ai-reference-architecture-capabilities">Data and AI reference architecture capabilities</h2>
 <p>Another way to see this architecture is to zoom one more level to see the expected capabilities:</p>
@@ -984,37 +994,40 @@
 <p>Data needs to become treated as a corporate asset. Data has the power to transform any organization, add monetary value, and enable the workforce to accomplish extraordinary things. Data-driven cultures can realize higher business returns.</p>
 <p>While a dog house can be built without much planning, you cannot build a modern skyscraper with the same approach. The scale of preserved data across a complex hybrid cloud or multi-cloud topology requires discipline, even for an organization that embraces agile and adaptive philosophies.</p>
 <p>Data can and should be used to drive analytical insights. But what considerations and planning activities are required to enable the generation of insights, the ability to take action, and the courage to make decisions? Although the planning and implementation activities to maximize the usefulness of your data can require some deep thinking, organizations can become data-centric and data-driven in a short time.</p>
-<p>More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, whether large or small.</p>
-<p>Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of unauthorized projects.</p>
+<p>More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, irrespective of size.</p>
+<p>Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of <a href="https://developer.ibm.com/articles/architectural-thinking-in-the-wild-west-of-data-science/">unauthorized projects</a>.</p>
 <h2 id="data-platform">Data platform</h2>
 <h3 id="principles">Principles</h3>
 <ol>
-<li>There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity</li>
+<li>There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exerising specialisation through connectivity.</li>
 <li>Different application patterns apply different data specialisation.</li>
-<li>There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.</li>
+<li>There is a clear dependency between AI and Data Management, but in an <strong>Intelligent Application</strong> context there is a Data concern, a AI model management concern, and multi cloud deployment concerns.</li>
 <li>As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    </li>
 <li>The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.</li>
 </ol>
 <p>Today, our users may have access to terabytes, petabytes, or even exabytes of data. But if that data is not collected, organized, managed, controlled, enriched, governed, measured, and analyzed, that data is not just useless, it can become a liability.</p>
 <h4 id="collect-making-data-simple-and-accessible">Collect – Making Data Simple and Accessible</h4>
-<p>The first rung of the AI Ladder is collect and is how an enterprise can formally incorporate data into any analytic process. Data can be:</p>
+<p>The first rung of the AI Ladder is <em>Collect</em> and is how an enterprise can formally incorporate data into any analytic process. Properties of data include:</p>
 <ul>
 <li>Structured, semi-structured, unstructured</li>
-<li>Proprietary or open source</li>
+<li>Proprietary or open</li>
 <li>In the cloud or on-premise</li>
-<li>Any of it or all of it</li>
+<li>Any combination above</li>
 </ul>
 <h4 id="organize-trusted-governed-analytics">Organize – Trusted, Governed Analytics</h4>
-<p>The second rung of the AI Ladder is organize and is how is an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed so that any use can adequately controlled. Ideally, the outcome of organize is a body of data that is appropriately curated and offers the highest value to an enterprise. Organize allows data to be:</p>
+<p>The second rung of the AI Ladder is <em>Organize</em> and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of <em>Organize</em> is a body of data that is appropriately curated and offers the highest value to an enterprise. 
+Organize allows data to be:</p>
 <ul>
-<li>A discoverable asset</li>
+<li>Discoverable</li>
 <li>Cataloged</li>
-<li>Profiled, categorized, and classified</li>
-<li>Secured through policy-based enforcement</li>
+<li>Profiled</li>
+<li>Categorized</li>
+<li>Classified</li>
+<li>Secured (e.g. through policy-based enforcement)</li>
 <li>A source of truth and utility</li>
 </ul>
 <h4 id="analyze-insights-on-demand">Analyze – Insights On-Demand</h4>
-<p>The third rung of the AI Ladder is analyze and is how is an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted to mean Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze allows data to be:</p>
+<p>The third rung of the AI Ladder is <em>Analyze</em> and is about how an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted as Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze, through data, allows to:</p>
 <ul>
 <li>Determine what has happened</li>
 <li>Determine what is happening</li>
@@ -1023,7 +1036,7 @@
 <li>Automate and optimize decisions</li>
 </ul>
 <h4 id="infuse-operationalize-ai-with-trust-and-transparency">Infuse – Operationalize AI with Trust and Transparency</h4>
-<p>The fourth rung of the AI Ladder is infuse and is how is an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. Infuse allows data to be:</p>
+<p>The fourth rung of the AI Ladder is <em>Infuse</em> and is about how an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. <em>Infuse</em> allows data to be:</p>
 <ul>
 <li>Used for automation and optimization</li>
 <li>Part of a causal loop of action and feedback</li>
@@ -1040,7 +1053,7 @@
 <li><a href="https://www.ibm.com/analytics/data-management">Hybrid Data Management</a><ul>
 <li>Collect all types of data, structured and unstructured</li>
 <li>Include all open sources of data</li>
-<li>Single platform with a commonf application layer</li>
+<li>Single platform with a common application layer</li>
 <li>Write once and deploy anywhere</li>
 </ul>
 </li>
