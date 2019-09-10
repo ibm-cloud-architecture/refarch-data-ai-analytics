@@ -3,13 +3,13 @@
 !!! abstract
     In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present a holistic point of view on how to do it.
 
-When we consider development of  Data and AI intensive applications  or  *intelligent Application*  it is helpful to think of how the combination of three underlying architecture patterns
+When we consider development of  Data and AI intensive applications  or  *Intelligent Applications*  it is helpful to think of how the combination of three underlying architecture patterns
 
 + Cloud Native application architecture patterns
 + Data architecture patterns
 + AI architecture patterns
 
-provides the right foundation to enable us to develop these *intelligent applications* in a highly agile cloud native way.
+provides the right foundation to enable us to develop these *Intelligent Applications* in a highly agile cloud native way.
 
 By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.
 
@@ -32,13 +32,23 @@ Based on the above prescriptive approach, a Data centric and AI reference archit
 
 ![](images/data-ai-ra.png)
 
-This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).
+This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).
 
-The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
+The data platform addresses the data **collection** and **transformation** tasks to move data to a (cloud)local highly scalable data **store**. Sometimes, data movement can or must be avoided. Common reasons include:
+
+* no transformations necessary (e.g. accessing an external data mart via SQL or API)
+* no performance impact (e.g. materialized SQL views served by a parallel database backend)
+* regulatory aspects (each reach access to a data source must be logged to an audit log)
+* real-time aspects (data must be processed immediately, latency of storage too high)
+* size (data movement too expensive from a network bandwith perspective, **compute** must move toward data source)
+* privacy (data can't be copied, only aggregates as a result of **compute** can be moved)
+* network partition (data source unreliable e.g. remote IoT Gateway)
+
+when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
 
 On the AI side, data scientists need to perform data **analysis**, which includes making sense of the data using data **visualization**. To build a model they need to define features, and the AI environment supports **feature engineering**. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to **machine learning cluster**.
 
-Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model. When the model is deployed, **monitoring** capability, ensures the model is still accurate and even not biased. 
+Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model (data lineage). When the model is deployed, **monitoring** capability, ensures the model is still accurate and even not biased. 
 
 The intelligent application, represented as a combination of capabilities at the top of the diagram: business process, core application, CRM... can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a **speech to text and text to speech** service, an **image recognition**, a **tone analyzer** services, the Natural Language Understanding (**NLU**), and **chatbot**. 
 
@@ -84,17 +94,17 @@ While a dog house can be built without much planning, you cannot build a modern 
 
 Data can and should be used to drive analytical insights. But what considerations and planning activities are required to enable the generation of insights, the ability to take action, and the courage to make decisions? Although the planning and implementation activities to maximize the usefulness of your data can require some deep thinking, organizations can become data-centric and data-driven in a short time.
 
-More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, whether large or small.
+More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, irrespective of size.
 
-Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of unauthorized projects.
+Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of [unauthorized projects](https://developer.ibm.com/articles/architectural-thinking-in-the-wild-west-of-data-science/).
 
 ## Data platform
 
 ### Principles
 
-1. There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity
+1. There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exerising specialisation through connectivity.
 1. Different application patterns apply different data specialisation.
-1. There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.
+1. There is a clear dependency between AI and Data Management, but in an **Intelligent Application** context there is a Data concern, a AI model management concern, and multi cloud deployment concerns.
 1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
 1. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
 
@@ -102,26 +112,29 @@ Today, our users may have access to terabytes, petabytes, or even exabytes of da
 
 #### Collect – Making Data Simple and Accessible
 
-The first rung of the AI Ladder is collect and is how an enterprise can formally incorporate data into any analytic process. Data can be:
+The first rung of the AI Ladder is *Collect* and is how an enterprise can formally incorporate data into any analytic process. Properties of data include:
 
 * Structured, semi-structured, unstructured
-* Proprietary or open source
+* Proprietary or open
 * In the cloud or on-premise
-* Any of it or all of it
+* Any combination above
 
 #### Organize – Trusted, Governed Analytics
 
-The second rung of the AI Ladder is organize and is how is an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed so that any use can adequately controlled. Ideally, the outcome of organize is a body of data that is appropriately curated and offers the highest value to an enterprise. Organize allows data to be:
+The second rung of the AI Ladder is *Organize* and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of *Organize* is a body of data that is appropriately curated and offers the highest value to an enterprise. 
+Organize allows data to be:
 
-* A discoverable asset
+* Discoverable
 * Cataloged
-* Profiled, categorized, and classified
-* Secured through policy-based enforcement
+* Profiled
+* Categorized
+* Classified
+* Secured (e.g. through policy-based enforcement)
 * A source of truth and utility
 
 #### Analyze – Insights On-Demand
 
-The third rung of the AI Ladder is analyze and is how is an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted to mean Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze allows data to be:
+The third rung of the AI Ladder is *Analyze* and is about how an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted as Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze, through data, allows to:
 
 * Determine what has happened
 * Determine what is happening
@@ -131,7 +144,7 @@ The third rung of the AI Ladder is analyze and is how is an organization approac
 
 #### Infuse – Operationalize AI with Trust and Transparency
 
-The fourth rung of the AI Ladder is infuse and is how is an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. Infuse allows data to be:
+The fourth rung of the AI Ladder is *Infuse* and is about how an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. *Infuse* allows data to be:
 
 * Used for automation and optimization
 * Part of a causal loop of action and feedback
@@ -151,7 +164,7 @@ The activities to properly handle data and to pursue the AI Ladder, can be shown
 * [Hybrid Data Management](https://www.ibm.com/analytics/data-management)
     * Collect all types of data, structured and unstructured
     * Include all open sources of data
-    * Single platform with a commonf application layer
+    * Single platform with a common application layer
     * Write once and deploy anywhere
 * [Unified Governance and Integration](https://www.ibm.com/analytics/unified-governance-integration)
     * Satisfy all matters of finding, cataloging and masking data

@@ -6,7 +6,7 @@ Reusing our reference architecture, we are now defining the flow of activities h
 
 ![](model-build.png)
 
-1. The business has identified a desired outcome that can be realized by a building a predictive model e.g. e.g. customer churn and next best action.
+1. The business has identified a desired outcome that can be realized by building a predictive model e.g. customer churn and next best action prodiction.
 1. To build the predictive model; the Business Analyst, Data Steward, Data Scientist and Cognitive Architect collaborate using Watson Studio.
 1. They look at existing catalogs and data collections (such as in an enterprise data lake or data warehouse) to identify the optimal informing features towards building an effective predictive model. Understanding the needs and goals of the new models will provide the metrics required to determine if existing data structures may be used, or if new environments will need to be created. At this time, the overall design goals will be defined i.e. should it be a data lake or warehouse, time sensitivity of the data, where should it be deployed etc.
 1. They discuss some signals could be extracted out of third party and social data that is available on a different cloud. In today’s hybrid world, this information may be pulled in via tools like ICP for Data and choice can be made around what use as is, what to virtualize and what to federate.
