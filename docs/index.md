@@ -34,7 +34,17 @@ Based on the above prescriptive approach, a Data centric and AI reference archit
 
 This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).
 
-The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
+The data platform addresses the data **collection** and **transformation** tasks to move data to a (cloud)local highly scalable data **store**. Sometimes, data movement can or must be avoided. Common reasons include:
+
+* no transformations necessary (e.g. accessing an external data mart via SQL or API)
+* no performance impact (e.g. materialized SQL views served by a parallel database backend)
+* regulatory aspects (each reach access to a data source must be logged to an audit log)
+* real-time aspects (data must be processed immediately, latency of storage too high)
+* size (data movement too expensive from a network bandwith perspective, **compute** must move toward data source)
+* privacy (data can't be copied, only aggregates as a result of **compute** can be moved)
+* network partition (data source unreliable e.g. remote IoT Gateway)
+
+when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
 
 On the AI side, data scientists need to perform data **analysis**, which includes making sense of the data using data **visualization**. To build a model they need to define features, and the AI environment supports **feature engineering**. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to **machine learning cluster**.
 
