@@ -121,17 +121,20 @@ The first rung of the AI Ladder is *Collect* and is how an enterprise can formal
 
 #### Organize – Trusted, Governed Analytics
 
-The second rung of the AI Ladder is organize and is how is an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed so that any use can adequately controlled. Ideally, the outcome of organize is a body of data that is appropriately curated and offers the highest value to an enterprise. Organize allows data to be:
+The second rung of the AI Ladder is *Organize* and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of *Organize* is a body of data that is appropriately curated and offers the highest value to an enterprise. 
+Organize allows data to be:
 
-* A discoverable asset
+* Discoverable
 * Cataloged
-* Profiled, categorized, and classified
-* Secured through policy-based enforcement
+* Profiled
+* Categorized
+* Classified
+* Secured (e.g. through policy-based enforcement)
 * A source of truth and utility
 
 #### Analyze – Insights On-Demand
 
-The third rung of the AI Ladder is analyze and is how is an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted to mean Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze allows data to be:
+The third rung of the AI Ladder is *Analyze* and is about how an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted as Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze, through data, allows to:
 
 * Determine what has happened
 * Determine what is happening
@@ -141,7 +144,7 @@ The third rung of the AI Ladder is analyze and is how is an organization approac
 
 #### Infuse – Operationalize AI with Trust and Transparency
 
-The fourth rung of the AI Ladder is infuse and is how is an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. Infuse allows data to be:
+The fourth rung of the AI Ladder is *Infuse* and is about how an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. *Infuse* allows data to be:
 
 * Used for automation and optimization
 * Part of a causal loop of action and feedback
@@ -161,7 +164,7 @@ The activities to properly handle data and to pursue the AI Ladder, can be shown
 * [Hybrid Data Management](https://www.ibm.com/analytics/data-management)
     * Collect all types of data, structured and unstructured
     * Include all open sources of data
-    * Single platform with a commonf application layer
+    * Single platform with a common application layer
     * Write once and deploy anywhere
 * [Unified Governance and Integration](https://www.ibm.com/analytics/unified-governance-integration)
     * Satisfy all matters of finding, cataloging and masking data
