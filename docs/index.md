@@ -102,9 +102,9 @@ Data and the related analytics are key to differentiation, but traditional appro
 
 ### Principles
 
-1. There is a spectrum from single source of the truth to data hyper personalisation . Fundamentally we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them Exercise specialisation through connectivity
+1. There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exerising specialisation through connectivity.
 1. Different application patterns apply different data specialisation.
-1. There is a clear dependency between AI and Data management, but for an intelligent application context there are a Data concern, a AI model management concern, a multi cloud deployment concerns.
+1. There is a clear dependency between AI and Data Management, but in an **Intelligent Application** context there is a Data concern, a AI model management concern, and multi cloud deployment concerns.
 1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
 1. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
 
@@ -112,12 +112,12 @@ Today, our users may have access to terabytes, petabytes, or even exabytes of da
 
 #### Collect – Making Data Simple and Accessible
 
-The first rung of the AI Ladder is collect and is how an enterprise can formally incorporate data into any analytic process. Data can be:
+The first rung of the AI Ladder is *Collect* and is how an enterprise can formally incorporate data into any analytic process. Properties of data include:
 
 * Structured, semi-structured, unstructured
-* Proprietary or open source
+* Proprietary or open
 * In the cloud or on-premise
-* Any of it or all of it
+* Any combination above
 
 #### Organize – Trusted, Governed Analytics
 
