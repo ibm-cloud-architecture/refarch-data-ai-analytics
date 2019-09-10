@@ -3,7 +3,7 @@
 !!! abstract
     In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present a holistic point of view on how to do it.
 
-When we consider development of  Data and AI intensive applications  or  *intelligent Application*  it is helpful to think of how the combination of three underlying architecture patterns
+When we consider development of  Data and AI intensive applications  or  *Intelligent Applications*  it is helpful to think of how the combination of three underlying architecture patterns
 
 + Cloud Native application architecture patterns
 + Data architecture patterns
