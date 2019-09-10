@@ -9,7 +9,7 @@ When we consider development of  Data and AI intensive applications  or  *Intell
 + Data architecture patterns
 + AI architecture patterns
 
-provides the right foundation to enable us to develop these *intelligent applications* in a highly agile cloud native way.
+provides the right foundation to enable us to develop these *Intelligent Applications* in a highly agile cloud native way.
 
 By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.
 
