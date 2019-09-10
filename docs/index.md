@@ -96,7 +96,7 @@ Data can and should be used to drive analytical insights. But what consideration
 
 More so than ever, businesses need to move rapidly. Organizations must respond to changing needs as quickly as possible or risk becoming irrelevant. This applies to both private or public organizations, irrespective of size.
 
-Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of unauthorized projects.
+Data and the related analytics are key to differentiation, but traditional approaches are often ad hoc, naive, complex, difficult, and brittle. This can result in delays, business challenges, lost opportunities, and the rise of [unauthorized projects](https://developer.ibm.com/articles/architectural-thinking-in-the-wild-west-of-data-science/).
 
 ## Data platform
 
