@@ -32,7 +32,7 @@ Based on the above prescriptive approach, a Data centric and AI reference archit
 
 ![](images/data-ai-ra.png)
 
-This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (Dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists ( machine learning workbench and business analytics).
+This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).
 
 The data platform addresses the data **collection** and **transformation** to move data to local highly scalable **store**. Sometime, it is necessary to avoid moving data when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
 
