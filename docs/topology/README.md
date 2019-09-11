@@ -37,7 +37,7 @@ Non-primitive zones include a virtual zone that may cluster multiple zones toget
 The data flow shows the *flow of Data* and helps
 to illustrate the points of integration or interoperability between the zones.  
 
-This can also help show when circular data flows occur across the zones, this can become a flag for investigation as data integrity may potentially be compromised if not well managed (designed and governed).
+This can also help to detect circular data flows occurring across zones, to be flagged for investigation as data integrity may potentially be compromised if not well managed (designed and governed).
 
 ### Data Layer
 
@@ -47,16 +47,13 @@ The *data layer* is reflective of where data may be persisted. In a modern enter
 - Edge
 - Device
 
-We can think of this as being a *cloud, fog, mist*  node topology, where the different nodes have different characteristics with compute power, storage capacity, and may be constrained by network connectivity.
+We can think of this as being a *cloud, fog, edge*  node topology, where the different nodes have different characteristics with compute power, storage capacity, and may be constrained by network connectivity, here data will likely be highly distributed across an organization and certainly across an enterprise.
+  
+For example, mixed deployment data layers include:
 
-- **Cloud** - Public cloud, unconstrained or maybe best termed the least constrained
+- **Cloud** - Public cloud, unconstrained
 - **Fog** - Private cloud, constrained by available infrastructure
-- **Mist** - Smart device, the most constrained by the limitations of the device platform
-
-where data will likely be highly distributed across an organization and certainly across an enterprise.
-
-For example mixed deployment data layers cloud include:
-
+- **Edge** - Smart device, the most constrained by the limitations of compute capabilities, network bandwidth and availability
 
 ## Characteristics to Consider When Designing a Data Topology
 
@@ -64,15 +61,15 @@ Designing a data topology is an iterative process
 
 1. Group users (or end-points) into communities of interest to determine shared needs
 
-1. Classify and cluster data into zones with shared qualitative characteristics (use, purpose, need) unconstrained by particular technologies or quantitative characteristics
+2. Classify and cluster data into zones with shared qualitative characteristics (use, purpose, need) unconstrained by particular technologies or quantitative characteristics
 
-1. Map and align communities of interest to data zones
+3. Map and align communities of interest to data zones
 
-1. Add constraints to further develop the zone map and align with functional and non-functional requirements and capabilities
+4. Add constraints to further develop the zone map and align with functional and non-functional requirements and capabilities
 
-1. Work backwards in the data pipeline to identify areas of synergy and re-use
+5. Work backwards in the data pipeline to identify areas of synergy and re-use
 
-1. Define the flow of data (movement, dependencies) across and within zones in support of the defined constraints
+6. Define the flow of data (movement, dependencies) across and within zones in support of the defined constraints
 
 ### Keeping an organic data topology
 
@@ -89,8 +86,7 @@ A data topology is intended to be organic in nature. Although a static topology 
 * Covers zones that have been expired, sunsetted, retired, archived
 
 * Leaf zones are intended to have independent aging policies, For example:
-  * data can removed after a given period of time (such as removing data from a raw zone after 7 business days)
-  * An aging policy can be set to infinity so as not to remove data
+  * data can be removed after a given period of time (such as removing data from a raw zone after 7 business days)
   * A zone may be designated as being immutable in that data cannot be updated or removed; but that data can be added
 
 ### Leaf zone guides
@@ -101,9 +97,9 @@ In that regard, the leaf zone is the least abstract or conceptual of all zone ty
 
 For simplicity purposes, general recommendations to consider when establishing a leaf zone are to:
 * limit the database technology to a single type.
-* Keep the location (virtual or physical) should also be singular.
+* the location (virtual or physical) should be singular.
 
-A conceptual non-leaf zone can be added that is a grouping of multi-leaf zones together in order to address multiple technologies or multiple locations.
+A conceptual non-leaf zone can be added, that is a grouping of multi-leaf zones together in order to address multiple technologies or multiple locations.
 
 ### Simplifying security with leaf zones
 
@@ -121,7 +117,7 @@ By having two or more independent leaf zones with the same information, simplifi
 
 When designing the data topology, it is useful to consider the characteristics and differences between *organizations* within an enterprise and the *enterprise*.
 
-An *organization* is often inwardly look – even when taking into account customers;
+An *organization* is often inwardly looking – even when taking into account customers;
 
 while an *enterprise* is outward looking recognizing the place of the *organization* in a complete ecosystem.
 
@@ -133,4 +129,4 @@ Whereas, within the auspices of the enterprise (the ecosystem), not all data can
 
 This draws into question the horizontal bar that many organizations will create in a system diagram that is labeled as governance and includes third-party data.
 
-For example, if the ecosystem included aggregation from a company providing social media data, you can’t call “foul” on the level of data quality from a particular tweet if they spelt your company name wrong. You have to be able to handle the situation without going back to the author and saying, “stop that!”
+For example, if the system includes data ingestion from a company providing social media data, you can’t complain on data quality from a particular tweet if they spelt your company name wrong. You have to have a data quality assessment process in place correcting spelling mistakes or simply remove those data points.

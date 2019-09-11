@@ -29,11 +29,11 @@ Write down all the different data points that will be made available and evaluat
  
 #### Quantity of Data
 
-If you’re trying to build a machine learning model, there must be sufficient data. There is no formula to calculate how much should be collected but as an example, if you’re using traditional machine learning approaches (random forests, logistic regression) to classify your data you want hundreds of examples (ideally more) of each classification. When using deep learning techniques, the number of examples needed significantly increases. Also, you want lots of variation in the features; for example, if you are predicting house prices and one of your inputs is neighborhood, you want to make sure you have good coverage of all neighborhoods so the model can learn how this impacts the price.
+If you’re trying to build a machine learning model, there must be sufficient data. There is no formula to calculate how much should be collected but as an example, if you’re using traditional machine learning approaches (random forests, logistic regression) to classify your data you want hundreds of examples (ideally more) of each classification. When using deep learning techniques, the number of examples needed significantly increases. Also, you want lots of variation in the features; for example, if you are predicting house prices and one of your inputs is neighborhood, you want to make sure you have good coverage of all neighborhoods so the model can learn how this impacts the price. Another rule of thumb is that you need ten times as degrees of freedom (or parameters/weights) your model has. In the case of linear regression for example, the number of degrees of freedom equals the number of features. In deep learning, every neuron adds and exponential growth to the degrees of freedom.
  
 #### Ethics
 
-It is important at the beginning of a project to consider potential harms from your tool. These harms can be caused by designing for too narrow a user group, having an insufficient representation of a sub-population, or human labelers favoring a privileged group. Machine learning discovers and generalizes patterns in the data and could, therefore, replicate bias. Similarly, if a group is under-represented, the machine learning model has fewer examples to learn from, resulting in reduced accuracy for those in this group. When implementing these models at scale, it can result in a large number of biased decisions, harming a large number of people. Ensure you have evaluated risks and have techniques in place to mitigate them.
+It is important at the beginning of a project to consider potential harms from your tool. These harms can be caused by designing for too narrow user groups, having an insufficient representation of a sub-population, or human labelers favoring a privileged group. Machine learning discovers and generalizes patterns in the data and could, therefore, replicate bias. Similarly, if a group is under-represented, the machine learning model has fewer examples to learn from, resulting in reduced accuracy for those individuals in this group. When implementing these models at scale, it can result in a large number of biased decisions, harming a large number of people. Ensure you have evaluated risks and have techniques in place to mitigate them.
  
 ## Data Exploration
 
@@ -42,7 +42,7 @@ Once you have access to data, you can start Data Exploration. This is a phase fo
 * Count the number of records – is this what you expected?
 * What are the datatypes – will you need to change these for a machine learning model?
 * Look for missing values – how should you deal with these?
-* Verify the distribution of each column – are they the distribution you expected (e.g. normally distributed)?
+* Verify the distribution of each column – are they matching the distribution you expect (e.g. normally distributed)?
 * Search for outliers – are there anomalies in your data? Are all values valid (e.g. no ages less than 0)?
 * Validated if your data is balanced – are different groups represented in your data? Are there enough examples of each class you wish to predict?
 * Is there bias in your data – are subgroups in your data treated more favorable than others?
@@ -51,7 +51,7 @@ Once you have access to data, you can start Data Exploration. This is a phase fo
  
 #### Missing Values
 
-An ideal dataset would be complete, with valid values for every observation. However, in reality, you will come across many “NULL” or “NaN” values. The simplest way to deal with missing data is to remove all rows that have a missing value but valuable information can be lost or you could introduce bias. Consequently, it is important to try to understand if there is a reason or pattern for the missing values. For example, particular groups of people may not respond to certain questions in a survey; removing them will prevent learning trends within these groups.  An alternative to removing data, you can impute values; replacing missing values with an appropriate substitute. For continuous variables, the mean, median, or mode are often used. Whilst, for categorical data it is frequently the mode or a new category (e.g. "NA"). If columns have a high proportion of values missing, you may wish to remove them entirely. 
+An ideal dataset would be complete, with valid values for every observation. However, in reality, you will come across many “NULL” or “NaN” values. The simplest way to deal with missing data is to remove all rows that have a missing value but valuable information can be lost or you could introduce bias. Consequently, it is important to try to understand if there is a reason or pattern for the missing values. For example, particular groups of people may not respond to certain questions in a survey; removing them will prevent learning trends within these groups.  An alternative to removing data is imputing values; replacing missing values with an appropriate substitute. For continuous variables, the mean, median, mode or an interpolation are often used. Whilst, for categorical data it is frequently the mode or a new category (e.g. "NA"). If columns have a high proportion of values missing, you may wish to remove them entirely. 
 
 #### Outliers
 
