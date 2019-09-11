@@ -71,7 +71,7 @@ Interface definitions and data schema are important elements to focus on as earl
 The `data store integration` addresses storage of high volume data, but also access control, any transformation logic, and event data schema to be consumable by AI workbench.
 
 !!! note
-    The AI model as a service can be mocked-up behind `Facade` interface so the developed microservice in need to get prescriptive scoring can be develop with less dependencies. 
+    The AI model as a service can be mocked-up behind `Facade` interface so the developed microservice in need to get prescriptive scoring can be developed with less dependencies. 
 
 Finally the integration of those three lifecycle over time can be presented in a Gantt chart to illustrate the iteration and different focuses over time.
 
@@ -82,12 +82,12 @@ Each development life cycle includes architecture and development tasks. Archite
 The different iterations of the data, IA-Analytics and devops life cycle are synchronized via the integration artifacts to build. When components are ready for production, the go-live occurs and the different `operate` tasks are executed, combined with the different monitoring. From the production execution, the different teams get continuous feedbacks to improve the application.
 
 !!! notes
-    The AI-Analytics tasks are colored in bleu and green, on purpose to show the strong dependencies between data and AI. This means the data activities should start as early as possible before doing too much of modeling. 
+    The AI-Analytics tasks are colored in blue and green, on purpose to show the strong dependencies between data and AI. This means the data activities should start as early as possible before doing too much of modeling. 
 
 
 ## Data Sciences Introduction
 
-The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper managers, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.
+The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper management, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.
 
 Data science falls into these three categories:
 
@@ -105,25 +105,26 @@ Prescriptive analytics is used to optimize business decisions by simulating scen
 
 ### Concepts
 
-* **Supervised learning**: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (y), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.
+* **Supervised learning**: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (label *y*), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.
+  * **Classification** problem is when we are trying to predict one of a small number of discrete-valued outputs. In other words, if our label is binary (binary classification) or caegorical (multi-class classification)
+  * **Regression** learning problem when the goal is to predict continuous value output
 * **Unsupervised learning**: giving a dataset, try to find tendency in the data, by using techniques like clustering.
-* **Classification** problem is when we are trying to predict one of a small number of discrete-valued outputs
-* **Regression** classification problem when the goal is to predict continuous value output
-* **A feature** is an attribute to use for classifying
+* **A feature** is an attribute used as input for the model to train. Other names include dimension or column.
 
 ### Algorithm selection
 
-The application from [https://samrose3.github.io/algorithm-explorer](https://samrose3.github.io/algorithm-explorer/) will guide you on how to select what algorithm may help to address a specific problem.
+The application from [https://samrose3.github.io/algorithm-explorer](https://samrose3.github.io/algorithm-explorer/) will guide you on how to select what algorithm may help to address a specific problem. Another best practice is to use Linear Regression / Logistic Regression as baseline and try out other algorithms to improve on it.
 
 ## Challenges
 
 There are a set of standard challenges while developing an IT solution which integrates results from analytics model. We are listing some that we want to address, document and support as requirements.
-* Are we considering a scoring service or a classification one?
-* Is it a batch processing to update static records or real time processing on data stream or transactional data
+
+* How will the model be made available to developers?
+* Is it a batch process updating/appending static records or real time processing on a data stream or transactional data
 * How to control resource allocation for Machine Learning job.
-* How to manage consistency between model and data and code: version management
-* How to assess the features needed for the training and test sets.
-* How to leverage real time cognitive / deep learning classification inside scoring service
+* How to manage consistency between model, data and code: version management / data lineage
+* How to assess the features needed for the training sets.
+
 
 # The Garage Method for Cloud with DataFirst
 
