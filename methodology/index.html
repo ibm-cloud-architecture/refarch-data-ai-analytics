@@ -960,7 +960,7 @@
 <p>The <code>data store integration</code> addresses storage of high volume data, but also access control, any transformation logic, and event data schema to be consumable by AI workbench.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The AI model as a service can be mocked-up behind <code>Facade</code> interface so the developed microservice in need to get prescriptive scoring can be develop with less dependencies. </p>
+<p>The AI model as a service can be mocked-up behind <code>Facade</code> interface so the developed microservice in need to get prescriptive scoring can be developed with less dependencies. </p>
 </div>
 <p>Finally the integration of those three lifecycle over time can be presented in a Gantt chart to illustrate the iteration and different focuses over time.</p>
 <p><img alt="" src="3-dlc-gantt.png" /></p>
@@ -968,10 +968,10 @@
 <p>The different iterations of the data, IA-Analytics and devops life cycle are synchronized via the integration artifacts to build. When components are ready for production, the go-live occurs and the different <code>operate</code> tasks are executed, combined with the different monitoring. From the production execution, the different teams get continuous feedbacks to improve the application.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
-<p>The AI-Analytics tasks are colored in bleu and green, on purpose to show the strong dependencies between data and AI. This means the data activities should start as early as possible before doing too much of modeling. </p>
+<p>The AI-Analytics tasks are colored in blue and green, on purpose to show the strong dependencies between data and AI. This means the data activities should start as early as possible before doing too much of modeling. </p>
 </div>
 <h2 id="data-sciences-introduction">Data Sciences Introduction</h2>
-<p>The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper managers, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.</p>
+<p>The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper management, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.</p>
 <p>Data science falls into these three categories:</p>
 <h3 id="descriptive-analytics">Descriptive analytics</h3>
 <p>This is likely the most common type of analytics leveraged to create dashboards and reports. They describe and summarize events that have already occurred. For example, think of a grocery store owner who wants to know how items of each product were sold in all store within a region in the last five years.</p>
@@ -981,22 +981,23 @@
 <p>Prescriptive analytics is used to optimize business decisions by simulating scenarios based on a set of constraints. The grocery store owner  wants to creating a staffing schedule for his employees, but to do so he will have to account for factors like availability, vacation time, number of hours of work, potential emergencies and so on (constraints) and create a schedule that works for everyone while ensuring that his business is able to function on a day to day basis.</p>
 <h3 id="concepts">Concepts</h3>
 <ul>
-<li><strong>Supervised learning</strong>: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (y), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.</li>
+<li><strong>Supervised learning</strong>: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (label <em>y</em>), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.</li>
+<li><strong>Classification</strong> problem is when we are trying to predict one of a small number of discrete-valued outputs. In other words, if our label is binary (binary classification) or caegorical (multi-class classification)</li>
+<li><strong>Regression</strong> learning problem when the goal is to predict continuous value output</li>
 <li><strong>Unsupervised learning</strong>: giving a dataset, try to find tendency in the data, by using techniques like clustering.</li>
-<li><strong>Classification</strong> problem is when we are trying to predict one of a small number of discrete-valued outputs</li>
-<li><strong>Regression</strong> classification problem when the goal is to predict continuous value output</li>
-<li><strong>A feature</strong> is an attribute to use for classifying</li>
+<li><strong>A feature</strong> is an attribute used as input for the model to train. Other names include dimension or column.</li>
 </ul>
 <h3 id="algorithm-selection">Algorithm selection</h3>
-<p>The application from <a href="https://samrose3.github.io/algorithm-explorer/">https://samrose3.github.io/algorithm-explorer</a> will guide you on how to select what algorithm may help to address a specific problem.</p>
+<p>The application from <a href="https://samrose3.github.io/algorithm-explorer/">https://samrose3.github.io/algorithm-explorer</a> will guide you on how to select what algorithm may help to address a specific problem. Another best practice is to use Linear Regression / Logistic Regression as baseline and try out other algorithms to improve on it.</p>
 <h2 id="challenges">Challenges</h2>
-<p>There are a set of standard challenges while developing an IT solution which integrates results from analytics model. We are listing some that we want to address, document and support as requirements.
-<em> Are we considering a scoring service or a classification one?
-</em> Is it a batch processing to update static records or real time processing on data stream or transactional data
-<em> How to control resource allocation for Machine Learning job.
-</em> How to manage consistency between model and data and code: version management
-<em> How to assess the features needed for the training and test sets.
-</em> How to leverage real time cognitive / deep learning classification inside scoring service</p>
+<p>There are a set of standard challenges while developing an IT solution which integrates results from analytics model. We are listing some that we want to address, document and support as requirements.</p>
+<ul>
+<li>How will the model be made available to developers?</li>
+<li>Is it a batch process updating/appending static records or real time processing on a data stream or transactional data</li>
+<li>How to control resource allocation for Machine Learning job.</li>
+<li>How to manage consistency between model, data and code: version management / data lineage</li>
+<li>How to assess the features needed for the training sets.</li>
+</ul>
 <h1 id="the-garage-method-for-cloud-with-datafirst">The Garage Method for Cloud with DataFirst</h1>
 <p>Every department within your organization has different needs for data and analytics. How can you start your data-driven journey? The <a href="https://www.ibm.com/analytics/datafirst">Garage Method for Cloud with DataFirst</a> provides strategy and expertise to help you gain the most value from your data. This method starts with your business outcomes that leverage data and analytics, not technology. Defining focus in a collaborative manner is key to deriving early results. Your roadmap and action plan are continuously updated based on lessons learned. This is an iterative and agile approach to help you define, design, and prove a solution for your specific business problem.</p>
 <h2 id="personas_1">Personas</h2>
