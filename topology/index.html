@@ -36,7 +36,7 @@
     
     
       
-        <title>Data provenance - Data - AI - Analytics Reference Architecture</title>
+        <title>Principles - Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -121,7 +121,7 @@
               Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
-              Data provenance
+              Principles
             </span>
           
         </div>
@@ -301,106 +301,22 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../methodology/" title="Methodology" class="md-nav__link">
-      Methodology
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-3">
       Data Topology
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-3">
         Data Topology
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Principles" class="md-nav__link">
-      Principles
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Role" class="md-nav__link">
-      Role
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Data Structure and scale" class="md-nav__link">
-      Data Structure and scale
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Storage and location" class="md-nav__link">
-      Storage and location
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Security" class="md-nav__link">
-      Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="./" title="Temporal life cycle" class="md-nav__link">
-      Temporal life cycle
-    </a>
-  </li>
-
         
           
           
@@ -417,11 +333,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Data provenance
+        Principles
       </label>
     
-    <a href="./" title="Data provenance" class="md-nav__link md-nav__link--active">
-      Data provenance
+    <a href="./" title="Principles" class="md-nav__link md-nav__link--active">
+      Principles
     </a>
     
       
@@ -522,6 +438,18 @@
         
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../methodology/" title="Methodology" class="md-nav__link">
+      Methodology
+    </a>
   </li>
 
     
@@ -878,21 +806,20 @@
 <h3 id="data-flow">Data Flow</h3>
 <p>The data flow shows the <em>flow of Data</em> and helps
 to illustrate the points of integration or interoperability between the zones.  </p>
-<p>This can also help show when circular data flows occur across the zones, this can become a flag for investigation as data integrity may potentially be compromised if not well managed (designed and governed).</p>
+<p>This can also help to detect circular data flows occurring across zones, to be flagged for investigation as data integrity may potentially be compromised if not well managed (designed and governed).</p>
 <h3 id="data-layer">Data Layer</h3>
 <p>The <em>data layer</em> is reflective of where data may be persisted. In a modern enterprise we should consider the full landscape of possibilities which could include:
 - Public cloud
 - On premise private cloud
 - Edge
 - Device</p>
-<p>We can think of this as being a <em>cloud, fog, mist</em>  node topology, where the different nodes have different characteristics with compute power, storage capacity, and may be constrained by network connectivity.</p>
+<p>We can think of this as being a <em>cloud, fog, edge</em>  node topology, where the different nodes have different characteristics with compute power, storage capacity, and may be constrained by network connectivity, here data will likely be highly distributed across an organization and certainly across an enterprise.</p>
+<p>For example, mixed deployment data layers include:</p>
 <ul>
-<li><strong>Cloud</strong> - Public cloud, unconstrained or maybe best termed the least constrained</li>
+<li><strong>Cloud</strong> - Public cloud, unconstrained</li>
 <li><strong>Fog</strong> - Private cloud, constrained by available infrastructure</li>
-<li><strong>Mist</strong> - Smart device, the most constrained by the limitations of the device platform</li>
+<li><strong>Edge</strong> - Smart device, the most constrained by the limitations of compute capabilities, network bandwidth and availability</li>
 </ul>
-<p>where data will likely be highly distributed across an organization and certainly across an enterprise.</p>
-<p>For example mixed deployment data layers cloud include:</p>
 <h2 id="characteristics-to-consider-when-designing-a-data-topology">Characteristics to Consider When Designing a Data Topology</h2>
 <p>Designing a data topology is an iterative process</p>
 <ol>
@@ -936,8 +863,7 @@ to illustrate the points of integration or interoperability between the zones.  
 <li>
 <p>Leaf zones are intended to have independent aging policies, For example:</p>
 </li>
-<li>data can removed after a given period of time (such as removing data from a raw zone after 7 business days)</li>
-<li>An aging policy can be set to infinity so as not to remove data</li>
+<li>data can be removed after a given period of time (such as removing data from a raw zone after 7 business days)</li>
 <li>A zone may be designated as being immutable in that data cannot be updated or removed; but that data can be added</li>
 </ul>
 <h3 id="leaf-zone-guides">Leaf zone guides</h3>
@@ -945,8 +871,8 @@ to illustrate the points of integration or interoperability between the zones.  
 <p>In that regard, the leaf zone is the least abstract or conceptual of all zone types.</p>
 <p>For simplicity purposes, general recommendations to consider when establishing a leaf zone are to:
 <em> limit the database technology to a single type.
-</em> Keep the location (virtual or physical) should also be singular.</p>
-<p>A conceptual non-leaf zone can be added that is a grouping of multi-leaf zones together in order to address multiple technologies or multiple locations.</p>
+</em> the location (virtual or physical) should be singular.</p>
+<p>A conceptual non-leaf zone can be added, that is a grouping of multi-leaf zones together in order to address multiple technologies or multiple locations.</p>
 <h3 id="simplifying-security-with-leaf-zones">Simplifying security with leaf zones</h3>
 <p>A leaf zone can also be used to help simplify certain complex security profiles.</p>
 <p>There can be situations where a shared data resource requires numerous security policies to address each user group type. For example, some users may have read/write access while other users may only have access to data with obfuscated values.</p>
@@ -955,13 +881,13 @@ to illustrate the points of integration or interoperability between the zones.  
 <p>By having two or more independent leaf zones with the same information, simplified security profiles can be deployed to each leaf zone with the intent to help mitigate the potential for a security breach.</p>
 <h3 id="enterprises-and-organizations">Enterprises and Organizations</h3>
 <p>When designing the data topology, it is useful to consider the characteristics and differences between <em>organizations</em> within an enterprise and the <em>enterprise</em>.</p>
-<p>An <em>organization</em> is often inwardly look – even when taking into account customers;</p>
+<p>An <em>organization</em> is often inwardly looking – even when taking into account customers;</p>
 <p>while an <em>enterprise</em> is outward looking recognizing the place of the <em>organization</em> in a complete ecosystem.</p>
 <p>When viewing the enterprise as an ecosystem, it is easier to understand the place and purpose of data. Readily being able to delineate between what data is created and consumed by an organization and what data is created and consumed by the enterprise.</p>
 <p>Within an organization, all data is often assumed to be governable through some type of data governance program.</p>
 <p>Whereas, within the auspices of the enterprise (the ecosystem), not all data can automatically be assumed to be governable by a data governance program.</p>
 <p>This draws into question the horizontal bar that many organizations will create in a system diagram that is labeled as governance and includes third-party data.</p>
-<p>For example, if the ecosystem included aggregation from a company providing social media data, you can’t call “foul” on the level of data quality from a particular tweet if they spelt your company name wrong. You have to be able to handle the situation without going back to the author and saying, “stop that!”</p>
+<p>For example, if the system includes data ingestion from a company providing social media data, you can’t complain on data quality from a particular tweet if they spelt your company name wrong. You have to have a data quality assessment process in place correcting spelling mistakes or simply remove those data points.</p>
                 
                   
                 
@@ -982,7 +908,7 @@ to illustrate the points of integration or interoperability between the zones.  
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="./" title="Temporal life cycle" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../runtimes/" title="Runtime application" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -991,19 +917,19 @@ to illustrate the points of integration or interoperability between the zones.  
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Temporal life cycle
+                Runtime application
               </span>
             </div>
           </a>
         
         
-          <a href="../preparation/data-replication/" title="Data replication" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../methodology/" title="Methodology" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Data replication
+                Methodology
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
