@@ -60,7 +60,7 @@ Another way to see this architecture is to zoom one more level to see the expect
 
 The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
 
-This diagram is the foundation for the data AI reference architecture and we describe the [data preparation](preparation/data-prep.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment in separate notes.
+This diagram is the foundation for the data AI reference architecture and we describe the [data preparation](preparation/gov-data-lake.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment in separate notes.
 
 ### Map to products
 

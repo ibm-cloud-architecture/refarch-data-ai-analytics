@@ -6,15 +6,9 @@ nav:
     - Data preparation: preparation/gov-data-lake.md
     - Building AI model: model-dev/README.md
     - Runtime application: runtimes/README.md
-  - Methodology: methodology/README.md
   - Data Topology: 
     - Principles: topology/README.md 
-    - Role: topology/README.md
-    - Data Structure and scale:  topology/README.md
-    - Storage and location: topology/README.md
-    - Security:  topology/README.md
-    - Temporal life cycle:  topology/README.md
-    - Data provenance:  topology/README.md
+  - Methodology: methodology/README.md
   - Data Preparation: 
     - Data replication: preparation/data-replication.md
     - Data Understanding: preparation/data-understanding.md
