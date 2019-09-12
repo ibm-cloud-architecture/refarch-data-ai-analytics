@@ -6,6 +6,9 @@
 !!! abstract
     In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
 
+
+!!! This is a full fledged Enterprise Methodology addressing concerns of multinational data center deployments. For the purpose of MVP [(Minimum Viable Product)](https://en.wikipedia.org/wiki/Minimum_viable_product) creation we recommend to start with the [Lightweight IBM Cloud Garage Method for Data Science](lightweight.md) which one one hand is ideally suited for MVP / POC (Proof of Concept) work, on the other hand is compatible with the methodology described here so that scale-up is straightforward. This method always guarantees to have a deployable product at any point in time, a concept know if CICD (Continuous Integration, Continuous Delivery) and therefore is also compatible to such a software development process.
+
 ## Integrating data - devops and AI analytics methodologies
 
 Most organizations need to manage software lifecycles. The key tenets listed above imply the need for a separate lifecycle for data, because the outcome or deliverable for any of the key tenets should not be considered static and immutable. Like data, you can think of analytics as having its own lifecycle independent from the software lifecycle and the data lifecycle, although they are all complementary.
