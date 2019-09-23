@@ -1,6 +1,6 @@
-# AI & Data Reference Architecture
+# Data and AI Reference Architecture
 
-In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and hollistic point of view on how to do it.
+In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present and holistic point of view on how to do it.
 
 We propose you navigate the content using [the book format](https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics) to have the full explanation of the following reference architecture
 
@@ -12,7 +12,7 @@ We propose you navigate the content using [the book format](https://ibm-cloud-ar
 The content of this repository is written with markdown files, packaged with [MkDocs](https://www.mkdocs.org/) and can be built into a book-readable format by MkDocs build processes.
 
 1. Install MkDocs locally following the [official documentation instructions](https://www.mkdocs.org/#installation).
-1. Install Material plugin for mkdocs:  `pip install mkdocs-material` 
+1. Install Material plugin for mkdocs:  `pip install mkdocs-material`
 2. `git clone https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics.git` _(or your forked repository if you plan to edit)_
 3. `cd refarch-data-ai-analytics`
 4. `mkdocs serve`
@@ -26,12 +26,12 @@ The content of this repository is written with markdown files, packaged with [Mk
 	```bash
 	git checkout gh-pages
 	git pull origin gh-pages
-	
+
 	git checkout master
 	```
 3. Run `mkdocs gh-deploy` from the root refarch-da directory.
 
---- 
+---
 
 ## Contribute
 
@@ -56,4 +56,3 @@ The [contributing guidelines are in this note.](./CONTRIBUTING.md)
 
 
 Please [contact me](mailto:boyerje@us.ibm.com) for any questions.
-

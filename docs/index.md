@@ -1,41 +1,41 @@
-# Data - AI - Analytics Reference Architecture
+# Data and AI Reference Architecture
 
 !!! abstract
-    In this reference architecture, we are focusing on defining architecture patterns and best practices to build data and AI intensive applications. We are addressing how to integrate data governance, machine learning practices and the full life cycle of a cloud native solution development under the same reference architecture to present a holistic point of view on how to do it.
+  In this reference architecture,  we define the architecture patterns and best practices for developing Data and AI intensive applications or  *Intelligent applications*.  We consider how  data, data governance, analytics and machine learning practices join with the agile life cycle of cloud native application development to enable the development and delivery of *Intelligent Applications*.
 
-When we consider development of  Data and AI intensive applications  or  *Intelligent Applications*  it is helpful to think of how the combination of three underlying architecture patterns
+When we consider the  Data and AI Reference Architecture in terms of developing *intelligent applications* it becomes apparent that we are looking at bringing together three architecture patterns:
 
 + Cloud Native application architecture patterns
 + Data architecture patterns
 + AI architecture patterns
 
-provides the right foundation to enable us to develop these *Intelligent Applications* in a highly agile cloud native way.
+We can think of the Data and AI reference architecture being the sum of these architecture patterns, plus the joins between them.  The joins are also key to understanding how  Software Engineers, Data Engineers, and Data Scientist, relate and work together in the development of such *Intelligent applications*.
 
-By considering the nature of joins between the architectures we can also understand how the different roles such as Software Engineer, Data Engineer, and Data Scientist relate and work together in the development of such solutions.
+As we look to methodology for Developing such solutions we need to consider a prescriptive approach  which brings  those project stakeholders together to be successful.  To do this we adopt a four layers approach:
 
-From a methodology point of view, a prescriptive approach to help all those project stakeholders to be successful is to adopt a four layers approach based on:
-
-* **[COLLECT](#collect-making-data-simple-and-accessible)** the data to make them easier to consume and accessible
-* **[ORGANIZE](#organize-trusted-governed-analytics)** to create a trusted analytics foundation on data with business meaning
-* **[ANALYZE](#analyze-insights-on-demand)** to scale business insight with AI everywhere, available as services
+* **[COLLECT](#collect-making-data-simple-and-accessible)** data to make them easier to consume and accessible
+* **[ORGANIZE](#organize-trusted-governed-analytics)** data to create a trusted analytics foundation on data with business meaning
+* **[ANALYZE](#analyze-insights-on-demand)** to scale business insight with AI everywhere
 * **[INFUSE](#infuse-operationalize-ai-with-trust-and-transparency)** to operationalize AI with trust and transparency
-
-There is no argument about it, AI without Data will not exist.
 
 The figure below represents how those layers are related to each other:
 
 ![](images/ladder-ai.png)
 
-## IBM Data and AI Top Level Conceptual Architecture
+## IBM Data and AI Conceptual Architecture
 
-Based on the above prescriptive approach, a Data centric and AI reference architecture needs to support those layers. The following diagram represents the needed high level capabilities the reference architecture should support to address the Collect, Analyze, Organize and Infuse activities. 
+Based on the above prescriptive approach, we cans see that a Data centric and AI reference architecture needs to implement the four layers as shown in the following diagram.
 
 ![](images/data-ai-ra.png)
 
-This architecture diagram illustrates the need for strong data management capabilities inside a 'multi cloud data platform' (dark blue area), on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).
+This architecture diagram illustrates
+1. strong data collection and management capabilities
+1. inside a 'multi cloud data platform' (dark blue area)
+1. on which AI capabilities are plugged in to support analyze done by data scientists (machine learning workbench and business analytics).
 
-The data platform addresses the data **collection** and **transformation** tasks to move data to a (cloud)local highly scalable data **store**. Sometimes, data movement can or must be avoided. Common reasons include:
+The data platform addresses the data **collection** and **transformation** tasks to move data to a (cloud)local highly scalable data **store**.
 
+However we must also recognise that there are cases, where data movement can or must be avoided. For examples where:
 * no transformations necessary (e.g. accessing an external data mart via SQL or API)
 * no performance impact (e.g. materialized SQL views served by a parallel database backend)
 * regulatory aspects (each reach access to a data source must be logged to an audit log)
@@ -44,46 +44,100 @@ The data platform addresses the data **collection** and **transformation** tasks
 * privacy (data can't be copied, only aggregates as a result of **compute** can be moved)
 * network partition (data source unreliable e.g. remote IoT Gateway)
 
-when there is no need to do transformations or there is no performance impact to the origin data sources by adding readers, so a virtualization capability is necessary to open a view on remote data sources without moving data.
+In such cases the data platform provides a virtualization capability which can open a view on remote data sources without moving data.
 
-On the AI side, data scientists need to perform data **analysis**, which includes making sense of the data using data **visualization**. To build a model they need to define features, and the AI environment supports **feature engineering**. Then to build the model, the development environment helps to select and combine the different algorithms and to tune the hyper parameters. The execution can be done on local cluster or can be executed, at the big data scale level, to **machine learning cluster**.
+In **Analyze** data scientists need to perform:
+* **data analysis**, which includes making sense of the data using data **visualization**.
+* **feature engineering** to define the features they need to build an ML model.
 
-Once the model provides acceptable accuracy level, it can be published as a service. The model management capability supports the meta-data definition and the life cycle management of the model (data lineage). When the model is deployed, **monitoring** capability, ensures the model is still accurate and even not biased. 
+Then to **build the model**, the development environment provides the AI frameworks and helps the data scientist to select and combine the different algorithms and to tune the hyper parameters.
+The execution can be done on local cluster or can be executed, at the big data scale level, to a machine learning cluster.
 
-The intelligent application, represented as a combination of capabilities at the top of the diagram: business process, core application, CRM... can run on cloud, fog, or mist. It accesses the deployed model, access Data using APIs, and even consumes pre-built models, congitive services, like a **speech to text and text to speech** service, an **image recognition**, a **tone analyzer** services, the Natural Language Understanding (**NLU**), and **chatbot**. 
+Once the model provides acceptable accuracy level, it can be published so that it can be consumed or *infused* within an application or as a service.
+
+The model management capability supports the meta-data definition and the life cycle management of the model (data lineage).
+
+Once the model is deployed, **monitoring** capabilities, ensures the model is still accurate and
+not biased.
+
+The **intelligent application**, is represented as a combination of capabilities at the top of the diagram, it can be an application we develop, a business process, an ERP or CRM application, etc.  running anywhere on cloud fog, or mist computing.
+
+The intelligent application, accesses the deployed model, sing APIs, and may consumes pre-built models or Cognitive services, such as:  
+* **speech to text and text to speech** services  
+* **image recognition**, a **tone analyzer** services
+* **NLU** Natural Language Understanding and chatbot services.
 
 ## Data and AI reference architecture capabilities
 
-Another way to see this architecture is to zoom one more level to see the expected capabilities:
+In this view of the reference architecture we have zoomed in a level to show the detail of how we realize the required capabilities.
 
 ![](images/data-ai-ra-3.jpg)
 
-The boundary rectangles are color coded to map the higher level purposes: collect, organize, analyze and infuse. Each icon represents a capability.
+The boundary rectangles are color coded to map the higher level purposes: *collect, organize, analyze and infuse* with each icon representing a capability.
 
-This diagram is the foundation for the data AI reference architecture and we describe the [data preparation](preparation/gov-data-lake.md),  the [application runtime](runtimes/README.md) and [AI model development](model-dev/README.md) environment in separate notes.
+This diagram becomes the foundation of  the *data AI reference architecture*  an we will expend details for
 
-### Map to products
+* [Data preparation](preparation/gov-data-lake.md)
+* [AI model development](model-dev/README.md)
+* [Application runtime](runtimes/README.md)
 
-The following diagrams illustrate the product mapping to capability.
+environments in following notes.
+
+### Mapping to products
+
+The following diagrams illustrate the product mapping to realize the required capability.
 
 ![](images/data-ai-ra-products.png)
 
 
 ## Data is fundamental
 
-Managing data within the enterprise has proven to be challenging and complex. By itself data doesn't do anything. To make data useful, something other than the data is required – such as a computer program, a query, or a user (machine or person). Data is inert; it is not self-organizing or even self-understanding. This is what contributes to making data challenging and complex.
+Data is a fundamental element of every business and therefore fundamental to our architecture.   Data is our record of current state of the business, the history of what has happened, and is the base which enables us to predict what may happen in the future.
 
-In the [DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid), data is the base with the least amount of perceived usefulness. Information has higher value than data, knowledge has higher value than information, and wisdom has the highest perceived value of all. Data requires something else—a program, a machine, or even a person—to move up the value chain and become information. By organizing and classifying information, the value chain can begin and expand from data and information to be regarded as knowledge.
+However, on its own data doesn't do anything and to realise value from data we have to do something with it, we have to understand it, and act on it, Typically this requires something other than the data such as a computer program, a query, or a user (machine or person).
 
-Wisdom, the top of the pyramid, is the pinnacle of the data value chain. Wisdom results in a combination of inert data – a fundamental raw material in the modern digital age – combined with a series of progressive traits such as: perspective, context, understanding, learning, and the ability to reason. Cognitive computing and artificial intelligence now mean that these traits can be attributed to both a person and a machine.
+Perhaps one of the biggest and most complex challenges comes with managing the data. Data is inert; it is not self-organizing or even self-understanding. So how do we manage the data , how do we organize an attach meaning so that the data can easily be used bu the business, or a computer program etc.
+
+
+
+
+In the
+[DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid),
+
+* Data is the base with the least amount of perceived usefulness.
+* Information has higher value than data.
+* Knowledge has higher value than information.
+* Wisdom has the highest perceived value of all.
+
+To move up the value chain  *data* requires something else such as a program, a machine, or even a person—to add to understanding to it so that it becomes *Information*.
+
+By organizing and classifying *information*, the value chain expands from *data* and *information* to be regarded as *knowledge*.
+
+
+The pinnacle of the data value chain is *Wisdom*. Wisdom results in a combination of inert data, which is the fundamental raw material in the modern digital age, combined with a series of progressive traits such as:
+* perspective
+* context
+* understanding
+* learning
+* the ability to reason.
+
+With the advent of Cognitive computing and artificial intelligence these traits can now be attributed to both a person and a machine.
 
  ![](images/data-dikw-ai.png)
 
- The IBM AI Ladder loosely parallels the DIKW pyramid in that the AI Ladder represents a progressive movement towards value creation within an enterprise. Increased value can be gained from completing activities at each step of the AI Ladder, with the potential to recognize higher levels of value, the higher the ladder is climbed.
+ The IBM AI Ladder loosely parallels the DIKW pyramid in that the AI Ladder represents a progressive movement towards value creation within an enterprise.
 
-The AI Ladder contains four discrete levels: collect, organize, analyze, and infuse. Arguably, data lies below the first rung, recognizing the inert nature of data. The first rung is collect, a primitive action that serves as the first element towards making data actionable and to help drive automation, insights, optimization, and decision-making. Collect is an ability to attach to a data source – whether transient or persistent, real or virtual, and while being agnostic as to its actual location or its originating (underlying) technology.
+ Increased value can be gained from completing activities at each step of the AI Ladder, with the potential to recognize higher levels of value, the higher the ladder is climbed.
 
-The AI Ladder progresses through the rungs to infuse, a state of capability that means an enterprise has taken artificial intelligence beyond a science project. Infusion means that advanced analytical models have been interwoven into the essential fabric of an application or system whereby driving new or improved business capabilities.
+The AI Ladder contains four discrete levels:
+* Collect
+* Organize
+* Analyze
+* Infuse.
+
+The first rung is *Collect*, a primitive action that serves as the first element towards making data actionable and to help drive automation, insights, optimization, and decision-making. *Collect* is an ability to attach to a data source – whether transient or persistent, real or virtual, and while being agnostic as to its actual location or its originating (underlying) technology. In linking to the DIKW pyramid we could say that, data lies below the first rung, recognizing the inert nature of data.
+
+The AI Ladder progresses through the rungs to *infuse*, a state of capability that means an enterprise has taken artificial intelligence beyond a science project. Infusion means that advanced analytical models have been interwoven into the essential fabric of an application or system whereby driving new or improved business capabilities.
 
 
 ### Data as a differentiator
@@ -102,7 +156,7 @@ Data and the related analytics are key to differentiation, but traditional appro
 
 ### Principles
 
-1. There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exerising specialisation through connectivity.
+1. There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exercising specialisation through connectivity.
 1. Different application patterns apply different data specialisation.
 1. There is a clear dependency between AI and Data Management, but in an **Intelligent Application** context there is a Data concern, a AI model management concern, and multi cloud deployment concerns.
 1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
@@ -121,7 +175,7 @@ The first rung of the AI Ladder is *Collect* and is how an enterprise can formal
 
 #### Organize – Trusted, Governed Analytics
 
-The second rung of the AI Ladder is *Organize* and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of *Organize* is a body of data that is appropriately curated and offers the highest value to an enterprise. 
+The second rung of the AI Ladder is *Organize* and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of *Organize* is a body of data that is appropriately curated and offers the highest value to an enterprise.
 Organize allows data to be:
 
 * Discoverable
@@ -155,9 +209,9 @@ The fourth rung of the AI Ladder is *Infuse* and is about how an enterprise can 
 
 ## Towards Data-Centricity
 
-Drivers for what causes change within a business can be regarded as being stochastic. Whether foreseen or randomly determined, each change is likely to require new data – data that an organization has not previously anticipated. Increased data volumes, increases in the number of data sources, increases to the rates of data ingestion, and increases in the variety of the types of data are nothing more than de facto a prioris. 
+Drivers for what causes change within a business can be regarded as being stochastic. Whether foreseen or randomly determined, each change is likely to require new data – data that an organization has not previously anticipated. Increased data volumes, increases in the number of data sources, increases to the rates of data ingestion, and increases in the variety of the types of data are nothing more than de facto a prioris.
 
-While users are likely to have access to terabytes, petabytes, or even exabytes of data from data streams, IOT-sensors, transactional systems, and so on, if the data is not properly incorporated, managed, controlled, enriched, governed, measured, and deployed then the data may not only become useless, the data may become a liability. 
+While users are likely to have access to terabytes, petabytes, or even exabytes of data from data streams, IOT-sensors, transactional systems, and so on, if the data is not properly incorporated, managed, controlled, enriched, governed, measured, and deployed then the data may not only become useless, the data may become a liability.
 
 The activities to properly handle data and to pursue the AI Ladder, can be shown in the three solution areas of IBM Data and AI offerings:
 
@@ -188,4 +242,3 @@ There are five key tenets to making data enabled and active:
 If data is an enabler, then analytics can be considered one of the core capabilities that is being enabled.
 
 Analytics can be a complex and involved discipline that encompasses a broad and diverse set of tools, methods, and techniques. One end of the IBM AI Ladder is enabled through data in a static format such as a pre-built report; the other end is enabled through deep-learning and advanced artificial intelligence. Between these two ends, the enablement methods include diagnostic analytics, machine learning, statistics, qualitative analysis, cognitive analysis, and more. A robot, a software interface, or a human may need to apply multiple techniques within a single task or across the role that they perform in driving insight, taking action, monitoring, and making decisions.
-
