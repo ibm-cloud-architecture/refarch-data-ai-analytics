@@ -1,0 +1,1809 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+    
+    
+      
+        <title>Architectural Decisions Guidelines - Data - AI - Analytics Reference Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#architectural-decisions-guidelines" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data - AI - Analytics Reference Architecture
+            </span>
+            <span class="md-header-nav__topic">
+              Architectural Decisions Guidelines
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data - AI - Analytics Reference Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../data/" title="Data is the fundamental element" class="md-nav__link">
+      Data is the fundamental element
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dataprinciples/" title="Data and AI Architecture Principles" class="md-nav__link">
+      Data and AI Architecture Principles
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Architectures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Architectures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/gov-data-lake/" title="Data preparation" class="md-nav__link">
+      Data preparation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../model-dev/" title="Building AI model" class="md-nav__link">
+      Building AI model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../runtimes/" title="Runtime application" class="md-nav__link">
+      Runtime application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Data Topology
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Data Topology
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Principles" class="md-nav__link">
+      Principles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Methodology" class="md-nav__link">
+      Methodology
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Data Preparation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Data Preparation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/data-replication/" title="Data replication" class="md-nav__link">
+      Data replication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/data-understanding/" title="Data Understanding" class="md-nav__link">
+      Data Understanding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/" title="Data Preparation" class="md-nav__link">
+      Data Preparation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/" title="Bias picking right training set" class="md-nav__link">
+      Bias picking right training set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../preparation/" title="Model selection" class="md-nav__link">
+      Model selection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Deployment
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Deployment
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="Physical model execution" class="md-nav__link">
+      Physical model execution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Monitoring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Monitoring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Feedback analysis" class="md-nav__link">
+      Feedback analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Bias monitoring to ensure equitable" class="md-nav__link">
+      Bias monitoring to ensure equitable
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Reference Implementation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Reference Implementation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-cognitive-analytics/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-source" title="Data Source" class="md-nav__link">
+    Data Source
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enterprise-data" title="Enterprise data" class="md-nav__link">
+    Enterprise data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_1" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-gateway" title="Secure gateway" class="md-nav__link">
+    Secure gateway
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lift" title="Lift" class="md-nav__link">
+    Lift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocket-mainframe-data" title="Rocket Mainframe Data" class="md-nav__link">
+    Rocket Mainframe Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming-analytics" title="Streaming analytics" class="md-nav__link">
+    Streaming analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_2" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_1" title="Technology Guidelines" class="md-nav__link">
+    Technology Guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-spark-and-apache-spark-structured-streaming" title="Apache Spark and Apache Spark Structured Streaming" class="md-nav__link">
+    Apache Spark and Apache Spark Structured Streaming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-streams" title="IBM Streams" class="md-nav__link">
+    IBM Streams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodered" title="NodeRED" class="md-nav__link">
+    NodeRED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-nifi" title="Apache Nifi" class="md-nav__link">
+    Apache Nifi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others" title="Others" class="md-nav__link">
+    Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-integration" title="Data Integration" class="md-nav__link">
+    Data Integration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_3" title="Architectural Decision Guidelines" class="md-nav__link">
+    Architectural Decision Guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_2" title="Technology Guidelines" class="md-nav__link">
+    Technology Guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-spark" title="Apache Spark" class="md-nav__link">
+    Apache Spark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-data-stage-on-cloud" title="IBM Data Stage on Cloud" class="md-nav__link">
+    IBM Data Stage on Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others_1" title="Others" class="md-nav__link">
+    Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-repository" title="Data Repository" class="md-nav__link">
+    Data Repository
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_4" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_3" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-databases" title="Relational databases" class="md-nav__link">
+    Relational databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql-databases" title="NoSQL databases" class="md-nav__link">
+    NoSQL databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage" title="Object storage" class="md-nav__link">
+    Object storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-and-exploration" title="Discovery and exploration" class="md-nav__link">
+    Discovery and exploration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_5" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_4" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyter-python-pyspark-scikit-learn-pandas-matplotlib-pixiedust" title="Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust" class="md-nav__link">
+    Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spss-modeler" title="SPSS Modeler" class="md-nav__link">
+    SPSS Modeler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actionable-insights" title="Actionable insights" class="md-nav__link">
+    Actionable insights
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architectural-decision-guidelines_6" title="Architectural decision guidelines" class="md-nav__link">
+    Architectural decision guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_5" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spss-modeler_1" title="SPSS Modeler" class="md-nav__link">
+    SPSS Modeler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rr-studio" title="R/R-Studio" class="md-nav__link">
+    R/R-Studio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-pandas-and-scikit-learn" title="Python, pandas and scikit-learn" class="md-nav__link">
+    Python, pandas and scikit-learn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-apache-spark-and-sparkml" title="Python, Apache Spark and SparkML" class="md-nav__link">
+    Python, Apache Spark and SparkML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-systemml" title="Apache SystemML" class="md-nav__link">
+    Apache SystemML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keras-and-tensorflow" title="Keras and TensorFlow" class="md-nav__link">
+    Keras and TensorFlow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-and-data-products" title="Applications and Data Products" class="md-nav__link">
+    Applications and Data Products
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_6" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r-shiny" title="R-Shiny" class="md-nav__link">
+    R-Shiny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-red" title="Node-RED" class="md-nav__link">
+    Node-RED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3" title="D3" class="md-nav__link">
+    D3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-information-governance-and-systems-management" title="Security, information governance and systems management" class="md-nav__link">
+    Security, information governance and systems management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines_7" title="Technology guidelines" class="md-nav__link">
+    Technology guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-app-id" title="IBM App ID" class="md-nav__link">
+    IBM App ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage_1" title="Object Storage" class="md-nav__link">
+    Object Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-paassaas" title="IBM Cloud PaaS/SaaS" class="md-nav__link">
+    IBM Cloud PaaS/SaaS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/methodology/lightweight-architectural-decisions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="architectural-decisions-guidelines">Architectural Decisions Guidelines</h1>
+<p><em>An architectural decisions guide for data science</em></p>
+<p>The <a href="https://www.ibm.com/cloud/garage/architectures/dataAnalyticsArchitecture">IBM Data and Analytics Reference Architecture</a>defines possible components on an abstract level. The goal of this article is to choose from the required components and assign real and concrete architectural components to it. The article contains information to complement the <a href="https://developer.ibm.com/articles/the-lightweight-ibm-cloud-garage-method-for-data-science/">“Lightweight IBM Cloud Garage Method for data science”</a> article.</p>
+<p>The method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics.</p>
+<p><img alt="" src="../reference-architecture.png" /></p>
+<p>The following sections provide guidelines for each component. They explain what technology should be chosen and if the component needs to be included at all.</p>
+<h2 id="data-source">Data Source</h2>
+<p>The data source is an internal or external data source that includes relational databases; web pages; CSV, JSON, or text files; and video and audio data.</p>
+<h3 id="architectural-decision-guidelines">Architectural decision guidelines</h3>
+<p>With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by stakeholders. However, if there is some control over the process, the following principles should be considered:</p>
+<ul>
+<li>
+<p>What does the delivery point look like?</p>
+<p>Enterprise data mostly lies in relational databases serving OLTP systems. It’s typically a bad practice to access those systems directly, even in read-only mode because ETL processes are running SQL queries against those systems, which can hinder performance. One exception is IBM Db2 Workload Manager because it allows OLAP and ETL workloads to run in parallel with an OLTP workload without performance degradation of OLTP queries using intelligent scheduling and prioritizing mechanisms. You can read more about IBM Db2 Workload Manager.</p>
+</li>
+<li>
+<p>Does real-time data need to be considered?</p>
+<p>Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on Streaming analytics further down in this article.</p>
+</li>
+</ul>
+<h2 id="enterprise-data">Enterprise data</h2>
+<p>Cloud-based solutions tend to extend the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud or access those in real time through a VPN API gateway.</p>
+<h3 id="architectural-decision-guidelines_1">Architectural decision guidelines</h3>
+<p>Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are two ways to access it.</p>
+<ul>
+<li>Batch sync from an enterprise data center to the cloud</li>
+<li>Real-time access to subsets of data using VPN and an API gateway</li>
+</ul>
+<h3 id="technology-guidelines">Technology guidelines</h3>
+<h4 id="secure-gateway">Secure gateway</h4>
+<p>Secure gateway lets cloud applications access specified hosts and ports in a private data center though an outbound connection. Therefore, no external inbound access is required. You can go to the <a href="https://cloud.ibm.com/catalog/services/secure-gateway">Secure Gateway</a>service on IBM Cloud for more information.</p>
+<h4 id="lift">Lift</h4>
+<p>Lift allows you to migrate on-premises data to cloud databases in a very efficient manner. Read more about the IBM <a href="https://cloud.ibm.com/catalog/services/lift-cli">Lift CLI</a>.</p>
+<h4 id="rocket-mainframe-data">Rocket Mainframe Data</h4>
+<p>The Rocket Mainframe Data service uses similar functions for batch-style data integration as Lift, but is dedicated to IBM Mainframes. You can <a href="https://cloud.ibm.com/catalog/services/rocket-mainframe-data">read more</a> information about the service.</p>
+<h2 id="streaming-analytics">Streaming analytics</h2>
+<p>The current state-of-the-art is batch processing. But, sometimes the value of a data product can be increased tremendously by adding real-time analytics capabilities because most of world’s data loses value within seconds. Think of stock market data or the fact that a vehicle camera captures a pedestrian crossing a street. A streaming analytics system allows for real-time data processing. Think of it like running data against a continuous query instead of running a query against a finite data set.</p>
+<h3 id="architectural-decision-guidelines_2">Architectural decision guidelines</h3>
+<p>There is a relatively limited set of technologies for real-time stream processing. The most important questions to be asked are:</p>
+<ul>
+<li>What throughput is required?</li>
+<li>What latency is accepted?</li>
+<li>Which data types must be supported?</li>
+<li>What type of algorithms run on the system? Only relational algebra or advanced modeling?</li>
+<li>What’s the variance of the workload and what are the elasticity requirements?</li>
+<li>What type of fault tolerance and delivery guarantees are necessary?</li>
+</ul>
+<h3 id="technology-guidelines_1">Technology Guidelines</h3>
+<p>On IBM Cloud, there are many service offerings for real-time data processing that I explain in the following sections along with guidelines for when to use them.</p>
+<h4 id="apache-spark-and-apache-spark-structured-streaming">Apache Spark and Apache Spark Structured Streaming</h4>
+<p>Apache Spark is often the primary choice when it comes to cluster-grade data processing and machine learning. If you’re already using it for batch processing, Apache Spark Structured Streaming should be the first thing to evaluate. This way, you can have technology homogeneity and batch and streaming jobs can be run together (for example, joining a stream of records against a reference table).</p>
+<ul>
+<li>
+<p>What throughput is required? Apache Spark Structured Streaming supports the same throughput as in batch mode.</p>
+</li>
+<li>
+<p>What latency is accepted? In Apache Spark v2.3, the Continuous Processing mode has been introduced, brining latency down to one millisecond.</p>
+</li>
+<li>
+<p>Which data types must be supported? Apache Spark is strong at structured and semi-structured data. Audio and video data can’t benefit from Apache Spark’s accelerators Tungsten and Catalyst.</p>
+</li>
+<li>
+<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? Apache Spark Structured Streaming supports relational queries as well as machine learning, but machine learning is only supported on sliding and tumbling windows.</p>
+</li>
+<li>
+<p>What’s the variance of the workload and what are the elasticity requirements? Through their fault tolerant nature, Apache Spark clusters can be grown and shrunk dynamically.</p>
+</li>
+<li>
+<p>What type of fault tolerance and delivery guarantees are necessary? Apache Spark Structured Streaming supports exactly once delivery guarantees and depending on the type of data source, complete crash fault tolerance.</p>
+</li>
+</ul>
+<h4 id="ibm-streams">IBM Streams</h4>
+<p>IBM Streams is a fast streaming engine. Originally designed for low-latency, high throughput network monitoring applications, IBM Streams has its roots in cybersecurity.</p>
+<ul>
+<li>
+<p>What throughput is required? IBM Streams can handle high data throughput rates, up to millions of events or messages per second.</p>
+</li>
+<li>
+<p>What latency is accepted? IBM Streams latency goes down to microseconds.</p>
+</li>
+<li>
+<p>Which data types must be supported? Through IBM Streams binary transfer mode, any type of data type can be supported.</p>
+</li>
+<li>
+<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? IBM Streams in its core supports all relational algebra. Also, through toolkits, various machine learning algorithms can be used. Toolkits are an open system, and there are many third-party toolkits.</p>
+</li>
+<li>
+<p>What’s the variance of the workload and what are the elasticity requirements? Through its fault tolerant nature, IBM Streams clusters can be grown and shrunk dynamically.</p>
+</li>
+<li>
+<p>What type of fault tolerance and delivery guarantees are necessary? IBM Streams supports exactly once delivery guarantees and complete crash fault tolerance.</p>
+</li>
+</ul>
+<h4 id="nodered">NodeRED</h4>
+<p>NodeRED is a lightweight streaming engine. Implemented on top of Node.js in JavaScript, it can even run on a 64 MB memory footprint (for example, running on a Raspberry PI).</p>
+<ul>
+<li>
+<p>What throughput is required? NodeRED’s throughput is bound to processing capabilities of a single CPU core, through Node.js’s event processing nature. For increased throughput, multiple instances of NodeRED have been used in parallel. Parallelization is not built in and needs to be provided by the application developer.</p>
+</li>
+<li>
+<p>What latency is accepted? Latency is also dependent on the CPU configuration and on the throughput because high throughput congests the event queue and increases latency.</p>
+</li>
+<li>
+<p>Which data types must be supported? NodeRED best supports JSON streams, although any data type can be nested into JSON.</p>
+</li>
+<li>
+<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? NodeRED has one of the most extensive ecosystems of open source third-party modules. Although advanced machine learning is not supported natively, there are plans by IBM to add those.</p>
+</li>
+<li>
+<p>What’s the variance of the workload and what are the elasticity requirements? Because parallelization is a responsibility of the application developer, for independent computation a round-robin load balancing scheme supports linear scalability and full elasticity.</p>
+</li>
+<li>
+<p>What type of fault tolerance and delivery guarantees are necessary? NodeRED has no built-in fault tolerance and no delivery guarantees.</p>
+</li>
+</ul>
+<h4 id="apache-nifi">Apache Nifi</h4>
+<p>Apache Nifi is maintained by Hortonworks and is part of the IBM Analytics Engine Service.</p>
+<ul>
+<li>
+<p>What throughput is required? Nifi can handle hundreds of MBs on a single node and can be configured to handle multiple GBs in cluster mode.</p>
+</li>
+<li>
+<p>What latency is accepted? Nifi’s latency is in seconds. Through message periodization, the tradeoff between throughput and latency can be tweaked.</p>
+</li>
+<li>
+<p>Which data types must be supported? Nifi best supports structured data streams, although any data type can be nested.</p>
+</li>
+<li>
+<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? Nifi supports relational algebra out of the box, but custom processors can be built.</p>
+</li>
+<li>
+<p>What’s the variance of the workload and what are the elasticity requirements? Nifi can be easily scaled up without restarts, but scaling down requires stopping and starting the Nifi system.</p>
+</li>
+<li>
+<p>What type of fault tolerance and delivery guarantees are necessary? Nifi supports end-to-end guaranteed exactly once delivery.</p>
+</li>
+</ul>
+<p>Also, fault tolerance can be configured, but automatic recovery is not possible. Another important feature is backpressure and pressure release, which causes the upstream nodes to stop accepting new data and discarding unprocessed data if an age threshold is exceeded.</p>
+<h4 id="others">Others</h4>
+<p>There are also other technologies like Apache Kafka, Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.</p>
+<h2 id="data-integration">Data Integration</h2>
+<p>In the data integration stage, data is cleansed, transformed, and if possible, downstream features are added</p>
+<h3 id="architectural-decision-guidelines_3">Architectural Decision Guidelines</h3>
+<p>There are numerous technologies for batch data processing, which is the technology used for data integration. The most important questions to be asked are:</p>
+<ul>
+<li>What throughput is required?</li>
+<li>Which data types must be supported?</li>
+<li>What source systems must be supported?</li>
+<li>What skills are required?</li>
+</ul>
+<h3 id="technology-guidelines_2">Technology Guidelines</h3>
+<p>IBM Cloud has many service offerings for data integration, and the following section explains them and gives guidelines on which one to use.</p>
+<h4 id="apache-spark">Apache Spark</h4>
+<p>Apache Spark is often the first choice when it comes to cluster-grade data processing and machine learning. Apache Spark is a flexible option that also supports writing integration processes in SQL. But it’s missing a user interface.</p>
+<ul>
+<li>
+<p>What throughput is required? Apache Spark scales linearly, so throughput is just a function of the cluster size.</p>
+</li>
+<li>
+<p>Which data types must be supported? Apache Spark works best with structured data, but binary data is supported as well.</p>
+</li>
+<li>
+<p>What source systems must be supported? Apache Spark can access various SQL and NoSQL data as well as file sources. A common data source architecture allows adding capabilities, and it has third-party project functions as well.</p>
+</li>
+<li>
+<p>What skills are required? Advanced SQL skills are required and you should have some familiarity with either Java programming, Scala, or Python.</p>
+</li>
+</ul>
+<h4 id="ibm-data-stage-on-cloud">IBM Data Stage on Cloud</h4>
+<p>IBM Data Stage is a sophisticated ETL (Extract Transform Load) tool. Its closed source and supports visual editing.</p>
+<ul>
+<li>
+<p>What throughput is required? Data Stage can be used in cluster mode, which supports scale-out.</p>
+</li>
+<li>
+<p>Which data types must be supported? Data Stage has its roots in traditional Data Warehouse ETL and concentrates on structured data.</p>
+</li>
+<li>
+<p>What source systems must be supported? Again, Data Stage concentrates on relational database systems, but files can also be read, even on Object Store. In addition, data sources can be added using plug-ins that are implemented in the Java language.</p>
+</li>
+<li>
+<p>What skills are required? Because Data Stage is a visual editing environment, the learning curve is low. No programming skills are required.</p>
+</li>
+</ul>
+<h4 id="others_1">Others</h4>
+<p>It’s important to know that data integration is mostly done using ETL tools, plain SQL, or a combination of both. ETL tools are mature technology, and many ETL tools exist. On the other hand, if streaming analytics is part of the project, it’s a good idea to check whether one of those technologies fits your requirements because reuse of such a system reduces technology heterogeneity.</p>
+<h2 id="data-repository">Data Repository</h2>
+<p>This is the persistent storage for your data.</p>
+<h3 id="architectural-decision-guidelines_4">Architectural decision guidelines</h3>
+<p>There are lots of technologies for persisting data, and most of them are relational databases. The second largest group are NoSQL databases, with file systems (including Cloud Object Store) forming the last one. The most important questions to be asked are:</p>
+<ul>
+<li>What is the impact of storage cost?</li>
+<li>Which data types must be supported?</li>
+<li>How well must point queries (on fixed or dynamic dimensions) be supported?</li>
+<li>How well must range queries (on fixed or dynamic dimensions) be supported?</li>
+<li>How well must full table scans be supported?</li>
+<li>What skills are required?</li>
+<li>What’s the requirement for fault tolerance and backup?</li>
+<li>What are the constant and peak ingestion rates?</li>
+<li>What amount of storage is needed?</li>
+<li>What does the growth pattern look like?</li>
+<li>What are the retention policies?</li>
+</ul>
+<h3 id="technology-guidelines_3">Technology guidelines</h3>
+<p>IBM cloud has numerous service offerings for SQL, NoSQL, and file storage. The following section explains them and provides guidelines on when to use which one.</p>
+<h4 id="relational-databases">Relational databases</h4>
+<p>Dash DB is the Db2 BLU on the Cloud offering from IBM that features column store, advanced compression, and execution on SIMD instructions sets (that is, vectorized processing). But there are other options in IBM Cloud such as Informix, PostgreSQL, and MySQL.</p>
+<ul>
+<li>
+<p>What is the impact of storage cost? Relational databases (RDBMS) have the highest requirements on storage quality. Therefore, the cost of relational storage is always the highest.</p>
+</li>
+<li>
+<p>Which data types must be supported? Relational databases are meant for structured data. Although there are column data types for binary data that can be swapped for cheaper storage, this is just an add-on and not a core function of relational databases.</p>
+</li>
+<li>
+<p>How well must point queries (on fixed or dynamic dimensions) be supported? RDBMS are great for point queries because an index can be created on each column.</p>
+</li>
+<li>
+<p>How well must range queries (on fixed or dynamic dimensions) be supported? RDBMS are great for range queries because an index can be created on each column.</p>
+</li>
+<li>
+<p>How well must full table scans be supported? RDBMS are trying to avoid full table scans in their SQL query optimizers. Therefore, performance is not optimized for full table scans (for example, contaminating page caches).</p>
+</li>
+<li>
+<p>What skills are required? You should have SQL skills, and if a cloud offering isn’t chosen, you should also have database administrator (DBA) skills for the specific database.</p>
+</li>
+<li>
+<p>What’s the requirement for fault tolerance and backup? RDMBS support continuous backup and crash fault tolerance. For recovery, the system might need to go offline.</p>
+</li>
+<li>
+<p>What are the constant and peak ingestion rates? Inserts using SQL are relatively slow, especially if the target table contains many indexes that must be rebalanced and updated. Some RDBMS support bulk inserts from files by bypassing the SQL engine, but then the table usually needs to go offline for that period.</p>
+</li>
+<li>
+<p>What amount of storage is needed? RDMBS perform very well to around 1 TB of data. Going beyond that is complex and needs advanced cluster setups.</p>
+</li>
+<li>
+<p>What does the growth pattern look like? RDBMS support volume management, so continuous growth usually isn’t a problem, even at run time. For shrinking, the system might need to be taken offline.</p>
+</li>
+<li>
+<p>What are the retention policies? RDBMS usually support automated retention mechanisms to delete old data automatically.</p>
+</li>
+</ul>
+<h4 id="nosql-databases">NoSQL databases</h4>
+<p>The most prominent NoSQL databases like Apache CouchDB, MongoDB, Redis, RethinkDB, ScyllaDB (Cassandra), and InfluxCloud are supported.</p>
+<ul>
+<li>
+<p>What is the impact of storage cost? NoSQL databases are usually storage fault-tolerant, by default. Therefore, quality requirements on storage are less, which brings down storage cost.</p>
+</li>
+<li>
+<p>Which data types must be supported? Although NoSQL databases are meant for structured data as well, they usually use JSON as a storage format, which can be enriched with binary data. Although, a lot of binary data attached to a JSON document can bring the performance down as well.</p>
+</li>
+<li>
+<p>How well must point queries (on fixed or dynamic dimensions) be supported? Some NoSQL databases support the creation of indexes, which improves point query performance.</p>
+</li>
+<li>
+<p>How well must range queries (on fixed or dynamic dimensions) be supported? Some NoSQL databases support the creation of indexes, which improves range query performance.</p>
+</li>
+<li>
+<p>How well must full table scans be supported? NoSQL databases perform very well at full table scans. The performance is only limited by the I/O bandwidth to storage.</p>
+</li>
+<li>
+<p>What skills are required? Typically, special query language skills are required for the application developer and if a cloud offering isn’t chosen, database administrator (DBA) skills are needed for the specific database.</p>
+</li>
+<li>
+<p>What’s the requirement for fault tolerance and backup? NoSQL databases support backups in different ways. But some aren’t supporting online backup. NoSQL databases are usually crash fault tolerant, but for recovery, the system might need to go offline.</p>
+</li>
+<li>
+<p>What are the constant and peak ingestion rates? Usually, no indexes need to be updated and data doesn’t need to be mapped to pages. Ingestion rates are usually only bound to I/O performance of the storage system.</p>
+</li>
+<li>
+<p>What amount of storage is needed? RDMBS perform well to approximately 10 – 100 TB of data. Cluster setups on NoSQL databases are much more straightforward than on RDBMS. Successful setups with &gt;100 nodes and &gt; 100.000 database reads and writes per second have been reported.</p>
+</li>
+<li>
+<p>What does the growth pattern look like? The growth of NoSQL databases is not a problem. Volumes can be added at run time. For shrinking, the system might need to be taken offline.</p>
+</li>
+<li>
+<p>What are the retention policies? NoSQL databases don’t support automated retention mechanisms to delete old data automatically. Therefore, this must be implemented manually, resulting in range queries on the data corpus.</p>
+</li>
+</ul>
+<h4 id="object-storage">Object storage</h4>
+<p>Cloud object storage makes it possible to store practically limitless amounts of data. It is commonly used for data archiving and backup, for web and mobile applications, and as scalable, persistent storage for analytics. So, let’s take a look.</p>
+<ul>
+<li>
+<p>What is the impact of storage cost? Object storage is the cheapest option for storage.</p>
+</li>
+<li>
+<p>Which data types must be supported? Because object storage resembles a file system, any data type is supported.</p>
+</li>
+<li>
+<p>How well must point queries (on fixed or dynamic dimensions) be supported? Because object storage resembles a file system, external indices must be created. However, it’s possible to access specific storage locations through folder and file names and file offsets.</p>
+</li>
+<li>
+<p>How well must range queries (on fixed or dynamic dimensions) be supported? Because object storage resembles a file system, external indices must be created. However, it’s possible to access specific storage locations through folder and file names and file offsets. Therefore, range queries on a single defined column (for example, data) can be achieved through hierarchical folder structures.</p>
+</li>
+<li>
+<p>How well must full table scans be supported? Full table scans are bound only by the I/O bandwidth of the object storage.</p>
+</li>
+<li>
+<p>What skills are required? On a file level, working with object storage is much like working with any file system. Through Apache SparkSQL and IBM Cloud SQL Query, data in Object storage can be accessed with SQL. Because object storage is a cloud offering, no administrator skills are required. IBM Object Storage is available for on-premises as well using an appliance box.</p>
+</li>
+<li>
+<p>What’s the requirement for fault tolerance and backup? Fault tolerance and backup is completely handled by the cloud provider. Object storage supports intercontinental data center replication for high-availability out of the box.</p>
+</li>
+<li>
+<p>What are the constant and peak ingestion rates? Ingestion rates to object storage is bound by the uplink speed to the object storage system.</p>
+</li>
+<li>
+<p>What’s the amount of storage needed? Object storage scales to the petabyte range.</p>
+</li>
+<li>
+<p>What does the growth pattern look like? Growth and shrinking on object storage is fully elastic.</p>
+</li>
+<li>
+<p>What are the retention policies? Retention of data residing in object storage must be done manually. Hierarchical file and folder layout that is based on data and time helps here. Some object storage support automatic movement of infrequently accessed files to colder storage (colder means less cost, but also less performance, or even higher cost of accesses to files).</p>
+</li>
+</ul>
+<h2 id="discovery-and-exploration">Discovery and exploration</h2>
+<p>This component allows for visualization and creation of metrics of data.</p>
+<h3 id="architectural-decision-guidelines_5">Architectural decision guidelines</h3>
+<p>In various process models, data visualization and exploration is one of the first steps. Similar tasks are also applied in traditional data warehousing and business intelligence. So when choosing a technology, ask the following questions:</p>
+<ul>
+<li>What type of visualizations are needed?</li>
+<li>Are interactive visualizations needed?</li>
+<li>Are coding skills available or required?</li>
+<li>What metrics can be calculated on the data?</li>
+<li>Do metrics and visualization need to be shared with business stakeholders?</li>
+</ul>
+<h3 id="technology-guidelines_4">Technology guidelines</h3>
+<p>IBM cloud has many service offerings for data exploration. Some of the offerings are open source, and some aren’t.</p>
+<h4 id="jupyter-python-pyspark-scikit-learn-pandas-matplotlib-pixiedust">Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust</h4>
+<p>Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust are all open source and supported in IBM Cloud. Some of these components have overlapping features and some of them have complementary features. This can be determined by answering the architectural questions.</p>
+<ul>
+<li>
+<p>What type of visualizations are needed? Matplotlib supports the widest range of possible visualizations including run chars, histograms, box-plots, and scatter plots. PixieDust (as of V1.1.11) supports tables, bar charts, line charts, scatter plots, pie charts, histograms, and maps.</p>
+</li>
+<li>
+<p>Are interactive visualizations needed? Matplotlib creates static plots and PixieDust supports interactive ones.</p>
+</li>
+<li>
+<p>Are coding skills available or required? Matplotlib requires coding skills, but PixieDust does not. For computing metrics, some code is necessary.</p>
+</li>
+<li>
+<p>What metrics can be calculated on the data? Using scikit-learn and pandas, all state-of-the-art metrics are supported.</p>
+</li>
+<li>
+<p>Do metrics and visualization need to be shared with business stakeholders? Watson Studio supports sharing of Jupyter Notebooks, also using a fine-grained user and access management system.</p>
+</li>
+</ul>
+<h4 id="spss-modeler">SPSS Modeler</h4>
+<p>SPSS Modeler is available in the cloud and also as stand-alone product.</p>
+<ul>
+<li>
+<p>What type of visualizations are needed? SPSS Modeler supports the following visualizations out of the box:</p>
+<ul>
+<li>Bar</li>
+<li>Pie</li>
+<li>3D Bar</li>
+<li>3D Pie</li>
+<li>Line</li>
+<li>Area</li>
+<li>3D Area</li>
+<li>Path</li>
+<li>Ribbon</li>
+<li>Surface</li>
+<li>Scatter</li>
+<li>Bubble</li>
+<li>Histogram</li>
+<li>Box</li>
+<li>Map</li>
+</ul>
+<p>You can get more information in the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3RA7_15.0.0/com.ibm.spss.modeler.help/graphboard_creating_types.htm">IBM Knowledge Center</a>.</p>
+</li>
+<li>
+<p>Are interactive visualizations needed? SPSS Modeler Visualizations are not interactive.</p>
+</li>
+<li>
+<p>Are coding skills available or required? SPSS Modeler doesn’t require any coding skills.</p>
+</li>
+<li>
+<p>What metrics can be calculated on the data? All state-of-the-art metrics are supported using the Data Audit node.</p>
+</li>
+<li>
+<p>Do metrics and visualization need to be shared with business stakeholders? Watson Studio supports sharing of SPSS Modeler Flows, also using a fine-grained user and access management system. However, those might not be suitable to stakeholders.</p>
+</li>
+</ul>
+<h2 id="actionable-insights">Actionable insights</h2>
+<p>This is where most of your work fits in. It’s where you create and evaluate your machine learning and deep learning models.</p>
+<h3 id="architectural-decision-guidelines_6">Architectural decision guidelines</h3>
+<p>There are numerous technologies for creating and evaluating machine learning and deep learning models. Although different technologies differ in function and performance, those differences are usually miniscule. Therefore, the questions you should ask yourself are:</p>
+<ul>
+<li>What are the available skills regarding programming languages?</li>
+<li>What are the costs of skills regarding programming languages?</li>
+<li>What are the available skills regarding frameworks?</li>
+<li>What are the costs of skills regarding frameworks?</li>
+<li>Is model interchange required?</li>
+<li>Is parallel- or GPU-based training or scoring required?</li>
+<li>Do algorithms need to be tweaked or new algorithms be developed?</li>
+</ul>
+<h3 id="technology-guidelines_5">Technology guidelines</h3>
+<p>Because there’s an abundance of open and closed source technologies, I’m highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.</p>
+<h4 id="spss-modeler_1">SPSS Modeler</h4>
+<p>This article has already introduced SPSS Modeler.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? As a complete UI-based offering, SPSS doesn’t need programming skills, although it can be extended using R scripts.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? As a complete UI-based offering, SPSS doesn’t need programming skills, although it can be extended using R scripts.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? SPSS is an industry leader, so skills are generally available.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Expert costs are usually lower in UI-based tools than in programming frameworks.</p>
+</li>
+<li>
+<p>Is model interchange required? SPSS Modeler supports PMML.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? SPSS Modeler supports scaling through IBM Analytics Server or IBM Watson Studio using Apache Spark.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? SPSS Modeler algorithms can’t be changed, but you can add algorithms or customizations using the R language.</p>
+</li>
+</ul>
+<h4 id="rr-studio">R/R-Studio</h4>
+<p>R and R-Studio are standards for open source-based data science. They’re supported in IBM Cloud through IBM Watson Studio as well.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? R programming skills are usually widely available because it’s a standard programming language in many natural science-based university curriculums. It can be acquired rapidly because it is a procedural language with limited functional programming support.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? Costs of R programming are usually low.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? R is not only a programming language but also requires knowledge of tooling (R-Studio), and especially knowledge of the R library (CRAN) with 6000+ packages.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Expert costs are correlated with knowledge of the CRAN library and years of experience and in the range of usual programmer costs.</p>
+</li>
+<li>
+<p>Is model interchange required? Some R libraries support exchange of models, but it is not standardized.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? Some R libraries support scaling and GPU acceleration, but it is not standardized.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? R needs algorithms to be implemented in C/C++ to run fast. So, tweaking and custom development usually involves C/C++ coding.</p>
+</li>
+</ul>
+<h4 id="python-pandas-and-scikit-learn">Python, pandas and scikit-learn</h4>
+<p>Although R and R-Studio have been the standard for open source-based data science for a while, Python, pandas, and scikit-learn are right behind them. Python is a much cleaner programming language than R and easier to learn. Pandas is the Python equivalent to R data frames, supporting relational access to data. Finally, scikit-learn nicely groups all necessary machine learning algorithms together. It’s supported in IBM Cloud through IBM Watson Studio as well.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? Python skills are very widely available because Python is a clean and easy to learn programming language.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? Because of Python’s properties mentioned above, the cost of Python programming skills is very low.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? Pandas and scikit-learn are very clean and easy-to-learn frameworks. Therefore, skills are widely available.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Because of the properties mentioned above, the costs of skills are very low.</p>
+</li>
+<li>
+<p>Is model interchange required? All scikit-learn models can be (de)serialized. PMML is supported through third-party libraries.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? Neither GPU nor scale-out is supported, although scale-up capabilities can be added individually to make use of multiple cores.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? scikit-learn algorithms are very cleanly implemented. They all stick to the pipelines API, making reuse and interchange easy. Linear algebra is handled throughout with the numpy library. Therefore, tweaking and adding algorithms is straightforward.</p>
+</li>
+</ul>
+<h4 id="python-apache-spark-and-sparkml">Python, Apache Spark and SparkML</h4>
+<p>Although Python, pandas, and scikit-learn are more widely adopted, the Apache Spark ecosystem is catching up, especially because of its scaling capabilities. It’s supported in IBM Cloud through IBM Watson Studio as well.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? Apache Spark supports Python, Java programming, Scala, and R as programming languages.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? The costs depend on what programming language is used, with Python typically the cheapest.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? Apache Spark skills are in high demand and usually not available.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Apache Spark skills are in high demand and are usually expensive.</p>
+</li>
+<li>
+<p>Is model interchange required? All SparkML models can be (de)serialized. PMML is supported through third-party libraries.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? All Apache Spark jobs are inherently parallel. However, GPU’s are only supported through third-party libraries.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? As in scikit-learn, algorithms are very cleanly implemented. They all stick to the pipelines API, making reuse and interchange easy. Linear algebra is handled throughout with built-in Apache Spark libraries. Therefore, tweaking and adding algorithms is straightforward.</p>
+</li>
+</ul>
+<h4 id="apache-systemml">Apache SystemML</h4>
+<p>When it comes to relational data processing, SQL is a leader, mainly because an optimizer takes care of optimal query executions. Think of SystemML as an optimizer for linear algebra that’s capable of creating optimal execution plans for jobs running on data parallel frameworks like Apache Spark.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? SystemML has two domain-specific languages (DSL) with R and Python syntax.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? Although the DSLs are like R and Python, there is a learning curve involved.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? SystemML skills are very rare.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Due to the high learning curve and skill scarcity, costs might get high.</p>
+</li>
+<li>
+<p>Is model interchange required? SystemML models can be (de)serialized. PMML is not supported. SystemML can import and run Caffe2 and Keras models.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? All Apache Spark jobs are inherently parallel. SystemML uses this property. In addition, GPU’s are supported as well.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? Although SystemML comes with a large set of pre-implemented algorithms for machine learning and deep learning, its strengths are in tweaking existing algorithms or implementing new ones because the DSL allows for concentrating on the mathematical implementation of the algorithm. The rest is handled by the framework. This makes it an ideal choice for these kind of tasks.</p>
+</li>
+</ul>
+<h4 id="keras-and-tensorflow">Keras and TensorFlow</h4>
+<p>TensorFlow is one of the most widely used deep learning frameworks. At its core, it is a linear algebra library supporting automatic differentiation. TensorFlow’s Python-driven syntax is relatively complex. Therefore, Keras provides an abstraction layer on top of TensorFlow. Both frameworks are seamlessly supported in IBM Cloud through Watson Studio and Watson Machine Learning.</p>
+<ul>
+<li>
+<p>What are the available skills regarding programming languages? Python is the core programming language for Keras and TensorFlow.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding programming languages? Because Python programmers are more abundant than Java/Scala programmers, the costs are less.</p>
+</li>
+<li>
+<p>What are the available skills regarding frameworks? Keras and TensorFlow skills are relatively rare.</p>
+</li>
+<li>
+<p>What are the costs of skills regarding frameworks? Due to the high learning curve and skill scarcity, costs might get high.</p>
+</li>
+<li>
+<p>Is model interchange required? Keras and TensorFlow have their own model exchange formats. There are converters from and to ONNX.</p>
+</li>
+<li>
+<p>Is parallel- or GPU-based training or scoring required? Running TensorFlow on top of ApacheSpark is supported through TensorFrames and TensorSpark. Keras models can be run on ApacheSpark using DeepLearning4J and SystemML. Both of the latter frameworks also support GPUs. TensorFlow (and therefore, Keras) support GPU natively as well.</p>
+</li>
+<li>
+<p>Do algorithms need to be tweaked or new algorithms be developed? TensorFlow is a linear algebra execution engine. Therefore, it’s optimally suited for tweaking and creating new algorithms. Keras is a very flexible deep learning library that supports many neural network layouts.</p>
+</li>
+</ul>
+<h2 id="applications-and-data-products">Applications and Data Products</h2>
+<p>Models are fine, but their value rises when they can be consumed by the ordinary business user. Therefore, you must create a data product. Data products don’t necessarily need to stay on the cloud. They can be pushed to mobile or enterprise applications.
+Architectural decision guidelines</p>
+<p>In contrast to machine learning and deep learning frameworks, the space of frameworks to create data product is tiny. This might reflect what the current state-of-the-art technology in data science concentrates on. Depending on the requirements, data products are relatively visualization-centric after a lot of use input data has been gathered. They also might involve asynchronous workflows as batch data integration and model training and scoring is performed within the workflow. Questions to ask about the technology are:</p>
+<p><em> What skills are present for developing a data product?
+</em> What skills are necessary for developing a data product?
+<em> Is instant feedback required or is batch processing accepted?
+</em> What’s the degree of customization needed?
+* What’s the target audience? Is cloud scale deployment for a public use base required?</p>
+<h3 id="technology-guidelines_6">Technology guidelines</h3>
+<p>Currently, only a limited set of frameworks and technologies is available in different categories. In the following section, I’ve explained the most prominent examples.</p>
+<h4 id="r-shiny">R-Shiny</h4>
+<p>R-Shiny is a great framework for building data products. Closely tied to the R language, it enables data scientists to rapidly create a UI on top of existing R-scripts.</p>
+<ul>
+<li>
+<p>What skills are present for developing a data product? R-Shiny requires R development skills. So, it best fits into an R development ecosystem.</p>
+</li>
+<li>
+<p>What skills are necessary for developing a data product? Although based on R, R-Shiny needs additional skills. For experienced R developers, the learning curve is steep and additional knowledge to acquire is minimal.</p>
+</li>
+<li>
+<p>Is instant feedback required or is batch processing accepted? The messaging model of R-Shiny supports instant UI feedback when server-side data structures are updated. Therefore, the response time is independent of the framework and should be considered and resolved programmatically on the server side.</p>
+</li>
+<li>
+<p>What’s the degree of customization needed? Although R-Shiny is an extensible framework, extending it requires a deep understanding of the framework and R-Technology. Out of the box, there is a large set of UI widgets end elements supported, allowing for very customizable applications. If requirements go beyond those capabilities, costly extensions are required.</p>
+</li>
+<li>
+<p>What’s the target audience? Is cloud scale deployment for a public use base required? R-Shiny applications look very professional, although quite distinguishable. Therefore, the target audience must accept the UI design limitations. R-Shiny is best dynamically scaled horizontally in a container environment like Kubernetes. Ideally, every user session runs in its own container because R and R-Shiny are very sensitive to main memory shortages</p>
+</li>
+</ul>
+<h4 id="node-red">Node-RED</h4>
+<p>Although Node-RED is a no-code/low-code data flow/data integration environment, because of its modular nature it supports various extensions including the dash boarding extension. This extension allows for fast creation of user interfaces including advanced visualizations that are updated in real-time.</p>
+<ul>
+<li>
+<p>What skills are present for developing a data product? Due to the completely graphical user interface-based software development approach, only basic programming skills are required to build data products with Node-RED.</p>
+</li>
+<li>
+<p>What skills are necessary for developing a data product? Any resource familiar with flow-based programming as used in many state-of-the-art ETL and data mining tools will have a fast start with Node-RED. Basic JavaScript knowledge is required for creating advanced flows and for extending the framework.</p>
+</li>
+<li>
+<p>Is instant feedback required or is batch processing accepted? The UI instantly reflects updates of the data model. Therefore, all considerations regarding feedback delay should be considered when developing the data integration flow or potentially involved calls to synchronous or asynchronous third-party services.</p>
+</li>
+<li>
+<p>What’s the degree of customization needed? Node-RED is a Node.js/JavaScript-based framework. Custom UI widgets require advanced Node.js development skills.</p>
+</li>
+<li>
+<p>What’s the target audience? Is cloud scale deployment for a public use base required? The Node-RED dashboard can be deployed for a pubic user base as long as the limitations regarding UI customization are acceptable. Because Node.js runs on a single threaded event loop, scaling must be done horizontally, preferably using a containerized environment. Note: The Internet of Things Starter kit in IBM Cloud supports horizontal scaling out of the box.</p>
+</li>
+</ul>
+<h4 id="d3">D3</h4>
+<p>When it comes to custom application development, D3 is one of the most prominent and most widely used visualization widget frameworks with a large open source ecosystem contributing a lot of widgets for every desirable use case. There’s a good chance that you can find a D3 widget to fit your use case.</p>
+<ul>
+<li>
+<p>What skills are present for developing a data product? D3 fits best into an existing, preferably JavaScript-based developer ecosystem, although JavaScript is only required on the client side. Therefore, on the server side, any REST-based endpoints in any programming language are supported. One example is REST endpoints accessed by a D3 UI provided by Apache Livy that encapsulates Apache Spark jobs.</p>
+</li>
+<li>
+<p>What skills are necessary for developing a data product? D3 requires sophisticated D3 skills and at least client-side JavaScript skills. Skills in a JavaScript AJAX framework like AngularJS are highly recommended. On the server side, capabilities of providing REST endpoints to the D3 applications are required.</p>
+</li>
+<li>
+<p>Is instant feedback required or is batch processing accepted? The UI instantly reflects updates of the data model. Therefore, all considerations regarding feedback delay should be considered when developing the data integration flow or potentially involved calls to synchronous or asynchronous third-party services.</p>
+</li>
+<li>
+<p>What’s the degree of customization needed? D3 applications usually are implemented from scratch. Therefore, this solution provides the most flexibility to the end user.</p>
+</li>
+<li>
+<p>What’s the target audience? Is cloud scale deployment for a public use base required? As a cloud native application, a D3-based data product can provide all capabilities for horizontal and vertical scaling and full adoption to user requirements.</p>
+</li>
+</ul>
+<h2 id="security-information-governance-and-systems-management">Security, information governance and systems management</h2>
+<p>This important step can be easily forgotten. It’s important to control who has access to which information for many compliance regulations. In addition, modern data science architectures involve many components that require operational aspects as well.
+Architectural decision guidelines</p>
+<p>Data privacy is a major challenge in many data science projects. Questions that you should ask are:</p>
+<ul>
+<li>What granularity is required for managing user access to data assets?</li>
+<li>Are existing user registries required to be integrated?</li>
+<li>Who is taking care of operational aspects?</li>
+<li>What are the requirements for data retention?</li>
+<li>What level of security against attacks from hackers is required?</li>
+</ul>
+<h3 id="technology-guidelines_7">Technology guidelines</h3>
+<p>Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. I’ve chosen representative examples for this article.
+Internet services</p>
+<p>Deploying a productive client-facing web application brings with it serious risks. IBM Cloud Internet Services provides global points of presence (PoPs). It includes domain name service (DNS), global load balancer (GLB), distributed denial of service (DDoS) protection, web application firewall (WAF), transport layer security (TLS), and caching.</p>
+<ul>
+<li>What level of security against attacks from hackers is required? Internet Services is using services from CloudFlare, the world leader in this space.</li>
+</ul>
+<h4 id="ibm-app-id">IBM App ID</h4>
+<p>Identity Management allows for cloud-based user and identity management for web and mobile applications, APIs, and back-end systems. Cloud users can sign up and sign in with App ID’s scalable user registry or social login with Google or Facebook. Enterprise users can be integrated using SAML 2.0 federation.</p>
+<ul>
+<li>
+<p>What granularity is required for managing user access to data assets? IBM App ID supports user management but no group/roles. Therefore, fine-grained access must be managed within the application.</p>
+</li>
+<li>
+<p>Are existing user registries required to be integrated? IBM App ID supports registry integration using SAML 2.0 federation.</p>
+</li>
+</ul>
+<h4 id="object-storage_1">Object Storage</h4>
+<p>Object Storage is a standard when it comes to modern, cost-effective cloud storage.</p>
+<ul>
+<li>
+<p>What granularity is required for managing user access to data assets? IBM Identity and Access Management (IAM) integration allows for granular access control at the bucket-level using role-based policies.</p>
+</li>
+<li>
+<p>What are the requirements for data retention? Object storage supports different storage classes for frequently accessed data, occasionally accessed data, and long-term data retention with standard, vault, and cold vault. The Flex class allows for dynamic data access and automates this process. Physical deletion of data still must be triggered externally.</p>
+</li>
+<li>
+<p>Who is taking care of operational aspects? Regional and cross-region resiliency options allow for increased data reliability.</p>
+</li>
+<li>
+<p>What level of security against attacks from hackers is required? All data is encrypted at rest and in flight by default. Keys are automatically managed by default, but optionally can be self-managed or managed using IBM Key Protect.</p>
+</li>
+</ul>
+<h4 id="ibm-cloud-paassaas">IBM Cloud PaaS/SaaS</h4>
+<p>IBM Cloud PaaS/SaaS eliminates operational aspects from data science projects because all components involved are managed by IBM.</p>
+<ul>
+<li>Who is taking care of operational aspects? In PaaS/SaaS, cloud operational aspects are being taken care of by the cloud provider.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This article complements the <a href="https://developer.ibm.com/articles/the-lightweight-ibm-cloud-garage-method-for-data-science/">“Lightweight IBM Cloud Garage Method for data science”</a> article and helps you with deployment considerations.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
