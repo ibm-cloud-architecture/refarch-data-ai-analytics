@@ -2,30 +2,32 @@ site_name: Data - AI - Analytics Reference Architecture
 repo_url: https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics
 nav:
   - Introduction: index.md
+  - Data is the fundamental element: data/README.md
+  - Data and AI Architecture Principles : dataprinciples/README.md
   - Architectures :
     - Data preparation: preparation/gov-data-lake.md
     - Building AI model: model-dev/README.md
     - Runtime application: runtimes/README.md
-  - Data Topology: 
-    - Principles: topology/README.md 
+  - Data Topology:
+    - Principles: topology/README.md
   - Methodology: methodology/README.md
-  - Data Preparation: 
+  - Data Preparation:
     - Data replication: preparation/data-replication.md
     - Data Understanding: preparation/data-understanding.md
     - Data Preparation: preparation/README.md
     - Bias picking right training set: preparation/README.md
     - Model selection: preparation/README.md
-  - Deployment: 
+  - Deployment:
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
-  - Monitoring: 
+  - Monitoring:
     - Feedback analysis:  monitoring/README.md
     - Bias monitoring to ensure equitable:  monitoring/README.md
   - Reference Implementation:
     - Customer churn solution: https://ibm-cloud-architecture.github.io/refarch-cognitive-analytics/
-  
 
-theme: 
+
+theme:
   name: material
 extra_css: ["extra.css"]
 markdown_extensions:
