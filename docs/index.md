@@ -1,7 +1,6 @@
 # Data and AI Reference Architecture
 
-!!! abstract
-  In this reference architecture,  we define the architecture patterns and best practices for developing Data and AI intensive applications or  *Intelligent applications*.  We consider how  data, data governance, analytics and machine learning practices join with the agile life cycle of cloud native application development to enable the development and delivery of *Intelligent Applications*.
+!!! Abstract: In this reference architecture,  we define the architecture patterns and best practices for developing Data and AI intensive applications or  *Intelligent applications*.  We consider how  data, data governance, analytics and machine learning practices join with the agile life cycle of cloud native application development to enable the development and delivery of *Intelligent Applications*.
 
 When we consider the  Data and AI Reference Architecture in terms of developing *intelligent applications* it becomes apparent that we are looking at bringing together three architecture patterns:
 
@@ -88,58 +87,3 @@ environments in following notes.
 The following diagrams illustrate the product mapping to realize the required capability.
 
 ![](images/data-ai-ra-products.png)
-
-## Data platform
-
-### Principles
-
-1. There exists a spectrum ranging from single source of truth to data hyper personalisation. Fundamentally, we need to embrace the fact that different roles need specialised data stores with redundancy and replication between them, exercising specialisation through connectivity.
-1. Different application patterns apply different data specialisation.
-1. There is a clear dependency between AI and Data Management, but in an **Intelligent Application** context there is a Data concern, a AI model management concern, and multi cloud deployment concerns.
-1. As you constrain scalability and network connectivity you also constrain data store, data structure and data access.    
-1. The value and way of storing and representing data may change with its age. Value also comes in the recognition of patterns in the time series.
-
-Today, our users may have access to terabytes, petabytes, or even exabytes of data. But if that data is not collected, organized, managed, controlled, enriched, governed, measured, and analyzed, that data is not just useless, it can become a liability.
-
-#### Collect – Making Data Simple and Accessible
-
-The first rung of the AI Ladder is *Collect* and is how an enterprise can formally incorporate data into any analytic process. Properties of data include:
-
-* Structured, semi-structured, unstructured
-* Proprietary or open
-* In the cloud or on-premise
-* Any combination above
-
-#### Organize – Trusted, Governed Analytics
-
-The second rung of the AI Ladder is *Organize* and is about how an enterprise can make data known, discoverable, usable, and reusable. The ability to organize is prerequisite to becoming data-centric. Additionally, data of inferior quality or data that can be misleading to a machine or end-user can be governed in such that any use can be adequately controlled. Ideally, the outcome of *Organize* is a body of data that is appropriately curated and offers the highest value to an enterprise.
-Organize allows data to be:
-
-* Discoverable
-* Cataloged
-* Profiled
-* Categorized
-* Classified
-* Secured (e.g. through policy-based enforcement)
-* A source of truth and utility
-
-#### Analyze – Insights On-Demand
-
-The third rung of the AI Ladder is *Analyze* and is about how an organization approaches becoming a data-driven enterprise. Analytics can be human-centered or machine-centered. In this regard the initials AI can be interpreted as Augmented Intelligence when used in a human-centered context and Artificial Intelligence when used in a machine-centered context. Analyze covers a span of techniques and capabilities from basic reporting and business intelligence to deep learning. Analyze, through data, allows to:
-
-* Determine what has happened
-* Determine what is happening
-* Determine what might happen
-* Compare against expectations
-* Automate and optimize decisions
-
-#### Infuse – Operationalize AI with Trust and Transparency
-
-The fourth rung of the AI Ladder is *Infuse* and is about how an enterprise can use AI as a real-world capability. Operationalizing AI means that models can be adequately managed which means an inadequately performing model can be rapidly identified and replaced with another model or by some other means. Transparency infers that advanced analytics and AI are not in the realm of being a dark art and that all outcomes can be explained. Trust infers that all forms of fairness transcend the use of a model. *Infuse* allows data to be:
-
-* Used for automation and optimization
-* Part of a causal loop of action and feedback
-* Exercised in a deployed model
-* Used for developing insights and decision-making
-* Beneficial to the data-driven organization
-* Applied by the data-centric enterprise

@@ -2,8 +2,8 @@ site_name: Data - AI - Analytics Reference Architecture
 repo_url: https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics
 nav:
   - Introduction: index.md
-  - Data is the fundamental element: data/README.md
-  - Data and AI Architecture Principles : dataprinciples/README.md
+  - Data is fundamental: data/README.md
+  - Data and AI Principles : dataprinciples/README.md
   - Architectures :
     - Data preparation: preparation/gov-data-lake.md
     - Building AI model: model-dev/README.md
