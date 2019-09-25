@@ -10,7 +10,9 @@ nav:
     - Runtime application: runtimes/README.md
   - Data Topology:
     - Principles: topology/README.md
-  - Methodology: methodology/README.md
+  - Methodology:
+    - Lightweight: methodology/lightweight.md
+    - Iterative:  methodology/README.md
   - Data Preparation:
     - Data replication: preparation/data-replication.md
     - Data Understanding: preparation/data-understanding.md
