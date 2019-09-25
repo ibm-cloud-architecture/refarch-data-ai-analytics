@@ -82,7 +82,7 @@ This diagram becomes the foundation of  the *data AI reference architecture*  an
 
 environments in following notes.
 
-### Mapping to products
+## Mapping to products
 
 The following diagrams illustrate the product mapping to realize the required capability.
 

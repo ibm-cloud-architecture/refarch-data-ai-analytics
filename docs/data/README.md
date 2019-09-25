@@ -1,4 +1,4 @@
-# Data is fundamental
+# Data Platform details
 
 Data is a fundamental element of every business and therefore fundamental to our architecture.   Data is our record of current state of the business, the history of what has happened, and is the base which enables us to predict what may happen in the future.
 
