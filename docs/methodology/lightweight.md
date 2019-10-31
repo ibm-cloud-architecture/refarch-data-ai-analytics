@@ -2,10 +2,17 @@
 
 *A lightning fast architecture development method and data science development process model*
 
-The Lightweight IBM Cloud Garage Method for Data Science is composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. The reference architecture document describes the suggested architecture in great detail and separate companion document discusses the [architectural decision guidelines](https://developer.ibm.com/articles/data-science-architectural-decisions-guidelines/) used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.
+Why is there another method among existing. What does this method different than others?
+
+This method is aligned to the [Pace-Layered Application Strategy and IT Organizational Design](https://www.gartner.com/binaries/content/assets/events/keywords/applications/apn30/pace-layered-applications-research-report.pdf) published by Garter in 2016.
+
+The Lightweight IBM Cloud Garage Method for Data Science is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. The reference architecture describes the suggested architecture and separate companion document discusses the [architectural decision guidelines](https://developer.ibm.com/articles/data-science-architectural-decisions-guidelines/) used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.
 
 ![](lightweight-process-model.png)
+Figure 1: The Lightweight Process Model and Architectural Development Method
 
+![](lightweight_ref_arch.png)
+Figure 2: The Lightweight Reference Architecture
 
 ## The Lightweight IBM Cloud Garage Method for Data Science Process Model
 
