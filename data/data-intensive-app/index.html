@@ -36,7 +36,7 @@
     
     
       
-        <title>The Lightweight IBM Cloud Garage Method Architectural Decisions Document Template - Data - AI - Analytics Reference Architecture</title>
+        <title>Designing data intensive application - Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -96,7 +96,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#the-lightweight-ibm-cloud-garage-method-architectural-decisions-document-template" tabindex="1" class="md-skip">
+      <a href="#designing-data-intensive-applications" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -121,7 +121,7 @@
               Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
-              The Lightweight IBM Cloud Garage Method Architectural Decisions Document Template
+              Designing data intensive application
             </span>
           
         </div>
@@ -243,7 +243,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../data/" title="AI Ladder" class="md-nav__link">
+    <a href="../" title="AI Ladder" class="md-nav__link">
       AI Ladder
     </a>
   </li>
@@ -445,10 +445,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Infuse
@@ -464,11 +466,96 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../data/data-intensive-app/" title="Designing data intensive application" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Designing data intensive application
+      </label>
+    
+    <a href="./" title="Designing data intensive application" class="md-nav__link md-nav__link--active">
       Designing data intensive application
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" title="Context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-data" title="Distributed data" class="md-nav__link">
+    Distributed data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replication" title="Replication" class="md-nav__link">
+    Replication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-leader" title="Single leader" class="md-nav__link">
+    Single leader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-leader" title="Multi leader" class="md-nav__link">
+    Multi leader
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compendium" title="Compendium" class="md-nav__link">
+    Compendium
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -574,7 +661,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../lightweight/" title="Lightweight approach" class="md-nav__link">
+    <a href="../../methodology/lightweight/" title="Lightweight approach" class="md-nav__link">
       Lightweight approach
     </a>
   </li>
@@ -586,7 +673,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Integrated iterative approach" class="md-nav__link">
+    <a href="../../methodology/" title="Integrated iterative approach" class="md-nav__link">
       Integrated iterative approach
     </a>
   </li>
@@ -654,31 +741,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#application-components-overview" title="Application Components Overview" class="md-nav__link">
-    Application Components Overview
+  <a href="#context" title="Context" class="md-nav__link">
+    Context
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#application-component-data-source" title="Application Component: Data Source" class="md-nav__link">
-    Application Component: Data Source
+  <a href="#distributed-data" title="Distributed data" class="md-nav__link">
+    Distributed data
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technology-component-mapping" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
+  <a href="#replication" title="Replication" class="md-nav__link">
+    Replication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-leader" title="Single leader" class="md-nav__link">
+    Single leader
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#justification" title="Justification" class="md-nav__link">
-    Justification
+  <a href="#multi-leader" title="Multi leader" class="md-nav__link">
+    Multi leader
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -688,218 +788,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#application-component-enterprise-data" title="Application Component: Enterprise Data" class="md-nav__link">
-    Application Component: Enterprise Data
+  <a href="#compendium" title="Compendium" class="md-nav__link">
+    Compendium
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_1" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_1" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-streaming-analytics" title="Application Component: Streaming analytics" class="md-nav__link">
-    Application Component: Streaming analytics
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_2" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_2" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-data-integration" title="Application Component: Data Integration" class="md-nav__link">
-    Application Component: Data Integration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_3" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_3" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-data-repository" title="Application Component: Data Repository" class="md-nav__link">
-    Application Component: Data Repository
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_4" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_4" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-discovery-and-exploration" title="Application Component: Discovery and Exploration" class="md-nav__link">
-    Application Component: Discovery and Exploration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_5" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_5" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-actionable-insights" title="Application Component: Actionable Insights" class="md-nav__link">
-    Application Component: Actionable Insights
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_6" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_6" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-applications-data-products" title="Application Component: Applications / Data Products" class="md-nav__link">
-    Application Component: Applications / Data Products
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_7" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_7" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-component-security-information-governance-and-systems-management" title="Application Component: Security, Information Governance and Systems Management" class="md-nav__link">
-    Application Component: Security, Information Governance and Systems Management
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technology-component-mapping_8" title="Technology Component mapping" class="md-nav__link">
-    Technology Component mapping
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#justification_8" title="Justification" class="md-nav__link">
-    Justification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -919,57 +810,100 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/methodology/lightweight-architectural-decisions-document-template.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/data/data-intensive-app.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="the-lightweight-ibm-cloud-garage-method-architectural-decisions-document-template">The Lightweight IBM Cloud Garage Method Architectural Decisions Document Template</h1>
-<h2 id="application-components-overview">Application Components Overview</h2>
-<p><img alt="" src="../reference-architecture.png" /></p>
-<h2 id="application-component-data-source">Application Component: Data Source</h2>
-<h3 id="technology-component-mapping">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-enterprise-data">Application Component: Enterprise Data</h2>
-<h3 id="technology-component-mapping_1">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_1">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-streaming-analytics">Application Component: Streaming analytics</h2>
-<h3 id="technology-component-mapping_2">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_2">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-data-integration">Application Component: Data Integration</h2>
-<h3 id="technology-component-mapping_3">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_3">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-data-repository">Application Component: Data Repository</h2>
-<h3 id="technology-component-mapping_4">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_4">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-discovery-and-exploration">Application Component: Discovery and Exploration</h2>
-<h3 id="technology-component-mapping_5">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_5">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-actionable-insights">Application Component: Actionable Insights</h2>
-<h3 id="technology-component-mapping_6">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_6">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-applications-data-products">Application Component: Applications / Data Products</h2>
-<h3 id="technology-component-mapping_7">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_7">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
-<h2 id="application-component-security-information-governance-and-systems-management">Application Component: Security, Information Governance and Systems Management</h2>
-<h3 id="technology-component-mapping_8">Technology Component mapping</h3>
-<p>Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.</p>
-<h3 id="justification_8">Justification</h3>
-<p>Please justify your Technology Component mappings here.</p>
+                <h1 id="designing-data-intensive-applications">Designing Data intensive applications</h1>
+<p>In this article we are highlighting some practice to design data intensive application and microservice solution. This is strongly linked to the adoption of event-driven microservices, but address the data consistency and eventual data consitency discussions, as well as the different strategies for implementation.</p>
+<p>Started 10/30/2019, still under heavy work.</p>
+<h2 id="context">Context</h2>
+<p>A typical modern business solution will include a set of microservices working together in choreography to exchange data. The adoption of event-driven microservice with all related design pattern is described in separate articles that you can read <a href="https://ibm-cloud-architecture.github.io/refarch-eda/design-patterns/ED-patterns/">here</a>. </p>
+<p>When zooming to a particular data intensive microservice we will find a set of important data centric features that may look like in the diagram below:</p>
+<p><img alt="Data Intensive App" src="../images/data-intensive-app.png" /></p>
+<p>The components involved include:</p>
+<ul>
+<li>Databases to store data for long term</li>
+<li>Caches to speed up retrieving data from expensive operation</li>
+<li>Search indexes to support search on a corpus</li>
+<li>Stream processing to pub/sub messages with other processes, which are now also considered as long duration datastores (Kafka).</li>
+<li>Batch processing to move large data between data sources</li>
+</ul>
+<p>When designing such application we need to address a set of important subjects:</p>
+<ul>
+<li>How to ensure data correctness and completeness?</li>
+<li>How to address good performance when exposing data, even when app is running slowly?</li>
+<li>How to scale and address increase in transaction volume and data size increase?</li>
+<li>What data to expose to other services via messaging ?</li>
+<li>What data to expose to other services via APIs ?</li>
+<li>How to support application reliability when some components are not performing within their SLA? How to be fault-tolerant?</li>
+<li>How to test fault-tolerance?</li>
+<li>How adding horizontal compute power impact the data access?</li>
+</ul>
+<p>In modern big data applications, hardware redundancy is not suffisant, the design needs to support unexpected faults, to avoid cascading failures and to support new version deployment with rolling-upgrade capability. </p>
+<p>When addressing scalability and load growth, we need to define the load parameters: number of transaction per second, or number of read and write operation, number of active sessions, ... On average and at peak. Each microservice in a solution will have its own load parameters. </p>
+<p>From there we need to design to address the following issue:</p>
+<ul>
+<li>How does load growth impact performance while keeping existing compute resources?</li>
+<li>What is the increase of compute resource needed to support same performance while load growth?</li>
+</ul>
+<p>The solution problem is a combination of different characteristics to address: read volume, write volume, data store volume, data complexity, response time, access logic...</p>
+<p>For batch processing the measurment is the throughput: number of records per second or time to process n records. For real time processing the response time measures the time to get a response from a client's point of view after sending a request.</p>
+<p>When defining service level agreement, it is important to use the median response time and a percentile of outliers. An example the median could be at 300ms at P99 (99/100) under 1s.</p>
+<p>Tail latencies, or high percentils of response time, impacts directly user experience and cost money.</p>
+<h2 id="distributed-data">Distributed data</h2>
+<p>Adopting microservice architecture, means distributed systems and distributed data. The main motivations for that are scalability (data operations load could not be supported by one server), high availability (by sharing the same processing between multiple machines), and reducing latency to distribute data close to the end users.</p>
+<p>Vertical scaling is still bounded by hardware resources, so at higher load we need to support horizontal scaling by adding more machine in cluster or in multiple clusters.  When adding machines, we may want to adopt different techniques for data sharing: </p>
+<ul>
+<li>shared memory</li>
+<li>shared storage</li>
+<li>shared nothing: cpu, memory and disk are per node. Cluster manages node orchestration over network. This architecture brings new challenges. </li>
+</ul>
+<h3 id="replication">Replication</h3>
+<p>A first technique to  share data is to replicate or copy data between nodes. It fits well, when dataset is small enough to be persisted in one machine, and when data do not change a lot over time. Replication implementations are most of the time, black box for business application developers, but for clarity we can mention three types:</p>
+<ul>
+<li>
+<p><strong>single-leader</strong>: one of the replica is the leader, and receive write operations from client services. Other replicas are followers, listening to data updates from a replication log and modify their own data store. Read operations can happen on any node, and followers are specifically read-only. This is a pattern used by Kafka, Postgresql, RabbitMQ...</p>
+<p><img alt="Leader-Followers" src="../images/leader-followers.png" /></p>
+</li>
+<li>
+<p><strong>multi-leader</strong>: multiple nodes accept write operations (they are leaders), and act as follower for other leaders. </p>
+</li>
+<li><strong>leaderless</strong>: each node accept write operations. Client sends write to multiple replicas, accept p acknowledge (p &lt;= number of nodes), but also performs n reads to assess eventual stale data. (This type is used in Cassandra or DynamoDB)</li>
+</ul>
+<h4 id="single-leader">Single leader</h4>
+<p>Replication can be done synchronously or asynchronously. With synchronous the leader waits until at least one follower has comfirmed replication before reporting to the client that the write operation is successful. From the client point of view, it is a synchronous call.</p>
+<p><img alt="Synch-Asynch" src="../images/synch-asynch.png" /></p>
+<p>With asynchronous the leader does not wait for followers to replicate. With synchronous, we are sure the data are not lost as at least one follower responded, but if the follower node has failure then the write operation is not consider completed, even if leader has the data. The client can do a retry. But the leader may need to block other write requests until it sees a follower alive. With synch, the data is also consistent with the leader. The figure above illustrates a synchronous mechanism for client - leader and first follower to respond, and asynchronous for the other followers.</p>
+<p>It is important to note that asynch replica may be the only possible solution when the number of followers is important or when they are separated by long distance with high latency networking communication.  Because a full synchronous mechanism will block the write operations in case of a follower failure and will not be reliable.</p>
+<p>With asynch, two reads at the same time on the leader and one of the follower will not get the same results. This inconsistency is temporal: when there is no more write then the followers will become eventually consistent. This elapse time is called replication lag.</p>
+<p><img alt="" src="../images/asynch.png" /></p>
+<p>This lag can have some interesting derived issues, like seeing data in one query (done on a follower with small lag) and then not seeing the data from the same query done on a bigger lagged follower. To avoid that the pratice is to use a monolitic read: user makes several reads in sequence, they will not see time go backward. Which can be achieved by ensuring the reads for a given user are done on the same follower. This is what kafka does by assigning a consumer to partition.</p>
+<p>With asynch replica, if the leader fails, data not yet replicated are lost until a new leader starts to accept new writes. </p>
+<p><img alt="" src="../images/data-lost.png" /></p>
+<p>Also adding a new follower brings other challenges: as the data are continuously being written to the leader database, copying the database files to the new follower will not be consistent. One adopted solution is to snapshot the database, without locking write operations, and copy the data to the follower, then from this snapshot, consumes the update log. To work the snapshot position needs to be known in the replication log. </p>
+<p><img alt="" src="../images/add-follower.png" /></p>
+<p>To support follower failure, the log needs to keep position of the last commited read, so when the follower restarts, it can load data from this position in the log. </p>
+<p>When the leader fails, a follower needs to take the leadership, and then other followers need to get data from the new leader. Kafka, combined with zookeeper, uses those last two mechanisms to support replication. Selecting the new leader is based on consensus algorithm, to ensure minimum data lost.  </p>
+<p>When using single leader, it is possible to reach a split brain state, when the old leader comes back to live, and thinks it is still a leader: both leaders accept writes which leads to data corruption. </p>
+<h4 id="multi-leader">Multi leader</h4>
+<p>With multi leader configuration each leader gets write operations, and propagate data update notifications to all nodes. This is an active-active replication. And it is the practice when dealing with multiple datacenters. </p>
+<p><img alt="" src="../images/multi-lead.png" /></p>
+<p>The write operations are propagated asynchronously which is more permissive to network failure. It is important to note that the following problems need to be addressed with this topology:</p>
+<ul>
+<li>Update of the same data at the same time, leading to write conflict</li>
+<li>Automatic primary key generation by the database may create duplicate keys</li>
+<li>Triggers that work on conditions on the data to do something could never be triggered due to data conditions that will never happen in this active - active configuration.</li>
+<li>Integrity constraints can be violated, as one records may be processed without the others being yet present.</li>
+</ul>
+<p>For the write conflict resolution, there are different strategies, one uses timestamps so the last write wins the record update, but this cloud lead to data lost. In fact conflict resolution will be dependant of the business logic and data knowledge. So custom code needs to be done to apply this logic to write conflicts.</p>
+<p>When there is more than two leaders, the replicas topology can be done in ring, start or all-to-all:</p>
+<p><img alt="" src="../images/multi-lead-topo.png" /></p>
+<p>With Ring, a leader forward and propagate its own write to one neighbor. With star one designated root node forwards writes to all of the other nodes. Finally with all-to-all, every leader sends its writes to every other leader.</p>
+<p>With Ring and Start, a node failure impacts the data replication to any node, and with all to all we need to address looping on the same write. The mitigation is to use a unique identifier for each node, so a write event coming with the same node_id of the current node id is discarded.</p>
+<h2 id="compendium">Compendium</h2>
+<ul>
+<li><a href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_3?crid=F3G6F7KYQZMH&amp;keywords=designing+data+intensive+applications&amp;qid=1572566804&amp;sprefix=designing+data+%2Caps%2C204&amp;sr=8-3">Designing data intensive application - Martin Kleppmann</a></li>
+</ul>
                 
                   
                 
@@ -986,6 +920,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../preparation/" title="Model selection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model selection
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../deployment/" title="CI & CD" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                CI & CD
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
