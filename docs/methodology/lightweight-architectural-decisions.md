@@ -1,39 +1,70 @@
 # Architectural Decisions Guidelines
 
-*An architectural decisions guide for data science*
+*An architectural decisions guide for architectural model development specific to data science*
+
+This is a companion document for the Lightweight IBM Cloud Garage Method for Data Science. It is meant for giving advice to architects and data scientists on architectural decisions which are extending the Lightweight Reference Architecture.
+
+This document starts with Architectural Principles which are met when applying the Lightweight IBM Cloud Garage Method for Data Science. This way, while integrating this method in an existing enterprise architecture, this method only needs to be adjusted towards Architectural Principles which are not met by this method.
+
+## Architectural Principles
 
 
-The [IBM Data and Analytics Reference Architecture](https://www.ibm.com/cloud/garage/architectures/dataAnalyticsArchitecture)defines possible components on an abstract level. The goal of this article is to choose from the required components and assign real and concrete architectural components to it. The article contains information to complement the [“Lightweight IBM Cloud Garage Method for data science”](https://developer.ibm.com/articles/the-lightweight-ibm-cloud-garage-method-for-data-science/) article.
+|Name | Simplicity First 
+--- | --- 
+Statement | If a functionality or Technology Component is not needed in the current iteration, it shouldn't be part of the architecture. There must be a need for it in the current iteration.  
+Rationale | Distraction is on of our worst enemies. Humans tend to get lost in the abundance of possibilities. By sticking to the Architectural Principle, clear focus on project delivery is ensured.
+Implications| The majority of projects are over-engineered. This adds direct cost for additional unnecessary work and indirect maintenance cost due to architectural complexity. By enforcing the most simple architecture practitioners can focus on solving problems without getting distracted.
 
-The method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics.
+
+|Name | OpenSource First 
+--- | --- 
+Statement | If a functionality or Technology Component is available as Open Source, this should be given preference.
+Rationale | Open Source software tends to be more stable, better documented and better understood which pushed TCO down 
+Implications| When using Open Source vendor lock-in is reduced, experts are more abundant and standards are followed more tightly. In addition, independence from a vendor allows for development of extensions to address business needs which might not be available in timely manner from the vendor
+
+|Name | Homogeneity First
+--- | --- 
+Statement | If a Technology Component is available from the same product suite it should be given preference.
+Rationale | Although standards exist and a lot of products are compatible with each other, compatibility never reaches the level of products coming from the same product suite.  
+Implications| If one relies on standards assuming compatibility between Technology Components during Architectural Development and those are broken whole Solution Architectures or Technology Architectures can become completely or partially invalid. Improving homogeneity mitigates that risk.
+
+|Name | Never touch a running system
+--- | --- 
+Statement | If a Technical Component is needed, it should be provisioned from scratch without reusing existing systems.   
+Rationale | When creating "Systems of Innovation" speed is on of the key drivers. Therefore, every interaction with existing system introduces complexity, delay and risk.
+Implications| Especially in public, hybrid and private Cloud environments it is more effective to provision a Technical Component as a Service over adjusting an existing Technical Component. 
+
+The [IBM Data and Analytics Reference Architecture](https://www.ibm.com/cloud/garage/architectures/dataAnalyticsArchitecture/reference-architecture) defines Application Components. A partial goal of an Architectural Development Method is defining a Technology Component for every necessary Application Component. The main document of the [“Lightweight IBM Cloud Garage Method for Data Science”](https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics/methodology/lightweight/) describes the Lightweight Technology Reference Architecture which should be used as starting point and after every iteration Application Components can be added and mapped to Technology Components as necessary.
+
+This way the method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics, which is a Application Architecture containing and describing Technology Components.
 
 ![](reference-architecture.png)
 
-The following sections provide guidelines for each component. They explain what technology should be chosen and if the component needs to be included at all.
+The following sections provide guidelines on selecting Technology Components for each Application Component. So it is explained what Technology Component should be chosen based on given requirements and if the Application Component needs to be included at all.
 
-## Data Source
+## Application Component: Data Source
 
 The data source is an internal or external data source that includes relational databases; web pages; CSV, JSON, or text files; and video and audio data.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
-With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by stakeholders. However, if there is some control over the process, the following principles should be considered:
+With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by stakeholders. However, if there is some control over the process, the following Architectural Principles should be considered:
 
 
 
-* What does the delivery point look like?
+* How does the delivery point look like?
 
-    Enterprise data mostly lies in relational databases serving OLTP systems. It’s typically a bad practice to access those systems directly, even in read-only mode because ETL processes are running SQL queries against those systems, which can hinder performance. One exception is IBM Db2 Workload Manager because it allows OLAP and ETL workloads to run in parallel with an OLTP workload without performance degradation of OLTP queries using intelligent scheduling and prioritizing mechanisms. You can read more about IBM Db2 Workload Manager.
+    Enterprise data mostly lies in relational databases serving OLTP systems. It’s typically a bad practice to access those systems directly, even in read-only mode because ETL processes are running SQL queries against those systems, which can hinder performance. One exception for example is IBM DB2 Workload Manager because it allows OLAP and ETL workloads to run in parallel with an OLTP workload without performance degradation of OLTP queries using intelligent scheduling and prioritizing mechanisms.
 
 * Does real-time data need to be considered?
 
-    Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on Streaming analytics further down in this article.
+    Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on Streaming analytics further down in this document.
 
-## Enterprise data
+## Application Component: Enterprise data
 
 Cloud-based solutions tend to extend the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud or access those in real time through a VPN API gateway.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
 Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are two ways to access it.
 
@@ -41,7 +72,7 @@ Moving enterprise data to the cloud can be costly. Therefore, it should be consi
 * Batch sync from an enterprise data center to the cloud
 * Real-time access to subsets of data using VPN and an API gateway
 
-### Technology guidelines
+### Technology Mapping
 
 #### Secure gateway
 
@@ -55,11 +86,11 @@ Lift allows you to migrate on-premises data to cloud databases in a very efficie
 
 The Rocket Mainframe Data service uses similar functions for batch-style data integration as Lift, but is dedicated to IBM Mainframes. You can [read more](https://cloud.ibm.com/catalog/services/rocket-mainframe-data) information about the service.
 
-## Streaming analytics
+## Application Component: Streaming analytics
 
 The current state-of-the-art is batch processing. But, sometimes the value of a data product can be increased tremendously by adding real-time analytics capabilities because most of world’s data loses value within seconds. Think of stock market data or the fact that a vehicle camera captures a pedestrian crossing a street. A streaming analytics system allows for real-time data processing. Think of it like running data against a continuous query instead of running a query against a finite data set.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
 There is a relatively limited set of technologies for real-time stream processing. The most important questions to be asked are:
 
@@ -70,7 +101,7 @@ There is a relatively limited set of technologies for real-time stream processin
 * What’s the variance of the workload and what are the elasticity requirements?
 * What type of fault tolerance and delivery guarantees are necessary?
 
-### Technology Guidelines
+### Technology Mapping
 
 On IBM Cloud, there are many service offerings for real-time data processing that I explain in the following sections along with guidelines for when to use them.
 
@@ -146,11 +177,11 @@ Also, fault tolerance can be configured, but automatic recovery is not possible.
 
 There are also other technologies like Apache Kafka, Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.
 
-## Data Integration
+## Application Component: Data Integration
 
 In the data integration stage, data is cleansed, transformed, and if possible, downstream features are added
 
-### Architectural Decision Guidelines
+### Technology Component mapping guidelines
 
 There are numerous technologies for batch data processing, which is the technology used for data integration. The most important questions to be asked are:
 
@@ -192,11 +223,11 @@ IBM Data Stage is a sophisticated ETL (Extract Transform Load) tool. Its closed 
 
 It’s important to know that data integration is mostly done using ETL tools, plain SQL, or a combination of both. ETL tools are mature technology, and many ETL tools exist. On the other hand, if streaming analytics is part of the project, it’s a good idea to check whether one of those technologies fits your requirements because reuse of such a system reduces technology heterogeneity.
 
-## Data Repository
+## Application Component: Data Repository
 
 This is the persistent storage for your data.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
 There are lots of technologies for persisting data, and most of them are relational databases. The second largest group are NoSQL databases, with file systems (including Cloud Object Store) forming the last one. The most important questions to be asked are:
 
@@ -213,7 +244,7 @@ There are lots of technologies for persisting data, and most of them are relatio
 * What are the retention policies?
 
 
-### Technology guidelines
+### Technology Mapping
 
 IBM cloud has numerous service offerings for SQL, NoSQL, and file storage. The following section explains them and provides guidelines on when to use which one.
 
@@ -294,11 +325,11 @@ Cloud object storage makes it possible to store practically limitless amounts of
 
 * What are the retention policies? Retention of data residing in object storage must be done manually. Hierarchical file and folder layout that is based on data and time helps here. Some object storage support automatic movement of infrequently accessed files to colder storage (colder means less cost, but also less performance, or even higher cost of accesses to files).
 
-## Discovery and exploration
+## Application Component: Discovery and exploration
 
 This component allows for visualization and creation of metrics of data.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
 In various process models, data visualization and exploration is one of the first steps. Similar tasks are also applied in traditional data warehousing and business intelligence. So when choosing a technology, ask the following questions:
 
@@ -308,7 +339,7 @@ In various process models, data visualization and exploration is one of the firs
 * What metrics can be calculated on the data?
 * Do metrics and visualization need to be shared with business stakeholders?
 
-### Technology guidelines
+### Technology Mapping
 
 IBM cloud has many service offerings for data exploration. Some of the offerings are open source, and some aren’t.
 
@@ -357,11 +388,11 @@ SPSS Modeler is available in the cloud and also as stand-alone product.
 
 * Do metrics and visualization need to be shared with business stakeholders? Watson Studio supports sharing of SPSS Modeler Flows, also using a fine-grained user and access management system. However, those might not be suitable to stakeholders.
 
-## Actionable insights
+## Application Component: Actionable insights
 
 This is where most of your work fits in. It’s where you create and evaluate your machine learning and deep learning models.
 
-### Architectural decision guidelines
+### Technology Component mapping guidelines
 
 There are numerous technologies for creating and evaluating machine learning and deep learning models. Although different technologies differ in function and performance, those differences are usually miniscule. Therefore, the questions you should ask yourself are:
 
@@ -373,7 +404,7 @@ There are numerous technologies for creating and evaluating machine learning and
 * Is parallel- or GPU-based training or scoring required?
 * Do algorithms need to be tweaked or new algorithms be developed?
 
-### Technology guidelines
+### Technology Mapping
 
 Because there’s an abundance of open and closed source technologies, I’m highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.
 
@@ -487,7 +518,7 @@ TensorFlow is one of the most widely used deep learning frameworks. At its core,
 * Do algorithms need to be tweaked or new algorithms be developed? TensorFlow is a linear algebra execution engine. Therefore, it’s optimally suited for tweaking and creating new algorithms. Keras is a very flexible deep learning library that supports many neural network layouts.
 
 
-## Applications and Data Products
+## Application Component: Applications and Data Products
 
 Models are fine, but their value rises when they can be consumed by the ordinary business user. Therefore, you must create a data product. Data products don’t necessarily need to stay on the cloud. They can be pushed to mobile or enterprise applications.
 Architectural decision guidelines
@@ -500,7 +531,7 @@ In contrast to machine learning and deep learning frameworks, the space of frame
 * What’s the degree of customization needed?
 * What’s the target audience? Is cloud scale deployment for a public use base required?
 
-### Technology guidelines
+### Technology Mapping
 
 Currently, only a limited set of frameworks and technologies is available in different categories. In the following section, I’ve explained the most prominent examples.
 
@@ -547,7 +578,7 @@ When it comes to custom application development, D3 is one of the most prominent
 * What’s the target audience? Is cloud scale deployment for a public use base required? As a cloud native application, a D3-based data product can provide all capabilities for horizontal and vertical scaling and full adoption to user requirements.
 
 
-## Security, information governance and systems management
+## Application Component: Security, information governance and systems management
 
 This important step can be easily forgotten. It’s important to control who has access to which information for many compliance regulations. In addition, modern data science architectures involve many components that require operational aspects as well.
 Architectural decision guidelines
@@ -560,7 +591,7 @@ Data privacy is a major challenge in many data science projects. Questions that 
 * What are the requirements for data retention?
 * What level of security against attacks from hackers is required?
 
-### Technology guidelines
+### Technology Mapping
 
 Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. I’ve chosen representative examples for this article.
 Internet services
@@ -594,10 +625,6 @@ Object Storage is a standard when it comes to modern, cost-effective cloud stora
 IBM Cloud PaaS/SaaS eliminates operational aspects from data science projects because all components involved are managed by IBM.
 
 * Who is taking care of operational aspects? In PaaS/SaaS, cloud operational aspects are being taken care of by the cloud provider.
-
-## Summary
-
-This article complements the [“Lightweight IBM Cloud Garage Method for data science”](https://developer.ibm.com/articles/the-lightweight-ibm-cloud-garage-method-for-data-science/) article and helps you with deployment considerations.
 
 
 

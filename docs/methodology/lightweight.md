@@ -1,11 +1,18 @@
 # The Lightweight IBM Cloud Garage Method for Data Science
 
-*A process model to map individual technology components to the reference architecture.*
+*A lightning fast architecture development method and data science development process model*
 
-The lightweight IBM Cloud Garage Method for data science includes a process model to map individual technology components to the reference architecture. This method does not include any requirement engineering or design thinking tasks. Because it can be hard to initially define the architecture of a project, this method supports architectural changes during the process model. A separate companion article discusses the [architectural decision guidelines](https://developer.ibm.com/articles/data-science-architectural-decisions-guidelines/).
+Why is there another method among existing. What does this method different than others?
+
+This method is aligned to the [Pace-Layered Application Strategy and IT Organizational Design](https://www.gartner.com/binaries/content/assets/events/keywords/applications/apn30/pace-layered-applications-research-report.pdf) published by Garter in 2016.
+
+The Lightweight IBM Cloud Garage Method for Data Science is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. The reference architecture describes the suggested architecture and separate companion document discusses the [architectural decision guidelines](../lightweight-architectural-decisions/) used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.
 
 ![](lightweight-process-model.png)
+Figure 1: The Lightweight Process Model and Architectural Development Method
 
+![](lightweight_ref_arch.png)
+Figure 2: The Lightweight Reference Architecture
 
 ## The Lightweight IBM Cloud Garage Method for Data Science Process Model
 
@@ -13,7 +20,7 @@ This section introduces this lightweight process model.
 
 ![](lightweight-process-model-figure2.png)
 
-The first thing that you should notice is the similarity to the process models I introduced in my [last article](https://developer.ibm.com/articles/architectural-thinking-in-the-wild-west-of-data-science/#ibm-cloud-garage-method). With this model, there are no design tasks because this method is used for projects where the business expectations are already set. Finally, you should notice the increased granularity in the individual tasks. The reason for this is reuse. Every task has a clear purpose and a defined work product (for example, a Jupyter Notebook, a script, or a docker container hosting a scoring or training endpoint, depending on the architectural decisions made).
+The first thing that you should notice is the bidirectional communication between "Business Needs" and "Initial Data Exploration". This is a data driven method and data is crucial on what can be achieved, therefore "Business Needs" may be adjusted based on the possibilities provided by give data. Second, with this model, there is no communication between "Business Needs" and other steps because an iteration of this process is very short (in the range of hours and days).
 
 The following sections explain the individual tasks.
 
@@ -21,100 +28,103 @@ The following sections explain the individual tasks.
 
 This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable.
 
-#### Tools guidance
-Tools that you can use to perform this task include:
+#### Technology Component
+Suggested technology components to perform this task:
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas, Matplotlib
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, PixieDust
-* IBM Watson Studio – IBM SPSS Modeler – Data Audit
-* IBM SPSS Modeler stand-alone – Data Audit
-* IBM Information Server – QualityStage
+* Jupyter Lab
+* Python
+* Seaborn
 
 ### Extract, transform, load (ETL)
 
 This task is an important step in transforming the data from the source system into data suitable for analytics. In traditional data warehousing, this process includes accessing the online transaction processing (OLTP) system’s databases, transforming the data from a highly normalized data model into a Star or Snowflake Schema, and storing the data to a data warehouse. In data science projects, this step is usually much simpler. The data arrives in an exported format (for example, JSON or CSV). But, sometimes de-normalization must be done as well. The result usually ends up in a bulk storage like Cloud Object Store.
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-data-cleansing)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache Spark SQL
-* IBM Watson Studio – Data Refinery
-* IBM Information Server – Data Stage
+Suggested technology components to perform this task:
+
+* Apache SparkSQL
+* COS (Cloud Object Store)
 
 ### Feature creation
 
 This task transforms input columns of various relations into additional columns to improve model performance. A subset of those features can be created in an initial task (for example, one-hot encoding of categorical variables or normalization of numerical variables). Some others require business understanding or multiple iterations to be considered. This task is one of those benefiting the most from the highly iterative nature of this method.
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-feature-engineering)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache Spark SQL
-* IBM Information Server – Data Stage
+Suggested technology components to perform this task:
+
+* scikit-learn, pandas
+* Apache Spark
 
 ### Model definition
 
 This task defines the machine learning or deep learning model. Because this is a highly iterative method, various iterations within this task or including up- and downstream tasks are possible. I recommend starting with simple models first for baseline creation after those models are evaluated.
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-model-definition)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache SparkML, Apache SystemML
-* IBM Watson Studio – IBM SPSS Modeler
-* IBM SPSS Modeler stand-alone
+
+Suggested technology components to perform this task:
+
+* scikit-learn
+* Apache SparkML
+* TensorFlow
 
 ### Model Training
 
 This task trains the model. The task is set apart from model definition and evaluation for various reasons. First, training is a computationally intense task that might be scaled on computer clusters or GPUs. Therefore, an architectural cut is sometimes unavoidable. (For example, model definition happens in Keras, but training happens on a Keras model export using Apache SystemML on top of Apache Spark running on a GPU cluster.) In hyperparameter tuning and hyperparameter space exploration, the downstream task “Model Evaluation” can be part of this asset.
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-model-training)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache SparkML, Apache SystemML
-* IBM Watson Studio – IBM SPSS Modeler
-* IBM SPSS Modeler stand-alone
+
+Suggested technology components to perform this task:
+
+* scikit-learn
+* Apache SparkML
+* TensorFlow
 
 ### Model evaluation
 
-This task evaluates the model’s performance. Given the nature of the task, different metrics must be applied, for example, categorical-cross entropy for a multi-class classification problem. It’s important to divide the data set into training, test, and validation (if cross-validation isn’t used) and keep track of the performance of different feature engineering, model definition, and training parameters.
+This task evaluates the model’s performance. Given the nature of the task, different metrics must be applied, for example, categorical-cross entropy for a multi-class classification problem. It’s important to divide the data set into training, test, and validation (if cross-validation isn’t used) and keep track of the performance of different feature engineering, model definition, and training parameters. In addition to model performance, Trusted AI (Adversarial Robustness, Model Bias)parameter need to be evaluated as well.
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-model-evaluation)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache SparkML, Apache SystemML
-* IBM Watson Studio – IBM SPSS Modeler
-* IBM SPSS Modeler stand-alone
+
+Suggested technology components to perform this task:
+
+* scikit-learn
+* Apache SparkML
+* TensorFlow
+* AI Fairness 360
+* Adversarial Robustness Toolbox
 
 ### Model deployment
 
 This task deploys the model. The task depends heavily on the use case, especially, on the stakeholder’s expectation on consuming the data product. So, valid ways of deployment include:
 
 * An interactive Jupyter Notebook
-* An export of an already run, static Jupyter Notebook or some type of report
+* An export of an already run, static Jupyter Notebook resembling into a report
 * A REST endpoint allowing scoring (and training) of the model (for example, backed by a docker container running on Kubernetes)
 * A full-fledged web or mobile application
 
-#### Tools guidance
+[Further Guidelines](../lightweight-guidelines-model-deployment)
 
-Tools that you can use to perform this task include:
+#### Technology Component
 
-* IBM Watson Studio Jupyter Notebooks, scikit-learn, pandas
-* IBM Watson Studio Jupyter Notebooks, Apache Spark, Apache SparkML, Apache SystemML
-* IBM Watson Studio – IBM SPSS Modeler
-* IBM SPSS Modeler stand-alone
-* IBM MAX (Model Asset Exchange)
-* IBM FfDL (Fabric for DeepLearning)
-* IBM Watson Machine Learning
-* IBM Watson DeepLearning as a Service
+Suggested technology components to perform this task:
+
+* Jupyter
+* Seldon
 
 
 ### Project Asset Naming Convention
@@ -130,15 +140,6 @@ Need a structure to name your assets? Here’s our recommended convention. Note 
 [project_name].model_evaluate.<technology>.<version>.<extension>
 [project_name].model_deployment.<technology>.<version>.<extension>
 ```
-
-
-### Summary
-
-This article information on the lightweight IBM Cloud Garage Method for data science. It included a process model to map individual technology components to the reference architecture. A separate companion article discusses the [architectural decision guidelines](https://developer.ibm.com/articles/data-science-architectural-decisions-guidelines/).
-
-
-
-
 
 
 
