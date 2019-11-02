@@ -17,6 +17,7 @@ nav:
     - Bias picking right training set: preparation/README.md
     - Model selection: preparation/README.md
   - Infuse:
+    - Designing data intensive application: data/data-intensive-app.md
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
   - Monitoring:
@@ -25,7 +26,7 @@ nav:
   - Methodology:
     - Lightweight approach: methodology/lightweight.md
     - Integrated iterative approach:  methodology/README.md
-  - Reference Implementation:
+  - Reference Implementations:
     - Customer churn solution: https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/
 
 
