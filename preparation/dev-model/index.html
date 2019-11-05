@@ -1,0 +1,1423 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+    
+    
+      
+        <title>Model selection - Data - AI - Analytics Reference Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#terminology" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data - AI - Analytics Reference Architecture
+            </span>
+            <span class="md-header-nav__topic">
+              Model selection
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Data - AI - Analytics Reference Architecture" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data - AI - Analytics Reference Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../data/" title="AI Ladder" class="md-nav__link">
+      AI Ladder
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Data & AI Architectures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Data & AI Architectures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dataprinciples/" title="Architecture Principles" class="md-nav__link">
+      Architecture Principles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dataprinciples/intelligent-app/" title="Designing intelligent application" class="md-nav__link">
+      Designing intelligent application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+      Collect - organize data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../model-dev/" title="Analyze & build model" class="md-nav__link">
+      Analyze & build model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../runtimes/" title="Infuse in application" class="md-nav__link">
+      Infuse in application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Collect and Organize
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Collect and Organize
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../topology/" title="Data Topology" class="md-nav__link">
+      Data Topology
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data-replication/" title="Data replication" class="md-nav__link">
+      Data replication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Analyze
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Analyze
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data-understanding/" title="Data Understanding" class="md-nav__link">
+      Data Understanding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Data Preparation" class="md-nav__link">
+      Data Preparation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Bias picking right training set" class="md-nav__link">
+      Bias picking right training set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Model selection
+      </label>
+    
+    <a href="./" title="Model selection" class="md-nav__link md-nav__link--active">
+      Model selection
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" title="Terminology" class="md-nav__link">
+    Terminology
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bias" title="Bias" class="md-nav__link">
+    Bias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance" title="Variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#underfitting" title="Underfitting" class="md-nav__link">
+    Underfitting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overfitting" title="Overfitting" class="md-nav__link">
+    Overfitting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-trade-off" title="Bias-Variance Trade-off" class="md-nav__link">
+    Bias-Variance Trade-off
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#train-validation-test" title="Train, Validation &amp; Test" class="md-nav__link">
+    Train, Validation &amp; Test
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-data" title="Validation data" class="md-nav__link">
+    Validation data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-data" title="Test data" class="md-nav__link">
+    Test data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation" title="Cross-Validation" class="md-nav__link">
+    Cross-Validation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hold-out-method" title="Hold-out Method" class="md-nav__link">
+    Hold-out Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-fold-cross-validation" title="K-fold Cross-Validation" class="md-nav__link">
+    K-fold Cross-Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leave-one-out-cross-validation" title="Leave-one-out cross-validation" class="md-nav__link">
+    Leave-one-out cross-validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stratified-cross-validation" title="Stratified cross-validation" class="md-nav__link">
+    Stratified cross-validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-exploration" title="Algorithm Exploration" class="md-nav__link">
+    Algorithm Exploration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regression" title="Regression" class="md-nav__link">
+    Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification" title="Classification" class="md-nav__link">
+    Classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering" title="Clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-engines" title="Recommendation Engines" class="md-nav__link">
+    Recommendation Engines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anomaly-detection" title="Anomaly Detection" class="md-nav__link">
+    Anomaly Detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-parameter-optimization" title="Hyper-Parameter Optimization" class="md-nav__link">
+    Hyper-Parameter Optimization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grid-search" title="Grid Search" class="md-nav__link">
+    Grid Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-search" title="Random Search" class="md-nav__link">
+    Random Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-to-fine" title="Coarse to Fine" class="md-nav__link">
+    Coarse to Fine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bayesian-optimization" title="Bayesian Optimization" class="md-nav__link">
+    Bayesian Optimization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensemble-learning" title="Ensemble Learning" class="md-nav__link">
+    Ensemble Learning
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagging" title="Bagging" class="md-nav__link">
+    Bagging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" title="Boosting" class="md-nav__link">
+    Boosting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" title="Stacking" class="md-nav__link">
+    Stacking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Infuse
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Infuse
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/cassandra/readme/" title="Cassandra practices" class="md-nav__link">
+      Cassandra practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/" title="Physical model execution" class="md-nav__link">
+      Physical model execution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Monitoring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Monitoring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Feedback analysis" class="md-nav__link">
+      Feedback analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../monitoring/" title="Bias monitoring to ensure equitable" class="md-nav__link">
+      Bias monitoring to ensure equitable
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Methodology
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Methodology
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../methodology/" title="Integrated iterative approach" class="md-nav__link">
+      Integrated iterative approach
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Lightweight approach
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Lightweight approach
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../methodology/lightweight/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../methodology/lightweight-architectural-decisions/" title="Architectural Decisions" class="md-nav__link">
+      Architectural Decisions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference Implementations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference Implementations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" title="Terminology" class="md-nav__link">
+    Terminology
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bias" title="Bias" class="md-nav__link">
+    Bias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance" title="Variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#underfitting" title="Underfitting" class="md-nav__link">
+    Underfitting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overfitting" title="Overfitting" class="md-nav__link">
+    Overfitting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bias-variance-trade-off" title="Bias-Variance Trade-off" class="md-nav__link">
+    Bias-Variance Trade-off
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#train-validation-test" title="Train, Validation &amp; Test" class="md-nav__link">
+    Train, Validation &amp; Test
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-data" title="Validation data" class="md-nav__link">
+    Validation data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-data" title="Test data" class="md-nav__link">
+    Test data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation" title="Cross-Validation" class="md-nav__link">
+    Cross-Validation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hold-out-method" title="Hold-out Method" class="md-nav__link">
+    Hold-out Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-fold-cross-validation" title="K-fold Cross-Validation" class="md-nav__link">
+    K-fold Cross-Validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leave-one-out-cross-validation" title="Leave-one-out cross-validation" class="md-nav__link">
+    Leave-one-out cross-validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stratified-cross-validation" title="Stratified cross-validation" class="md-nav__link">
+    Stratified cross-validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-exploration" title="Algorithm Exploration" class="md-nav__link">
+    Algorithm Exploration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regression" title="Regression" class="md-nav__link">
+    Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification" title="Classification" class="md-nav__link">
+    Classification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering" title="Clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-engines" title="Recommendation Engines" class="md-nav__link">
+    Recommendation Engines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anomaly-detection" title="Anomaly Detection" class="md-nav__link">
+    Anomaly Detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-parameter-optimization" title="Hyper-Parameter Optimization" class="md-nav__link">
+    Hyper-Parameter Optimization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grid-search" title="Grid Search" class="md-nav__link">
+    Grid Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-search" title="Random Search" class="md-nav__link">
+    Random Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarse-to-fine" title="Coarse to Fine" class="md-nav__link">
+    Coarse to Fine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bayesian-optimization" title="Bayesian Optimization" class="md-nav__link">
+    Bayesian Optimization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensemble-learning" title="Ensemble Learning" class="md-nav__link">
+    Ensemble Learning
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bagging" title="Bagging" class="md-nav__link">
+    Bagging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boosting" title="Boosting" class="md-nav__link">
+    Boosting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" title="Stacking" class="md-nav__link">
+    Stacking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/preparation/dev-model.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Model selection</h1>
+                
+                <p>Different machine learning algorithms are searching for different trends and patterns. Consequently, one algorithm isn’t the best across all datasets or for all use-cases. To find the best solution, we conduct a lot of experiments, evaluating different machine learning algorithms and tuning their hyper-parameters. This chapter introduces various important topics:</p>
+<ul>
+<li>Train, Test &amp; Validation Data</li>
+<li>Algorithm Exploration</li>
+<li>Hyper-parameter Optimization</li>
+<li>Ensembles</li>
+</ul>
+<h2 id="terminology">Terminology</h2>
+<h3 id="bias">Bias</h3>
+<p>Bias is the expected difference between the parameters of a model that perfectly fits your data and those your algorithm has learned. Low bias algorithms (Decision Trees, K-nearest Neighbors &amp; Support Vector Machines) tend to find more complex patterns than high bias algorithms.</p>
+<h3 id="variance">Variance</h3>
+<p>This is how much the algorithm is impacted by the training data; how much the parameters change with new training data. Low variance algorithms (e.g. Linear Regression, Logistic Regression &amp; Naive Bayes) tend to find less complex patterns than high variance algorithms.</p>
+<h3 id="underfitting">Underfitting</h3>
+<p>The model is too simple to capture the patterns within the data; this will perform poorly on data it has been trained on as well as unseen data. High bias, low variance. High training error and high test error.</p>
+<h3 id="overfitting">Overfitting</h3>
+<p>The model is too complicated or too specific, capturing trends that do not generalize; it will accurately predict data it has been trained on but not on unseen data. Low bias, high variance. Low training error and high test error.</p>
+<p><img alt="" src="../images/over-fitting.png" /></p>
+<h3 id="bias-variance-trade-off">Bias-Variance Trade-off</h3>
+<p>The Bias-Variance Trade-off refers to finding a model with the right complexity, minimizing both the train and test error.</p>
+<p>Further Reading: <a href="https://elitedatascience.com/bias-variance-tradeoff">Bias-Variance Tradeoff Infographic</a></p>
+<h2 id="train-validation-test">Train, Validation &amp; Test</h2>
+<p>Machine learning algorithms learn from examples and, if you have good data, the more examples you provide, the better it will be at finding patterns in the data. However, you must be cautious of overfitting; overfitting is where a model can accurately make predictions for data it has been trained on but unable to generalize to data is hasn’t seen before.
+This is why we split our data into training data, validation data and test data. Validation data and test data are often referred to interchangeably, however, they are described below as having distinct purposes.
+Training data
+This is the data used to train the model, to fit the model parameters. It will account for the largest proportion of data as you wish for the model to see as many examples as possible.</p>
+<h3 id="validation-data">Validation data</h3>
+<p>This is the data used to fit hyper-parameters and for feature selection. Although the model never sees this data during training, by selecting particular features or hyper-parameters based on this data, you are introducing bias and again risk overfitting.</p>
+<h3 id="test-data">Test data</h3>
+<p>This is the data used to evaluate and compare your tuned models. As this data has not been seen during training nor tuning, it can provide insight into whether your models generalize well to unseen data.</p>
+<h3 id="cross-validation">Cross-Validation</h3>
+<p>The purpose of cross-validation is to evaluate if a particular algorithm is suited for your data and use-case. It is also used for hyper-parameter tuning and feature selection.</p>
+<p>The data is split into train and validation sets (though you should have some test data put to one side too) and a model built with each of the slices of data. The final evaluation of the algorithm is the average performance of each of the models.</p>
+<h4 id="hold-out-method">Hold-out Method</h4>
+<p>The simplest version of cross-validation is the hold-out method where we randomly split our data into two sets, a training set and a validation set. This is the quickest method as it only requires building a model once. However, with only one validation data set, there is a risk that it contains particularly easy, or difficult, observations to predict. Consequently, we could find we are overfitting to this validation data and on a test set it would perform poorly.</p>
+<h4 id="k-fold-cross-validation">K-fold Cross-Validation</h4>
+<p>The k-fold cross-validation method involves splitting the data into k-subsets. You then train a model k times, each time using one of the k-subsets as its validation data. The training data will be all other observations not in the validation set. Your final evaluation is the average across all k folds.</p>
+<h4 id="leave-one-out-cross-validation">Leave-one-out cross-validation</h4>
+<p>This is the most extreme version of K-fold cross-validation, where your k is N (the number of observations in your dataset). You train a model N separate times using all data except for one observation and then validate its accuracy with its prediction for that observation. Although you are thorough evaluating how well this algorithm works with your data set, this method is expensive as it requires you to build N models.</p>
+<h4 id="stratified-cross-validation">Stratified cross-validation</h4>
+<p>Stratified cross-validation enforces that the k-fold sets have similar proportions of observations for each class in either categorical features or the label.</p>
+<h2 id="algorithm-exploration">Algorithm Exploration</h2>
+<p>The algorithms you explore should be driven by your use-case. By first identifying what you are trying to achieve, you can then narrow the scope of searching for solutions. Although not a complete list of possible methods, below are links that introduce algorithms for Regression, Classification, Clustering, Recommendations, and Anomaly Detection. A colleague and I also created this tool to help guide algorithm selection (<a href="https://samrose3.github.io/algorithm-explorer/">Click here to visit Algorithm Explorer</a>).</p>
+<h3 id="regression">Regression</h3>
+<p>Regression algorithms are machine learning techniques for predicting continuous numerical values. They are supervised learning tasks which means they require labeled training examples.</p>
+<p>Further reading: <a href="https://medium.com/@srnghn/machine-learning-trying-to-predict-a-numerical-value-8aafb9ad4d36">Machine Learning: Trying to predict a numerical value</a></p>
+<h3 id="classification">Classification</h3>
+<p>Classification algorithms are machine learning techniques for predicting which category the input data belongs to. They are supervised learning tasks which means they require labeled training examples.</p>
+<p>Further reading: <a href="https://medium.com/@srnghn/machine-learning-trying-to-predict-a-categorical-outcome-6ba542b854f5">Machine Learning: Trying to predict a classify your data</a></p>
+<h3 id="clustering">Clustering</h3>
+<p>Clustering algorithms are machine learning techniques to divide data into a number of groups where points in the groups have similar traits. They are unsupervised learning tasks and therefore do not require labeled training examples.</p>
+<p>Further reading: <a href="https://medium.com/@srnghn/machine-learning-trying-to-discover-structure-in-your-data-2fbbc4f819ae">Machine Learning: Trying to discover structure in your data</a></p>
+<h3 id="recommendation-engines">Recommendation Engines</h3>
+<p>Recommendation Engines are created to predict a preference or rating that indicates a user’s interest in an item/product. The algorithms used to create this system find similarities between either the users, the items, or both.</p>
+<p>Further reading: <a href="https://medium.com/@srnghn/machine-learning-trying-to-make-recommendations-ea2912cf468">Machine Learning: Trying to make recommendations</a></p>
+<h3 id="anomaly-detection">Anomaly Detection</h3>
+<p>Anomaly Detection is a technique used to identify unusual events or patterns that do not conform to expected behavior. Those identified are often referred to as anomalies or outliers.</p>
+<p>Further reading: <a href="https://medium.com/@srnghn/machine-learning-trying-to-detect-outliers-or-unusual-behavior-2d9f364334f9">Machine Learning: Trying to detect outliers or unusual behavior</a></p>
+<h2 id="hyper-parameter-optimization">Hyper-Parameter Optimization</h2>
+<p>Although the terms parameters and hyper-parameters are occasionally used interchangeably, we are going to distinguish between the two.</p>
+<p><strong>Parameters</strong> are properties the algorithm is learning during training.</p>
+<p><em>For linear regression, these are the weights and biases; whilst for random forests, these are the variables and thresholds at each node.</em></p>
+<p><strong>Hyper-parameters</strong>, on the other hand, are properties that must be set before training.</p>
+<p><em>For k-means clustering, you must define the value of k; whilst for neural networks, an example is the learning rate.</em></p>
+<p><strong>Hyper-parameter optimization</strong> is the process of finding the best possible values for these hyper-parameters to optimize your performance metric (e.g. highest accuracy, lowest RMSE, etc.). To do this, we train a model for different combinations of values and evaluate which find the best solution. Three methods used to search for the best combinations are Grid Search, Random Search, and Bayesian Optimization.</p>
+<h3 id="grid-search">Grid Search</h3>
+<p>You specify values for each hyper-parameter, and all combinations of those values will be evaluated.</p>
+<p>For example, if you wish to evaluate hyper-parameters for random forest, you could specify provide three options for the number of trees hyper-parameter (10, 20 and 50) and for the maximum depth of each tree you also provide three options (no limit, 10 and 20). This would result in a random forest model being built for each of the 9 possible combinations: (10, no limit), (10, 10), (10, 20), (20, no limit), (20, 10), (20, 20), (50, no limit), (50, 10), and (50, 20). The combination that provides the best performance will be those you use for your final model.</p>
+<ul>
+<li>
+<p><strong>Pros:</strong> Simple to use. You will find the best combination of the values you’ve provided. You can run each of the experiments in parallel.</p>
+</li>
+<li>
+<p><strong>Cons:</strong> Computationally expensive as so many models are being built. If a particular hyper-parameter is not important, you are exploring different possibilities unnecessarily.</p>
+</li>
+</ul>
+<h3 id="random-search">Random Search</h3>
+<p>You specify ranges or options for each hyper-parameter and random values of each are selected.</p>
+<p>Continuing with the random forest example, you might provide the range for the number of trees to be between 10 and 50 and max_depth to be either no limit, 10 or 20. This time, rather than it compute all permutations, you can specify the number of iterations you wish to run. Say we only want five, then we might test something like (19, 20), (32 no limit), (40, no limit), (10, 20), (27, 10).</p>
+<ul>
+<li>
+<p><strong>Pros:</strong> Simple to use. More efficient and can outperform grid search when only a few hyper-parameters affect the overall performance. You can run each of the experiments in parallel.</p>
+</li>
+<li>
+<p><strong>Cons:</strong> It involves random sampling so will only find the best combination if it searches that space.</p>
+</li>
+</ul>
+<h3 id="coarse-to-fine">Coarse to Fine</h3>
+<p>For both grid search and random search, you can also use the coarse to fine technique. This involves exploring a broader range of variables with wide intervals or all possible options. Once you’ve got your results from this initial search you explore the results to see if there are any patterns or particular regions that look promising. If so, you can repeat the process but refine your search.</p>
+<p>For the random forest example above, we might notice that results are promising when the maximum depth has no limit and when the number of trees hyper-parameter is either 10 or 20. The search process is repeated but keeping the maximum depth hyper-parameter constant and increasing the granularity of the number of tree options, testing values of 12, 14, 16, 18, to see if we can find a better result.</p>
+<ul>
+<li>
+<p><strong>Pros:</strong> Can find more optimized hyper-parameters, improving the performance metric.</p>
+</li>
+<li>
+<p><strong>Cons:</strong> Evaluation of the results to find the best regions to explore can be cumbersome.</p>
+</li>
+</ul>
+<h3 id="bayesian-optimization">Bayesian Optimization</h3>
+<p>Bayesian Optimization uses the prior knowledge of success with hyper-parameter combinations to choose the next best.</p>
+<p>The technique uses a machine learning approach, building a model where the hyper-parameters are the features and the performance is the target variable. After each experiment, a new data point is added and a new model built.</p>
+<p>It assumes similar combinations will have similar results and prioritize exploring regions where promising results have already been seen. However, it also takes into consideration uncertainty as a possibility for large gain; if there are large areas that have not yet been explored, it will also prioritize these as.</p>
+<p>Taking just one hyper-parameter, the number of trees, the algorithm might first try 10 and get a pretty good performance. It then tries 32 and the performance is significantly better. Bayesian optimization builds a model based on the first two data points to predict performance. The model is likely to be linear with just the two data points so the next value chosen is 40, with the expectation that the performance will continue to improve as the number of trees increase. It does not. Now, it builds another model that suggests there might be improvement around 32 where it has seen the best result so far, however, there’s still a large gap between 10 and 32 that hasn’t been explored and due to large uncertainty, it chooses 21. Again, the model is tweaked with this new data and another value chosen… </p>
+<ul>
+<li>
+<p><strong>Pros:</strong> Can find more optimized hyper-parameters, improving the performance metric. It can reduce the time spent searching for an optimum solution when the number of parameters is high and each experiment is computationally expensive.</p>
+</li>
+<li>
+<p><strong>Cons:</strong> You cannot run each experiment in parallel as the next combination of hyper-parameter values is determined by the prior runs. It also requires tuning — choosing a scale for each hyper-parameter and an appropriate kernel.</p>
+</li>
+</ul>
+<h2 id="ensemble-learning">Ensemble Learning</h2>
+<p>Ensembles combine several machine learning models, each finding different patterns within the data, to provide a more accurate solution. These techniques can both improve performance, as they capture more trends, as well as reduce overfitting, as the final prediction is a consensus from many models.</p>
+<h3 id="bagging">Bagging</h3>
+<p>Bagging (bootstrap aggregations) is the method of building multiple models in parallel and average their prediction as the final prediction. These models can be built with the same algorithm (i.e. the Random Forest algorithm builds many decision trees) or you can build different types of models (e.g. a Linear Regression model and an SVM model).</p>
+<h3 id="boosting">Boosting</h3>
+<p>Boosting builds models sequentially evaluating the success of earlier models; the next model prioritizes learning trends for predicting examples that the current models perform poorly on. There are three common techniques for this: AdaBoost, Gradient Boosting and XGBoosted.</p>
+<h3 id="stacking">Stacking</h3>
+<p>Stacking involves building multiple models and using their outputs as features into a final model. For example, your goal is to create a classifier and you build a KNN model as well as a Naïve Bayes model. Rather than choose between the two, you can pass their two predictions into a final Logistic Regression model. This final model may result in better results than the two intermediate models.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="Bias picking right training set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Bias picking right training set
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../data/cassandra/readme/" title="Cassandra practices" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Cassandra practices
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1291 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+    
+    
+      
+        <title>Cassandra practices - Data - AI - Analytics Reference Architecture</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#cassandra-summary" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Data - AI - Analytics Reference Architecture" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data - AI - Analytics Reference Architecture
+            </span>
+            <span class="md-header-nav__topic">
+              Cassandra practices
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Data - AI - Analytics Reference Architecture" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data - AI - Analytics Reference Architecture
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="AI Ladder" class="md-nav__link">
+      AI Ladder
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Data & AI Architectures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Data & AI Architectures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dataprinciples/" title="Architecture Principles" class="md-nav__link">
+      Architecture Principles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dataprinciples/intelligent-app/" title="Designing intelligent application" class="md-nav__link">
+      Designing intelligent application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+      Collect - organize data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../model-dev/" title="Analyze & build model" class="md-nav__link">
+      Analyze & build model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../runtimes/" title="Infuse in application" class="md-nav__link">
+      Infuse in application
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Collect and Organize
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Collect and Organize
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../topology/" title="Data Topology" class="md-nav__link">
+      Data Topology
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/data-replication/" title="Data replication" class="md-nav__link">
+      Data replication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Analyze
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Analyze
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/data-understanding/" title="Data Understanding" class="md-nav__link">
+      Data Understanding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/" title="Data Preparation" class="md-nav__link">
+      Data Preparation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/" title="Bias picking right training set" class="md-nav__link">
+      Bias picking right training set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../preparation/dev-model/" title="Model selection" class="md-nav__link">
+      Model selection
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Infuse
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Infuse
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cassandra practices
+      </label>
+    
+    <a href="./" title="Cassandra practices" class="md-nav__link md-nav__link--active">
+      Cassandra practices
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cassandra-deployment" title="Cassandra deployment" class="md-nav__link">
+    Cassandra deployment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-on-docker-edge-for-desktop-kubernetes" title="Deploying on "Docker Edge for desktop" kubernetes" class="md-nav__link">
+    Deploying on "Docker Edge for desktop" kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-on-icp" title="Deployment on ICP" class="md-nav__link">
+    Deployment on ICP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-considerations" title="Performance considerations" class="md-nav__link">
+    Performance considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-our-yaml-configurations" title="Using our yaml configurations" class="md-nav__link">
+    Using our yaml configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-cassandra-cluster" title="Removing cassandra cluster" class="md-nav__link">
+    Removing cassandra cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" title="High availability" class="md-nav__link">
+    High availability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" title="Code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cassandra-client-api" title="Cassandra client API" class="md-nav__link">
+    Cassandra client API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-assets-table-structure-with-cql" title="Define Assets Table Structure with CQL" class="md-nav__link">
+    Define Assets Table Structure with CQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-useful-cql-commands" title="Some useful CQL commands" class="md-nav__link">
+    Some useful CQL commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cassandra-java-api-to-create-objects" title="Use Cassandra Java API to create objects" class="md-nav__link">
+    Use Cassandra Java API to create objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issues" title="Issues" class="md-nav__link">
+    Issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-readings" title="Future Readings" class="md-nav__link">
+    Future Readings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../deployment/" title="CI & CD" class="md-nav__link">
+      CI & CD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../deployment/" title="Physical model execution" class="md-nav__link">
+      Physical model execution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Monitoring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Monitoring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../monitoring/" title="Feedback analysis" class="md-nav__link">
+      Feedback analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../monitoring/" title="Bias monitoring to ensure equitable" class="md-nav__link">
+      Bias monitoring to ensure equitable
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Methodology
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Methodology
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../methodology/" title="Integrated iterative approach" class="md-nav__link">
+      Integrated iterative approach
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Lightweight approach
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Lightweight approach
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../methodology/lightweight/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../methodology/lightweight-architectural-decisions/" title="Architectural Decisions" class="md-nav__link">
+      Architectural Decisions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference Implementations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference Implementations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cassandra-deployment" title="Cassandra deployment" class="md-nav__link">
+    Cassandra deployment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-on-docker-edge-for-desktop-kubernetes" title="Deploying on "Docker Edge for desktop" kubernetes" class="md-nav__link">
+    Deploying on "Docker Edge for desktop" kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-on-icp" title="Deployment on ICP" class="md-nav__link">
+    Deployment on ICP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-considerations" title="Performance considerations" class="md-nav__link">
+    Performance considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-our-yaml-configurations" title="Using our yaml configurations" class="md-nav__link">
+    Using our yaml configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-cassandra-cluster" title="Removing cassandra cluster" class="md-nav__link">
+    Removing cassandra cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" title="High availability" class="md-nav__link">
+    High availability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" title="Code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cassandra-client-api" title="Cassandra client API" class="md-nav__link">
+    Cassandra client API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-assets-table-structure-with-cql" title="Define Assets Table Structure with CQL" class="md-nav__link">
+    Define Assets Table Structure with CQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-useful-cql-commands" title="Some useful CQL commands" class="md-nav__link">
+    Some useful CQL commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cassandra-java-api-to-create-objects" title="Use Cassandra Java API to create objects" class="md-nav__link">
+    Use Cassandra Java API to create objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issues" title="Issues" class="md-nav__link">
+    Issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-readings" title="Future Readings" class="md-nav__link">
+    Future Readings
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ibm-cloud-architecture/refarch-data-ai-analytics/edit/master/docs/data/cassandra/readme.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="cassandra-summary">Cassandra Summary</h1>
+<p>In this article we are presenting <a href="http://cassandra.apache.org/">Cassandra</a> integration within the asset predictive maintenance solution, and how to support deployment to IBM Cloud private, addressing high availability and resiliency.</p>
+<p>Cassandra addresses linear scalability and high availability to persist a huge data set. It uses replication to multiple nodes managed in cluster, even deployed cross data centers.</p>
+<h2 id="concepts">Concepts</h2>
+<p>Cassandra uses a ring based Distributed Hash Table servers but without finger or routing tables. Keys are stored as in DHT to the next server with key &gt; key id, replicated on the 2 next servers too.  There is one ring per data center.  The coordinator forward the query to a subset of replicas for a particular key. Every server that could be a coordinator needs to know the 'key to server' assignment.<br />
+Two data placement strategies:
+<em> simple strategy: use two kinds of partitioners:
+  * random, which does chord like hashing
+  * byte ordered, which assigns range of keys to servers: easier for range queries
+</em> network topology strategy for multiple data centers: it supports different configuration, like 2 replicas of each key per decision center.</p>
+<p>First  replica is placed according to the Partitioner logic, and make sure to store the other replica to different rack, to avoid a rack failure will make all copies of key not available.  Go around the ring clockwise until encountering a server in a different rack.</p>
+<p><em>Snitches: is a mechanism to map ip addresses to racks in DC. Cassandra support such configuration.</em></p>
+<p>Client sends write to one coordinator node in Cassandra cluster. Coordinator may per key or per client or per query. It uses partitioner to send query to all replica nodes responsible for key. The process to write should be fast and not involving lock on resource. It should not involve read and disk seeks.
+Write operations are always successful, even in case of failure: the coordinator uses the Hinted Handoff mechanism (it assumes ownership of the key until being sure it is supported by the replica), as it writes to other replicas and keeps the write locally until the down replica comes back up. If all the replicas are done, the Coordinator buffers writes for few hours.</p>
+<p>Here are some key concepts of Cassandra to keep in mind for this implementation:
+<em> <strong>Cluster</strong>:  the set of nodes potentially deployed cross data centers, organized as a 'ring'.
+</em> <strong>Keyspace</strong>: like a schema in SQL DB. It is the higher abstraction object to contain data. The important keyspace attributes are the Replication Factor, the Replica Placement Strategy and the Column Families.
+<em> <strong>Column Family</strong>: they are like tables in Relational Databases. Each Column Family contains a collection of rows which are represented by a Map<RowKey, SortedMap<ColumnKey, ColumnValue>&gt;. The key gives the ability to access related data together
+</em> <strong>Column</strong> – A column is a data structure which contains a column name, a value and a timestamp. The columns and the number of columns in each row may vary in contrast with a relational database where data are well structured.</p>
+<h2 id="cassandra-deployment">Cassandra deployment</h2>
+<h3 id="deploying-on-docker-edge-for-desktop-kubernetes">Deploying on "Docker Edge for desktop" kubernetes</h3>
+<p>For development work we use the <strong>Docker Edge</strong> version of Docker and enable Kubernetes (see this <a href="https://docs.docker.com/docker-for-mac/kubernetes/">note from docker web site</a>).</p>
+<p>Then you can use our script <code>deployCassandra.sh</code> under the <code>scripts</code> folder BUT be sure to adapt the yaml settings in the folder <code>deployments/cassandra</code> to limit the replicas for what you need. The steps are the same as for ICP deployment so see next section.</p>
+<h3 id="deployment-on-icp">Deployment on ICP</h3>
+<p>Deploying stateful distributed applications like Cassandra is not easy. You will leverage the kubernetes cluster to support high availability and deploy c7a to the worker nodes.</p>
+<p><img alt="" src="../cassandra-k8s.png" /></p>
+<p>We also recommend to be familiar with <a href="https://kubernetes.io/docs/tutorials/stateful-application/cassandra/">this kubernetes tutorial on how to deploy Cassandra with Stateful Sets</a>.</p>
+<h4 id="performance-considerations">Performance considerations</h4>
+<p>The resource requirements for higher performance c7a node are:
+<em> a minimum of 32GB RAM (JVM + Linux memory buffers to cache SSTable) + <code>memory.available</code> defined in Kubernetes Eviction policy + Resources needed by k8s components that run on every worker node (e.g. proxy)
+</em> a minimum of 8 processor cores per Cassandra Node with 2 CPUs per core (16 vCPU in a VM)
+<em> 4-8 GB JVM heap, recommend trying to keep heaps limited to 4 GB to minimize garbage collection pauses caused by large heaps.
+</em> Cassandra needs local storage to get best performance. Avoid to use distributed storage, and prefer hostPath or localstorage. With distributed storage like a Glusterfs cluster you may have 9 replicas (3x Cassandra replica factor which is usually 3)</p>
+<p>Cassandra  nodes tend  to be IO bound  rather than CPU bound:
+<em> Upper limit of data per node &lt;= 1.5 TB for spinning disk and &lt;= 4 TB for SSD
+</em> Increase the number of nodes to keep the data per node at or below the recommended capacity
+* Actual data per node determined by data throughput, for high throughput need to limit the data per node.</p>
+<p>The use of Vnodes is generally  considered  to be a good practice as they eliminate the need to perform manual token assignment, distribute workload across all nodes in a cluster when nodes are added or removed. It helps rebuilding dead nodes faster.
+Vnode reduces the size of SSTables which can improve read performance. Cassandra best practices set the number of tokens per Cassandra node to 256.</p>
+<p>Avoid getting multiple node instances on the same physical host, so use <code>podAntiAffinity</code> in the StatefulSet spec.
+<div class="codehilite"><pre><span></span><span class="n">spec</span><span class="o">:</span>
+      <span class="n">affinity</span><span class="o">:</span>
+        <span class="n">podAntiAffinity</span><span class="o">:</span>
+          <span class="n">requiredDuringSchedulingIgnoredDuringExecution</span><span class="o">:</span>
+            <span class="n">topologyKey</span><span class="o">:</span> <span class="s2">&quot;kubernetes.io/hostname&quot;</span>
+</pre></div></p>
+<h4 id="using-our-yaml-configurations">Using our yaml configurations</h4>
+<p>You can reuse the yaml config files under <code>deployment/cassandra</code> folder to configure a Service to expose Cassandra externally, create static persistence volumes, and use the StatefulSet to deploy Cassandra image.</p>
+<p>The steps to deploy to ICP are:
+1. Connect to ICP. You may want to get the admin security token using the Admin console and the script: <code>scripts/connectToCluster.sh</code>.  </p>
+<p><em>We are using one namespace called 'greencompute'.</em></p>
+<p>You can also use our script <code>deployCassandra.sh</code> under the <code>../scripts</code> folder to automate this deployment.</p>
+<ol>
+<li>create Cassandra headless service, so application accesses it via KubeDNS. If you do wish to connect an application to cassandra, use the KubeDNS value of <code>cassandra-svc.greencompute.svc.cluster.local</code>, or <code>cassandra-svc</code> or <code>cassandra-0</code>. The alternate solution is to use <em>Ingress</em> rule and set a hostname as cassandra.green.case. The <code>casssandara-ingress.yml</code> file defines such Ingress.</li>
+</ol>
+<div class="codehilite"><pre><span></span>$ kubectl apply -f deployment/cassandra/cassandra-service.yaml --namespace greencompute
+$ kubectl get svc cassandra-svc -n greencompute
+
+ NAME        TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>    AGE
+cassandra-svc   ClusterIP    None          &lt;none&gt;        <span class="m">9042</span>/TCP   12h
+</pre></div>
+
+<ol>
+<li>Create Create static persistence volumes to keep data for cassandra: <em>you need the same number of PV as there are cassandra nodes (here 3 nodes)</em>
+ ```
+ $ kubectl apply -f deployment/cassandra/cassandra-volumes.yaml</li>
+</ol>
+<p>$ kubectl get pv -n greencompute | grep cassandra
+cassandra-data-1  1Gi  RWO  Recycle   Bound       greencompute/cassandra-data-cassandra-0 12h
+cassandra-data-2  1Gi  RWO  Recycle   Available                                           12h
+cassandra-data-3  1Gi  RWO  Recycle   Available   </p>
+<p>```
+1. Create the StatefulSet, which defines a cassandra ring of 3 nodes. The <a href="https://hub.docker.com/_/cassandra/">cassandra image</a> used is coming from dockerhub public repository.</p>
+<p>if you are using your own namespace name or you change the service name, modify the service name and namespace used in the yaml :
+ <div class="codehilite"><pre><span></span>  <span class="nt">env</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CASSANDRA_SEEDS</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cassandra-0.cassandra-svc.greencompute.svc.cluster.local</span>
+</pre></div></p>
+<p>Cassandra seed is used for two purposes:
+ * Node discovery: when a new cassandra node is added (which means when deployed on k8s, a new pod instance added by increasing the replica), it needs to find the cluster, so here it is set the svc
+ * assist on gossip convergence: by having all of the nodes in the cluster gossip regularly with the same set of seeds. It ensures changes are propagated regularly.</p>
+<p>Here it needs to reference the headless service we defined for Cassandra deployment.</p>
+<p><div class="codehilite"><pre><span></span>$ kubectl apply -f deployment/cassandra/cassandra-statefulset.yaml  -n greencompute
+$ kubectl get statefulset -n greencompute
+
+NAME                                        DESIRED   CURRENT   AGE
+cassandra                                   <span class="m">1</span>         <span class="m">1</span>         12h
+</pre></div>
+* Connect to the pod to assess the configuration is as expected.<br />
+ ```
+ $ kubectl get pods -o wide -n greencompute
+ NAME          READY     STATUS    RESTARTS   AGE       IP              NODE
+cassandra-0   0/1       Running   0          2m        192.168.35.93   169.61.151.164</p>
+<p>$ kubectl exec -tin greencompute cassandra-0 -- nodetool status</p>
+<p>Datacenter: DC1
+ ===============
+ Status=Up/Down
+ |/ State=Normal/Leaving/Joining/Moving
+--  Address          Load       Tokens        Owns (effective)  Host ID                               Rack
+UN  192.168.212.174  257.29 KiB  256          100.0%            ea8acc49-1336-4941-b122-a4ef711ca0e6  Rack1
+ ```
+ The  string UN, is for Up and Normal state.</p>
+<h4 id="removing-cassandra-cluster">Removing cassandra cluster</h4>
+<p>We are providing a script for that <code>./scripts/deleteCassandra.sh</code> which remove the stateful, the pv, pvc and service
+<div class="codehilite"><pre><span></span>grace=$(kubectl get po cassandra-0 -o=jsonpath=&#39;{.spec.terminationGracePeriodSeconds}&#39;) \
+    &amp;&amp; kubectl delete statefulset -l app=cassandra -n greencompute \
+    &amp;&amp; echo &quot;Sleeping $grace&quot; \
+    &amp;&amp; sleep $grace \
+    &amp;&amp; kubectl delete pvc,pv,svc -l app=cassandra
+</pre></div></p>
+<h2 id="high-availability">High availability</h2>
+<p>Within a cluster the number of replicas in the statefulset is at least 3 but can be increased to 5 when code maintenance is needed.
+The choice for persistence storage is important, and the backup and restore strategy of the storage area network used.</p>
+<p>When creating connection to persist data into a keyspace, you specify the persistence strategy and number of replicas at the client code level. Mostly using properties file.
+<div class="codehilite"><pre><span></span>p.setProperty(CASSANDRA_STRATEGY, &quot;SimpleStrategy&quot;);
+p.setProperty(CASSANDRA_REPLICAS, &quot;1&quot;);
+</pre></div>
+When deploying on Staging or test cluster, ring topology, SimpleStrategy is enough: additional replicas are placed on the next nodes in the ring moving clockwise without considering topology, such as rack or datacenter location.
+For HA and production deployment NetworkTopologyStrategy is needed: replicas are placed in the same datacenter but on distinct racks.</p>
+<p>For the number of replicas, it is recommended to use 3 per datacenter.</p>
+<p>The <code>spec.env</code> parameters in the statefulset defines the datacenter name and rack name too.</p>
+<h2 id="code">Code</h2>
+<p>We have done two implementations for persisting <code>asset</code> data into Cassandra, one using Cassandra client API and one with SpringBoot cassandra repository API.</p>
+<h2 id="cassandra-client-api">Cassandra client API</h2>
+<p>The code is under <code>asset-consumer</code> project and can be loaded into Eclipse. This component is deployed as container inside a kubernetes cluster like ICP. See code explanation, how to build and run in <a href="../../asset-consumer/README.md">this note</a></p>
+<p>In the pom.xml we added the following dependencies to get access to the core driver API:
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.datastax.cassandra<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cassandra-driver-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.1.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+The DAO code is <code>CassandraRepo.java</code> and it basically connects to the Cassandra cluster when the DAO class is created...
+<div class="codehilite"><pre><span></span>Builder b = Cluster.builder().addContactPoints(endpoints);
+cluster = b.build();
+session = cluster.connect();
+</pre></div>
+The trick is in the endpoints name. We externalize this setting in a configuration properties and use the cassandra-svc name when deploy in ICP.</p>
+<p>It is possible also to create keyspace and tables by API if they do not exist by building CQL query string and use the session.execute(aquery) method. See <a href="#use-cassandra-java-api-to-create-objects">this section below</a></p>
+<h2 id="define-assets-table-structure-with-cql">Define Assets Table Structure with CQL</h2>
+<p>Using the csql tool we can create space and table. To use <code>cqlsh</code> connect to cassandra pod:
+<div class="codehilite"><pre><span></span>$ kubectl <span class="nb">exec</span> -tin greencompute cassandra-0 cqlsh
+</pre></div>
+You are now in cqlsh shell and you can define assets table under keyspace <code>assetmonitoring</code>:</p>
+<p><div class="codehilite"><pre><span></span><span class="nt">sqlsh</span><span class="o">&gt;</span>  <span class="nt">create</span> <span class="nt">keyspace</span> <span class="nt">assetmonitoring</span> <span class="nt">with</span> <span class="nt">replication</span><span class="o">=</span><span class="p">{</span><span class="err">&#39;class&#39;:&#39;SimpleStrategy&#39;,</span> <span class="err">&#39;replication_factor&#39;:1</span><span class="p">}</span><span class="o">;</span>
+<span class="nt">sqlsh</span><span class="o">&gt;</span> <span class="nt">use</span> <span class="nt">assetmonitoring</span><span class="o">;</span>
+<span class="nt">sqlsh</span><span class="p">:</span><span class="nd">assetmonitoring</span><span class="o">&gt;</span> <span class="nt">create</span> <span class="nt">TABLE</span> <span class="nt">assets</span><span class="o">(</span><span class="nt">id</span> <span class="nt">text</span> <span class="nt">PRIMARY</span> <span class="nt">KEY</span><span class="o">,</span> <span class="nt">os</span> <span class="nt">text</span><span class="o">,</span> <span class="nt">type</span> <span class="nt">text</span><span class="o">,</span> <span class="nt">ipaddress</span> <span class="nt">text</span><span class="o">,</span> <span class="nt">version</span> <span class="nt">text</span><span class="o">,</span> <span class="nt">antivirus</span> <span class="nt">text</span><span class="o">,</span> <span class="nt">current</span> <span class="nt">double</span><span class="o">,</span> <span class="nt">rotation</span> <span class="nt">int</span><span class="o">,</span> <span class="nt">pressure</span> <span class="nt">int</span><span class="o">,</span> <span class="nt">temperature</span> <span class="nt">int</span><span class="o">,</span> <span class="nt">latitude</span> <span class="nt">double</span><span class="o">,</span> <span class="nt">longitude</span> <span class="nt">double</span><span class="o">);</span>
+</pre></div>
+Add an index on the asset operating system field and one on type.
+<div class="codehilite"><pre><span></span>CREATE INDEX ON assetmonitoring.assets (os);
+CREATE INDEX ON assetmonitoring.assets (type);
+</pre></div></p>
+<p>If you reconnect to the pod using cqlsh you can assess the table using
+<div class="codehilite"><pre><span></span>describe tables
+
+describe assets
+</pre></div></p>
+<h3 id="some-useful-cql-commands">Some useful CQL commands</h3>
+<div class="codehilite"><pre><span></span># See the table schema
+cqlsh&gt; describe table assets;
+
+# modify a table structure adding a column
+cqlsh&gt; alter table assets add flowRate bigint;
+
+# change column type. example the name column:
+cqlsh&gt; alter table assets alter name type text;
+
+# list content of a table  
+cqlsh&gt; select id,ipaddress,latitude,longitude from assets;
+
+# delete a table
+cqlsh&gt; drop table if exists assets;
+</pre></div>
+
+<h3 id="use-cassandra-java-api-to-create-objects">Use Cassandra Java API to create objects</h3>
+<ul>
+<li>Create keyspace:
+ <div class="codehilite"><pre><span></span><span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span>
+    <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="s">&quot;CREATE KEYSPACE IF NOT EXISTS &quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">keyspaceName</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; WITH replication = {&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;&#39;class&#39;:&#39;&quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">replicationStrategy</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;&#39;,&#39;replication_factor&#39;:&quot;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">replicationFactor</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;};&quot;</span><span class="o">);</span>
+
+    <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="n">session</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+</pre></div></li>
+<li>
+<p>Create table
+ <div class="codehilite"><pre><span></span><span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="s">&quot;CREATE TABLE IF NOT EXISTS &quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">TABLE_NAME</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;(&quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;id uuid PRIMARY KEY, &quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;temperature text,&quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;latitude text,&quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;longitude text);&quot;</span><span class="o">);</span>
+
+       <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+       <span class="n">session</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+</pre></div></p>
+</li>
+<li>
+<p>insert data: there is no update so if you want a strict insert you need to add "IF NOT EXISTS" condition in the query.</p>
+</li>
+</ul>
+<h3 id="issues">Issues</h3>
+<ol>
+<li>When having the cassandra replica set to more than two, the cassandra operations are not happenning parallely on both the pods at a time. Some operations are happenning on one node and some others on the other node. Due to this, inconsistent data is retrieved since both the tables doesnot have the same data.</li>
+</ol>
+<h2 id="future-readings">Future Readings</h2>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/library/ba-multi-data-center-cassandra-cluster-kubernetes-platform/index.html">10 steps to set up a multi-data center Cassandra cluster on a Kubernetes platform</a></li>
+<li><a href="https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes">IBM Article: Scalable multi-node Cassandra deployment on Kubernetes Cluster</a></li>
+<li><a href="https://blog.deimos.fr/2018/06/24/running-cassandra-on-kubernetes/">Running Cassandra on Kubernetes</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../preparation/dev-model/" title="Model selection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model selection
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../deployment/" title="CI & CD" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                CI & CD
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.b806dc00.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

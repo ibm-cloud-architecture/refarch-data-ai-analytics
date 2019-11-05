@@ -36,7 +36,7 @@
     
     
       
-        <title>Architectural Decisions Guidelines - Data - AI - Analytics Reference Architecture</title>
+        <title>Architectural Decisions - Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -121,7 +121,7 @@
               Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
-              Architectural Decisions Guidelines
+              Architectural Decisions
             </span>
           
         </div>
@@ -286,6 +286,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../dataprinciples/intelligent-app/" title="Designing intelligent application" class="md-nav__link">
+      Designing intelligent application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
@@ -430,7 +442,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../preparation/" title="Model selection" class="md-nav__link">
+    <a href="../../preparation/dev-model/" title="Model selection" class="md-nav__link">
       Model selection
     </a>
   </li>
@@ -466,8 +478,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../data/data-intensive-app/" title="Designing data intensive application" class="md-nav__link">
-      Designing data intensive application
+    <a href="../../data/cassandra/readme/" title="Cassandra practices" class="md-nav__link">
+      Cassandra practices
     </a>
   </li>
 
@@ -553,10 +565,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       Methodology
@@ -574,44 +588,29 @@
 
 
   <li class="md-nav__item">
-    <a href="../lightweight/" title="Lightweight approach" class="md-nav__link">
-      Lightweight approach
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../" title="Integrated iterative approach" class="md-nav__link">
       Integrated iterative approach
     </a>
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
+          
+          
+          
 
-    
-      
-      
-      
+  
 
 
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2" checked>
     
-    <label class="md-nav__link" for="nav-9">
-      Reference Implementations
+    <label class="md-nav__link" for="nav-8-2">
+      Lightweight approach
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Reference Implementations
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Lightweight approach
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -622,28 +621,35 @@
 
 
   <li class="md-nav__item">
-    <a href="https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/" title="Customer churn solution" class="md-nav__link">
-      Customer churn solution
+    <a href="../lightweight/" title="Introduction" class="md-nav__link">
+      Introduction
     </a>
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
+          
+          
+          
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
     
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Architectural Decisions
+      </label>
+    
+    <a href="./" title="Architectural Decisions" class="md-nav__link md-nav__link--active">
+      Architectural Decisions
+    </a>
+    
+      
 <nav class="md-nav md-nav--secondary">
   
   
@@ -724,6 +730,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#apache-kafka" title="Apache Kafka" class="md-nav__link">
+    Apache Kafka
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -772,8 +785,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nodered" title="NodeRED" class="md-nav__link">
-    NodeRED
+  <a href="#node-red" title="Node-RED" class="md-nav__link">
+    Node-RED
   </a>
   
 </li>
@@ -781,6 +794,13 @@
           <li class="md-nav__item">
   <a href="#apache-nifi" title="Apache Nifi" class="md-nav__link">
     Apache Nifi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-kafka_1" title="Apache Kafka" class="md-nav__link">
+    Apache Kafka
   </a>
   
 </li>
@@ -1056,7 +1076,571 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#node-red_1" title="Node-RED" class="md-nav__link">
+    Node-RED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3" title="D3" class="md-nav__link">
+    D3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-security-information-governance-and-systems-management" title="Application Component: Security, information governance and systems management" class="md-nav__link">
+    Application Component: Security, information governance and systems management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_6" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-app-id" title="IBM App ID" class="md-nav__link">
+    IBM App ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage_1" title="Object Storage" class="md-nav__link">
+    Object Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-paassaas" title="IBM Cloud PaaS/SaaS" class="md-nav__link">
+    IBM Cloud PaaS/SaaS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference Implementations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference Implementations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/" title="Customer churn solution" class="md-nav__link">
+      Customer churn solution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-principles" title="Architectural Principles" class="md-nav__link">
+    Architectural Principles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-data-source" title="Application Component: Data Source" class="md-nav__link">
+    Application Component: Data Source
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-enterprise-data" title="Application Component: Enterprise data" class="md-nav__link">
+    Application Component: Enterprise data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_1" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-gateway" title="Secure gateway" class="md-nav__link">
+    Secure gateway
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lift" title="Lift" class="md-nav__link">
+    Lift
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocket-mainframe-data" title="Rocket Mainframe Data" class="md-nav__link">
+    Rocket Mainframe Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-kafka" title="Apache Kafka" class="md-nav__link">
+    Apache Kafka
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-streaming-analytics" title="Application Component: Streaming analytics" class="md-nav__link">
+    Application Component: Streaming analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_2" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_1" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-spark-and-apache-spark-structured-streaming" title="Apache Spark and Apache Spark Structured Streaming" class="md-nav__link">
+    Apache Spark and Apache Spark Structured Streaming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-streams" title="IBM Streams" class="md-nav__link">
+    IBM Streams
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#node-red" title="Node-RED" class="md-nav__link">
+    Node-RED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-nifi" title="Apache Nifi" class="md-nav__link">
+    Apache Nifi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-kafka_1" title="Apache Kafka" class="md-nav__link">
+    Apache Kafka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others" title="Others" class="md-nav__link">
+    Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-data-integration" title="Application Component: Data Integration" class="md-nav__link">
+    Application Component: Data Integration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_3" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-guidelines" title="Technology Guidelines" class="md-nav__link">
+    Technology Guidelines
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-spark" title="Apache Spark" class="md-nav__link">
+    Apache Spark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-data-stage-on-cloud" title="IBM Data Stage on Cloud" class="md-nav__link">
+    IBM Data Stage on Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others_1" title="Others" class="md-nav__link">
+    Others
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-data-repository" title="Application Component: Data Repository" class="md-nav__link">
+    Application Component: Data Repository
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_4" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_2" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-databases" title="Relational databases" class="md-nav__link">
+    Relational databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql-databases" title="NoSQL databases" class="md-nav__link">
+    NoSQL databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage" title="Object storage" class="md-nav__link">
+    Object storage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-discovery-and-exploration" title="Application Component: Discovery and exploration" class="md-nav__link">
+    Application Component: Discovery and exploration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_5" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_3" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyter-python-pyspark-scikit-learn-pandas-matplotlib-pixiedust" title="Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust" class="md-nav__link">
+    Jupyter, Python, pyspark, scikit-learn, pandas, Matplotlib, PixieDust
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spss-modeler" title="SPSS Modeler" class="md-nav__link">
+    SPSS Modeler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-actionable-insights" title="Application Component: Actionable insights" class="md-nav__link">
+    Application Component: Actionable insights
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-component-mapping-guidelines_6" title="Technology Component mapping guidelines" class="md-nav__link">
+    Technology Component mapping guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_4" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spss-modeler_1" title="SPSS Modeler" class="md-nav__link">
+    SPSS Modeler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rr-studio" title="R/R-Studio" class="md-nav__link">
+    R/R-Studio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-pandas-and-scikit-learn" title="Python, pandas and scikit-learn" class="md-nav__link">
+    Python, pandas and scikit-learn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-apache-spark-and-sparkml" title="Python, Apache Spark and SparkML" class="md-nav__link">
+    Python, Apache Spark and SparkML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-systemml" title="Apache SystemML" class="md-nav__link">
+    Apache SystemML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keras-and-tensorflow" title="Keras and TensorFlow" class="md-nav__link">
+    Keras and TensorFlow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-component-applications-and-data-products" title="Application Component: Applications and Data Products" class="md-nav__link">
+    Application Component: Applications and Data Products
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-mapping_5" title="Technology Mapping" class="md-nav__link">
+    Technology Mapping
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r-shiny" title="R-Shiny" class="md-nav__link">
+    R-Shiny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-red_1" title="Node-RED" class="md-nav__link">
     Node-RED
   </a>
   
@@ -1240,29 +1824,30 @@
 </table>
 <p>The <a href="https://www.ibm.com/cloud/garage/architectures/dataAnalyticsArchitecture/reference-architecture">IBM Data and Analytics Reference Architecture</a> defines Application Components. A partial goal of an Architectural Development Method is defining a Technology Component for every necessary Application Component. The main document of the <a href="https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics/methodology/lightweight/">“Lightweight IBM Cloud Garage Method for Data Science”</a> describes the Lightweight Technology Reference Architecture which should be used as starting point and after every iteration Application Components can be added and mapped to Technology Components as necessary.</p>
 <p>This way the method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics, which is a Application Architecture containing and describing Technology Components.</p>
-<p><img alt="" src="../reference-architecture.png" /></p>
+<p><img alt="" src="../../images/data-ai-ra-3.jpg" /></p>
 <p>The following sections provide guidelines on selecting Technology Components for each Application Component. So it is explained what Technology Component should be chosen based on given requirements and if the Application Component needs to be included at all.</p>
 <h2 id="application-component-data-source">Application Component: Data Source</h2>
-<p>The data source is an internal or external data source that includes relational databases; web pages; CSV, JSON, or text files; and video and audio data.</p>
+<p>The data source is a private or public data source that includes relational databases; web pages; CSV, XML, JSON, or text files; and video and audio data.</p>
 <h3 id="technology-component-mapping-guidelines">Technology Component mapping guidelines</h3>
-<p>With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by stakeholders. However, if there is some control over the process, the following Architectural Principles should be considered:</p>
+<p>With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by other stakeholders. However, if there is some control over the process, the following Architectural Principles should be considered:</p>
 <ul>
 <li>
-<p>How does the delivery point look like?</p>
+<p><strong>How does the delivery point look like?</strong></p>
 <p>Enterprise data mostly lies in relational databases serving OLTP systems. It’s typically a bad practice to access those systems directly, even in read-only mode because ETL processes are running SQL queries against those systems, which can hinder performance. One exception for example is IBM DB2 Workload Manager because it allows OLAP and ETL workloads to run in parallel with an OLTP workload without performance degradation of OLTP queries using intelligent scheduling and prioritizing mechanisms.</p>
 </li>
 <li>
-<p>Does real-time data need to be considered?</p>
-<p>Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on Streaming analytics further down in this document.</p>
+<p><strong>Does real-time data need to be considered?</strong></p>
+<p>Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), an event stream, a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on <a href="#application-component-streaming-analytics">Streaming analytics</a> further down in this document.</p>
 </li>
 </ul>
 <h2 id="application-component-enterprise-data">Application Component: Enterprise data</h2>
-<p>Cloud-based solutions tend to extend the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud or access those in real time through a VPN API gateway.</p>
+<p>Cloud-based solutions tend to extend access of the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud environment or access those in real time through a VPN API gateway.</p>
 <h3 id="technology-component-mapping-guidelines_1">Technology Component mapping guidelines</h3>
-<p>Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are two ways to access it.</p>
+<p>Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are multiple ways to access it:</p>
 <ul>
 <li>Batch sync from an enterprise data center to the cloud</li>
 <li>Real-time access to subsets of data using VPN and an API gateway</li>
+<li>Expose data via an event backbone</li>
 </ul>
 <h3 id="technology-mapping">Technology Mapping</h3>
 <h4 id="secure-gateway">Secure gateway</h4>
@@ -1271,6 +1856,8 @@
 <p>Lift allows you to migrate on-premises data to cloud databases in a very efficient manner. Read more about the IBM <a href="https://cloud.ibm.com/catalog/services/lift-cli">Lift CLI</a>.</p>
 <h4 id="rocket-mainframe-data">Rocket Mainframe Data</h4>
 <p>The Rocket Mainframe Data service uses similar functions for batch-style data integration as Lift, but is dedicated to IBM Mainframes. You can <a href="https://cloud.ibm.com/catalog/services/rocket-mainframe-data">read more</a> information about the service.</p>
+<h4 id="apache-kafka">Apache Kafka</h4>
+<p>Apache Kafka, and IBM Event Streams expose data for other to consume with strong decoupling, and long term persistence. It can scale well for big data needs, and represent a well adopted platform to integrate microservices. See our deep dive into event driven solution <a href="https://ibm-cloud-architecture.github.io/refarch-eda/kafka/readme/">here</a>.</p>
 <h2 id="application-component-streaming-analytics">Application Component: Streaming analytics</h2>
 <p>The current state-of-the-art is batch processing. But, sometimes the value of a data product can be increased tremendously by adding real-time analytics capabilities because most of world’s data loses value within seconds. Think of stock market data or the fact that a vehicle camera captures a pedestrian crossing a street. A streaming analytics system allows for real-time data processing. Think of it like running data against a continuous query instead of running a query against a finite data set.</p>
 <h3 id="technology-component-mapping-guidelines_2">Technology Component mapping guidelines</h3>
@@ -1286,13 +1873,13 @@
 <h3 id="technology-mapping_1">Technology Mapping</h3>
 <p>On IBM Cloud, there are many service offerings for real-time data processing that I explain in the following sections along with guidelines for when to use them.</p>
 <h4 id="apache-spark-and-apache-spark-structured-streaming">Apache Spark and Apache Spark Structured Streaming</h4>
-<p>Apache Spark is often the primary choice when it comes to cluster-grade data processing and machine learning. If you’re already using it for batch processing, Apache Spark Structured Streaming should be the first thing to evaluate. This way, you can have technology homogeneity and batch and streaming jobs can be run together (for example, joining a stream of records against a reference table).</p>
+<p>Apache Spark is often the primary choice when it comes to cluster-grade data processing and machine learning. If you’re already using it for batch processing, <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html">Apache Spark Structured Streaming</a> should be the first thing to evaluate. This way, you can have technology homogeneity and batch and streaming jobs can be run together (for example, joining a stream of records against a reference table).</p>
 <ul>
 <li>
 <p>What throughput is required? Apache Spark Structured Streaming supports the same throughput as in batch mode.</p>
 </li>
 <li>
-<p>What latency is accepted? In Apache Spark v2.3, the Continuous Processing mode has been introduced, brining latency down to one millisecond.</p>
+<p>What latency is accepted? In Apache Spark v2.3, the Continuous Processing mode has been introduced, bringing latency down to one millisecond.</p>
 </li>
 <li>
 <p>Which data types must be supported? Apache Spark is strong at structured and semi-structured data. Audio and video data can’t benefit from Apache Spark’s accelerators Tungsten and Catalyst.</p>
@@ -1329,20 +1916,20 @@
 <p>What type of fault tolerance and delivery guarantees are necessary? IBM Streams supports exactly once delivery guarantees and complete crash fault tolerance.</p>
 </li>
 </ul>
-<h4 id="nodered">NodeRED</h4>
-<p>NodeRED is a lightweight streaming engine. Implemented on top of Node.js in JavaScript, it can even run on a 64 MB memory footprint (for example, running on a Raspberry PI).</p>
+<h4 id="node-red">Node-RED</h4>
+<p><a href="https://nodered.org/">Node-RED</a> is a lightweight streaming engine. Implemented on top of Node.js in JavaScript, it can even run on a 64 MB memory footprint (for example, running on a Raspberry PI).</p>
 <ul>
 <li>
-<p>What throughput is required? NodeRED’s throughput is bound to processing capabilities of a single CPU core, through Node.js’s event processing nature. For increased throughput, multiple instances of NodeRED have been used in parallel. Parallelization is not built in and needs to be provided by the application developer.</p>
+<p>What throughput is required? Node-RED’s throughput is bound to processing capabilities of a single CPU core, through Node.js’s event processing nature. For increased throughput, multiple instances of Node-RED have been used in parallel. Parallelization is not built in and needs to be provided by the application developer.</p>
 </li>
 <li>
 <p>What latency is accepted? Latency is also dependent on the CPU configuration and on the throughput because high throughput congests the event queue and increases latency.</p>
 </li>
 <li>
-<p>Which data types must be supported? NodeRED best supports JSON streams, although any data type can be nested into JSON.</p>
+<p>Which data types must be supported? Node-RED best supports JSON streams, although any data type can be nested into JSON.</p>
 </li>
 <li>
-<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? NodeRED has one of the most extensive ecosystems of open source third-party modules. Although advanced machine learning is not supported natively, there are plans by IBM to add those.</p>
+<p>What type of algorithms run on the system? Only relational algebra or advanced modeling? Node-RED has one of the most extensive ecosystems of open source third-party modules. Although advanced machine learning is not supported natively, there are plans by IBM to add those.</p>
 </li>
 <li>
 <p>What’s the variance of the workload and what are the elasticity requirements? Because parallelization is a responsibility of the application developer, for independent computation a round-robin load balancing scheme supports linear scalability and full elasticity.</p>
@@ -1352,7 +1939,7 @@
 </li>
 </ul>
 <h4 id="apache-nifi">Apache Nifi</h4>
-<p>Apache Nifi is maintained by Hortonworks and is part of the IBM Analytics Engine Service.</p>
+<p><a href="https://nifi.apache.org/">Apache Nifi</a> is maintained by Hortonworks and is part of the IBM Analytics Engine Service.</p>
 <ul>
 <li>
 <p>What throughput is required? Nifi can handle hundreds of MBs on a single node and can be configured to handle multiple GBs in cluster mode.</p>
@@ -1374,8 +1961,9 @@
 </li>
 </ul>
 <p>Also, fault tolerance can be configured, but automatic recovery is not possible. Another important feature is backpressure and pressure release, which causes the upstream nodes to stop accepting new data and discarding unprocessed data if an age threshold is exceeded.</p>
+<h4 id="apache-kafka_1">Apache Kafka</h4>
 <h4 id="others">Others</h4>
-<p>There are also other technologies like Apache Kafka, Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.</p>
+<p>There are also other technologies like Apache Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.</p>
 <h2 id="application-component-data-integration">Application Component: Data Integration</h2>
 <p>In the data integration stage, data is cleansed, transformed, and if possible, downstream features are added</p>
 <h3 id="technology-component-mapping-guidelines_3">Technology Component mapping guidelines</h3>
@@ -1635,7 +2223,7 @@
 <li>Do algorithms need to be tweaked or new algorithms be developed?</li>
 </ul>
 <h3 id="technology-mapping_4">Technology Mapping</h3>
-<p>Because there’s an abundance of open and closed source technologies, I’m highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.</p>
+<p>Because there’s an abundance of open and closed source technologies, we are highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.</p>
 <h4 id="spss-modeler_1">SPSS Modeler</h4>
 <p>This article has already introduced SPSS Modeler.</p>
 <ul>
@@ -1768,9 +2356,6 @@
 <p>What are the available skills regarding programming languages? Python is the core programming language for Keras and TensorFlow.</p>
 </li>
 <li>
-<p>What are the costs of skills regarding programming languages? Because Python programmers are more abundant than Java/Scala programmers, the costs are less.</p>
-</li>
-<li>
 <p>What are the available skills regarding frameworks? Keras and TensorFlow skills are relatively rare.</p>
 </li>
 <li>
@@ -1780,21 +2365,23 @@
 <p>Is model interchange required? Keras and TensorFlow have their own model exchange formats. There are converters from and to ONNX.</p>
 </li>
 <li>
-<p>Is parallel- or GPU-based training or scoring required? Running TensorFlow on top of ApacheSpark is supported through TensorFrames and TensorSpark. Keras models can be run on ApacheSpark using DeepLearning4J and SystemML. Both of the latter frameworks also support GPUs. TensorFlow (and therefore, Keras) support GPU natively as well.</p>
+<p>Is parallel- or GPU-based training or sc oring required? Running TensorFlow on top of ApacheSpark is supported through TensorFrames and TensorSpark. Keras models can be run on ApacheSpark using DeepLearning4J and SystemML. Both of the latter frameworks also support GPUs. TensorFlow (and therefore, Keras) support GPU natively as well.</p>
 </li>
 <li>
 <p>Do algorithms need to be tweaked or new algorithms be developed? TensorFlow is a linear algebra execution engine. Therefore, it’s optimally suited for tweaking and creating new algorithms. Keras is a very flexible deep learning library that supports many neural network layouts.</p>
 </li>
 </ul>
 <h2 id="application-component-applications-and-data-products">Application Component: Applications and Data Products</h2>
-<p>Models are fine, but their value rises when they can be consumed by the ordinary business user. Therefore, you must create a data product. Data products don’t necessarily need to stay on the cloud. They can be pushed to mobile or enterprise applications.
-Architectural decision guidelines</p>
-<p>In contrast to machine learning and deep learning frameworks, the space of frameworks to create data product is tiny. This might reflect what the current state-of-the-art technology in data science concentrates on. Depending on the requirements, data products are relatively visualization-centric after a lot of use input data has been gathered. They also might involve asynchronous workflows as batch data integration and model training and scoring is performed within the workflow. Questions to ask about the technology are:</p>
-<p><em> What skills are present for developing a data product?
-</em> What skills are necessary for developing a data product?
-<em> Is instant feedback required or is batch processing accepted?
-</em> What’s the degree of customization needed?
-* What’s the target audience? Is cloud scale deployment for a public use base required?</p>
+<p>Models are fine, but their value rises when they can be consumed by the ordinary business user. Therefore, you must create a data product. Data products don’t necessarily need to stay on the cloud. They can be pushed to mobile or enterprise applications.</p>
+<p>In contrast to machine learning and deep learning frameworks, the space of frameworks to create data product is tiny. This might reflect what the current state-of-the-art technology in data science concentrates on. Depending on the requirements, data products are relatively visualization-centric after a lot of user input data has been gathered. They also might involve asynchronous workflows as batch data integration and model training and scoring is performed within the workflow. </p>
+<p>Questions to ask about the technology are:</p>
+<ul>
+<li>What skills are present for developing a data product?</li>
+<li>What skills are necessary for developing a data product?</li>
+<li>Is instant feedback required or is batch processing accepted?</li>
+<li>What’s the degree of customization needed?</li>
+<li>What’s the target audience? Is cloud scale deployment for a public use base required?</li>
+</ul>
 <h3 id="technology-mapping_5">Technology Mapping</h3>
 <p>Currently, only a limited set of frameworks and technologies is available in different categories. In the following section, I’ve explained the most prominent examples.</p>
 <h4 id="r-shiny">R-Shiny</h4>
@@ -1816,7 +2403,7 @@ Architectural decision guidelines</p>
 <p>What’s the target audience? Is cloud scale deployment for a public use base required? R-Shiny applications look very professional, although quite distinguishable. Therefore, the target audience must accept the UI design limitations. R-Shiny is best dynamically scaled horizontally in a container environment like Kubernetes. Ideally, every user session runs in its own container because R and R-Shiny are very sensitive to main memory shortages</p>
 </li>
 </ul>
-<h4 id="node-red">Node-RED</h4>
+<h4 id="node-red_1">Node-RED</h4>
 <p>Although Node-RED is a no-code/low-code data flow/data integration environment, because of its modular nature it supports various extensions including the dash boarding extension. This extension allows for fast creation of user interfaces including advanced visualizations that are updated in real-time.</p>
 <ul>
 <li>
@@ -1855,8 +2442,7 @@ Architectural decision guidelines</p>
 </li>
 </ul>
 <h2 id="application-component-security-information-governance-and-systems-management">Application Component: Security, information governance and systems management</h2>
-<p>This important step can be easily forgotten. It’s important to control who has access to which information for many compliance regulations. In addition, modern data science architectures involve many components that require operational aspects as well.
-Architectural decision guidelines</p>
+<p>This important step can be easily forgotten. It’s important to control who has access to which information for many compliance regulations. In addition, modern data science architectures involve many components that require operational aspects as well.</p>
 <p>Data privacy is a major challenge in many data science projects. Questions that you should ask are:</p>
 <ul>
 <li>What granularity is required for managing user access to data assets?</li>
@@ -1866,8 +2452,7 @@ Architectural decision guidelines</p>
 <li>What level of security against attacks from hackers is required?</li>
 </ul>
 <h3 id="technology-mapping_6">Technology Mapping</h3>
-<p>Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. I’ve chosen representative examples for this article.
-Internet services</p>
+<p>Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. We have chosen representative examples for this article.</p>
 <p>Deploying a productive client-facing web application brings with it serious risks. IBM Cloud Internet Services provides global points of presence (PoPs). It includes domain name service (DNS), global load balancer (GLB), distributed denial of service (DDoS) protection, web application firewall (WAF), transport layer security (TLS), and caching.</p>
 <ul>
 <li>What level of security against attacks from hackers is required? Internet Services is using services from CloudFlare, the world leader in this space.</li>
@@ -1919,6 +2504,27 @@ Internet services</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../lightweight/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

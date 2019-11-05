@@ -36,7 +36,7 @@
     
     
       
-        <title>Lightweight approach - Data - AI - Analytics Reference Architecture</title>
+        <title>Introduction - Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -121,7 +121,7 @@
               Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
-              Lightweight approach
+              Introduction
             </span>
           
         </div>
@@ -286,6 +286,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../dataprinciples/intelligent-app/" title="Designing intelligent application" class="md-nav__link">
+      Designing intelligent application
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
@@ -430,7 +442,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../preparation/" title="Model selection" class="md-nav__link">
+    <a href="../../preparation/dev-model/" title="Model selection" class="md-nav__link">
       Model selection
     </a>
   </li>
@@ -466,8 +478,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../data/data-intensive-app/" title="Designing data intensive application" class="md-nav__link">
-      Designing data intensive application
+    <a href="../../data/cassandra/readme/" title="Cassandra practices" class="md-nav__link">
+      Cassandra practices
     </a>
   </li>
 
@@ -574,6 +586,39 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../" title="Integrated iterative approach" class="md-nav__link">
+      Integrated iterative approach
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2" checked>
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Lightweight approach
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Lightweight approach
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
   
 
 
@@ -585,11 +630,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Lightweight approach
+        Introduction
       </label>
     
-    <a href="./" title="Lightweight approach" class="md-nav__link md-nav__link--active">
-      Lightweight approach
+    <a href="./" title="Introduction" class="md-nav__link md-nav__link--active">
+      Introduction
     </a>
     
       
@@ -617,6 +662,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" title="Best practices." class="md-nav__link">
+    Best practices.
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#technology-component" title="Technology Component" class="md-nav__link">
@@ -779,9 +831,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Integrated iterative approach" class="md-nav__link">
-      Integrated iterative approach
+    <a href="../lightweight-architectural-decisions/" title="Architectural Decisions" class="md-nav__link">
+      Architectural Decisions
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -861,6 +918,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" title="Best practices." class="md-nav__link">
+    Best practices.
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#technology-component" title="Technology Component" class="md-nav__link">
@@ -1026,21 +1090,29 @@
                 
                 
                 <h1 id="the-lightweight-ibm-cloud-garage-method-for-data-science">The Lightweight IBM Cloud Garage Method for Data Science</h1>
-<p><em>A lightning fast architecture development method and data science development process model</em></p>
-<p>Why is there another method among existing. What does this method different than others?</p>
+<p><em>A lightwieght and fast architecture development method and data science development process model</em></p>
+<p>Why is there another method among existing? What does this method different than others?</p>
 <p>This method is aligned to the <a href="https://www.gartner.com/binaries/content/assets/events/keywords/applications/apn30/pace-layered-applications-research-report.pdf">Pace-Layered Application Strategy and IT Organizational Design</a> published by Garter in 2016.</p>
-<p>The Lightweight IBM Cloud Garage Method for Data Science is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. The reference architecture describes the suggested architecture and separate companion document discusses the <a href="../lightweight-architectural-decisions/">architectural decision guidelines</a> used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.</p>
-<p><img alt="" src="../lightweight-process-model.png" />
-Figure 1: The Lightweight Process Model and Architectural Development Method</p>
-<p><img alt="" src="../lightweight_ref_arch.png" />
-Figure 2: The Lightweight Reference Architecture</p>
+<p>The Lightweight IBM Cloud Garage Method for Data Science is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. </p>
+<p>The reference architecture describes the suggested architecture and separate companion document discusses the <a href="../lightweight-architectural-decisions/">architectural decision guidelines</a> used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.</p>
+<p><img alt="" src="../lightweight-process-model.png" /></p>
+<div class="codehilite"><pre><span></span>Figure 1: The Lightweight Process Model and Architectural Development Method
+</pre></div>
+
+
+<p><img alt="" src="../lightweight_ref_arch.png" /></p>
+<div class="codehilite"><pre><span></span>Figure 2: The Lightweight Reference Architecture
+</pre></div>
+
+
 <h2 id="the-lightweight-ibm-cloud-garage-method-for-data-science-process-model">The Lightweight IBM Cloud Garage Method for Data Science Process Model</h2>
 <p>This section introduces this lightweight process model.</p>
 <p><img alt="" src="../lightweight-process-model-figure2.png" /></p>
-<p>The first thing that you should notice is the bidirectional communication between "Business Needs" and "Initial Data Exploration". This is a data driven method and data is crucial on what can be achieved, therefore "Business Needs" may be adjusted based on the possibilities provided by give data. Second, with this model, there is no communication between "Business Needs" and other steps because an iteration of this process is very short (in the range of hours and days).</p>
+<p>The first thing that you should notice is the bidirectional communication between "Business Needs" and "Initial Data Exploration". This is a data driven method and data is crucial on what can be achieved, therefore "Business Needs" may be adjusted based on the possibilities provided by given data. Second, with this model, there is no communication between "Business Needs" and other steps because an iteration of this process is very short (in the range of hours and days).</p>
 <p>The following sections explain the individual tasks.</p>
 <h3 id="initial-data-exploration">Initial Data Exploration</h3>
-<p>This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable.</p>
+<p>This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable. </p>
+<h4 id="best-practices"><a href="../../preparation/data-understanding">Best practices</a>.</h4>
 <h4 id="technology-component">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1143,7 +1215,7 @@ Figure 2: The Lightweight Reference Architecture</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../monitoring/" title="Bias monitoring to ensure equitable" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" title="Integrated iterative approach" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1152,19 +1224,19 @@ Figure 2: The Lightweight Reference Architecture</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Bias monitoring to ensure equitable
+                Integrated iterative approach
               </span>
             </div>
           </a>
         
         
-          <a href="../" title="Integrated iterative approach" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../lightweight-architectural-decisions/" title="Architectural Decisions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Integrated iterative approach
+                Architectural Decisions
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
