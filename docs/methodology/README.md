@@ -1,12 +1,10 @@
-
-!!! warning
-        UNDER CONSTRUCTION 11/04/19
+# Develop Intelligent Application Methodology
 
 !!! abstract
     In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
 
 
-!!! This is a full fledged Enterprise Methodology addressing concerns of multinational data center deployments. For the purpose of MVP [(Minimum Viable Product)](https://en.wikipedia.org/wiki/Minimum_viable_product) creation we recommend to start with the [Lightweight IBM Cloud Garage Method for Data Science](lightweight.md) which one one hand is ideally suited for MVP / POC (Proof of Concept) work, on the other hand is compatible with the methodology described here so that scale-up is straightforward. This method always guarantees to have a deployable product at any point in time, a concept know if CICD (Continuous Integration, Continuous Delivery) and therefore is also compatible to such a software development process.
+The method supports lightweight development practices, to start the implementation of a MVP [(Minimum Viable Product)](https://en.wikipedia.org/wiki/Minimum_viable_product), to support scaling-up the architecture and the complexity of an end-to-end integrated solution. This method always guarantees to have deployable components at any point in time, a concept known in CI/CD (Continuous Integration, Continuous Delivery) aapplied to microservices, integration, data and machine learning models.
 
 ## Integrating data - devops and AI-Analytics development practices
 

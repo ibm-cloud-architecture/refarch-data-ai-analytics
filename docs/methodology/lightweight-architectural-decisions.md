@@ -1,44 +1,6 @@
 # Architectural Decisions Guidelines
 
-*An architectural decisions guide for architectural model development specific to data science*
-
-This is a companion document for the Lightweight IBM Cloud Garage Method for Data Science. It is meant for giving advice to architects and data scientists on architectural decisions which are extending the Lightweight Reference Architecture.
-
-This document starts with Architectural Principles which are met when applying the Lightweight IBM Cloud Garage Method for Data Science. This way, while integrating this method in an existing enterprise architecture, this method only needs to be adjusted towards Architectural Principles which are not met by this method.
-
-## Architectural Principles
-
-
-|Name | Simplicity First 
---- | --- 
-Statement | If a functionality or Technology Component is not needed in the current iteration, it shouldn't be part of the architecture. There must be a need for it in the current iteration.  
-Rationale | Distraction is on of our worst enemies. Humans tend to get lost in the abundance of possibilities. By sticking to the Architectural Principle, clear focus on project delivery is ensured.
-Implications| The majority of projects are over-engineered. This adds direct cost for additional unnecessary work and indirect maintenance cost due to architectural complexity. By enforcing the most simple architecture practitioners can focus on solving problems without getting distracted.
-
-
-|Name | OpenSource First 
---- | --- 
-Statement | If a functionality or Technology Component is available as Open Source, this should be given preference.
-Rationale | Open Source software tends to be more stable, better documented and better understood which pushed TCO down 
-Implications| When using Open Source vendor lock-in is reduced, experts are more abundant and standards are followed more tightly. In addition, independence from a vendor allows for development of extensions to address business needs which might not be available in timely manner from the vendor
-
-|Name | Homogeneity First
---- | --- 
-Statement | If a Technology Component is available from the same product suite it should be given preference.
-Rationale | Although standards exist and a lot of products are compatible with each other, compatibility never reaches the level of products coming from the same product suite.  
-Implications| If one relies on standards assuming compatibility between Technology Components during Architectural Development and those are broken whole Solution Architectures or Technology Architectures can become completely or partially invalid. Improving homogeneity mitigates that risk.
-
-|Name | Never touch a running system
---- | --- 
-Statement | If a Technical Component is needed, it should be provisioned from scratch without reusing existing systems.   
-Rationale | When creating "Systems of Innovation" speed is on of the key drivers. Therefore, every interaction with existing system introduces complexity, delay and risk.
-Implications| Especially in public, hybrid and private Cloud environments it is more effective to provision a Technical Component as a Service over adjusting an existing Technical Component. 
-
-The [IBM Data and Analytics Reference Architecture](https://www.ibm.com/cloud/garage/architectures/dataAnalyticsArchitecture/reference-architecture) defines Application Components. A partial goal of an Architectural Development Method is defining a Technology Component for every necessary Application Component. The main document of the [“Lightweight IBM Cloud Garage Method for Data Science”](https://ibm-cloud-architecture.github.io/refarch-data-ai-analytics/methodology/lightweight/) describes the Lightweight Technology Reference Architecture which should be used as starting point and after every iteration Application Components can be added and mapped to Technology Components as necessary.
-
-This way the method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics, which is a Application Architecture containing and describing Technology Components.
-
-![](../images/data-ai-ra-3.jpg)
+This way the method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. 
 
 The following sections provide guidelines on selecting Technology Components for each Application Component. So it is explained what Technology Component should be chosen based on given requirements and if the Application Component needs to be included at all.
 

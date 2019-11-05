@@ -1,28 +1,15 @@
-# The Lightweight IBM Cloud Garage Method for Data Science
+# The Machine Learning Development and Operations
 
-*A lightwieght and fast architecture development method and data science development process model*
 
-Why is there another method among existing? What does this method different than others?
+This part of the integrated method is aligned to the [Pace-Layered Application Strategy and IT Organizational Design](https://www.gartner.com/binaries/content/assets/events/keywords/applications/apn30/pace-layered-applications-research-report.pdf) published by Garter in 2016.
 
-This method is aligned to the [Pace-Layered Application Strategy and IT Organizational Design](https://www.gartner.com/binaries/content/assets/events/keywords/applications/apn30/pace-layered-applications-research-report.pdf) published by Garter in 2016.
+The MLOps method is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. 
 
-The Lightweight IBM Cloud Garage Method for Data Science is tailored for the development of "Systems of Innovation" and composed of a process model to develop individual technology components based on a reference architecture and a architecture development framework for extending the Solution Architecture beyond the reference architecture. This way "Systems of Innovation" can be moved into "Systems of Differentiation" and "Systems of Record" in the long run. This method on purpose does not include any requirement engineering or design thinking tasks since they are covered in the IBM Cloud Garage Method. If at a later point in time we think we need to adopt Design Thinking to the Domain of Data Science we will do it. Because it can be hard to initially define the architecture of a project, this method starts with the reference architecture and supports architectural changes while following the process model. This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. 
-
-The reference architecture describes the suggested architecture and separate companion document discusses the [architectural decision guidelines](../lightweight-architectural-decisions/) used for changing the reference architecture. This document also contains the Architecture Principles which have been used to develop the reference architecture and which might be adjusted to the target enterprise architecture principles of individual project settings.
-
-![](lightweight-process-model.png)
-
-    Figure 1: The Lightweight Process Model and Architectural Development Method
-
-![](lightweight_ref_arch.png)
-
-    Figure 2: The Lightweight Reference Architecture
-
-## The Lightweight IBM Cloud Garage Method for Data Science Process Model
+## The Lightweight Method for Data Science Process Model
 
 This section introduces this lightweight process model.
 
-![](lightweight-process-model-figure2.png)
+![](images/lightweight-process-model-figure2.png)
 
 The first thing that you should notice is the bidirectional communication between "Business Needs" and "Initial Data Exploration". This is a data driven method and data is crucial on what can be achieved, therefore "Business Needs" may be adjusted based on the possibilities provided by given data. Second, with this model, there is no communication between "Business Needs" and other steps because an iteration of this process is very short (in the range of hours and days).
 

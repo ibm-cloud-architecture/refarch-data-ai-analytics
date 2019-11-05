@@ -4,34 +4,35 @@ nav:
   - Introduction: index.md
   - AI Ladder: data/README.md
   - Data & AI Architectures :
-    - Architecture Principles : dataprinciples/README.md
-    - Designing intelligent application: dataprinciples/intelligent-app.md
+    - Architecture Principles : architecture/README.md
     - Collect - organize data: preparation/gov-data-lake.md
-    - Analyze & build model: model-dev/README.md
-    - Infuse in application: runtimes/README.md
+    - Analyze & build model: architecture/model-dev/README.md
+    - Infuse in application: architecture/runtimes/README.md
   - Collect and Organize:
     - Data Topology: topology/README.md
-    - Data replication: preparation/data-replication.md
+    - Data replication: data/data-replication.md
   - Analyze:
     - Data Understanding: preparation/data-understanding.md
     - Data Preparation: preparation/README.md
-    - Bias picking right training set: preparation/README.md
     - Model selection: preparation/dev-model.md
   - Infuse:
-    - Cassandra practices: data/cassandra/readme.md
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
+  - Development practices:
+    - Designing intelligent application: architecture/intelligent-app.md
+    - Cassandra practices: data/cassandra/readme.md
   - Monitoring:
     - Feedback analysis:  monitoring/README.md
     - Bias monitoring to ensure equitable:  monitoring/README.md
   - Methodology:
     - Integrated iterative approach:  methodology/README.md
-    - Lightweight approach: 
-      - Introduction: methodology/lightweight.md
-      - Architectural Decisions: methodology/lightweight-architectural-decisions.md
+    - MLOps: methodology/MLops.md
+    - DevOps: methodology/devops.md
+    - DataOps: methodology/dataops.md
 
   - Reference Implementations:
     - Customer churn solution: https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/
+    - Reefer container solution: https://ibm-cloud-architecture.github.io/refarch-kc/
 
 
 theme:
