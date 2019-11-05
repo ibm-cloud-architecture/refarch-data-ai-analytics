@@ -8,7 +8,7 @@ Started 10/30/2019, still under heavy work.
 
 A typical modern business solution will include a set of microservices working together in choreography to exchange data. The adoption of event-driven microservice with all related design pattern is described in separate articles that you can read [here](https://ibm-cloud-architecture.github.io/refarch-eda/design-patterns/ED-patterns/). 
 
-When zooming to a particular data intensive microservice we will find a set of important data centric features that may look like in the diagram below:
+When zooming to a particular data intensive microservice we will find a set of important data centric features that may look like in the diagram below, which presents one instance of a distributed system.
 
 ![Data Intensive App](images/data-intensive-app.png)
 
@@ -33,24 +33,24 @@ When designing such application we need to address a set of important subjects:
 
 In modern big data applications, hardware redundancy is not suffisant, the design needs to support unexpected faults, to avoid cascading failures and to support new version deployment with rolling-upgrade capability. 
 
-When addressing scalability and load growth, we need to define the load parameters: number of transaction per second, or number of read and write operation, number of active sessions, ... On average and at peak. Each microservice in a solution will have its own load parameters. 
+When addressing scalability and load growth, we need to define the load parameters: number of transactions per second, or number of read and write operations, number of active sessions, ... on average and at peak. Each microservice in a solution will have its own load parameters. 
 
-From there we need to design to address the following issue:
+From there we need to design to address the following issues:
 
 * How does load growth impact performance while keeping existing compute resources?
 * What is the increase of compute resource needed to support same performance while load growth?
 
-The solution problem is a combination of different characteristics to address: read volume, write volume, data store volume, data complexity, response time, access logic...
+The solution problem is a combination of different characteristics to address: read volume, write volume, data store volume, data complexity and size, response time, access logic...
 
-For batch processing the measurment is the throughput: number of records per second or time to process n records. For real time processing the response time measures the time to get a response from a client's point of view after sending a request.
+For batch processing the measurement is the throughput: number of records per second or time to process n records. For real time processing the response time measures the time to get a response from a client's point of view after sending a request.
 
 When defining service level agreement, it is important to use the median response time and a percentile of outliers. An example the median could be at 300ms at P99 (99/100) under 1s.
 
-Tail latencies, or high percentils of response time, impacts directly user experience and cost money.
+Tail latencies, or high percentils of response time, impact directly user experience and cost money.
 
 ## Distributed data
 
-Adopting microservice architecture, means distributed systems and distributed data. The main motivations for that are scalability (data operations load could not be supported by one server), high availability (by sharing the same processing between multiple machines), and reducing latency to distribute data close to the end users.
+Adopting microservice architecture, means distributed systems and distributed data. The main motivations for that are scalability (load data operations could not be supported by one server), high availability (by sharing the same processing between multiple machines), and reducing latency to distribute data close to the end users.
 
 Vertical scaling is still bounded by hardware resources, so at higher load we need to support horizontal scaling by adding more machine in cluster or in multiple clusters.  When adding machines, we may want to adopt different techniques for data sharing: 
 
@@ -60,7 +60,7 @@ Vertical scaling is still bounded by hardware resources, so at higher load we ne
 
 ### Replication
 
-A first technique to  share data is to replicate or copy data between nodes. It fits well, when dataset is small enough to be persisted in one machine, and when data do not change a lot over time. Replication implementations are most of the time, black box for business application developers, but for clarity we can mention three types:
+A first technique to  share data is to replicate or copy data between nodes. It fits well, when dataset is small enough to be persisted in one machine, and when data do not change a lot over time. Replication implementations are most of the time, black box for the business application developers, but we want to present three types of replication architecture:
 
 * **single-leader**: one of the replica is the leader, and receive write operations from client services. Other replicas are followers, listening to data updates from a replication log and modify their own data store. Read operations can happen on any node, and followers are specifically read-only. This is a pattern used by Kafka, Postgresql, RabbitMQ...
 
@@ -71,7 +71,7 @@ A first technique to  share data is to replicate or copy data between nodes. It 
 
 #### Single leader
 
-Replication can be done synchronously or asynchronously. With synchronous the leader waits until at least one follower has comfirmed replication before reporting to the client that the write operation is successful. From the client point of view, it is a synchronous call.
+Replication can be done synchronously or asynchronously. With synchronous the leader waits until at least one follower has confirmed replication before reporting to the client that the write operation is successful. From the client point of view, it is a synchronous call.
 
 ![Synch-Asynch](images/synch-asynch.png)
 
@@ -83,14 +83,14 @@ With asynch, two reads at the same time on the leader and one of the follower wi
 
 ![](images/asynch.png)
 
-This lag can have some interesting derived issues, like seeing data in one query (done on a follower with small lag) and then not seeing the data from the same query done on a bigger lagged follower. To avoid that the pratice is to use a monolitic read: user makes several reads in sequence, they will not see time go backward. Which can be achieved by ensuring the reads for a given user are done on the same follower. This is what kafka does by assigning a consumer to partition.
+This lag can have some interesting derived issues, like seeing data in one query (done on a follower with small lag) and then not seeing the data from the same query done on a bigger lagged follower. To avoid that, the pratice is to use a monolitic read: user makes several reads in sequence, they will not see time go backward. Which can be achieved by ensuring the reads for a given user are done on the same follower. This is what kafka does by assigning a consumer to partition.
 
-With asynch replica, if the leader fails, data not yet replicated are lost until a new leader starts to accept new writes. 
+With asynch replica, if the leader fails, data not yet replicated to the follower, is lost until a new leader starts to accept new writes. 
 
 ![](images/data-lost.png)
 
 
-Also adding a new follower brings other challenges: as the data are continuously being written to the leader database, copying the database files to the new follower will not be consistent. One adopted solution is to snapshot the database, without locking write operations, and copy the data to the follower, then from this snapshot, consumes the update log. To work the snapshot position needs to be known in the replication log. 
+Also **adding a new follower** brings other challenges: as the data are continuously being written to the leader database, copying the database files to the new follower will not be consistent. One adopted solution is to snapshot the database, without locking write operations, and copy the data to the follower, then from this snapshot, consumes the update log. To work the snapshot position needs to be known in the replication log. 
 
 ![](images/add-follower.png)
 
@@ -100,9 +100,9 @@ When the leader fails, a follower needs to take the leadership, and then other f
 
 When using single leader, it is possible to reach a split brain state, when the old leader comes back to live, and thinks it is still a leader: both leaders accept writes which leads to data corruption. 
 
-#### Multi leader
+#### Multi leaders
 
-With multi leader configuration each leader gets write operations, and propagate data update notifications to all nodes. This is an active-active replication. And it is the practice when dealing with multiple datacenters. 
+With multi-leader configuration each leader gets write operations, and propagates data update notifications to all nodes. This is an active-active replication. And it is the practice when dealing with multiple datacenters. 
 
 ![](images/multi-lead.png)
 
@@ -115,14 +115,15 @@ The write operations are propagated asynchronously which is more permissive to n
 
 For the write conflict resolution, there are different strategies, one uses timestamps so the last write wins the record update, but this cloud lead to data lost. In fact conflict resolution will be dependant of the business logic and data knowledge. So custom code needs to be done to apply this logic to write conflicts.
 
-When there is more than two leaders, the replicas topology can be done in ring, start or all-to-all:
+When there is more than two leaders, the replicas topology can be done in ring, star or all-to-all, as illustrated in the figure below:
 
 ![](images/multi-lead-topo.png)
 
-With Ring, a leader forward and propagate its own write to one neighbor. With star one designated root node forwards writes to all of the other nodes. Finally with all-to-all, every leader sends its writes to every other leader.
+With **Ring**, a leader forwards and propagates its own writes to one neighbor. With **Star** one designated root node forwards writes to all of the other nodes. Finally with **All-to-all**, every leader sends its writes to every other leader.
 
-With Ring and Start, a node failure impacts the data replication to any node, and with all to all we need to address looping on the same write. The mitigation is to use a unique identifier for each node, so a write event coming with the same node_id of the current node id is discarded.
+With Ring and Star, a node failure impacts the data replication to any node, and with all-to-all we need to address looping on the same write. The mitigation is to use a unique identifier for each node, so a write event coming with the same node_id at the current node id is discarded.
 
 ## Compendium
 
 * [Designing data intensive application - Martin Kleppmann](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_3?crid=F3G6F7KYQZMH&keywords=designing+data+intensive+applications&qid=1572566804&sprefix=designing+data+%2Caps%2C204&sr=8-3)
+* [Cassandra ](https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained)

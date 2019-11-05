@@ -5,6 +5,7 @@ nav:
   - AI Ladder: data/README.md
   - Data & AI Architectures :
     - Architecture Principles : dataprinciples/README.md
+    - Designing intelligent application: dataprinciples/intelligent-app.md
     - Collect - organize data: preparation/gov-data-lake.md
     - Analyze & build model: model-dev/README.md
     - Infuse in application: runtimes/README.md
@@ -15,17 +16,20 @@ nav:
     - Data Understanding: preparation/data-understanding.md
     - Data Preparation: preparation/README.md
     - Bias picking right training set: preparation/README.md
-    - Model selection: preparation/README.md
+    - Model selection: preparation/dev-model.md
   - Infuse:
-    - Designing data intensive application: data/data-intensive-app.md
+    - Cassandra practices: data/cassandra/readme.md
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
   - Monitoring:
     - Feedback analysis:  monitoring/README.md
     - Bias monitoring to ensure equitable:  monitoring/README.md
   - Methodology:
-    - Lightweight approach: methodology/lightweight.md
     - Integrated iterative approach:  methodology/README.md
+    - Lightweight approach: 
+      - Introduction: methodology/lightweight.md
+      - Architectural Decisions: methodology/lightweight-architectural-decisions.md
+
   - Reference Implementations:
     - Customer churn solution: https://ibm-cloud-architecture.github.io/refarch-ai-data-customer-churn/
 

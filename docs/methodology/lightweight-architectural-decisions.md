@@ -38,39 +38,38 @@ The [IBM Data and Analytics Reference Architecture](https://www.ibm.com/cloud/ga
 
 This way the method is highly iterative, so any findings during this process can result in changes to architectural decisions. However, there are never any wrong architectural decisions because the decisions take into account all the knowledge available at a certain point in time. Therefore, it’s important to document why a decision was made. The following figure shows the IBM Reference Architecture for Cloud Analytics, which is a Application Architecture containing and describing Technology Components.
 
-![](reference-architecture.png)
+![](../images/data-ai-ra-3.jpg)
 
 The following sections provide guidelines on selecting Technology Components for each Application Component. So it is explained what Technology Component should be chosen based on given requirements and if the Application Component needs to be included at all.
 
 ## Application Component: Data Source
 
-The data source is an internal or external data source that includes relational databases; web pages; CSV, JSON, or text files; and video and audio data.
+The data source is a private or public data source that includes relational databases; web pages; CSV, XML, JSON, or text files; and video and audio data.
 
 ### Technology Component mapping guidelines
 
-With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by stakeholders. However, if there is some control over the process, the following Architectural Principles should be considered:
+With the data source, there is not much to decide because in most cases, the type and structure of a data source is already defined and controlled by other stakeholders. However, if there is some control over the process, the following Architectural Principles should be considered:
 
 
-
-* How does the delivery point look like?
+* **How does the delivery point look like?**
 
     Enterprise data mostly lies in relational databases serving OLTP systems. It’s typically a bad practice to access those systems directly, even in read-only mode because ETL processes are running SQL queries against those systems, which can hinder performance. One exception for example is IBM DB2 Workload Manager because it allows OLAP and ETL workloads to run in parallel with an OLTP workload without performance degradation of OLTP queries using intelligent scheduling and prioritizing mechanisms.
 
-* Does real-time data need to be considered?
+* **Does real-time data need to be considered?**
 
-    Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on Streaming analytics further down in this document.
+    Real-time data comes in various shapes and delivery methods. The most prominent include MQTT telemetry and sensor data (for example, data from the IBM Watson IoT Platform), an event stream, a simple REST HTTP endpoint that needs to be polled, or a TCP or UDP socket. If no downstream real-time processing is required, that data can be staged (for example, using Cloud Object Store). If downstream real-time processing is necessary, read the section on [Streaming analytics](#application-component-streaming-analytics) further down in this document.
 
 ## Application Component: Enterprise data
 
-Cloud-based solutions tend to extend the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud or access those in real time through a VPN API gateway.
+Cloud-based solutions tend to extend access of the enterprise data model. Therefore, it might be necessary to continuously transfer subsets of enterprise data to the cloud environment or access those in real time through a VPN API gateway.
 
 ### Technology Component mapping guidelines
 
-Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are two ways to access it.
-
+Moving enterprise data to the cloud can be costly. Therefore, it should be considered only if necessary. For example, if user data is handled in the cloud is it sufficient to store an anonymized primary key. If transfer of enterprise data to the cloud is unavoidable, privacy concerns and regulations must be addressed. Then, there are multiple ways to access it:
 
 * Batch sync from an enterprise data center to the cloud
 * Real-time access to subsets of data using VPN and an API gateway
+* Expose data via an event backbone
 
 ### Technology Mapping
 
@@ -85,6 +84,10 @@ Lift allows you to migrate on-premises data to cloud databases in a very efficie
 #### Rocket Mainframe Data
 
 The Rocket Mainframe Data service uses similar functions for batch-style data integration as Lift, but is dedicated to IBM Mainframes. You can [read more](https://cloud.ibm.com/catalog/services/rocket-mainframe-data) information about the service.
+
+#### Apache Kafka
+
+Apache Kafka, and IBM Event Streams expose data for other to consume with strong decoupling, and long term persistence. It can scale well for big data needs, and represent a well adopted platform to integrate microservices. See our deep dive into event driven solution [here](https://ibm-cloud-architecture.github.io/refarch-eda/kafka/readme/).
 
 ## Application Component: Streaming analytics
 
@@ -107,11 +110,11 @@ On IBM Cloud, there are many service offerings for real-time data processing tha
 
 #### Apache Spark and Apache Spark Structured Streaming
 
-Apache Spark is often the primary choice when it comes to cluster-grade data processing and machine learning. If you’re already using it for batch processing, Apache Spark Structured Streaming should be the first thing to evaluate. This way, you can have technology homogeneity and batch and streaming jobs can be run together (for example, joining a stream of records against a reference table).
+Apache Spark is often the primary choice when it comes to cluster-grade data processing and machine learning. If you’re already using it for batch processing, [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) should be the first thing to evaluate. This way, you can have technology homogeneity and batch and streaming jobs can be run together (for example, joining a stream of records against a reference table).
 
 * What throughput is required? Apache Spark Structured Streaming supports the same throughput as in batch mode.
 
-* What latency is accepted? In Apache Spark v2.3, the Continuous Processing mode has been introduced, brining latency down to one millisecond.
+* What latency is accepted? In Apache Spark v2.3, the Continuous Processing mode has been introduced, bringing latency down to one millisecond.
 
 * Which data types must be supported? Apache Spark is strong at structured and semi-structured data. Audio and video data can’t benefit from Apache Spark’s accelerators Tungsten and Catalyst.
 
@@ -137,19 +140,18 @@ IBM Streams is a fast streaming engine. Originally designed for low-latency, hig
 
 * What type of fault tolerance and delivery guarantees are necessary? IBM Streams supports exactly once delivery guarantees and complete crash fault tolerance.
 
-#### NodeRED
+#### Node-RED
 
-NodeRED is a lightweight streaming engine. Implemented on top of Node.js in JavaScript, it can even run on a 64 MB memory footprint (for example, running on a Raspberry PI).
+[Node-RED](https://nodered.org/) is a lightweight streaming engine. Implemented on top of Node.js in JavaScript, it can even run on a 64 MB memory footprint (for example, running on a Raspberry PI).
 
 
-
-* What throughput is required? NodeRED’s throughput is bound to processing capabilities of a single CPU core, through Node.js’s event processing nature. For increased throughput, multiple instances of NodeRED have been used in parallel. Parallelization is not built in and needs to be provided by the application developer.
+* What throughput is required? Node-RED’s throughput is bound to processing capabilities of a single CPU core, through Node.js’s event processing nature. For increased throughput, multiple instances of Node-RED have been used in parallel. Parallelization is not built in and needs to be provided by the application developer.
 
 * What latency is accepted? Latency is also dependent on the CPU configuration and on the throughput because high throughput congests the event queue and increases latency.
 
-* Which data types must be supported? NodeRED best supports JSON streams, although any data type can be nested into JSON.
+* Which data types must be supported? Node-RED best supports JSON streams, although any data type can be nested into JSON.
 
-* What type of algorithms run on the system? Only relational algebra or advanced modeling? NodeRED has one of the most extensive ecosystems of open source third-party modules. Although advanced machine learning is not supported natively, there are plans by IBM to add those.
+* What type of algorithms run on the system? Only relational algebra or advanced modeling? Node-RED has one of the most extensive ecosystems of open source third-party modules. Although advanced machine learning is not supported natively, there are plans by IBM to add those.
 
 * What’s the variance of the workload and what are the elasticity requirements? Because parallelization is a responsibility of the application developer, for independent computation a round-robin load balancing scheme supports linear scalability and full elasticity.
 
@@ -157,7 +159,7 @@ NodeRED is a lightweight streaming engine. Implemented on top of Node.js in Java
 
 #### Apache Nifi
 
-Apache Nifi is maintained by Hortonworks and is part of the IBM Analytics Engine Service.
+[Apache Nifi](https://nifi.apache.org/) is maintained by Hortonworks and is part of the IBM Analytics Engine Service.
 
 * What throughput is required? Nifi can handle hundreds of MBs on a single node and can be configured to handle multiple GBs in cluster mode.
 
@@ -173,9 +175,12 @@ Apache Nifi is maintained by Hortonworks and is part of the IBM Analytics Engine
 
 Also, fault tolerance can be configured, but automatic recovery is not possible. Another important feature is backpressure and pressure release, which causes the upstream nodes to stop accepting new data and discarding unprocessed data if an age threshold is exceeded.
 
+#### Apache Kafka
+
+
 #### Others
 
-There are also other technologies like Apache Kafka, Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.
+There are also other technologies like Apache Samza, Apache Flink, Apache Storm, Total.js Flow, Eclipse Kura, and Flogo that might be worth looking at if the ones mentioned don’t meet all of your requirements.
 
 ## Application Component: Data Integration
 
@@ -276,6 +281,7 @@ Dash DB is the Db2 BLU on the Cloud offering from IBM that features column store
 
 
 #### NoSQL databases
+
 The most prominent NoSQL databases like Apache CouchDB, MongoDB, Redis, RethinkDB, ScyllaDB (Cassandra), and InfluxCloud are supported.
 
 * What is the impact of storage cost? NoSQL databases are usually storage fault-tolerant, by default. Therefore, quality requirements on storage are less, which brings down storage cost.
@@ -301,6 +307,7 @@ The most prominent NoSQL databases like Apache CouchDB, MongoDB, Redis, RethinkD
 * What are the retention policies? NoSQL databases don’t support automated retention mechanisms to delete old data automatically. Therefore, this must be implemented manually, resulting in range queries on the data corpus.
 
 #### Object storage
+
 Cloud object storage makes it possible to store practically limitless amounts of data. It is commonly used for data archiving and backup, for web and mobile applications, and as scalable, persistent storage for analytics. So, let’s take a look.
 
 * What is the impact of storage cost? Object storage is the cheapest option for storage.
@@ -406,7 +413,7 @@ There are numerous technologies for creating and evaluating machine learning and
 
 ### Technology Mapping
 
-Because there’s an abundance of open and closed source technologies, I’m highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.
+Because there’s an abundance of open and closed source technologies, we are highlighting the most relevant ones in this article. Although it’s the same for the other sections as well, decisions made in this section are very prone to change due to the iterative nature of this process model. Therefore, changing or combining multiple technologies is no problem, although the decisions that led to those changes should be explained and documented.
 
 
 #### SPSS Modeler
@@ -505,7 +512,6 @@ TensorFlow is one of the most widely used deep learning frameworks. At its core,
 
 * What are the available skills regarding programming languages? Python is the core programming language for Keras and TensorFlow.
 
-* What are the costs of skills regarding programming languages? Because Python programmers are more abundant than Java/Scala programmers, the costs are less.
 
 * What are the available skills regarding frameworks? Keras and TensorFlow skills are relatively rare.
 
@@ -513,7 +519,7 @@ TensorFlow is one of the most widely used deep learning frameworks. At its core,
 
 * Is model interchange required? Keras and TensorFlow have their own model exchange formats. There are converters from and to ONNX.
 
-* Is parallel- or GPU-based training or scoring required? Running TensorFlow on top of ApacheSpark is supported through TensorFrames and TensorSpark. Keras models can be run on ApacheSpark using DeepLearning4J and SystemML. Both of the latter frameworks also support GPUs. TensorFlow (and therefore, Keras) support GPU natively as well.
+* Is parallel- or GPU-based training or sc oring required? Running TensorFlow on top of ApacheSpark is supported through TensorFrames and TensorSpark. Keras models can be run on ApacheSpark using DeepLearning4J and SystemML. Both of the latter frameworks also support GPUs. TensorFlow (and therefore, Keras) support GPU natively as well.
 
 * Do algorithms need to be tweaked or new algorithms be developed? TensorFlow is a linear algebra execution engine. Therefore, it’s optimally suited for tweaking and creating new algorithms. Keras is a very flexible deep learning library that supports many neural network layouts.
 
@@ -521,11 +527,12 @@ TensorFlow is one of the most widely used deep learning frameworks. At its core,
 ## Application Component: Applications and Data Products
 
 Models are fine, but their value rises when they can be consumed by the ordinary business user. Therefore, you must create a data product. Data products don’t necessarily need to stay on the cloud. They can be pushed to mobile or enterprise applications.
-Architectural decision guidelines
 
-In contrast to machine learning and deep learning frameworks, the space of frameworks to create data product is tiny. This might reflect what the current state-of-the-art technology in data science concentrates on. Depending on the requirements, data products are relatively visualization-centric after a lot of use input data has been gathered. They also might involve asynchronous workflows as batch data integration and model training and scoring is performed within the workflow. Questions to ask about the technology are:
+In contrast to machine learning and deep learning frameworks, the space of frameworks to create data product is tiny. This might reflect what the current state-of-the-art technology in data science concentrates on. Depending on the requirements, data products are relatively visualization-centric after a lot of user input data has been gathered. They also might involve asynchronous workflows as batch data integration and model training and scoring is performed within the workflow. 
 
-* What skills are present for developing a data product?
+Questions to ask about the technology are:
+
+* What skills are present for developing a data product?
 * What skills are necessary for developing a data product?
 * Is instant feedback required or is batch processing accepted?
 * What’s the degree of customization needed?
@@ -581,7 +588,6 @@ When it comes to custom application development, D3 is one of the most prominent
 ## Application Component: Security, information governance and systems management
 
 This important step can be easily forgotten. It’s important to control who has access to which information for many compliance regulations. In addition, modern data science architectures involve many components that require operational aspects as well.
-Architectural decision guidelines
 
 Data privacy is a major challenge in many data science projects. Questions that you should ask are:
 
@@ -593,8 +599,7 @@ Data privacy is a major challenge in many data science projects. Questions that 
 
 ### Technology Mapping
 
-Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. I’ve chosen representative examples for this article.
-Internet services
+Again, there’s a lot of software for this as well as ways to solve the requirements involved in this topic. We have chosen representative examples for this article.
 
 Deploying a productive client-facing web application brings with it serious risks. IBM Cloud Internet Services provides global points of presence (PoPs). It includes domain name service (DNS), global load balancer (GLB), distributed denial of service (DDoS) protection, web application firewall (WAF), transport layer security (TLS), and caching.
 

@@ -2,7 +2,7 @@
 
 ## Application Components Overview
 
-![](reference-architecture.png)
+![](../images/data-ai-ra-3.jpg)
 
 ## Application Component: Data Source
 
@@ -11,6 +11,7 @@
 Please describe what Technology Component you have defined here. Please justify below, why. In case this component is not needed justify below.
 
 ### Justification
+
 Please justify your Technology Component mappings here.
 
 

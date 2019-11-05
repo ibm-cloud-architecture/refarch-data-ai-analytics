@@ -1,7 +1,6 @@
-# Methodology
 
 !!! warning
-        UNDER CONSTRUCTION
+        UNDER CONSTRUCTION 11/04/19
 
 !!! abstract
     In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
@@ -9,17 +8,17 @@
 
 !!! This is a full fledged Enterprise Methodology addressing concerns of multinational data center deployments. For the purpose of MVP [(Minimum Viable Product)](https://en.wikipedia.org/wiki/Minimum_viable_product) creation we recommend to start with the [Lightweight IBM Cloud Garage Method for Data Science](lightweight.md) which one one hand is ideally suited for MVP / POC (Proof of Concept) work, on the other hand is compatible with the methodology described here so that scale-up is straightforward. This method always guarantees to have a deployable product at any point in time, a concept know if CICD (Continuous Integration, Continuous Delivery) and therefore is also compatible to such a software development process.
 
-## Integrating data - devops and AI analytics methodologies
+## Integrating data - devops and AI-Analytics development practices
 
 Most organizations need to manage software lifecycles. The key tenets listed above imply the need for a separate lifecycle for data, because the outcome or deliverable for any of the key tenets should not be considered static and immutable. Like data, you can think of analytics as having its own lifecycle independent from the software lifecycle and the data lifecycle, although they are all complementary.
 
 To help achieve digital transformation, your organization should integrate three development lifecycles:
 
 * Software/Application
-* Analytics
+* AI-Analytics
 * Data
 
-![](sdlc-ddlc-adlc.png)
+![](images/sdlc-ddlc-adlc.png)
 
 Each development lifecycle is representative of an iterative workflow that can be used by agile development teams to craft higher value business outcomes. Lifecycles are often timeboxed iterations and can follow a fail-fast paradigm to realize tangible assets. Speed is important in business; most businesses work to meet new needs quickly. The objective of each lifecycle iteration is to address business speed efficiently and proficiently while maximizing business value. 
 
@@ -27,22 +26,26 @@ Each development lifecycle is representative of an iterative workflow that can b
 
 Before going deeper into the different lifecycles, we need to define the personas involved in those lifecycles. The table below present the icons we are using in subsquent figures, with a short description for the role.
 
-![](personas.png)
+![](images/personas.png)
 
-### Devops lifecycle
+### DevOps lifecycle
 
 The software/application development lifecycle (SDLC) is a well-known and supports both traditional and agile development. The SDLC iterates on incorporating business requirements, adopt test driven development, continuous deployment and continuous integration. The diagram below demonstrates the iteration over recurring developer tasks to build the business intelligent application (internal loop), and the release loop to continuously deliver application features to production (bigger loop).    
 
-![](dev-ops.png)
+![](images/dev-ops.png)
 
 !!! notes
     Before entering the development iteration cycles, there are tasks to scope the high level business challenges and opportunities, define the business case for the project, define and build the development and operation strategy, define the target infrastructure, security... The smaller loop represents development iteration, while the outer loop represents software release to production with continous feedback to monitor and assess features acceptance. This task list is not exhaustive, but represents a common ground for our discussion.
 
+The solution will group a lot of out of the shelves components and a set of microservices supporting the implementation of the business logic and the intelligent application. A lot of things need to be considered while implementing each microservice from a data point of view. We recommend reading **[this chapter on designing intelligent application](../dataprinciples/intelligent-app)** to assess what needs to be done, and some best practices. 
+
+Among the tasks described in the release and development iteration loops, we do need to cover each of them, but two specifics tasks are interesting to consider in this integrated methodology: the `integrate services` and the `build components` tasks. 
+
 ### AIOps lifecycle
 
-The ai-analytics development lifecycle (ADLC) supports the full spectrum of analytical work in the artificial intelligence ladder. This lifecycle incorporates model development and remediation to avoid drift. Because one of the purposes of analytics is to enable an action or a decision, the ADLC relies on feedback mechanisms to help enhance machine models and the overall analytical environment. 
+The Ai-Analytics development lifecycle (ADLC) supports the full spectrum of analytical work in the artificial intelligence ladder. This lifecycle incorporates model development and remediation to avoid drift. Because one of the purposes of analytics is to enable an action or a decision, the ADLC relies on feedback mechanisms to help enhancing machine models and the overall analytical environment. 
 
-![](ml-dt-method.png)
+![](images/ml-dt-method.png)
 
 An example of a feedback mechanism is capturing data points on the positive or negative effects or outcomes from an action or a decision. The ADLC iterates on data. 
 

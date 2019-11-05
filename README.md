@@ -48,6 +48,8 @@ The [contributing guidelines are in this note.](./CONTRIBUTING.md)
 * [Tony Efremenko](https://www.linkedin.com/in/tony-efremenko-4359b7/)
 * [Sandra Tucker](https://www.linkedin.com/in/sandraltucker/)
 * [Stacey Ronaghan](https://www.linkedin.com/in/staceyronaghan/)
+* [Romeo Kienzler](https://www.linkedin.com/in/romeo-kienzler-089b4557)
+* [Rick Osowski](https://www.linkedin.com/in/rosowski/)
 
 ## Project Status
 
