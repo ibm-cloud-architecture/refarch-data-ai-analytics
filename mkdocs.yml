@@ -5,9 +5,10 @@ nav:
   - AI Ladder: data/README.md
   - Data & AI Architectures :
     - Architecture Principles : architecture/README.md
-    - Collect - organize data: preparation/gov-data-lake.md
-    - Analyze & build model: architecture/model-dev/README.md
-    - Infuse in application: architecture/runtimes/README.md
+    - Architectural Decision guidelines: architecture/architectural-decisions.md
+    - Collect - organize data: architecture/collect-org-data.md
+    - Analyze & build model: architecture/build-model.md
+    - Infuse in application: architecture/runtime-flow.md
   - Collect and Organize:
     - Data Topology: topology/README.md
     - Data replication: data/data-replication.md
@@ -18,6 +19,7 @@ nav:
   - Infuse:
     - CI & CD: deployment/README.md
     - Physical model execution: deployment/README.md
+    - Model evaluation: deployment/model-evaluation.md
   - Development practices:
     - Designing intelligent application: architecture/intelligent-app.md
     - Cassandra practices: data/cassandra/readme.md

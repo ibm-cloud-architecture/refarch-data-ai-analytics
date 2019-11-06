@@ -185,7 +185,7 @@ We have done two implementations for persisting `asset` data into Cassandra, one
 
 ## Cassandra client API
 
-The code is under `asset-consumer` project and can be loaded into Eclipse. This component is deployed as container inside a kubernetes cluster like ICP. See code explanation, how to build and run in [this note](../../asset-consumer/README.md)
+The code is under `refarch-reefer-ml` project and can be loaded into Eclipse. This component is deployed as container inside a kubernetes cluster like Openshift. See code explanation, how to build and run in [this note]()
 
 In the pom.xml we added the following dependencies to get access to the core driver API:
 ```

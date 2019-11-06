@@ -53,13 +53,13 @@ Implications| Especially in public, hybrid and private Cloud environments it is 
 
 ## Defining the architecture incrementally
 
-The IBM Garage methodology guides the development team to adopt an incremental and iterative development practices, lean method. As part of the lean adoption, the implementation of an intelligent application integrates different concerns: microservice, data and AI model developments. But architecture is not forgotten, and it should be done also incrementally. Even if the target end to end solution will look similar the reference architecture (the diagram below), not all components needs to be in place at the beginning of a Minimum Viable Product.
+The IBM Garage methodology guides the development team to adopt an incremental and iterative development practices, lean method. As part of the lean adoption, the implementation of an intelligent application integrates different concerns: microservice, data and AI model developments. But architecture is not forgotten, and it should be done also incrementally. Even if the target end to end solution will look similar to the reference architecture as illustrated in the diagram below, not all components need to be in place at the beginning of a Minimum Viable Product.
 
-![](../images/data-ai-ra-3.jpg)
+![](./images/DataAIRefArch.png)
 
-    Figure 1: The Data & AI Reference Architecture
+    Figure 1: The Data and AI Reference Architecture
 
-The goal of the architects will be to select product for each of the needed capabilities following the guidances presented in the [architectural principles](#architectural-principles) above.
+The goal of the architects will be, to select product for each of the needed capabilities following the guidances presented in the [architectural principles](#architectural-principles) above and build the architecture per increment and reuse previously define capabilities.
 
 Because it can be hard to initially define the architecture of a project, our method starts with the reference architecture and supports architectural changes while following the development of the process model.
 
@@ -69,12 +69,27 @@ Because it can be hard to initially define the architecture of a project, our me
 
 This way application development and architectural development work hand in hand to produce a production ready and deployable product at the end of each iteration. 
 
+### Data science lightweight architecture
+
 As an example, a Data Scientist's environment architecture, in the context of getting started, or for a MVP, will include the minimum components, as illustrated below:
 
 ![](images/lightweight_ml_ref_arch.png)
 
     Figure 3: The Lightweight Reference Architecture
 
-but can evolve over time to address most of the components as described [in the model building reference architecture.](./model-dev/README.md)  
+but can evolve over time to address most of the components as described [in the model building reference architecture.](./build-model.md)  
 
-The same apply for the data architecture and the microservice integration one.
+### Microservice integration lightweight architecture
+
+For the intelligent application the first architecture may include microservice, serving Web channel, using the Backend for frontend pattern, and doing integration with other microservices. Each service has its own repository that can use different technologies like RDBMS, noSQL, filesystem, cache... A service can be consumer and publisher of events, and can integrate with pre-built AI model.
+
+![](images/microservice-ra-mvp.png)
+
+    Figure 4: Microservice MVP architecture
+
+The scoring service can be deployed as a service or integrated in an agent as part of a real time streaming analytics. The extended runtime architecture is presented in [this article](runtime-flow.md).
+
+### Data lightweight architecture
+
+The same apply for the data architecture: the previous diagram illustrates the need to have data ingestion components responsible to extract, transform and load data from data source to storage area. In distributed system the storage need to support high availability and distribution intra and inter datacenters. When scaling the data adoption, architects need to work on the [data topology](../topology/README.md), and extend to the reference architecture as presented in [this article](collect-org-data.md).
+

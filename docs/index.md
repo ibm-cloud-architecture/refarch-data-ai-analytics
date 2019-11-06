@@ -22,11 +22,15 @@ The figure below represents how those layers are related to each other:
 
 ![](images/ladder-ai.png)
 
+    Figure 1: AI Ladder
+
 ## IBM Data and AI Conceptual Architecture
 
 Based on the above prescriptive approach, we cans see that a Data centric and AI reference architecture needs to implement the four layers as shown in the following diagram.
 
 ![](images/data-ai-ra.png)
+
+    Figure 2: High level view of the Data & AI reference architecture
 
 This architecture diagram illustrates:
 
@@ -54,8 +58,9 @@ In **Analyze** data scientists need to perform:
 * **[data analysis](./preparation/data-understanding.md)**, which includes making sense of the data using data **visualization**.
 * **[feature engineering](./preparation/#feature-engineering)** to define the features they need to build an ML model.
 
-Then to **build the model**, the development environment provides the AI frameworks and helps the data scientists to select and combine the different algorithms and to tune the hyper parameters.
-The execution can be done on local cluster or can be executed, at the big data scale level, to a machine learning cluster.
+Then to **[build the model](http://localhost:8000/preparation/dev-model/)**, the development environment provides the AI frameworks and helps the data scientists to select and combine the different algorithms and to tune the hyper parameters.
+
+The model training can be done on local cluster or can be executed, at the big data scale level, to a machine learning cluster.
 
 Once the model provides acceptable accuracy level, it can be published so that it can be consumed or *infused* within an application or exposed as a service or as an autonomous agent.
 
@@ -66,7 +71,7 @@ not biased.
 
 The **intelligent application**, is represented as a combination of capabilities at the top of the diagram, it can be an application we develop, a business process, an ERP or CRM application, etc.  running anywhere on cloud, fog, or mist computing.
 
-The intelligent application, accesses the deployed model, sing APIs, and may consumes pre-built models or Cognitive services, such as:  
+The intelligent application, accesses the deployed model, APIs, and may consumes pre-built models or Cognitive services, such as:  
 
 * **speech to text and text to speech** services  
 * **image recognition**, a **tone analyzer** services
@@ -76,15 +81,15 @@ The intelligent application, accesses the deployed model, sing APIs, and may con
 
 In the view below of the reference architecture we have zoomed in a level to show the detail of how we realize the required capabilities.
 
-![](images/data-ai-ra-3.jpg)
+![](architecture/images/DataAIRefArch.png)
 
-The boundary rectangles are color coded to map the higher level purposes: *collect, organize, analyze and infuse* with each icon representing a capability.
+    Figure 3: High level view of the Data and AI reference architecture
 
-This diagram becomes the foundation of  the *Data and AI reference architecture*  and we will expend details for:
+This diagram becomes the foundation of  the *Data and AI reference architecture*  but can built incrementally as explain in [this section](http://localhost:8000/architecture/#defining-the-architecture-incrementally).
 
-* [Data preparation](preparation/gov-data-lake.md)
-* [AI model development](architecture/model-dev/README.md)
-* [Application runtime](architecture/runtimes/README.md)
+* [Data collection and organization](architecture/collect-org-data.md)
+* [AI model development](architecture/build-model.md)
+* [Application runtime](architecture/runtime-flow.md)
 
 ## Mapping to products
 

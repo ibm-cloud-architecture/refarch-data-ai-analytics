@@ -1,8 +1,8 @@
-# The Lightweight IBM Cloud Garage Method Architectural Decisions Document Template
+# The Lightweight Method Architectural Decisions Document Template
 
 ## Application Components Overview
 
-![](../images/data-ai-ra-3.jpg)
+![](./images/DataAIRefArch.png)
 
 ## Application Component: Data Source
 

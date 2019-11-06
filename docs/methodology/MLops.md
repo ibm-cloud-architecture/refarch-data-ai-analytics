@@ -19,7 +19,7 @@ The following sections explain the individual tasks.
 
 This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable. 
 
-#### [Best practices](../../preparation/data-understanding).
+#### [Best practices](../preparation/data-understanding.md).
 
 #### Technology Component
 
@@ -33,7 +33,7 @@ Suggested technology components to perform this task:
 
 This task is an important step in transforming the data from the source system into data suitable for analytics. In traditional data warehousing, this process includes accessing the online transaction processing (OLTP) system’s databases, transforming the data from a highly normalized data model into a Star or Snowflake Schema, and storing the data to a data warehouse. In data science projects, this step is usually much simpler. The data arrives in an exported format (for example, JSON or CSV). But, sometimes de-normalization must be done as well. The result usually ends up in a bulk storage like Cloud Object Store.
 
-[Further Guidelines](../lightweight-guidelines-data-cleansing)
+[Data preparation further guidelines](../preparation/README.md)
 
 #### Technology Component
 
@@ -46,7 +46,7 @@ Suggested technology components to perform this task:
 
 This task transforms input columns of various relations into additional columns to improve model performance. A subset of those features can be created in an initial task (for example, one-hot encoding of categorical variables or normalization of numerical variables). Some others require business understanding or multiple iterations to be considered. This task is one of those benefiting the most from the highly iterative nature of this method.
 
-[Further Guidelines](../lightweight-guidelines-feature-engineering)
+[Further Guidelines](../preparation/README.md#feature-engineering)
 
 #### Technology Component
 
@@ -59,10 +59,9 @@ Suggested technology components to perform this task:
 
 This task defines the machine learning or deep learning model. Because this is a highly iterative method, various iterations within this task or including up- and downstream tasks are possible. I recommend starting with simple models first for baseline creation after those models are evaluated.
 
-[Further Guidelines](../lightweight-guidelines-model-definition)
+[Further Guidelines](../preparation/dev-model.md)
 
 #### Technology Component
-
 
 Suggested technology components to perform this task:
 
@@ -72,9 +71,11 @@ Suggested technology components to perform this task:
 
 ### Model Training
 
-This task trains the model. The task is set apart from model definition and evaluation for various reasons. First, training is a computationally intense task that might be scaled on computer clusters or GPUs. Therefore, an architectural cut is sometimes unavoidable. (For example, model definition happens in Keras, but training happens on a Keras model export using Apache SystemML on top of Apache Spark running on a GPU cluster.) In hyperparameter tuning and hyperparameter space exploration, the downstream task “Model Evaluation” can be part of this asset.
+This task trains the model. The task is set apart from model definition and evaluation for various reasons. First, training is a computationally intense task that might be scaled on computer clusters or GPUs. 
+This can happen on a single thread or on a parallel framework like Watson Machine Learning or Apache Spark. In the most simple case Model Definition and Model Training is just a couple of lines of code away.
+Therefore, an architectural cut is sometimes unavoidable. (For example, model definition happens in Keras, but training happens on a Keras model export using Apache SystemML on top of Apache Spark running on a GPU cluster.) In hyperparameter tuning and hyperparameter space exploration, the downstream task “Model Evaluation” can be part of this asset.
 
-[Further Guidelines](../lightweight-guidelines-model-training)
+Once you think you have achieved a descent model performance save the notebook according to the process model’s naming convention and proceed to the model evaluation task.
 
 #### Technology Component
 
@@ -88,7 +89,7 @@ Suggested technology components to perform this task:
 
 This task evaluates the model’s performance. Given the nature of the task, different metrics must be applied, for example, categorical-cross entropy for a multi-class classification problem. It’s important to divide the data set into training, test, and validation (if cross-validation isn’t used) and keep track of the performance of different feature engineering, model definition, and training parameters. In addition to model performance, Trusted AI (Adversarial Robustness, Model Bias)parameter need to be evaluated as well.
 
-[Further Guidelines](../lightweight-guidelines-model-evaluation)
+[Further Guidelines](../deployment/model-evaluation.md)
 
 #### Technology Component
 
@@ -110,7 +111,7 @@ This task deploys the model. The task depends heavily on the use case, especiall
 * A REST endpoint allowing scoring (and training) of the model (for example, backed by a docker container running on Kubernetes)
 * A full-fledged web or mobile application
 
-[Further Guidelines](../lightweight-guidelines-model-deployment)
+[Further Guidelines](../deployment/README.md)
 
 #### Technology Component
 
