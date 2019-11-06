@@ -39,16 +39,18 @@ The solution will group a lot of out of the shelves components and a set of micr
 
 Among the tasks described in the release and development iteration loops, we do need to cover each of them, but two specifics tasks are interesting to consider in this integrated methodology: the `integrate services` and the `build components` tasks. 
 
-### AIOps lifecycle
+### MLOps lifecycle
 
-The Ai-Analytics development lifecycle (ADLC) supports the full spectrum of analytical work in the artificial intelligence ladder. This lifecycle incorporates model development and remediation to avoid drift. Because one of the purposes of analytics is to enable an action or a decision, the ADLC relies on feedback mechanisms to help enhancing machine models and the overall analytical environment. 
+The Machine learning development lifecycle supports the full spectrum of analytical work in the artificial intelligence ladder. This lifecycle incorporates model development and remediation to avoid drift. Because one of the purposes of analytics is to enable an action or a decision, MLOps relies on feedback mechanisms to help enhancing machine models and the overall analytical environment. 
 
 ![](images/ml-dt-method.png)
 
-An example of a feedback mechanism is capturing data points on the positive or negative effects or outcomes from an action or a decision. The ADLC iterates on data. 
+An example of a feedback mechanism is capturing data points on the positive or negative effects or outcomes from an action or a decision. This process iterates on data. 
 
 !!! notes
     The developed AI or Analytics model is deployed as one to many services that are integrated in the microservice architecture. So synchronization with devops team is important and part of the method.  
+
+[Further readings](MLops.md)
 
 ### DataOps
 
