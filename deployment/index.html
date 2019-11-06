@@ -286,7 +286,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+    <a href="../architecture/architectural-decisions/" title="Architectural Decision guidelines" class="md-nav__link">
+      Architectural Decision guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/collect-org-data/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
   </li>
@@ -298,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../architecture/model-dev/" title="Analyze & build model" class="md-nav__link">
+    <a href="../architecture/build-model/" title="Analyze & build model" class="md-nav__link">
       Analyze & build model
     </a>
   </li>
@@ -310,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../architecture/runtimes/" title="Infuse in application" class="md-nav__link">
+    <a href="../architecture/runtime-flow/" title="Infuse in application" class="md-nav__link">
       Infuse in application
     </a>
   </li>
@@ -480,6 +492,18 @@
       Physical model execution
     </a>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="model-evaluation/" title="Model evaluation" class="md-nav__link">
+      Model evaluation
+    </a>
   </li>
 
         
@@ -735,6 +759,8 @@
                 
                 
                 <h1 id="deployment">Deployment</h1>
+<p>Model deployment comes in many shapes. The key to everything is that the business insights that result from the model are made available to stakeholders. This can happen in various ways. At the simplest level a PDF report is generated (e.g. using a jupyter notebook in Watson Studio) and handed over to business stakeholders. Alternatively, the model is encapsulated behind a REST API and made either available to be consumed by a microservice or a data integration component. Model are exposed via API (e.g. by using IBM Watson Machine Learning or Fabric for DeepLearning) or can be embbeded in agent consuming real time event as demonstrated in <a href="https://ibm-cloud-architecture.github.io/refarch-reefer-ml/build-run/#the-predictive-scoring-agent">this project</a>. </p>
+<p>Depending on your use case, please choose and implement an appropriate model deployment option and justify your decisions in the architecture decision document.</p>
                 
                   
                 
@@ -770,13 +796,13 @@
           </a>
         
         
-          <a href="../architecture/intelligent-app/" title="Designing intelligent application" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="model-evaluation/" title="Model evaluation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Designing intelligent application
+                Model evaluation
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

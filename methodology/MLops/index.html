@@ -286,7 +286,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+    <a href="../../architecture/architectural-decisions/" title="Architectural Decision guidelines" class="md-nav__link">
+      Architectural Decision guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/collect-org-data/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
   </li>
@@ -298,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/model-dev/" title="Analyze & build model" class="md-nav__link">
+    <a href="../../architecture/build-model/" title="Analyze & build model" class="md-nav__link">
       Analyze & build model
     </a>
   </li>
@@ -310,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/runtimes/" title="Infuse in application" class="md-nav__link">
+    <a href="../../architecture/runtime-flow/" title="Infuse in application" class="md-nav__link">
       Infuse in application
     </a>
   </li>
@@ -468,6 +480,18 @@
   <li class="md-nav__item">
     <a href="../../deployment/" title="Physical model execution" class="md-nav__link">
       Physical model execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/model-evaluation/" title="Model evaluation" class="md-nav__link">
+      Model evaluation
     </a>
   </li>
 
@@ -1109,7 +1133,7 @@
 <p>The following sections explain the individual tasks.</p>
 <h3 id="initial-data-exploration">Initial Data Exploration</h3>
 <p>This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable. </p>
-<h4 id="best-practices"><a href="../../preparation/data-understanding">Best practices</a>.</h4>
+<h4 id="best-practices"><a href="../../preparation/data-understanding/">Best practices</a>.</h4>
 <h4 id="technology-component">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1119,7 +1143,7 @@
 </ul>
 <h3 id="extract-transform-load-etl">Extract, transform, load (ETL)</h3>
 <p>This task is an important step in transforming the data from the source system into data suitable for analytics. In traditional data warehousing, this process includes accessing the online transaction processing (OLTP) system’s databases, transforming the data from a highly normalized data model into a Star or Snowflake Schema, and storing the data to a data warehouse. In data science projects, this step is usually much simpler. The data arrives in an exported format (for example, JSON or CSV). But, sometimes de-normalization must be done as well. The result usually ends up in a bulk storage like Cloud Object Store.</p>
-<p><a href="../lightweight-guidelines-data-cleansing">Further Guidelines</a></p>
+<p><a href="../../preparation/">Data preparation further guidelines</a></p>
 <h4 id="technology-component_1">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1128,7 +1152,7 @@
 </ul>
 <h3 id="feature-creation">Feature creation</h3>
 <p>This task transforms input columns of various relations into additional columns to improve model performance. A subset of those features can be created in an initial task (for example, one-hot encoding of categorical variables or normalization of numerical variables). Some others require business understanding or multiple iterations to be considered. This task is one of those benefiting the most from the highly iterative nature of this method.</p>
-<p><a href="../lightweight-guidelines-feature-engineering">Further Guidelines</a></p>
+<p><a href="../../preparation/#feature-engineering">Further Guidelines</a></p>
 <h4 id="technology-component_2">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1137,7 +1161,7 @@
 </ul>
 <h3 id="model-definition">Model definition</h3>
 <p>This task defines the machine learning or deep learning model. Because this is a highly iterative method, various iterations within this task or including up- and downstream tasks are possible. I recommend starting with simple models first for baseline creation after those models are evaluated.</p>
-<p><a href="../lightweight-guidelines-model-definition">Further Guidelines</a></p>
+<p><a href="../../preparation/dev-model/">Further Guidelines</a></p>
 <h4 id="technology-component_3">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1146,8 +1170,10 @@
 <li>TensorFlow</li>
 </ul>
 <h3 id="model-training">Model Training</h3>
-<p>This task trains the model. The task is set apart from model definition and evaluation for various reasons. First, training is a computationally intense task that might be scaled on computer clusters or GPUs. Therefore, an architectural cut is sometimes unavoidable. (For example, model definition happens in Keras, but training happens on a Keras model export using Apache SystemML on top of Apache Spark running on a GPU cluster.) In hyperparameter tuning and hyperparameter space exploration, the downstream task “Model Evaluation” can be part of this asset.</p>
-<p><a href="../lightweight-guidelines-model-training">Further Guidelines</a></p>
+<p>This task trains the model. The task is set apart from model definition and evaluation for various reasons. First, training is a computationally intense task that might be scaled on computer clusters or GPUs. 
+This can happen on a single thread or on a parallel framework like Watson Machine Learning or Apache Spark. In the most simple case Model Definition and Model Training is just a couple of lines of code away.
+Therefore, an architectural cut is sometimes unavoidable. (For example, model definition happens in Keras, but training happens on a Keras model export using Apache SystemML on top of Apache Spark running on a GPU cluster.) In hyperparameter tuning and hyperparameter space exploration, the downstream task “Model Evaluation” can be part of this asset.</p>
+<p>Once you think you have achieved a descent model performance save the notebook according to the process model’s naming convention and proceed to the model evaluation task.</p>
 <h4 id="technology-component_4">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1157,7 +1183,7 @@
 </ul>
 <h3 id="model-evaluation">Model evaluation</h3>
 <p>This task evaluates the model’s performance. Given the nature of the task, different metrics must be applied, for example, categorical-cross entropy for a multi-class classification problem. It’s important to divide the data set into training, test, and validation (if cross-validation isn’t used) and keep track of the performance of different feature engineering, model definition, and training parameters. In addition to model performance, Trusted AI (Adversarial Robustness, Model Bias)parameter need to be evaluated as well.</p>
-<p><a href="../lightweight-guidelines-model-evaluation">Further Guidelines</a></p>
+<p><a href="../../deployment/model-evaluation/">Further Guidelines</a></p>
 <h4 id="technology-component_5">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>
@@ -1175,7 +1201,7 @@
 <li>A REST endpoint allowing scoring (and training) of the model (for example, backed by a docker container running on Kubernetes)</li>
 <li>A full-fledged web or mobile application</li>
 </ul>
-<p><a href="../lightweight-guidelines-model-deployment">Further Guidelines</a></p>
+<p><a href="../../deployment/">Further Guidelines</a></p>
 <h4 id="technology-component_6">Technology Component</h4>
 <p>Suggested technology components to perform this task:</p>
 <ul>

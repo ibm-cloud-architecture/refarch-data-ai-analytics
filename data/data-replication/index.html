@@ -286,7 +286,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+    <a href="../../architecture/architectural-decisions/" title="Architectural Decision guidelines" class="md-nav__link">
+      Architectural Decision guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/collect-org-data/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
   </li>
@@ -298,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/model-dev/" title="Analyze & build model" class="md-nav__link">
+    <a href="../../architecture/build-model/" title="Analyze & build model" class="md-nav__link">
       Analyze & build model
     </a>
   </li>
@@ -310,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../architecture/runtimes/" title="Infuse in application" class="md-nav__link">
+    <a href="../../architecture/runtime-flow/" title="Infuse in application" class="md-nav__link">
       Infuse in application
     </a>
   </li>
@@ -590,6 +602,18 @@
   <li class="md-nav__item">
     <a href="../../deployment/" title="Physical model execution" class="md-nav__link">
       Physical model execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deployment/model-evaluation/" title="Model evaluation" class="md-nav__link">
+      Model evaluation
     </a>
   </li>
 
@@ -992,13 +1016,13 @@
 </ul>
 <h2 id="classical-data-replication-architecture">Classical data replication architecture</h2>
 <p>The DB centric replication mechanism involves different techniques to apply data replication between databases of the same product (DB2 to DB2, Postgresqsl to Postgresql). The approach is to control availability and consistency. The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
-<p><img alt="" src="images/CAP_theorem.png" /></p>
+<p><img alt="" src="../images/CAP_theorem.png" /></p>
 <p>For RDBMS, the replication mechanism can use asynchronous, semi-synchronous or synchronous. The classical topology uses a single master, that replicates the changes to all the slaves, this is mostly to avoid concurrent writes between different servers.</p>
 <p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but reads can happen on slaves as well. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data changes in the order in which commits were made on the publisher side so that transactional consistency is guaranteed for the publications within any single subscription.</p>
 <p>DB replications are covered with RDBMS features and it offers low administration overhead. It is important to note that source and target data structures have to be the same, and change to the table structure is a challenge but can be addressed (usually mitigated by 3<sup>rd</sup> party tooling).</p>
 <p>Now the adoption of database replication features is linked to the data movement requirements. It may not be a suitable solution for microservice coexistance as there is a need to do data transformation on the fly. </p>
 <p>The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
-<p><img alt="" src="images/data-replication-HL.png" /></p>
+<p><img alt="" src="../images/data-replication-HL.png" /></p>
 <p>The data replication between databases by continuously propagate changes in real time instead of doing it by batch with traditional ETL products, brings data availability and consistency cross systems. It can be used to feed analytics system and data warehouses, for business intelligence activities.</p>
 <h3 id="data-lake-technologies">Data lake technologies</h3>
 <p>There are multiple alternatives build a data lake component. In the field, the following technologies are usually used: Hadoop, Apache Spark and Apache Kafka. </p>
@@ -1026,11 +1050,11 @@
 <h3 id="change-data-capture-cdc">Change data capture (CDC)</h3>
 <p>Another important part of the architecture is the change data capture component. </p>
 <p>For example, IBM's <a href="https://www.ibm.com/us-en/marketplace/infosphere-data-replication">InfoSphere Data Replication (IIDR)</a> captures and replicates data in one run or only replicate changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets. The architecture diagram below presents the  components involved in CDC replication:</p>
-<p><img alt="" src="images/CDC_architecture.jpg" /></p>
+<p><img alt="" src="../images/CDC_architecture.jpg" /></p>
 <p>Product explanations can be obtained  <a href="https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.sysreq.doc/concepts/aboutcdc.html">here.</a></p>
 <p>We can combine Kafka and IIDR to support a flexible pub sub architecture for data replication where databases are replicated but event streams about those data can be processed in real time by any applications and microservices. This is known as <a href="https://en.wikipedia.org/wiki/Lambda_architecture">lambda-architecture</a>.</p>
 <p>The combined architecture of a deployed solution looks like in the diagram below:</p>
-<p><img alt="" src="images/iidr-archi.png" /></p>
+<p><img alt="" src="../images/iidr-archi.png" /></p>
 <p>With the management console, the developer can define a data replication project that can include one to many subscriptions. Subscriptions define the source database and tables and target kafka cluster and topics.  </p>
 <p>The Kafka cluster can run on Kubernetes. </p>
 <p>The first time a subscription is running, a "Refresh" is performed: to allow the source and target to be exactly synchronized before the incremental, changes only get replicated down to the target. This means all the records in the source table will be written as Kafka events. </p>
@@ -1056,14 +1080,14 @@
 <p><a href="https://kafka.apache.org/documentation/#connect">Kafka connect</a> simplifies the integration between Kafka and other systems. It helps to standardize the integration via connectors and configuration files. It is a distributed, fault tolerant runtime able to easily scale horizontally. The set of connectors help developers to not re-implement consumers and producers for every type of data source.</p>
 <p>To get started please read <a href="https://kafka.apache.org/documentation/#connec">this introduction</a> from the product documentation. </p>
 <p>The Kafka connect workers are stateless and can run easily on Kubernetes or as standalone docker process. <code>Kafka Connect Source</code> is to get data to Kafka, and <code>Kafka Connect Sink</code> to get data out of Kafka.</p>
-<p><img alt="" src="images/kconnect-arch.png" /></p>
+<p><img alt="" src="../images/kconnect-arch.png" /></p>
 <p>A worker is a process. A connector is a re-usable piece of java code packaged as jars, and configuration. Both elements define a task. A connector can have multiple tasks. </p>
 <p>In distributed deployment, the connector supports scaling by adding new workers and performs rebalancing of worker tasks in case of worker failure. The configuration can be sent dynamically to the cluster via REST API.</p>
 <h2 id="debezium">Debezium</h2>
 <p><a href="https://debezium.io/">Debezium</a> is an open source distributed platform for change data capture. It retrieves change events from transaction logs from different databases and use Kafka as backbone, and Kafka connect.
 It uses the approach of replicating one table to one Kafka topic. </p>
 <p>It can be used for data synchronization between microservices using CDC at a service level and propagate changes via Kafka. The implementation of the <a href="https://ibm-cloud-architecture.github.io/refarch-eda/evt-microservices/ED-patterns/#command-query-responsibility-segregation-cqrs-pattern">CQRS pattern</a> may be simplified with this capability. </p>
-<p><img alt="zoomify" src="images/cqrs-cdc.png" /></p>
+<p><img alt="zoomify" src="../images/cqrs-cdc.png" /></p>
 <h2 id="requirements">Requirements</h2>
 <p>We want to support the following requirements:</p>
 <ul>

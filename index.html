@@ -338,7 +338,19 @@
 
 
   <li class="md-nav__item">
-    <a href="preparation/gov-data-lake/" title="Collect - organize data" class="md-nav__link">
+    <a href="architecture/architectural-decisions/" title="Architectural Decision guidelines" class="md-nav__link">
+      Architectural Decision guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/collect-org-data/" title="Collect - organize data" class="md-nav__link">
       Collect - organize data
     </a>
   </li>
@@ -350,7 +362,7 @@
 
 
   <li class="md-nav__item">
-    <a href="architecture/model-dev/" title="Analyze & build model" class="md-nav__link">
+    <a href="architecture/build-model/" title="Analyze & build model" class="md-nav__link">
       Analyze & build model
     </a>
   </li>
@@ -362,7 +374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="architecture/runtimes/" title="Infuse in application" class="md-nav__link">
+    <a href="architecture/runtime-flow/" title="Infuse in application" class="md-nav__link">
       Infuse in application
     </a>
   </li>
@@ -520,6 +532,18 @@
   <li class="md-nav__item">
     <a href="deployment/" title="Physical model execution" class="md-nav__link">
       Physical model execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="deployment/model-evaluation/" title="Model evaluation" class="md-nav__link">
+      Model evaluation
     </a>
   </li>
 
@@ -826,9 +850,17 @@
 </ul>
 <p>The figure below represents how those layers are related to each other:</p>
 <p><img alt="" src="images/ladder-ai.png" /></p>
+<div class="codehilite"><pre><span></span>Figure 1: AI Ladder
+</pre></div>
+
+
 <h2 id="ibm-data-and-ai-conceptual-architecture">IBM Data and AI Conceptual Architecture</h2>
 <p>Based on the above prescriptive approach, we cans see that a Data centric and AI reference architecture needs to implement the four layers as shown in the following diagram.</p>
 <p><img alt="" src="images/data-ai-ra.png" /></p>
+<div class="codehilite"><pre><span></span><span class="nt">Figure</span> <span class="nt">2</span><span class="o">:</span> <span class="nt">High</span> <span class="nt">level</span> <span class="nt">view</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">Data</span> <span class="o">&amp;</span><span class="nt">amp</span><span class="o">;</span> <span class="nt">AI</span> <span class="nt">reference</span> <span class="nt">architecture</span>
+</pre></div>
+
+
 <p>This architecture diagram illustrates:</p>
 <ol>
 <li>strong data collection and management capabilities,</li>
@@ -853,14 +885,14 @@
 <li><strong><a href="preparation/data-understanding/">data analysis</a></strong>, which includes making sense of the data using data <strong>visualization</strong>.</li>
 <li><strong><a href="./preparation/#feature-engineering">feature engineering</a></strong> to define the features they need to build an ML model.</li>
 </ul>
-<p>Then to <strong>build the model</strong>, the development environment provides the AI frameworks and helps the data scientists to select and combine the different algorithms and to tune the hyper parameters.
-The execution can be done on local cluster or can be executed, at the big data scale level, to a machine learning cluster.</p>
+<p>Then to <strong><a href="http://localhost:8000/preparation/dev-model/">build the model</a></strong>, the development environment provides the AI frameworks and helps the data scientists to select and combine the different algorithms and to tune the hyper parameters.</p>
+<p>The model training can be done on local cluster or can be executed, at the big data scale level, to a machine learning cluster.</p>
 <p>Once the model provides acceptable accuracy level, it can be published so that it can be consumed or <em>infused</em> within an application or exposed as a service or as an autonomous agent.</p>
 <p>The model management capability supports the meta-data definition and the life cycle management of the model (data lineage).</p>
 <p>Once the model is deployed, <strong>monitoring</strong> capabilities, ensures the model is still accurate and
 not biased.</p>
 <p>The <strong>intelligent application</strong>, is represented as a combination of capabilities at the top of the diagram, it can be an application we develop, a business process, an ERP or CRM application, etc.  running anywhere on cloud, fog, or mist computing.</p>
-<p>The intelligent application, accesses the deployed model, sing APIs, and may consumes pre-built models or Cognitive services, such as:  </p>
+<p>The intelligent application, accesses the deployed model, APIs, and may consumes pre-built models or Cognitive services, such as:  </p>
 <ul>
 <li><strong>speech to text and text to speech</strong> services  </li>
 <li><strong>image recognition</strong>, a <strong>tone analyzer</strong> services</li>
@@ -868,13 +900,16 @@ not biased.</p>
 </ul>
 <h2 id="data-and-ai-reference-architecture-capabilities">Data and AI reference architecture capabilities</h2>
 <p>In the view below of the reference architecture we have zoomed in a level to show the detail of how we realize the required capabilities.</p>
-<p><img alt="" src="images/data-ai-ra-3.jpg" /></p>
-<p>The boundary rectangles are color coded to map the higher level purposes: <em>collect, organize, analyze and infuse</em> with each icon representing a capability.</p>
-<p>This diagram becomes the foundation of  the <em>Data and AI reference architecture</em>  and we will expend details for:</p>
+<p><img alt="" src="architecture/images/DataAIRefArch.png" /></p>
+<div class="codehilite"><pre><span></span>Figure 3: High level view of the Data and AI reference architecture
+</pre></div>
+
+
+<p>This diagram becomes the foundation of  the <em>Data and AI reference architecture</em>  but can built incrementally as explain in <a href="http://localhost:8000/architecture/#defining-the-architecture-incrementally">this section</a>.</p>
 <ul>
-<li><a href="preparation/gov-data-lake/">Data preparation</a></li>
-<li><a href="architecture/model-dev/">AI model development</a></li>
-<li><a href="architecture/runtimes/">Application runtime</a></li>
+<li><a href="architecture/collect-org-data/">Data collection and organization</a></li>
+<li><a href="architecture/build-model/">AI model development</a></li>
+<li><a href="architecture/runtime-flow/">Application runtime</a></li>
 </ul>
 <h2 id="mapping-to-products">Mapping to products</h2>
 <p>IBM is offering a comprehensive suite of products to support the above capabilities, the following diagram illustrates the product mapping:</p>
