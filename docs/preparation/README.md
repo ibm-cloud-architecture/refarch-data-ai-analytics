@@ -2,6 +2,8 @@
  
 The purpose of the Data Preparation stage is to get the data into the best format for machine learning, this includes three stages: Data Cleansing, Data Transformation, and Feature Engineering. Quality data is more important than using complicated algorithms so this is an incredibly important stage and should not be skipped.
  
+This article complements the [prepare your data for AI and data science](https://www.ibm.com/cloud/garage/practices/code/data-preparation-ai-data-science/) practice and we recommend adopting both practices.
+
 ## Data Cleansing
 
 During the Data Understanding activities, you explored your data and detected uncomplete or incorrect values. This stage is where you address those issues, activities include:

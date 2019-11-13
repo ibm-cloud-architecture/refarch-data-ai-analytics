@@ -1,6 +1,6 @@
 # Data Understanding
 
-Quality data is fundamental to any data science engagement. To gain actionable insights, the appropriate data must be sourced and cleansed. There are two key stages of Data Understanding: a [Data Assessment](#data-assessment) and [Data Exploration](#data-exploration).
+Quality data is fundamental to any data science engagement. To gain actionable insights, the appropriate data must be sourced and cleansed. As presented in detail in [this practice: "Understand data needs to support AI and data science solutions"](https://cloudcontent.mybluemix.net/garage/method/practices/think/data-needs-for-ai-data-science) each business analytics problem has specific data requirements, and different patterns may apply. The article address the activities of collecting data, describe the data, visualize and verify data quality. In this article we are complementing those tasks with some specifics considerations to address as a Data Scientist. There are two key stages of Data Understanding: a [Data Assessment](#data-assessment) and [Data Exploration](#data-exploration).
 
 ## Data Assessment
 

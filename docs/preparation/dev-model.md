@@ -19,6 +19,38 @@ This chapter introduces various important topics:
 
 ## Terminology
 
+### Descriptive analytics
+
+This is likely the most common type of analytics leveraged to create dashboards and reports. They describe and summarize events that have already occurred. For example, think of a grocery store owner who wants to know how items of each product were sold in all store within a region in the last five years.
+
+### Predictive analytics
+
+This is all about using mathematical and statistical methods to forecast future outcomes. The grocery store owner wants to understand how many products could potentially be sold in the next couple of months so that he can make a decision on inventory levels.
+
+### Prescriptive analytics
+
+Prescriptive analytics is used to optimize business decisions by simulating scenarios based on a set of constraints. The grocery store owner  wants to creating a staffing schedule for his employees, but to do so he will have to account for factors like availability, vacation time, number of hours of work, potential emergencies and so on (constraints) and create a schedule that works for everyone while ensuring that his business is able to function on a day to day basis.
+
+### Supervised learning
+
+Learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (label *y*), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.
+
+### Classification
+
+The problem is when we are trying to predict one of a small number of discrete-valued outputs. In other words, if our label is binary (binary classification) or caegorical (multi-class classification).
+
+### Regression 
+
+When goal of the learning problem, is to predict continuous value output
+
+### Unsupervised learning
+
+Giving a dataset, try to find tendency in the data, by using techniques like clustering.
+
+### Feature
+
+Feature is an attribute used as input for the model to train. Other names include dimension or column.
+
 ### Bias
 
 Bias is the expected difference between the parameters of a model that perfectly fits your data and those your algorithm has learned. Low bias algorithms (Decision Trees, K-nearest Neighbors & Support Vector Machines) tend to find more complex patterns than high bias algorithms.

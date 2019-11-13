@@ -50,10 +50,12 @@ The [contributing guidelines are in this note.](./CONTRIBUTING.md)
 * [Stacey Ronaghan](https://www.linkedin.com/in/staceyronaghan/)
 * [Romeo Kienzler](https://www.linkedin.com/in/romeo-kienzler-089b4557)
 * [Rick Osowski](https://www.linkedin.com/in/rosowski/)
+* [Paul Christensen](https://www.linkedin.com/in/paul-christensen-0ba306/)
 
 ## Project Status
 
-05/21 Starting
+05/21/19 Starting
+11/11/19 evolution in methodology and architecture practices
 
 
 

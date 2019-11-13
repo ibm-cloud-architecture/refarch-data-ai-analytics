@@ -3,7 +3,6 @@
 !!! abstract
     In this section we are introducing the different elements of the software life cycles, particular to the development of intelligent applications that leverage data, machine learned models, analytics and cloud native microservices.
 
-
 The method supports lightweight development practices, to start the implementation of a MVP [(Minimum Viable Product)](https://en.wikipedia.org/wiki/Minimum_viable_product), to support scaling-up the architecture and the complexity of an end-to-end integrated solution. This method always guarantees to have deployable components at any point in time, a concept known in CI/CD (Continuous Integration, Continuous Delivery) aapplied to microservices, integration, data and machine learning models.
 
 ## Integrating data - devops and AI-Analytics development practices
@@ -22,9 +21,23 @@ Each development lifecycle is representative of an iterative workflow that can b
 
 ### Personas
 
-Before going deeper into the different lifecycles, we need to define the personas involved in those lifecycles. The table below present the icons we are using in subsquent figures, with a short description for the role.
+We recommend reading [this article](https://www.ibm.com/garage/method/practices/culture/assemble-team-for-data-driven-project) to **assemble the team to support a data-driven project** where many roles support the project execution. The following table presents the icons we are using in subsquent figures, with a short description for the role.
 
 ![](images/personas.png)
+
+
+#### Differences between analysts and data scientists
+
+The MITSloan did a review of the major differences between data scientists and business analysts by considering a set of common dimensions. The table below presents the results.
+
+|     | Analysts | Data Scientists |
+| --- | --- | --- |
+| Types of data | Structured mostly numeric data | All data types, including unstructured data | 
+| Preferred tools| Statistical and modeling tools using data repository | Programming language with strong statistical library, machine learning, deep learning. Use ML cluster servers| 
+| Nature of work | Report, predict, prescribe and optimize| Explore, discover, investigate and visualize | 
+| Typical educationl background | Operations research, statistics, applied mathematics, predictive analytics| Computer science, data science, cognitive science| 
+| Mindset | Entreprenaurial 69%, explore new ideas 58%, gain insights outside of formal projects  54%| Entreprenaurial 96%, explore new ideas 85%, gain insights outside of formal projects  89%| 
+
 
 ### DevOps lifecycle
 
@@ -33,11 +46,29 @@ The software/application development lifecycle (SDLC) is a well-known and suppor
 ![](images/dev-ops.png)
 
 !!! notes
-    Before entering the development iteration cycles, there are tasks to scope the high level business challenges and opportunities, define the business case for the project, define and build the development and operation strategy, define the target infrastructure, security... The smaller loop represents development iteration, while the outer loop represents software release to production with continous feedback to monitor and assess features acceptance. This task list is not exhaustive, but represents a common ground for our discussion.
+    Before enterring the development iteration cycles, there are tasks to scope the high level business challenges and opportunities, define the business case for the project, define and build the development and operation strategy, define the target infrastructure, security... The smaller loop represents development iteration, while the outer loop represents software release to production with continous feedback to monitor and assess features acceptance. This task list is not exhaustive, but represents a common ground for our discussion.
+
+**"Understanding business objectives"** is a common task in each lifecycle, but in the context of microservice solution, adoption [**event storming**](https://ibm-cloud-architecture.github.io/refarch-eda/methodology/eventstorming/) practice and domain driven design will help understanding the business process, the data aggregates, and the bounded contexts.
 
 The solution will group a lot of out of the shelves components and a set of microservices supporting the implementation of the business logic and the intelligent application. A lot of things need to be considered while implementing each microservice from a data point of view. We recommend reading **[this chapter on designing intelligent application](../dataprinciples/intelligent-app)** to assess what needs to be done, and some best practices. 
 
 Among the tasks described in the release and development iteration loops, we do need to cover each of them, but two specifics tasks are interesting to consider in this integrated methodology: the `integrate services` and the `build components` tasks. 
+
+*`Integration service` task has a blue border to demonstrate integration activities between the different lifecycles, like ML model integration.*
+
+### DataOps
+
+The data development lifecycle (DataOps) places the data management philosophy into an organic and evolving cycle that is better suited to the constantly changing needs of a business. The DataOps is impacted by the DevOps and the MLOps. It iterates on both the incorporation of business requirements and on the manifestation of data. Data has value and [this article](https://www.ibm.com/garage/method/practices/culture/valuation-of-data/), **"The evaluation of data"**, introduces to the concepts to recognize the value of data.
+
+![](images/data-iteration.png)
+
+The **discover business objectives activity** task, in fact group a set of different subjects depending of the context: data, integration, machine learning model. The goal is to highlight the measurable outcome expected by business stakeholders. [This article](https://www.ibm.com/cloud/garage/practices/discover/build-a-business-objective)) presents the concepts and some questions that can be used to assess the general business requirements and current knowledge of the data. And this practice of [translating a business problem into an AI and data science solution](https://cloudcontent.mybluemix.net/cloud/garage/practices/discover/business-problem-to-ai-data-science-solution) helps the analysis team to 
+
+As you can see activities are addressing data preparation and understanding, so data architecture need to be in place before doing any data sciences work.
+
+As part of the **gather data requirements**, it is important to review the dimensions of value as introduced in the [previous article](https://www.ibm.com/garage/method/practices/culture/valuation-of-data/) and the formalize the [value chain of the data](https://www.ibm.com/garage/method/practices/discover/recognize-value-of-data)  in the scope of the project and address if the data contains the correct information to answer the business challenges and support the business process.
+
+*`Transform data for AI` and `Deploy data integration flow` tasks have different border colors to demonstrate integration activities between the different lifecycles.*
 
 ### MLOps lifecycle
 
@@ -50,15 +81,11 @@ An example of a feedback mechanism is capturing data points on the positive or n
 !!! notes
     The developed AI or Analytics model is deployed as one to many services that are integrated in the microservice architecture. So synchronization with devops team is important and part of the method.  
 
+**Understanding the data and analytics goals** task is explained in [this note](https://cloudcontent.mybluemix.net/garage/method/practices/discover/business-problem-to-ai-data-science-solution) with the business analytic patterns.
+
+**Defining the analytic approach** task groups sub activities that help to understand the past activity and assess what kind of predictions, actions are expected by the business users. The patterns and goals analysis will help to assess for supervised or unsupervised leaning needs.
+
 [Further readings](MLops.md)
-
-### DataOps
-
-The data development lifecycle (DDLC) places the data management philosophy into an organic and evolving cycle that is better suited to the constantly changing needs of a business. The DDLC is impacted by the SDLC and the ADLC. It iterates on both the incorporation of business requirements and on the manifestation of data.
-
-![](data-iteration.png)
-
-As you can see activities are addressing data preparation and understanding, so data architecture need to be in place before doing any data sciences work.
 
 ### Integrating the cycles
 
@@ -90,37 +117,6 @@ The different iterations of the data, IA-Analytics and devops life cycle are syn
 !!! notes
     The AI-Analytics tasks are colored in blue and green, on purpose to show the strong dependencies between data and AI. This means the data activities should start as early as possible before doing too much of modeling. 
 
-
-## Data Sciences Introduction
-
-The goals for data science is to infer from data, actionable insights for the business execution improvement. The main stakeholders are business users, upper management, who want to get improvement to some important metrics and indicators to control their business goals and objectives. Data scientists have to work closely with business users and be able to explain and represent findings clearly and with good visualization, pertinent for the business users.
-
-Data science falls into these three categories:
-
-### Descriptive analytics
-
-This is likely the most common type of analytics leveraged to create dashboards and reports. They describe and summarize events that have already occurred. For example, think of a grocery store owner who wants to know how items of each product were sold in all store within a region in the last five years.
-
-### Predictive analytics
-
-This is all about using mathematical and statistical methods to forecast future outcomes. The grocery store owner wants to understand how many products could potentially be sold in the next couple of months so that he can make a decision on inventory levels.
-
-### Prescriptive analytics
-
-Prescriptive analytics is used to optimize business decisions by simulating scenarios based on a set of constraints. The grocery store owner  wants to creating a staffing schedule for his employees, but to do so he will have to account for factors like availability, vacation time, number of hours of work, potential emergencies and so on (constraints) and create a schedule that works for everyone while ensuring that his business is able to function on a day to day basis.
-
-### Concepts
-
-* **Supervised learning**: learn a model from labeled training data that allows us to make predictions about unseen or future data. We give to the algorithm a dataset with a right answers (label *y*), during the training, and we validate the model accuracy with a test data set with right answers. So a data set needs to be split in training and test sets.
-  * **Classification** problem is when we are trying to predict one of a small number of discrete-valued outputs. In other words, if our label is binary (binary classification) or caegorical (multi-class classification)
-  * **Regression** learning problem when the goal is to predict continuous value output
-* **Unsupervised learning**: giving a dataset, try to find tendency in the data, by using techniques like clustering.
-* **A feature** is an attribute used as input for the model to train. Other names include dimension or column.
-
-### Algorithm selection
-
-The application from [https://samrose3.github.io/algorithm-explorer](https://samrose3.github.io/algorithm-explorer/) will guide you on how to select what algorithm may help to address a specific problem. Another best practice is to use Linear Regression / Logistic Regression as baseline and try out other algorithms to improve on it.
-
 ## Challenges
 
 There are a set of standard challenges while developing an IT solution which integrates results from analytics model. We are listing some that we want to address, document and support as requirements.
@@ -132,28 +128,32 @@ There are a set of standard challenges while developing an IT solution which int
 * How to assess the features needed for the training sets.
 
 
-# The Garage Method for Cloud with DataFirst
+## The Garage Method for Cloud with DataFirst
 
 Every department within your organization has different needs for data and analytics. How can you start your data-driven journey? The [Garage Method for Cloud with DataFirst](https://www.ibm.com/analytics/datafirst) provides strategy and expertise to help you gain the most value from your data. This method starts with your business outcomes that leverage data and analytics, not technology. Defining focus in a collaborative manner is key to deriving early results. Your roadmap and action plan are continuously updated based on lessons learned. This is an iterative and agile approach to help you define, design, and prove a solution for your specific business problem.
 
-## Personas
 
-Our architecture and mothodology discussions need to clearly address the major personas touching any elements of the architecture:
+## Compendium
 
-* Developer
-* Architect
-* Business analysts
-* Data scientist
+* [Assemble the team to support a data-driven project - author: Stacey Ronaghan](https://www.ibm.com/cloud/garage/practices/culture/assemble-team-for-data-driven-project)
+* [The valuation of data - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/culture/valuation-of-data/)
+* [Define business objectives - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/discover/build-a-business-objective)
+* [Recognize the value of data - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/discover/recognize-value-of-data)
+* [Translate a business problem into an AI and Data Science solution - authors: Tommy Eunice, Edd Biddle, Paul Christensen](https://cloudcontent.mybluemix.net/cloud/garage/practices/discover/business-problem-to-ai-data-science-solution)
+* [Prepare your data for AI and data science - authors: Edd Biddle, Paul Christensen](https://www.ibm.com/cloud/garage/practices/code/data-preparation-ai-data-science/)
 
-### Differences between analysts and data scientists
-
-The MITSloan did a review of the major differences between data scientists and business analysts by considering a set of common dimensions. The table below presents the results.
-
-|     | Analysts | Data Scientists |
-| --- | --- | --- |
-| Types of data | Structured mostly numeric data | All data types, including unstructured data | 
-| Preferred tools| Statistical and modeling tools using data repository | Programming language with strong statistical library, machine learning, deep learning. Use ML cluster servers| 
-| Nature of work | Report, predict, prescribe and optimize| Explore, discover, investigate and visualize | 
-| Typical educationl background | Operations research, statistics, applied mathematics, predictive analytics| Computer science, data science, cognitive science| 
-| Mindset | Entreprenaurial 69%, explore new ideas 58%, gain insights outside of formal projects  54%| Entreprenaurial 96%, explore new ideas 85%, gain insights outside of formal projects  89%| 
-
+* [Define your data strategy -authors: Beth Ackerman, Paul Christensen](https://www.ibm.com/cloud/garage/practices/think/define-data-strategy/)
+* [Normalize data to its atomic level - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/think/normalize-data/)
+* [Understand data needs to support AI and Data Science solutions - authors: Tommy Eunice, Edd Biddle, Paul Christensen](https://www.ibm.com/cloud/garage/practices/think/data-needs-for-ai-data-science/)
+* [Run thought experiments by using hypothesis-driven analysis - author: Edd Biddle, Paul Christensen](https://www.ibm.com/cloud/garage/practices/think/thought-experiments-and-hypothesis-driven-analysis/)
+* [Deliver a singular data function - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/code/deliver-singular-data-function/)
+* [Construct your data topology - authors: Neal Fishman, Paul Christensen](https://www.ibm.com/cloud/garage/practices/code/construct-data-topology/)
+* [Build your data lake design - author: Paul Christensen](https://www.ibm.com/cloud/garage/practices/code/build-data-lake-design/)
+* [Put AI and data science to work in your organization - authors: Edd Biddle, Paul Christensen](https://www.ibm.com/cloud/garage/practices/reason/put-ai-data-science-to-work)
+* [Look behind the curtain of AI - author: Edd Biddle](https://www.ibm.com/cloud/garage/practices/reason/dispel-magic-of-ai)
+* [Select and develop an AI and data science model - author: Edd Biddle](
+https://www.ibm.com/cloud/garage/practices/reason/model-selection-development-ai-data-science)
+* [Enhance and optimize your AI and data science models - author: Edd Biddle](https://www.ibm.com/cloud/garage/practices/reason/optimize-train-ai-model)
+* [Establish data governance - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/establish-data-governance)
+* [Ensure data resilience - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/ensure-data-resilience/)
+* [Deploy an AI model - author: Sujatha Perepa](https://www.ibm.com/cloud/garage/practices/run/deploy-ai-model/) 

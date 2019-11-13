@@ -11,7 +11,9 @@ nav:
     - Infuse in application: architecture/runtime-flow.md
   - Collect and Organize:
     - Data Topology: topology/README.md
-    - Data replication: data/data-replication.md
+    - Data Replication: data/data-replication.md
+    - Data Partitioning: data/data-partitioning.md
+    - Data Integration: data/data-integration.md
   - Analyze:
     - Data Understanding: preparation/data-understanding.md
     - Data Preparation: preparation/README.md

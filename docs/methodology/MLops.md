@@ -15,6 +15,10 @@ The first thing that you should notice is the bidirectional communication betwee
 
 The following sections explain the individual tasks.
 
+### Understand business needs
+
+The task is a generic taks to group a set of iterative tasks to [define the business objectives](https://www.ibm.com/garage/method/practices/discover/build-a-business-objective) and to [translate a business problem into an AI and data science solution](https://cloudcontent.mybluemix.net/garage/method/practices/think/data-needs-for-ai-data-science/business-problem-to-ai-data-science-solution).
+
 ### Initial Data Exploration
 
 This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable. 
@@ -29,7 +33,7 @@ Suggested technology components to perform this task:
 * Python
 * Seaborn
 
-### Extract, transform, load (ETL)
+### Data preparation
 
 This task is an important step in transforming the data from the source system into data suitable for analytics. In traditional data warehousing, this process includes accessing the online transaction processing (OLTP) system’s databases, transforming the data from a highly normalized data model into a Star or Snowflake Schema, and storing the data to a data warehouse. In data science projects, this step is usually much simpler. The data arrives in an exported format (for example, JSON or CSV). But, sometimes de-normalization must be done as well. The result usually ends up in a bulk storage like Cloud Object Store.
 
