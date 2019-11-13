@@ -51,6 +51,13 @@ Statement | If a Technical Component is needed, it should be provisioned from sc
 Rationale | When creating "Systems of Innovation" speed is on of the key drivers. Therefore, every interaction with existing system introduces complexity, delay and risk.
 Implications| Especially in public, hybrid and private Cloud environments it is more effective to provision a Technical Component as a Service over adjusting an existing Technical Component. 
 
+
+|Name | Data Locality First
+--- | --- 
+Statement | Allocate compute and storage always as close as possible
+Rationale | Data movement is more expensive than data storage. Bottlenecks slow systems down.
+Implications| Data movement, especially  between cloud providers or data centers are usually more expensive than allocating a compute note close to the data. Therefore, cost can be kept low and performance can be kept high 
+
 ## Defining the architecture incrementally
 
 The IBM Garage methodology guides the development team to adopt an incremental and iterative development practices, lean method. As part of the lean adoption, the implementation of an intelligent application integrates different concerns: microservice, data and AI model developments. But architecture is not forgotten, and it should be done also incrementally. Even if the target end to end solution will look similar to the reference architecture as illustrated in the diagram below, not all components need to be in place at the beginning of a Minimum Viable Product.
