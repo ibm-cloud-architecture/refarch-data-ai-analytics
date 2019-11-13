@@ -36,7 +36,7 @@
     
     
       
-        <title>Data replication - Data - AI - Analytics Reference Architecture</title>
+        <title>Data Replication - Data - AI - Analytics Reference Architecture</title>
       
     
     
@@ -121,7 +121,7 @@
               Data - AI - Analytics Reference Architecture
             </span>
             <span class="md-header-nav__topic">
-              Data replication
+              Data Replication
             </span>
           
         </div>
@@ -381,11 +381,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Data replication
+        Data Replication
       </label>
     
-    <a href="./" title="Data replication" class="md-nav__link md-nav__link--active">
-      Data replication
+    <a href="./" title="Data Replication" class="md-nav__link md-nav__link--active">
+      Data Replication
     </a>
     
       
@@ -407,8 +407,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#considerations" title="Considerations" class="md-nav__link">
-    Considerations
+  <a href="#single-leader" title="Single leader" class="md-nav__link">
+    Single leader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-leaders" title="Multi leaders" class="md-nav__link">
+    Multi leaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderless" title="Leaderless" class="md-nav__link">
+    Leaderless
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cap-theorem" title="CAP Theorem" class="md-nav__link">
+    CAP Theorem
   </a>
   
 </li>
@@ -419,26 +440,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
-    Business motivations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classical-data-replication-architecture" title="Classical data replication architecture" class="md-nav__link">
-    Classical data replication architecture
+  <a href="#considerations" title="Considerations" class="md-nav__link">
+    Considerations
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
+    Business motivations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-lake-technologies" title="Data lake technologies" class="md-nav__link">
     Data lake technologies
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#change-data-capture-cdc" title="Change data capture (CDC)" class="md-nav__link">
@@ -495,6 +522,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data-partitioning/" title="Data Partitioning" class="md-nav__link">
+      Data Partitioning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data-integration/" title="Data Integration" class="md-nav__link">
+      Data Integration
+    </a>
   </li>
 
         
@@ -868,8 +919,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#considerations" title="Considerations" class="md-nav__link">
-    Considerations
+  <a href="#single-leader" title="Single leader" class="md-nav__link">
+    Single leader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-leaders" title="Multi leaders" class="md-nav__link">
+    Multi leaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderless" title="Leaderless" class="md-nav__link">
+    Leaderless
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cap-theorem" title="CAP Theorem" class="md-nav__link">
+    CAP Theorem
   </a>
   
 </li>
@@ -880,26 +952,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
-    Business motivations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classical-data-replication-architecture" title="Classical data replication architecture" class="md-nav__link">
-    Classical data replication architecture
+  <a href="#considerations" title="Considerations" class="md-nav__link">
+    Considerations
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#business-motivations" title="Business motivations" class="md-nav__link">
+    Business motivations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-lake-technologies" title="Data lake technologies" class="md-nav__link">
     Data lake technologies
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#change-data-capture-cdc" title="Change data capture (CDC)" class="md-nav__link">
@@ -968,76 +1046,106 @@
                 
                 
                 <h1 id="data-replication">Data replication</h1>
-<p>STILL UNDER CONSTRUCTION</p>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>In this article, we are dealing with database replication from traditional Database, like DB2, to a microservice environment with document oriented or relational data. Database replications can be used to move data between environment or to separate read and write models, which may be a viable solution with microservice, but we need to assess how to support coexistence where older systems run in parallel to microservices and use eventual data consistency pattern. </p>
+<p>In this article, we are dealing with data replication from traditional Database, like DB2, to a microservice environment with document oriented or relational data. Database replications can be used to move data between environment or to separate read and write models, which may be a viable solution with microservice, but we need to assess how to support coexistence where older systems run in parallel to microservices and use eventual data consistency pattern. </p>
 </div>
 <h2 id="concepts">Concepts</h2>
-<p>In the following, we summarize the concepts around data replication. </p>
+<p>Data Replication is the process of storing data on more than one storage location on same or different data centers. It fits well, when dataset is small enough to be persisted in one machine, and when data do not change over time.
+Data replication encompasses duplication of transactions on an ongoing basis, so that the replicates are in a consistently updated state and synchronized with the source.</p>
+<p>The database centric replication mechanism involves different techniques to apply data replication between databases of the same product (DB2 to DB2, Postgresqsl to Postgresql). The approach is to control availability and consistency.</p>
+<p>Replication implementations are most of the time, black box for the business application developers, but we want to present three types of replication architecture:</p>
 <ul>
-<li>Data Replication is the process of storing data on more than one storage location on same or different data centers.</li>
-<li>Data replication encompasses duplication of transactions on an ongoing basis, so that the replicate is in a consistently updated state and synchronized with the source</li>
-<li>Different data replication techniques exist:<ul>
-<li><strong>Transactional Replication</strong>: addresses full initial copies of the database and then receive updates as data changes in the same order as they occur with the publisher: transactional consistency is guaranteed. </li>
-<li><strong>Snapshot Replication</strong>: distributes data exactly as it appears at a specific point in time; does not monitor for updates to the data. Used when data change less often.</li>
-<li><strong>Merge Replication</strong>: Data from two or more databases is combined into a single database. It allows both publisher and subscriber to independently make changes to the database. </li>
-</ul>
+<li>
+<p><strong>single-leader</strong>: one of the replica is the leader, and receive write operations from client services. Other replicas are followers, listening to data updates from a replication log and modify their own data store. Read operations can happen on any node, and followers are specifically read-only. This is a pattern used by Kafka, Postgresql, RabbitMQ...</p>
+<p><img alt="Leader-Followers" src="../images/leader-followers.png" /></p>
 </li>
-<li>CAP Theorem: Data replication in distributed computing like cloud falls into the problem of the <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> where only two of three properties consisting of Consistency, Availability and Partition Tolerance can be met simultaneously. In our context Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. </li>
+<li>
+<p><strong>multi-leader</strong>: multiple nodes accept write operations (they are leaders), and act as follower for other leaders. </p>
+</li>
+<li><strong>leaderless</strong>: each node accept write operations. Client sends write to multiple replicas, accept p acknowledge (p &lt;= number of nodes), but also performs n reads to assess eventual stale data. (This type is used in Cassandra or DynamoDB)</li>
 </ul>
-<h3 id="considerations">Considerations</h3>
+<h3 id="single-leader">Single leader</h3>
+<p>All write requests are done on the leader, but reads can happen on followers as well. It helps to scale out the solution and also to support long distance replications.
+Replication can be done synchronously or asynchronously. With synchronous the leader waits until at least one follower has confirmed replication before reporting to the client that the write operation is successful. From the client point of view, it is a synchronous call.</p>
+<p><img alt="Synch-Asynch" src="../images/synch-asynch.png" /></p>
+<p>With asynchronous the leader does not wait for followers to replicate. With synchronous, we are sure the data are not lost as at least one follower responded, but if the follower node has failure then the write operation is not consider completed, even if leader has the data. The client can do a retry. But the leader may need to block other write requests until it sees a follower alive. With synch, the data is also consistent with the leader. The figure above illustrates a synchronous mechanism for client - leader and first follower to respond, and asynchronous for the other followers.</p>
+<p>It is important to note that asynch replica may be the only possible solution when the number of followers is important or when they are separated by long distance with high latency networking communication.  Because a full synchronous mechanism will block the write operations in case of a follower failure and will not be reliable.</p>
+<p>With asynch, two reads at the same time on the leader and one of the follower will not get the same results. This inconsistency is temporal: when there is no more write then the followers will become eventually consistent. This elapse time is called replication lag.</p>
+<p><img alt="" src="../images/asynch.png" /></p>
+<p>This lag can have some interesting derived issues, like seeing data in one query (done on a follower with small lag) and then not seeing the data from the same query done on a bigger lagged follower. To avoid that, the pratice is to use a monolitic read: user makes several reads in sequence, they will not see time go backward. Which can be achieved by ensuring the reads for a given user are done on the same follower. This is what kafka does by assigning a consumer to partition.</p>
+<p>With asynch replica, if the leader fails, data not yet replicated to the followers, is lost until a new leader starts to accept new writes. </p>
+<p><img alt="" src="../images/data-lost.png" /></p>
+<p>Also <strong>adding a new follower</strong> brings other challenges: as the data are continuously being written to the leader database, copying the database files to the new follower will not be consistent. One adopted solution is to snapshot the database, without locking write operations, and copy the data to the follower, then from this snapshot, consumes the update log. To work the snapshot position needs to be known in the replication log. </p>
+<p><img alt="" src="../images/add-follower.png" /></p>
+<p>To support follower failure, the log needs to keep position of the last commited read, so when the follower restarts, it can load data from this position in the log. </p>
+<p>When the leader fails, a follower needs to take the leadership, and then other followers need to get data from the new leader. Kafka, combined with zookeeper, uses those last two mechanisms to support replication. Selecting the new leader is based on consensus algorithm, to ensure minimum data lost.  </p>
+<p>When using single leader, it is possible to reach a split brain state, when the old leader comes back to live, and thinks it is still a leader: both leaders accept writes which leads to data corruption. </p>
+<p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. Postgresql uses a file based log shipped to the followers when a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data changes in the order in which commits were made on the publisher side so that transactional consistency is guaranteed for the publications within any single subscription. 
+DB replications are covered with RDBMS features and it offers low administration overhead. It is important to note that source and target data structures have to be the same, and change to the table structure is a challenge but can be addressed (usually mitigated by 3<sup>rd</sup> party tooling).</p>
+<p>Now the adoption of database replication features is linked to the data movement requirements. It may not be a suitable solution for microservice coexistance as there is a need to do data transformation on the fly.</p>
+<h3 id="multi-leaders">Multi leaders</h3>
+<p>With multi-leader configuration each leader gets write operations, and propagates data update notifications to all nodes. This is an active-active replication. And it is the practice when dealing with multiple datacenters. </p>
+<p><img alt="" src="../images/multi-lead.png" /></p>
+<p>The write operations are propagated asynchronously which is more permissive to network failure. It is important to note that the following problems need to be addressed with this topology:</p>
+<ul>
+<li>Update of the same data at the same time, leading to write conflict</li>
+<li>Using automatic primary key generation by the database may create duplicate keys</li>
+<li>Triggers that work on conditions on the data to do something could never be triggered due to data conditions that will never happen in this active - active configuration.</li>
+<li>Integrity constraints can be violated, as one records may be processed without the others being yet present.</li>
+</ul>
+<p>For the write conflict resolution, there are different strategies, one uses timestamps so the last write wins the record update, but this could lead to data lost. In fact conflict resolution will be dependant of the business logic and data knowledge. So custom code needs to be done to apply this logic to write conflicts.</p>
+<p>When there is more than two leaders, the replicas topology can be use a ring, star or all-to-all model, as illustrated in the figure below:</p>
+<p><img alt="" src="../images/multi-lead-topo.png" /></p>
+<p>With <strong>Ring</strong>, a leader forwards and propagates its own writes to one neighbor. With <strong>Star</strong> one designated root node forwards writes to all of the other nodes. Finally with <strong>All-to-all</strong>, every leader sends its writes to every other leader.</p>
+<p>With Ring and Star, a node failure impacts the data replication to any node, and with all-to-all we need to address looping on the same write. The mitigation is to use a unique identifier for each node, so a write event coming with the same node_id at the current node id is discarded.</p>
+<h3 id="leaderless">Leaderless</h3>
+<h3 id="cap-theorem">CAP Theorem</h3>
+<p>Data replication in distributed computing, like the cloud, falls into the problem of the <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> where only two of three properties consisting of Consistency, Availability and Partition Tolerance can be met simultaneously. In most microservice implementation context, Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. </p>
+<p>The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
+<p><img alt="" src="../images/CAP_theorem.png" /></p>
+<h2 id="considerations">Considerations</h2>
 <p>The main advantages for data replication (providing a consistent copy of data across data storage locations) are:</p>
 <ul>
 <li>increased data availability</li>
-<li>increased access performance</li>
+<li>increased access performance by moving data close to users</li>
 <li>decreased network load</li>
 </ul>
 <p>Maintaining Data consistency at all different sites involves complex processes, and increase physical resources.</p>
-<h2 id="business-motivations">Business motivations</h2>
+<h3 id="business-motivations">Business motivations</h3>
 <p>Among the top three priority of data integration and integrity solution, for 2019 and 2020, are (<a href="https://www.idc.com/getdoc.jsp?containerId=IDC_P31631">source IDC</a>):</p>
 <ul>
 <li>Data intelligence (57%)</li>
 <li>Data replication (50%)</li>
 <li>Application data sync (51%)</li>
 </ul>
-<p>Two important use cases:</p>
+<p>Two important derived use cases:</p>
 <ul>
-<li>Business in Real Time<ul>
+<li><strong>Business in Real Time</strong>:<ul>
 <li>Detect and react to data events as they happen to drive the business, and propagate those changes for others for consumption</li>
 <li>Optimize decision to sub-second latency level, i.e. real time analytics  </li>
 </ul>
 </li>
-<li>Always On Information<ul>
+<li><strong>Always On Information</strong><ul>
 <li>High availability with Active-Standby and Active-Active data replication deployments</li>
 <li>Data synchronization for zero down time data migrations and upgrades</li>
 </ul>
 </li>
 </ul>
-<h2 id="classical-data-replication-architecture">Classical data replication architecture</h2>
-<p>The DB centric replication mechanism involves different techniques to apply data replication between databases of the same product (DB2 to DB2, Postgresqsl to Postgresql). The approach is to control availability and consistency. The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
-<p><img alt="" src="../images/CAP_theorem.png" /></p>
-<p>For RDBMS, the replication mechanism can use asynchronous, semi-synchronous or synchronous. The classical topology uses a single master, that replicates the changes to all the slaves, this is mostly to avoid concurrent writes between different servers.</p>
-<p>Most RDBMS uses the master-slave pattern combined with asynchronous replication. All write requests are done on the master, but reads can happen on slaves as well. It helps to scale out the solution and also to support long distance replications. There are different techniques for replication, one of the most common is the file based log shipping, (as used by PostgreSQL), which is triggered once a transaction is committed. Logical replication starts by copying a snapshot of the data on the publisher database. Once that is done, changes on the publisher are sent to the subscriber as they occur in real time. The subscriber applies data changes in the order in which commits were made on the publisher side so that transactional consistency is guaranteed for the publications within any single subscription.</p>
-<p>DB replications are covered with RDBMS features and it offers low administration overhead. It is important to note that source and target data structures have to be the same, and change to the table structure is a challenge but can be addressed (usually mitigated by 3<sup>rd</sup> party tooling).</p>
-<p>Now the adoption of database replication features is linked to the data movement requirements. It may not be a suitable solution for microservice coexistance as there is a need to do data transformation on the fly. </p>
-<p>The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
-<p><img alt="" src="../images/data-replication-HL.png" /></p>
-<p>The data replication between databases by continuously propagate changes in real time instead of doing it by batch with traditional ETL products, brings data availability and consistency cross systems. It can be used to feed analytics system and data warehouses, for business intelligence activities.</p>
-<h3 id="data-lake-technologies">Data lake technologies</h3>
-<p>There are multiple alternatives build a data lake component. In the field, the following technologies are usually used: Hadoop, Apache Spark and Apache Kafka. </p>
+<h2 id="data-lake-technologies">Data lake technologies</h2>
+<p>There are multiple alternatives to build a data lake solution. In the field, the following technologies are usually used: Hadoop, Apache Spark, cloud object storage, and Apache Kafka. </p>
 <ul>
 <li>
-<p>Hadoop/HDFS (Hadoop File System) is designed to process large relatively static data sets.  It provides a cost effective vehicle for storing massive amounts of data due to its commodity hardware underpinnings that rely on built in fault tolerance based on redundancy. Hadoop is ideal for highly unstructured data and for data that is changing at the file level.  With Hadoop, you don’t change a record in a file.  Rather, you write a new file.  A process reads through the files to discover the data that matters and to filter out unrelated data. It is massively scalable processing. </p>
+<p><strong>Hadoop/HDFS</strong> (Hadoop File System) is designed to process large relatively static data sets.  It provides a cost effective vehicle for storing massive amounts of data due to its commodity hardware underpinnings that rely on built in fault tolerance based on redundancy. Hadoop is ideal for highly unstructured data and for data that is changing at the file level.  With Hadoop, you don’t change a record in a file.  Rather, you write a new file.  A process reads through the files to discover the data that matters and to filter out unrelated data. It is massively scalable processing. </p>
 </li>
 <li>
-<p>Apache Spark is a data processing engine tightly coupled with the Hadoop ecosystem. It is one of the most active open source projects ever. Spark is mainly used as ETL engine capable of integrating data from various SQL and NoSQL data sources and targets including RDBMS, NoSQL DB, Cloud Object Store, HDFS and other cluster file systems</p>
+<p><strong>Apache Spark</strong> is a data processing engine tightly coupled with the Hadoop ecosystem. It is one of the most active open source projects ever. Spark is mainly used as ETL engine capable of integrating data from various SQL and NoSQL data sources and targets including RDBMS, NoSQL DB, Cloud Object Store, HDFS and other cluster file systems</p>
 </li>
 <li>
-<p>COS (Cloud Object Storage) in conjunction with a Query Engine like Apache SparkSQL or IBM Cloud SQLQuery Service is a legit data lake solution, especially because, as a managed service, it provides unlimited capacity and very high scalability and robustness against failures</p>
+<p><strong>COS (Cloud Object Storage)</strong> in conjunction with a Query Engine like Apache SparkSQL or IBM Cloud SQLQuery Service is a legit data lake solution, especially because, as a managed service, it provides unlimited capacity and very high scalability and robustness against failures</p>
 </li>
 <li>
-<p>Kafka is designed from the outset to easily cope with constantly changing data and events. It has built in capabilities for data management such as log compaction that enable Kafka to emulate updates and deletes. The data storage may be self described JSON document wrapped in <a href="https://avro.apache.org/docs/current/">Apache Avro</a> binary format. Kafka exploits the scalability and availability of inexpensive commodity hardware. Although Kafka supports persisting data in queues for weeks or even months, it's not yet a proved technology for long term storage.</p>
+<p><strong>Kafka</strong> is designed from the outset to easily cope with constantly changing data and events. It has built in capabilities for data management such as log compaction that enable Kafka to emulate updates and deletes. The data storage may be self described JSON document wrapped in <a href="https://avro.apache.org/docs/current/">Apache Avro</a> binary format. Kafka exploits the scalability and availability of inexpensive commodity hardware. Although Kafka supports persisting data in queues for weeks or even months, it's not yet a proved technology for long term storage.</p>
 </li>
 </ul>
 <p>Kafka provides a means of maintaining one and only one version of a “record” much like in a keyed database. But an adjustable persistence time window lets you control how much data is retained.</p>
@@ -1048,7 +1156,9 @@
 <p>Kafka can also be used as a modern operational data store. It has the built in advantages of low cost scalability and fault tolerance with the benefits of open interfaces and an ever growing list of data producers (feeding data into Kafka) and data consumers (pulling data from Kafka), all with self managed storage.</p>
 <p>Other use cases are related to auditing and historical query on what happened on specific records. Using event sourcing, delivered out of the box with kafka, this will be easier to support. It can be used to propagate data changes to remote caches and invalidate them, to projection view in CQRS microservices, populate full text search in Elasticsearch, Apache Solr, etc...</p>
 <h3 id="change-data-capture-cdc">Change data capture (CDC)</h3>
-<p>Another important part of the architecture is the change data capture component. </p>
+<p>Another important part of the architecture is the change data capture component. The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. </p>
+<p><img alt="" src="../images/data-replication-HL.png" /></p>
+<p>The data replication between databases by continuously propagate changes in real time instead of doing it by batch with traditional ETL products, brings data availability and consistency cross systems. It can be used to feed analytics system and data warehouses, for business intelligence activities.</p>
 <p>For example, IBM's <a href="https://www.ibm.com/us-en/marketplace/infosphere-data-replication">InfoSphere Data Replication (IIDR)</a> captures and replicates data in one run or only replicate changes made to the data, and delivers those changes to other environments and applications that need them in a trusted and guaranteed fashion, ensuring referential integrity and synchronization between sources and targets. The architecture diagram below presents the  components involved in CDC replication:</p>
 <p><img alt="" src="../images/CDC_architecture.jpg" /></p>
 <p>Product explanations can be obtained  <a href="https://www.ibm.com/support/knowledgecenter/en/SSTRGZ_11.4.0/com.ibm.cdcdoc.sysreq.doc/concepts/aboutcdc.html">here.</a></p>
@@ -1151,13 +1261,13 @@ It uses the approach of replicating one table to one Kafka topic. </p>
           </a>
         
         
-          <a href="../../preparation/data-understanding/" title="Data Understanding" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../data-partitioning/" title="Data Partitioning" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Data Understanding
+                Data Partitioning
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

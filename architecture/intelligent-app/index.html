@@ -370,8 +370,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../data/data-replication/" title="Data replication" class="md-nav__link">
-      Data replication
+    <a href="../../data/data-replication/" title="Data Replication" class="md-nav__link">
+      Data Replication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/data-partitioning/" title="Data Partitioning" class="md-nav__link">
+      Data Partitioning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/data-integration/" title="Data Integration" class="md-nav__link">
+      Data Integration
     </a>
   </li>
 
@@ -565,39 +589,6 @@
   <a href="#distributed-data" title="Distributed data" class="md-nav__link">
     Distributed data
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#replication" title="Replication" class="md-nav__link">
-    Replication
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#single-leader" title="Single leader" class="md-nav__link">
-    Single leader
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-leaders" title="Multi leaders" class="md-nav__link">
-    Multi leaders
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -836,39 +827,6 @@
     Distributed data
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#replication" title="Replication" class="md-nav__link">
-    Replication
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#single-leader" title="Single leader" class="md-nav__link">
-    Single leader
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-leaders" title="Multi leaders" class="md-nav__link">
-    Multi leaders
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -942,48 +900,6 @@
 <li>shared storage</li>
 <li>shared nothing: cpu, memory and disk are per node. Cluster manages node orchestration over network. This architecture brings new challenges. </li>
 </ul>
-<h3 id="replication">Replication</h3>
-<p>A first technique to  share data is to replicate or copy data between nodes. It fits well, when dataset is small enough to be persisted in one machine, and when data do not change a lot over time. Replication implementations are most of the time, black box for the business application developers, but we want to present three types of replication architecture:</p>
-<ul>
-<li>
-<p><strong>single-leader</strong>: one of the replica is the leader, and receive write operations from client services. Other replicas are followers, listening to data updates from a replication log and modify their own data store. Read operations can happen on any node, and followers are specifically read-only. This is a pattern used by Kafka, Postgresql, RabbitMQ...</p>
-<p><img alt="Leader-Followers" src="../images/leader-followers.png" /></p>
-</li>
-<li>
-<p><strong>multi-leader</strong>: multiple nodes accept write operations (they are leaders), and act as follower for other leaders. </p>
-</li>
-<li><strong>leaderless</strong>: each node accept write operations. Client sends write to multiple replicas, accept p acknowledge (p &lt;= number of nodes), but also performs n reads to assess eventual stale data. (This type is used in Cassandra or DynamoDB)</li>
-</ul>
-<h4 id="single-leader">Single leader</h4>
-<p>Replication can be done synchronously or asynchronously. With synchronous the leader waits until at least one follower has confirmed replication before reporting to the client that the write operation is successful. From the client point of view, it is a synchronous call.</p>
-<p><img alt="Synch-Asynch" src="../images/synch-asynch.png" /></p>
-<p>With asynchronous the leader does not wait for followers to replicate. With synchronous, we are sure the data are not lost as at least one follower responded, but if the follower node has failure then the write operation is not consider completed, even if leader has the data. The client can do a retry. But the leader may need to block other write requests until it sees a follower alive. With synch, the data is also consistent with the leader. The figure above illustrates a synchronous mechanism for client - leader and first follower to respond, and asynchronous for the other followers.</p>
-<p>It is important to note that asynch replica may be the only possible solution when the number of followers is important or when they are separated by long distance with high latency networking communication.  Because a full synchronous mechanism will block the write operations in case of a follower failure and will not be reliable.</p>
-<p>With asynch, two reads at the same time on the leader and one of the follower will not get the same results. This inconsistency is temporal: when there is no more write then the followers will become eventually consistent. This elapse time is called replication lag.</p>
-<p><img alt="" src="../images/asynch.png" /></p>
-<p>This lag can have some interesting derived issues, like seeing data in one query (done on a follower with small lag) and then not seeing the data from the same query done on a bigger lagged follower. To avoid that, the pratice is to use a monolitic read: user makes several reads in sequence, they will not see time go backward. Which can be achieved by ensuring the reads for a given user are done on the same follower. This is what kafka does by assigning a consumer to partition.</p>
-<p>With asynch replica, if the leader fails, data not yet replicated to the follower, is lost until a new leader starts to accept new writes. </p>
-<p><img alt="" src="../images/data-lost.png" /></p>
-<p>Also <strong>adding a new follower</strong> brings other challenges: as the data are continuously being written to the leader database, copying the database files to the new follower will not be consistent. One adopted solution is to snapshot the database, without locking write operations, and copy the data to the follower, then from this snapshot, consumes the update log. To work the snapshot position needs to be known in the replication log. </p>
-<p><img alt="" src="../images/add-follower.png" /></p>
-<p>To support follower failure, the log needs to keep position of the last commited read, so when the follower restarts, it can load data from this position in the log. </p>
-<p>When the leader fails, a follower needs to take the leadership, and then other followers need to get data from the new leader. Kafka, combined with zookeeper, uses those last two mechanisms to support replication. Selecting the new leader is based on consensus algorithm, to ensure minimum data lost.  </p>
-<p>When using single leader, it is possible to reach a split brain state, when the old leader comes back to live, and thinks it is still a leader: both leaders accept writes which leads to data corruption. </p>
-<h4 id="multi-leaders">Multi leaders</h4>
-<p>With multi-leader configuration each leader gets write operations, and propagates data update notifications to all nodes. This is an active-active replication. And it is the practice when dealing with multiple datacenters. </p>
-<p><img alt="" src="../images/multi-lead.png" /></p>
-<p>The write operations are propagated asynchronously which is more permissive to network failure. It is important to note that the following problems need to be addressed with this topology:</p>
-<ul>
-<li>Update of the same data at the same time, leading to write conflict</li>
-<li>Automatic primary key generation by the database may create duplicate keys</li>
-<li>Triggers that work on conditions on the data to do something could never be triggered due to data conditions that will never happen in this active - active configuration.</li>
-<li>Integrity constraints can be violated, as one records may be processed without the others being yet present.</li>
-</ul>
-<p>For the write conflict resolution, there are different strategies, one uses timestamps so the last write wins the record update, but this cloud lead to data lost. In fact conflict resolution will be dependant of the business logic and data knowledge. So custom code needs to be done to apply this logic to write conflicts.</p>
-<p>When there is more than two leaders, the replicas topology can be done in ring, star or all-to-all, as illustrated in the figure below:</p>
-<p><img alt="" src="../images/multi-lead-topo.png" /></p>
-<p>With <strong>Ring</strong>, a leader forwards and propagates its own writes to one neighbor. With <strong>Star</strong> one designated root node forwards writes to all of the other nodes. Finally with <strong>All-to-all</strong>, every leader sends its writes to every other leader.</p>
-<p>With Ring and Star, a node failure impacts the data replication to any node, and with all-to-all we need to address looping on the same write. The mitigation is to use a unique identifier for each node, so a write event coming with the same node_id at the current node id is discarded.</p>
 <h2 id="compendium">Compendium</h2>
 <ul>
 <li><a href="https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_3?crid=F3G6F7KYQZMH&amp;keywords=designing+data+intensive+applications&amp;qid=1572566804&amp;sprefix=designing+data+%2Caps%2C204&amp;sr=8-3">Designing data intensive application - Martin Kleppmann</a></li>

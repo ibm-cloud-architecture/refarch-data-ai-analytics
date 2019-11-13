@@ -370,8 +370,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../data/data-replication/" title="Data replication" class="md-nav__link">
-      Data replication
+    <a href="../../data/data-replication/" title="Data Replication" class="md-nav__link">
+      Data Replication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/data-partitioning/" title="Data Partitioning" class="md-nav__link">
+      Data Partitioning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/data-integration/" title="Data Integration" class="md-nav__link">
+      Data Integration
     </a>
   </li>
 
@@ -671,6 +695,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#understand-business-needs" title="Understand business needs" class="md-nav__link">
+    Understand business needs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#initial-data-exploration" title="Initial Data Exploration" class="md-nav__link">
     Initial Data Exploration
   </a>
@@ -698,8 +729,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract-transform-load-etl" title="Extract, transform, load (ETL)" class="md-nav__link">
-    Extract, transform, load (ETL)
+  <a href="#data-preparation" title="Data preparation" class="md-nav__link">
+    Data preparation
   </a>
   
     <nav class="md-nav">
@@ -946,6 +977,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#understand-business-needs" title="Understand business needs" class="md-nav__link">
+    Understand business needs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#initial-data-exploration" title="Initial Data Exploration" class="md-nav__link">
     Initial Data Exploration
   </a>
@@ -973,8 +1011,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract-transform-load-etl" title="Extract, transform, load (ETL)" class="md-nav__link">
-    Extract, transform, load (ETL)
+  <a href="#data-preparation" title="Data preparation" class="md-nav__link">
+    Data preparation
   </a>
   
     <nav class="md-nav">
@@ -1131,6 +1169,8 @@
 <p><img alt="" src="../images/lightweight-process-model-figure2.png" /></p>
 <p>The first thing that you should notice is the bidirectional communication between "Business Needs" and "Initial Data Exploration". This is a data driven method and data is crucial on what can be achieved, therefore "Business Needs" may be adjusted based on the possibilities provided by given data. Second, with this model, there is no communication between "Business Needs" and other steps because an iteration of this process is very short (in the range of hours and days).</p>
 <p>The following sections explain the individual tasks.</p>
+<h3 id="understand-business-needs">Understand business needs</h3>
+<p>The task is a generic taks to group a set of iterative tasks to <a href="https://www.ibm.com/garage/method/practices/discover/build-a-business-objective">define the business objectives</a> and to <a href="https://cloudcontent.mybluemix.net/garage/method/practices/think/data-needs-for-ai-data-science/business-problem-to-ai-data-science-solution">translate a business problem into an AI and data science solution</a>.</p>
 <h3 id="initial-data-exploration">Initial Data Exploration</h3>
 <p>This task is crucial for understanding your data. Data quality is the most important driver for success in any data science project. So, this task lets you address data quality from the beginning. This includes going back to the data owners and asking them for better quality data, if applicable. </p>
 <h4 id="best-practices"><a href="../../preparation/data-understanding/">Best practices</a>.</h4>
@@ -1141,7 +1181,7 @@
 <li>Python</li>
 <li>Seaborn</li>
 </ul>
-<h3 id="extract-transform-load-etl">Extract, transform, load (ETL)</h3>
+<h3 id="data-preparation">Data preparation</h3>
 <p>This task is an important step in transforming the data from the source system into data suitable for analytics. In traditional data warehousing, this process includes accessing the online transaction processing (OLTP) system’s databases, transforming the data from a highly normalized data model into a Star or Snowflake Schema, and storing the data to a data warehouse. In data science projects, this step is usually much simpler. The data arrives in an exported format (for example, JSON or CSV). But, sometimes de-normalization must be done as well. The result usually ends up in a bulk storage like Cloud Object Store.</p>
 <p><a href="../../preparation/">Data preparation further guidelines</a></p>
 <h4 id="technology-component_1">Technology Component</h4>
