@@ -155,5 +155,4 @@ Every department within your organization has different needs for data and analy
 https://www.ibm.com/cloud/garage/practices/reason/model-selection-development-ai-data-science)
 * [Enhance and optimize your AI and data science models - author: Edd Biddle](https://www.ibm.com/cloud/garage/practices/reason/optimize-train-ai-model)
 * [Establish data governance - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/establish-data-governance)
-* [Ensure data resilience - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/ensure-data-resilience/)
 * [Deploy an AI model - author: Sujatha Perepa](https://www.ibm.com/cloud/garage/practices/run/deploy-ai-model/) 

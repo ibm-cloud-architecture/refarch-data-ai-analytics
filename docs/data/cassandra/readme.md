@@ -1,8 +1,8 @@
 # Cassandra Summary
 
-In this article we are a quick summar of [Cassandra](http://cassandra.apache.org/) capabilities in the context of data persistence and how to deploy it on Openshift.
+In this article we do a quick summary of [Cassandra](http://cassandra.apache.org/) capabilities in the context of data persistence and how to deploy it on Openshift.
 
-Cassandra addresses linear scalability and high availability to persist a huge data set. It uses replication to multiple nodes managed in cluster, even deployed cross data centers.
+Cassandra addresses linear scalability and high availability to persist a huge data set. It uses replication to multiple nodes managed in cluster, even deployable  across datacenters.
 
 ## Concepts
 
@@ -34,7 +34,7 @@ Here are some key concepts of Cassandra to keep in mind for this implementation:
 
 For development work we use the **Docker Edge** version of Docker and enable Kubernetes (see this [note from docker web site](https://docs.docker.com/docker-for-mac/kubernetes/)).
 
-Then you can use our script `deployCassandra.sh` under the `scripts` folder BUT be sure to adapt the yaml settings in the folder `deployments/cassandra` to limit the replicas for what you need. The steps are the same as for ICP deployment so see next section.
+Then you can use our script `deployCassandra.sh` under the `scripts` folder BUT be sure to adapt the yaml settings in the folder `cassandra` to limit the replicas for what you need. The steps are the same as for kubernetes deployment as described in next section.
 
 ### Deployment on Kubernetes
 
@@ -44,50 +44,20 @@ Deploying stateful distributed applications like Cassandra is not easy. You will
 
 We also recommend to be familiar with [this kubernetes tutorial on how to deploy Cassandra with Stateful Sets](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/).
 
-#### Performance considerations
+You can reuse the yaml config files under `cassandra` folder to configure a Service to expose Cassandra externally, create static persistence volumes, and use the StatefulSet to deploy Cassandra image.
 
-The resource requirements for higher performance c7a node are:
+You can also use our script `deployCassandra.sh` under the `scripts` folder to automate this deployment.
 
-* A minimum of 32GB RAM (JVM + Linux memory buffers to cache SSTable) + `memory.available` defined in Kubernetes Eviction policy + Resources needed by k8s components that run on every worker node (e.g. proxy)
-* A minimum of 8 processor cores per Cassandra Node with 2 CPUs per core (16 vCPU in a VM)
-* 4-8 GB JVM heap, recommend trying to keep heaps limited to 4 GB to minimize garbage collection pauses caused by large heaps.
-* Cassandra needs local storage to get best performance. Avoid to use distributed storage, and prefer hostPath or localstorage. With distributed storage like a Glusterfs cluster you may have 9 replicas (3x Cassandra replica factor which is usually 3)
+To summarize the steps are:
 
-Cassandra  nodes tend  to be IO bound  rather than CPU bound:
-
-* Upper limit of data per node <= 1.5 TB for spinning disk and <= 4 TB for SSD
-* Increase the number of nodes to keep the data per node at or below the recommended capacity
-* Actual data per node determined by data throughput, for high throughput need to limit the data per node.
-
-The use of Vnodes is generally  considered  to be a good practice as they eliminate the need to perform manual token assignment, distribute workload across all nodes in a cluster when nodes are added or removed. It helps rebuilding dead nodes faster.
-Vnode reduces the size of SSTables which can improve read performance. Cassandra best practices set the number of tokens per Cassandra node to 256.
-
-Avoid getting multiple node instances on the same physical host, so use `podAntiAffinity` in the StatefulSet spec.
-
-```
-spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            topologyKey: "kubernetes.io/hostname"
-```
-
-#### Using our yaml configurations
-
-You can reuse the yaml config files under `deployment/cassandra` folder to configure a Service to expose Cassandra externally, create static persistence volumes, and use the StatefulSet to deploy Cassandra image.
-
-The steps to deploy to ICP are:
-
-1. Connect to ICP. You may want to get the admin security token using the Admin console and the script: `scripts/connectToCluster.sh`.  
+1. Connect to kubernetes or Openshift:  
 
     *We are using one namespace called 'greencompute'.*
 
-    You can also use our script `deployCassandra.sh` under the `../scripts` folder to automate this deployment.
-
-1. Create Cassandra headless service, so application accesses it via KubeDNS. If you do wish to connect an application to cassandra, use the KubeDNS value of `cassandra-svc.greencompute.svc.cluster.local`, or `cassandra-svc` or `cassandra-0`. The alternate solution is to use *Ingress* rule and set a hostname as cassandra.green.case. The `casssandara-ingress.yml` file defines such Ingress.
+1. Create Cassandra headless service, so application can access via KubeDNS. If you do wish to connect an application to cassandra, use the KubeDNS value of `cassandra-svc.greencompute.svc.cluster.local`, or `cassandra-svc` or `cassandra-0`. The alternate solution is to use *Ingress* rule and set a hostname as cassandra.green.case. The `casssandara-ingress.yml` file defines such Ingress.
 
     ```
-    $ kubectl apply -f deployment/cassandra/cassandra-service.yaml --namespace greencompute
+    $ kubectl apply -f cassandra/cassandra-service.yaml --namespace greencompute
     $ kubectl get svc cassandra-svc -n greencompute
 
       NAME        TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
@@ -97,7 +67,7 @@ The steps to deploy to ICP are:
 1. Create static persistence volumes to keep data for cassandra: *you need the same number of PV as there are cassandra nodes (here 3 nodes)*
 
   ```shell
-  $ kubectl apply -f deployment/cassandra/cassandra-volumes.yaml
+  $ kubectl apply -f cassandra/cassandra-volumes.yaml
 
   $ kubectl get pv -n greencompute | grep cassandra
     cassandra-data-1  1Gi  RWO  Recycle   Bound       greencompute/cassandra-data-cassandra-0 12h
@@ -118,17 +88,17 @@ The steps to deploy to ICP are:
 
  Cassandra seed is used for two purposes:
 
- * Node discovery: when a new cassandra node is added (which means when deployed on k8s, a new pod instance added by increasing the replica), it needs to find the cluster, so here it is set the svc
- * Assist on gossip convergence: by having all of the nodes in the cluster gossip regularly with the same set of seeds. It ensures changes are propagated regularly.
+ * **Node discovery**: when a new cassandra node is added (which means when deployed on k8s, a new pod instance added by increasing the replica number), it needs to find the cluster, so here the seed is set the svc name
+ * **Assist on gossip convergence**: by having all of the nodes in the cluster gossip regularly with the same set of seeds. It ensures changes are propagated regularly.
 
   Here it needs to reference the headless service we defined for Cassandra deployment.
 
   ```shell
-    $ kubectl apply -f deployment/cassandra/cassandra-statefulset.yaml  -n greencompute
+    $ kubectl apply -f cassandra/cassandra-statefulset.yaml  -n greencompute
     $ kubectl get statefulset -n greencompute
 
     NAME                                        DESIRED   CURRENT   AGE
-    cassandra                                   1         1         12h
+    cassandra                                   3         3         12h
   ```
 
 * Connect to the pod to assess the configuration is as expected. 
@@ -150,7 +120,7 @@ The steps to deploy to ICP are:
  
  The string "UN", means for Up and Normal state.
 
-#### Removing cassandra cluster
+### Removing cassandra cluster
 
 We are providing a script for that `./scripts/deleteCassandra.sh` which remove the stateful, the pv, pvc and service
 
@@ -162,17 +132,47 @@ grace=$(kubectl get po cassandra-0 -o=jsonpath='{.spec.terminationGracePeriodSec
     && kubectl delete pvc,pv,svc -l app=cassandra
 ```
 
+### Performance considerations
+
+The resource requirements for higher performance are:
+
+* A minimum of 32GB RAM (JVM + Linux memory buffers to cache SSTable) + `memory.available` defined in Kubernetes Eviction policy + Resources needed by k8s components that run on every worker node (e.g. proxy)
+* A minimum of 8 processor cores per Cassandra Node with 2 CPUs per core (16 vCPU in a VM)
+* 4-8 GB JVM heap, recommend trying to keep heaps limited to 4 GB to minimize garbage collection pauses caused by large heaps.
+* Cassandra needs local storage to get best performance. Avoid to use distributed storage, and prefer hostPath or localstorage. With distributed storage like a Glusterfs cluster you may have 9 replicas (3x Cassandra replica factor which is usually 3). 
+
+Cassandra nodes tend to be IO bound rather than CPU bound:
+
+* Upper limit of data per node <= 1.5 TB for spinning disk and <= 4 TB for SSD
+* Increase the number of nodes to keep the data per node at or below the recommended capacity
+* Actual data per node determined by data throughput, for high throughput, you need to limit the data per node.
+
+The use of Vnodes is generally  considered  to be a good practice as they eliminate the need to perform manual token assignment, distribute workload across all nodes in a cluster when nodes are added or removed. It helps rebuilding dead nodes faster.
+Vnode reduces the size of SSTables which can improve read performance. Cassandra best practices set the number of tokens per Cassandra node to 256.
+
+Avoid getting multiple node instances on the same physical host, so use `podAntiAffinity` in the StatefulSet spec.
+
+```
+spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            topologyKey: "kubernetes.io/hostname"
+```
+
 ## High availability
 
 Within a cluster the number of replicas in the statefulset is at least 3 but can be increased to 5 when code maintenance is needed.
 The choice for persistence storage is important, and the backup and restore strategy of the storage area network used.
 
 When creating connection to persist data into a keyspace, you specify the persistence strategy and number of replicas at the client code level. Mostly using properties file.
+
 ```
 p.setProperty(CASSANDRA_STRATEGY, "SimpleStrategy");
-p.setProperty(CASSANDRA_REPLICAS, "1");
+p.setProperty(CASSANDRA_REPLICAS, "3");
 ```
-When deploying on Staging or test cluster, ring topology, SimpleStrategy is enough: additional replicas are placed on the next nodes in the ring moving clockwise without considering topology, such as rack or datacenter location.
+
+When deploying on Staging or test cluster, ring topology, SimpleStrategy is enough: additional replicas are placed on the next nodes in the ring moving clockwise without considering topology, such as rack or datacenter location: a cluster can spread over availability zones and datacenters.
 For HA and production deployment NetworkTopologyStrategy is needed: replicas are placed in the same datacenter but on distinct racks.
 
 For the number of replicas, it is recommended to use 3 per datacenter.
@@ -188,6 +188,7 @@ We have done two implementations for persisting `asset` data into Cassandra, one
 The code is under `refarch-reefer-ml` project and can be loaded into Eclipse. This component is deployed as container inside a kubernetes cluster like Openshift. See code explanation, how to build and run in [this note]()
 
 In the pom.xml we added the following dependencies to get access to the core driver API:
+
 ```
 <dependency>
   <groupId>com.datastax.cassandra</groupId>
@@ -282,7 +283,7 @@ cqlsh> drop table if exists assets;
 
 ### Issues
 
-1. When having the cassandra replica set to more than two, the cassandra operations are not happenning parallely on both the pods at a time. Some operations are happenning on one node and some others on the other node. Due to this, inconsistent data is retrieved since both the tables doesnot have the same data.
+1. When having the cassandra replica set to more than two, the cassandra operations are not happenning in parallel on both the pods at the same time. Some operations are happenning on one node and some others on the other node. Due to this, inconsistent data is retrieved since both the tables do not have the same data.
 
 ## Future Readings
 

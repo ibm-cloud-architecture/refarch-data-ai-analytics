@@ -1,7 +1,9 @@
 # Data replication
 
 !!! abstract
-    In this article, we are dealing with data replication from traditional Database, like DB2, to a microservice environment with document oriented or relational data. Database replications can be used to move data between environment or to separate read and write models, which may be a viable solution with microservice, but we need to assess how to support coexistence where older systems run in parallel to microservices and use eventual data consistency pattern. 
+    In this article, we are dealing with data replication from traditional Database, like DB2, to a microservice environment with document oriented or relational data. Database replications can be used to move data between environments or to separate read and write models, which may be a viable solution with microservices, but we need to assess how to support coexistence where older systems run in parallel to microservices and use eventual data consistency pattern. 
+
+We recommend reading the ['Ensure data resilience' article from Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/ensure-data-resilience/) to understand the problems related to data resilience and how they fit into [data topology](../topology/README.md) and governance broader discussions.
 
 ## Concepts
 
@@ -81,6 +83,10 @@ With Ring and Star, a node failure impacts the data replication to any node, and
 
 ### Leaderless
 
+In this last replication technique, the client application is doing write operation on any replicas. There is no leader. This is the approach used by Cassandra and Dynamo system. The write operations order is not maintained. With leaderless failover does not exist, in case of node failure the client has to accept n missing acknowledges. If the client read back data from a previously failed node, that just restarted, it may read old / stale data. To mitigate this problem, reads are done to multiple nodes in parallel, and the client needs to consolidate the returned value (may be using timestamp or version number). 
+
+A node that is restarting can catch up on the replicated data by doing read repair or by using an anti-entropy process. Read repair, is done by the client seeing old value from one of the replica, and push back the new value to it. The anti-entropy process is in the database mechanism, with a daemon process running to replicate missing data to any replicas.
+
 ### CAP Theorem
 
 Data replication in distributed computing, like the cloud, falls into the problem of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) where only two of three properties consisting of Consistency, Availability and Partition Tolerance can be met simultaneously. In most microservice implementation context, Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. 
@@ -116,7 +122,9 @@ Two important derived use cases:
     * High availability with Active-Standby and Active-Active data replication deployments
     * Data synchronization for zero down time data migrations and upgrades
 
-## Data lake technologies
+## Technology overview
+
+### Data lake technologies
 
 There are multiple alternatives to build a data lake solution. In the field, the following technologies are usually used: Hadoop, Apache Spark, cloud object storage, and Apache Kafka. 
 
@@ -126,7 +134,7 @@ There are multiple alternatives to build a data lake solution. In the field, the
 
 * **COS (Cloud Object Storage)** in conjunction with a Query Engine like Apache SparkSQL or IBM Cloud SQLQuery Service is a legit data lake solution, especially because, as a managed service, it provides unlimited capacity and very high scalability and robustness against failures
 
-* **Kafka** is designed from the outset to easily cope with constantly changing data and events. It has built in capabilities for data management such as log compaction that enable Kafka to emulate updates and deletes. The data storage may be self described JSON document wrapped in [Apache Avro](https://avro.apache.org/docs/current/) binary format. Kafka exploits the scalability and availability of inexpensive commodity hardware. Although Kafka supports persisting data in queues for weeks or even months, it's not yet a proved technology for long term storage.
+* **Kafka** is designed from the outset to easily cope with constantly changing data and events. It has built in capabilities for data management such as log compaction that enable Kafka to emulate updates and deletes. The data storage may be self described JSON document wrapped in [Apache Avro](https://avro.apache.org/docs/current/) binary format. Kafka exploits the scalability and availability of inexpensive commodity hardware. Although Kafka supports persisting data in queues for weeks or even months, it's not yet a proved technology for long term storage, even if companies are already adopting it for event sourcing.
 
 Kafka provides a means of maintaining one and only one version of a “record” much like in a keyed database. But an adjustable persistence time window lets you control how much data is retained.
 
@@ -143,7 +151,6 @@ Kafka can also be used as a modern operational data store. It has the built in a
 Other use cases are related to auditing and historical query on what happened on specific records. Using event sourcing, delivered out of the box with kafka, this will be easier to support. It can be used to propagate data changes to remote caches and invalidate them, to projection view in CQRS microservices, populate full text search in Elasticsearch, Apache Solr, etc...
 
 ### Change data capture (CDC)
-
 
 Another important part of the architecture is the change data capture component. The following diagram presents a generic architecture for real time data replication, using transaction logs as source for data update, a change data capture agent to load data and send then as event over the network to an "Apply / Transform" agent responsible to persist to the target destination. 
 
@@ -173,6 +180,14 @@ When running a subscription the first time, Kafka topics are added: one to hold 
 
 For more details about this solution see [this product tour](https://www.ibm.com/cloud/garage/dte/producttour/ibm-infosphere-data-replication-product-tour).
 
+#### Debezium
+
+[Debezium](https://debezium.io/) is an open source distributed platform for change data capture. It retrieves change events from transaction logs from different databases and use Kafka as backbone, and Kafka connect.
+It uses the approach of replicating one table to one Kafka topic. 
+
+It can be used for data synchronization between microservices using CDC at a service level and propagate changes via Kafka. The implementation of the [CQRS pattern](https://ibm-cloud-architecture.github.io/refarch-eda/evt-microservices/ED-patterns/#command-query-responsibility-segregation-cqrs-pattern) may be simplified with this capability. 
+
+![zoomify](images/cqrs-cdc.png)
 
 ### Why adopting Kafka for data replication
 
@@ -192,7 +207,7 @@ Using Kafka as a integration layer brings the following advantages:
 * Fault tolerance, scalability, multi-tenancy, speed, light-weight, multiple landing-zones.
 
 
-## Kafka connect
+### Kafka connect
 
 [Kafka connect](https://kafka.apache.org/documentation/#connect) simplifies the integration between Kafka and other systems. It helps to standardize the integration via connectors and configuration files. It is a distributed, fault tolerant runtime able to easily scale horizontally. The set of connectors help developers to not re-implement consumers and producers for every type of data source.
 
@@ -205,35 +220,6 @@ The Kafka connect workers are stateless and can run easily on Kubernetes or as s
 A worker is a process. A connector is a re-usable piece of java code packaged as jars, and configuration. Both elements define a task. A connector can have multiple tasks. 
 
 In distributed deployment, the connector supports scaling by adding new workers and performs rebalancing of worker tasks in case of worker failure. The configuration can be sent dynamically to the cluster via REST API.
-
-## Debezium
-
-[Debezium](https://debezium.io/) is an open source distributed platform for change data capture. It retrieves change events from transaction logs from different databases and use Kafka as backbone, and Kafka connect.
-It uses the approach of replicating one table to one Kafka topic. 
-
-It can be used for data synchronization between microservices using CDC at a service level and propagate changes via Kafka. The implementation of the [CQRS pattern](https://ibm-cloud-architecture.github.io/refarch-eda/evt-microservices/ED-patterns/#command-query-responsibility-segregation-cqrs-pattern) may be simplified with this capability. 
-
-![zoomify](images/cqrs-cdc.png)
-
-
-## Requirements
-
-We want to support the following requirements:
-
-* Keep a RDBMS database like DB2 on the mainframe where transactions are supported
-* Add cloud native applications in a Kubernetes environment, with a need to read data coming from the legacy DB, without impacting the DB server performance with additional queries
-* Address a writing model, where cloud native apps have to write back changes to the legacy DB
-* Replicate data in real time to data lake or cloud based data store.
-* Replicated data for multiple consumers
-
-There are a lot of products which are addressing those requirements, but here we address the integration with Kafka for a pub/sub and event store need.
-
-The previous diagram may illustrate what we want to build.
-
-!!! note  
-    We are providing a special implementation of the container management service using Kafka connect. 
-
-
 
 
 ## Recommended Readings
@@ -248,3 +234,4 @@ The previous diagram may illustrate what we want to build.
 * [Weighted quorum mechanism for cluster to select primary node](http://galeracluster.com/library/documentation/weighted-quorum.html)
 * [Using Kafka Connect as a CDC solution](https://www.confluent.io/blog/no-more-silos-how-to-integrate-your-databases-with-apache-kafka-and-cdc)
 * [Debezium tutorial](https://debezium.io/docs/tutorial/)
+* [Ensure data resilience - author: Neal Fishman](https://www.ibm.com/cloud/garage/practices/manage/ensure-data-resilience/)

@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cassandra-ingress
+  labels:
+    app: cassandra
+spec:
+  rules:
+  - host: cassandra.green.case
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: cassandra-svc
+            servicePort: 9042
