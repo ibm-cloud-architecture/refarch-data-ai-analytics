@@ -16,6 +16,13 @@ spec:
       labels:
         app: cassandra
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: kubernetes.io/hostname
+            labelSelector:
+              matchLabels:
+                app: cassandra
       terminationGracePeriodSeconds: 1800
       containers:
       - name: cassandra
@@ -79,8 +86,7 @@ spec:
         name: cassandra-data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: fast
         resources:
           requests:
-            storage: 2Gi
+            storage: 1Gi
 
