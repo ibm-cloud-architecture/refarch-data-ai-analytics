@@ -427,13 +427,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#cap-theorem" title="CAP Theorem" class="md-nav__link">
-    CAP Theorem
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -945,13 +938,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#cap-theorem" title="CAP Theorem" class="md-nav__link">
-    CAP Theorem
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1115,10 +1101,6 @@ DB replications are covered with RDBMS features and it offers low administration
 <h3 id="leaderless">Leaderless</h3>
 <p>In this last replication technique, the client application is doing write operation on any replicas. There is no leader. This is the approach used by Cassandra and Dynamo system. The write operations order is not maintained. With leaderless failover does not exist, in case of node failure the client has to accept n missing acknowledges. If the client read back data from a previously failed node, that just restarted, it may read old / stale data. To mitigate this problem, reads are done to multiple nodes in parallel, and the client needs to consolidate the returned value (may be using timestamp or version number). </p>
 <p>A node that is restarting can catch up on the replicated data by doing read repair or by using an anti-entropy process. Read repair, is done by the client seeing old value from one of the replica, and push back the new value to it. The anti-entropy process is in the database mechanism, with a daemon process running to replicate missing data to any replicas.</p>
-<h3 id="cap-theorem">CAP Theorem</h3>
-<p>Data replication in distributed computing, like the cloud, falls into the problem of the <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> where only two of three properties consisting of Consistency, Availability and Partition Tolerance can be met simultaneously. In most microservice implementation context, Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. </p>
-<p>The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.</p>
-<p><img alt="" src="../images/CAP_theorem.png" /></p>
 <h2 id="considerations">Considerations</h2>
 <p>The main advantages for data replication (providing a consistent copy of data across data storage locations) are:</p>
 <ul>
