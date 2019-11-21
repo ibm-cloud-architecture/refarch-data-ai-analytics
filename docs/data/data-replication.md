@@ -87,13 +87,6 @@ In this last replication technique, the client application is doing write operat
 
 A node that is restarting can catch up on the replicated data by doing read repair or by using an anti-entropy process. Read repair, is done by the client seeing old value from one of the replica, and push back the new value to it. The anti-entropy process is in the database mechanism, with a daemon process running to replicate missing data to any replicas.
 
-### CAP Theorem
-
-Data replication in distributed computing, like the cloud, falls into the problem of the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) where only two of three properties consisting of Consistency, Availability and Partition Tolerance can be met simultaneously. In most microservice implementation context, Consistency (see the same data at any given point in time) and Availability (reads and writes will always succeed, may be not on the most recent data) are in trade off. 
-
-The diagram below explains the mapping of data persistence product types with the CAP theorem dimensions.
-
-![](images/CAP_theorem.png)
 
 ## Considerations
 
