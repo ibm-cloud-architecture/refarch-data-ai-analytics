@@ -1,15 +1,8 @@
 # Data and AI Reference Architecture
 
 !!! abstract
-    In this reference architecture,  we define the architecture patterns and best practices for developing Data and AI intensive applications or  *Intelligent applications*.  We consider how  data, data governance, analytics and machine learning practices join with the agile life cycle of cloud native application development to enable the development and delivery of *Intelligent Applications*.
+    This git repository is the sandbox to share best practices to develop Data and AI intensive applications or  *Intelligent applications*. When content is mature it is move to IBM Garage architecture center. You can read the current currated content in [Data, Analytics and AI reference architecture](https://www.ibm.com/cloud/garage/architectures/dataAIArchitecture).
 
-When we consider the  Data and AI Reference Architecture in terms of developing *intelligent applications* it becomes apparent that we are looking at bringing together three group of architecture patterns:
-
-+ Cloud Native application architecture patterns
-+ Data architecture patterns
-+ AI architecture patterns
-
-We can think of the Data and AI reference architecture being the sum of these architecture patterns, plus the joins between them.  The joins are also key to understanding how  Software Engineers, Data Engineers, and Data Scientist, relate and work together in the development of such **Intelligent applications**.
 
 As we look to methodology for developing such solutions we need to consider a prescriptive approach  which brings  those project stakeholders together to be successful.  To do this we adopt a four layers approach:
 

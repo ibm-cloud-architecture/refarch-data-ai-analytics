@@ -30,6 +30,6 @@ We do not want to write another book on transaction, but this is important to ke
 * ACID transaction is not about concurency (like it is in multithreading) but it is the ability to abort a transaction on error and have all writes from that transaction discarded.
 * ACID consistency is aimed to keep business logic invariants on the data. Database can guaranty foreign key and constraints, but not business logic invariants.
 * ACID isolation guarantees concurrently executing transactions are isolated from each other. They are executed in sequence. This approach impacts performance. So modern databases are using weaker algorithm for isolation to address a good level of scalability.
-* ACID durability is to keep the data forever, so for single node, it is to write to harddisc, while with distributed database, a database must wait until all writes or replications are complete before claiming a transaction is successful. 
+* ACID durability is to keep the data forever, so for single node, it is to write to hard disc, while with distributed database, a database must wait until all writes or replications are completed before claiming a transaction is successful.
 
-
+Read details in [this chapter](transaction.md)
